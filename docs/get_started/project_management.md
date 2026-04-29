@@ -14,7 +14,7 @@ Interview-building project generally follows these phases:
 
 | Phase                           | Primary goal          |
 | :------------------------------ | :-------------------- |
-| [Kickoff](#kickoff)             | See [sample agenda](#kickoff:~:text=Sample%20kickoff%20meeting%20agenda)     |
+| [Kickoff](#kickoff)             | See [sample agenda](#sample-kickoff-agenda)     |
 | [Research](#research)           | Gain insight into and understanding of the problem to be solved |
 | [Design](#design)               | Agree on the project requirements\/MVP |
 | [Development](#development)     | Build the interview   |
@@ -39,7 +39,7 @@ Hold a kickoff meeting for the project as early as possible. Everyone who is imp
 
 The goal of a kickoff meeting is to get everyone on the same page when it comes to roles, expectations, and timeline. A good kickoff meeting sets the stage for a successful project.
 
-<details>
+<details id="sample-kickoff-agenda">
   <summary>Sample kickoff meeting agenda</summary>
 
   * Introductions
@@ -213,7 +213,7 @@ To use the project template:
    2. Issues will be closed automatically when the card is moved to the **Done** column
 3. As you work on your interview, follow the [GitHub workflow](../authoring/github.md#workflow) and move issues/cards from left to right
 
-You can also find a [beginner's guide](beginners_guide.md), [interview-builder resources](resources.md), and [extensive documentation](../overview.md) elsewhere on this website.
+You can also find a [beginner's guide](beginners_guide.md), [interview-builder resources](resources.mdx), and [extensive documentation](../overview.md) elsewhere on this website.
 
 ### Feedback {#feedback}
 
