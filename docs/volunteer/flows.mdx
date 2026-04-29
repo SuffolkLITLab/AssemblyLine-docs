@@ -7,93 +7,66 @@ slug: flows
 
 import { VolunteerFormLink } from '/docs/react_components/VolunteerFormLink.jsx';
 
-Welcome organizers, this page is for the flows different crews of volunteers go through at different stages of their participation. For everyone else, we'd love to have you on board too, so come sign up!
+This page contains step-by-step workflows for volunteers. Not a volunteer? Join us:
 
-<VolunteerFormLink source="docsresources"/>
+<VolunteerFormLink source="docs-flows"/>
 
-<br />
+## Interview building and maintenance
 
-<details open="true">
-  <summary>All</summary>
+<details id="dev-server">
+  <summary>
+    **Register a developer account on the LIT Lab development server**
+  </summary>
 
-## Group intro sessions
+  1. [Register an account](https://apps-dev.suffolklitlab.org/user/register) on the development server. This will be a regular user account.
+  2. You will need developer privileges, so [email us](mailto:litlab@suffolk.edu?subject=Request%20for%20a%20developer%privileges%20on%20the%20dev%20server) to request developer privileges. Include the email address you registered with and the reason you need developer privileges (i.e., "I'm a Document Assembly Line volunteer.").
+  3. If your request is granted, you will need to log out and back in before you can access the Playground
 
-1. Schedule 2 intro sessions at different times of the week/day.
-1. Send email to new participants with:
-    - an invitation to Microsoft Teams
-    - a form to fill out their availability for those 2 intro session options (or neither)
-1. Run the intro sessions.
-    1. Introduce organizers and volunteers.
-    1. Describe the current program and goals with visuals:
-        - https://courtformsonline.org/
-    1. Link to the community agreement doc.
-    1. Describe expectations.
-    1. Give venues for check-in.
-    1. Give schedule for meetings and office hours.
-    1. Ideally guide interested folks while they log onto Teams and join the `#Volunteers` channel.
-    1. Arrange for the next point of contact.
-    1. Answer questions.
-1. Follow up with those who missed both sessions.
-1. Update the volunteer tracker.
-
+  <p>
+    <a className="button button--primary" href="https://apps-dev.suffolklitlab.org/playground" style={{fontWeight: "normal", textDecoration: "none"}} target="_blank">Go to the Playground</a>
+  </p>
 </details>
 
+<details>
+  <summary>
+    **Set up and configure GitHub**
+  </summary>
 
-<details open="true">
-  <summary>Organizers</summary>
-
-## Organizers start
-
-Join the Microsoft Teams `#Volunteer Ops` channel.
-
+  1. If you already have a GitHub account, [log in](https://github.com/login). If not, [create one](https://github.com/signup).
+  2. If you want to keep your email address private, visit [your email settings](https://github.com/settings/emails) and turn on the **Keep my email addresses private** option
+  3. Go to [your GitHub integration page](https://apps-dev.suffolklitlab.org/github_menu) and authorize your GitHub account
+  4. After you complete the [interview builder training](../get_started/resources#training) and final project, ask an organizer to add you to the [DAL volunteers team](https://github.com/orgs/SuffolkLITLab/teams/dal-volunteers) on GitHub
 </details>
 
+<details>
+  <summary>
+    **Complete your first issue and pull request**
+  </summary>
+
+  After you complete the [interview builder training](../get_started/resources#training) and final project, you are ready for your first issue! (An *issue* is an update, bug, enhancement, or other coding task.)
+
+  When you are first starting to work on Docassemble interviews, it can be hard to judge the level of difficulty of an issue. We identify good issues for new builders with the **starter** label in GitHub. Sometimes we misjudge, so if you end up with an issue that seems above your skill level, [check in with us](../get_started/resources#communication).
+
+  To get started on your first issue:
+
+  1. Pick a starter issue. You can visit the [**Interview updates** project board](https://github.com/orgs/SuffolkLITLab/projects/23/views/5) or [search starter issues in our GitHub repositories](https://github.com/search?q=org%3ASuffolkLITLab+is%3Aissue+label%3Astarter+is%3Aopen&type=issues) (the project board may be missing some starter issues).
+  2. Is the issue a typo?
+      - If it is, continue
+      - If not, decide whether it is a good match for your level of experience. If you aren't sure, ask a more experienced member of the Builder crew. (Michelle is great resource for this!)
+  3. Check to see if the issue is still up to date. Sometimes issues are fixed but not closed, or have become irrelevant for some other reason. If the issue should be closed, write a comment about why it can be closed and close it. Look for a different issue.
+  4. Assign yourself to the issue and start working on it
+  5. Follow the [GitHub workflow](../authoring/github#workflow) (also described in [training session 3](https://youtu.be/JpOaS8YeMvc?list=PLy6i9GFGw5Gy3oFiIhBpj5gn5PP_Vbd-5&t=2658))
+      - When you commit your code, commit to a new branch
+      - Commit messages should be a reminder of what you did
+      - When creating a pull request, the comment should:
+        1. Reference your issue(s) (e.g., `Closes #42`) so they will be closed when the pull request is merged
+        2. Describe the changes you made in your code and why
+      - Request a review from `@SuffolkLITLab/dal-reviewers` for your pull request
+</details>
 
 <!-- 
 ## Legal subject matter experts
  -->
-
-
-<details open="true">
-  <summary>Builders</summary>
-
-## Builders start
-
-1. [Register for a LIT Lab Docassemble server account](https://apps-dev.suffolklitlab.org/user/register) on the development server. You will then be a regular user. Use your registration email address to [email us](mailto:litlab@suffolk.edu "mailto:litlab@suffolk.edu") a request for a developer account. Remember to include some context about yourself.
-1. If you have a GitHub account, log into your GitHub account. If you lack a GitHub account, make one:
-  1. Choose a GitHub username. If you want more privacy, choose a name that is unrelated to you and unrelated to anyone and anything in your life.
-  1. [Make the GitHub account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home).
-  1. If you want to increase privacy, set [your GitHub account's email settings](https://github.com/settings/emails) to keep your email private and choose to block pushes that expose your email.
-1. Go to [your GitHub integration page on the LIT Lab Docassemble server](https://apps-dev.suffolklitlab.org/github_menu) and authorize your GitHub account.
-1. Attend training sessions. [Builder training session resources are here](https://docassemble.org/docs/volunteer/resources.html#training).
-1. Complete the final project.
-1. Ask an organizer to add you to the LIT Lab GitHub organization volunteer team.
-
-## Builders first issue
-
-_You will do one starter issue as an introduction to LIT Lab's GitHub workflow._
-
-When you are first starting to learn to build forms, it is often hard to judge the level of difficulty of an issue. The DAL crew tries to identify good issues for people new to the project, but we are sometimes wrong.
-
-1. Search for [a starter issue in LIT Lab's GitHub repositories](https://github.com/search?q=org%3ASuffolkLITLab+is%3Aissue+label%3Astarter+is%3Aopen&type=issues). The DAL crew tries to pick out good starter issues, but sometimes we miss the mark.
-1. Check if this issue looks like it is about a typo.
-    1. If you think the issue is about a typo, definitely continue.
-    1. If the issue is about something else, decide if it is a good match for your level of experience. If you are unsure, ask a more experienced member of the Builder crew. Michelle is good resource for this. If you decide to take on the issue, continue. Otherwise, look for another issue.
-1. Check if the issue is still up to date. Some may have been fixed without being closed or irrelevant for some other reason. If the issue should be closed, write a comment about why it can be closed and close the issue. Look for a different issue.
-1. Assign yourself to the issue.
-1. If the issue is comfortable, here is a summary of the GitHub workflow. It is very similar to [the process that training module 3 describes](https://youtu.be/JpOaS8YeMvc?list=PLy6i9GFGw5Gy3oFiIhBpj5gn5PP_Vbd-5&t=2658).
-    1. Make a new Project on the docassemble server.
-    1. Pull the code from GitHub into your new Project.
-    1. Make the changes necessary to resolve the issue and no more.
-    1. Run the form.
-    1. If there is a problem, edit and run the form again. Repeat until complete.
-    1. Go to the Project's Packages page.
-    1. Press the "GitHub" button, choose to make a new branch, add a commit message that is a good reminder of what you did, and press "Commit".
-    1. On GitHub, make a pull request with that branch.
-    1. In the main comment of the pull request, write `Closes #` and then the issue number. For example, `Closes #42`.
-    1. Still in the main comment, describe the changes you made in your code and why.
-    1. Request a review from `@SuffolkLITLab/dal-reviewers`
-</details>
 
 
 <!-- 
