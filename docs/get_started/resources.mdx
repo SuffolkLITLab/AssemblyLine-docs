@@ -1,0 +1,149 @@
+---
+id: resources
+title: Resources
+sidebar_label: Resources
+slug: resources
+---
+
+import { VolunteerFormLink } from '/docs/react_components/VolunteerFormLink.jsx';
+
+As you are building interviews, use these resources to find answers to your questions, solve problems you run into, and get help.
+
+## Community hub
+
+Microsoft Teams is our community hub. You can find channels for general communication, coding help, governance, off-topic chat, and more. To join the Document Assembly Line in Teams, just [email us](mailto:litlab@suffolk.edu?subject=Request%20to%20join%20Teams)!
+
+If you've already joined us in Teams:
+
+<a className="button button--primary" href="https://teams.microsoft.com/l/team/19%3A8b0fa1d62a014c7d9c27b69939e38644%40thread.tacv2/conversations?groupId=eaa9bd9d-cf39-4686-8f30-e55aa9d98c75&tenantId=78733fa9-540e-4eb8-bf29-73c4eeb63412" style={{fontWeight: "normal", textDecoration: "none"}} target="_blank">Go to Teams</a>
+
+## Interview building resources
+
+:::info
+In order to build Docassemble interviews you will need access to a Docassemble development server. The LIT Lab has a shared dev server for our students, our [court and legal aid partners](/#partners) (current and prospective), and [Document Assembly Line volunteers](/docs/volunteer/sign_up). If you are a partner or volunteer, use [this workflow](/docs/volunteer/flows#dev-server) to get access to the LIT Lab dev server.
+
+Otherwise, you'll need to [set up your own Docassemble server](https://docassemble.org/docs/installation.html). It looks intimidating, but it's not too hard! If you run into problems, you can ask for help in the [**Server admin** channel](https://teams.microsoft.com/l/channel/19%3Ad8d78c13648140308a2cc1670a4fdd06%40thread.tacv2/Server%20admin?groupId=eaa9bd9d-cf39-4686-8f30-e55aa9d98c75&tenantId=78733fa9-540e-4eb8-bf29-73c4eeb63412) in Teams.
+:::
+
+### Training
+
+Once you have access to a dev server, you can follow along with our free [interview builder training videos](https://www.youtube.com/watch?v=XwjDOPxdoJU&list=PLy6i9GFGw5Gy3oFiIhBpj5gn5PP_Vbd-5). You will also need the [training materials](https://github.com/SuffolkLITLab/docassemble-DALTraining), which include [question files](https://github.com/SuffolkLITLab/docassemble-DALTraining/tree/main/docassemble/DALTraining/data/questions) for the sessions (for reference and diff checking, because cheating is self-defeating).
+
+Individual training sessions:
+
+- [Session #1](https://www.youtube.com/watch?v=XwjDOPxdoJU&list=PLy6i9GFGw5Gy3oFiIhBpj5gn5PP_Vbd-5&index=1)
+- [Session #2](https://www.youtube.com/watch?v=ap_XozvLpFk&list=PLy6i9GFGw5Gy3oFiIhBpj5gn5PP_Vbd-5&index=2)
+- [Session #3](https://www.youtube.com/watch?v=JpOaS8YeMvc&list=PLy6i9GFGw5Gy3oFiIhBpj5gn5PP_Vbd-5&index=3)
+- [Final project instructions](https://github.com/SuffolkLITLab/docassemble-DALTraining/?tab=readme-ov-file#final-project)
+
+:::tip
+📺 The LIT Lab hosts monthly workshops based on community questions and requests.
+
+- [View recorded workshops](https://suffolklitlab.org/tag/first-wednesday-workshops/)
+- [Register for future workshops](https://suffolk.zoom.us/meeting/register/tJAsce-oqTorGd3QACxQDBwGGGnVK8tehTaV)
+:::
+
+### Using AssemblyLine tools
+
+#### ALWeaver (generating draft interviews from existing PDF/DOCX forms)
+
+- [DAL documentation about PDF labels and variable names](https://assemblyline.suffolklitlab.org/docs/authoring/label_variables)
+- [Experimental PDF editor](https://nonprofittechy.github.io/pdf-editor-ui/)
+- [ALWeaver](https://apps-dev.suffolklitlab.org/run/generator)
+
+#### ALKiln (testing suite for Docassemble interviews)
+
+- [Intro](../components/ALKiln/intro.mdx)
+- [Setup](../components/ALKiln/setup.mdx)
+- [Test writing](../components/ALKiln/writing_tests.mdx)
+
+### Coding help
+
+If you are stuck on something for longer than 20 minutes, it's probably time to ask for help!
+
+- Seek help in the [**Coding help** channel](https://teams.microsoft.com/l/channel/19%3Ae16e9e9701a5445ea4035b5cb776a4cc%40thread.tacv2/Coding%20help?groupId=eaa9bd9d-cf39-4686-8f30-e55aa9d98c75&tenantId=78733fa9-540e-4eb8-bf29-73c4eeb63412) in Teams
+- Come to our [weekly community standups](https://suffolk.zoom.us/j/95053079942), Michelle's office hours, or our other [community meetings](https://sumail.sharepoint.com/:b:/r/sites/LegalInnovationandTechnologyLab/Shared%20Documents/General/DAL%20community%20meetings.pdf?csf=1&web=1&e=a3eLL9)
+- Ask in the [Docassemble Slack group](https://join.slack.com/t/docassemble/shared_invite/zt-2cspzjo9j-YyE7SrLmi5muAvnPv~Bz~A)
+
+:::tip
+For best results when asking for help:
+
+- Give details like what you did, what you expected to happen, and what actually happened
+- Share relevant code and error messages
+:::
+
+### Code checkers
+
+- [Text diff checker](https://www.diffchecker.com/) (for comparing different versions of text)
+- [Markdown previewer](https://markdownlivepreview.com/) (does not work with variables)
+- [YAML syntax validator](https://codebeautify.org/yaml-validator/) (ignore the "expected a single document in the stream, but found more" error)
+- [Python syntax validator](https://extendsclass.com/python-tester.html)
+- [Jinja syntax validator](https://www.dainiak.com/jinja2-playground/) (Only validates very, very simple Jinja. For example, syntax like `%p` (as in `{%p if True %}`) results in errors.)
+- [Gherkin syntax validator](https://www.assertthat.com/online-gherkin-editor) (for ALKiln tests)
+
+We have not found a Mako validator (Markdown with variables and python).
+
+### Code documentation
+
+While building interviews you will most likely have one or more documentation websites ("docs") open at all times. And when you ask for help in one of the community resources, above, you will often receive a link to documentation as part of a response. This is generally meant to be helpful, not as a way to say "[RTFM](https://en.wikipedia.org/wiki/RTFM)."
+
+These are the essential documentation websites to have on hand:
+
+- [This website](/)
+- [Docassemble docs](https://docassemble.org/docs.html)
+
+Docassemble interview files use several kinds of markup. Most of what you will need to know is included on the [Docassemble markup page](https://docassemble.org/docs/markup.html), but sometimes you may need to go to the source for more detailed documentation.
+
+- [YAML](https://yaml.org/spec/1.2/spec.html) (the base file format)
+- [Markdown](https://daringfireball.net/projects/markdown/) (formatting text)
+- [Mako](https://docs.makotemplates.org/en/latest/) (using variables and code within questions)
+- [Python](https://docs.python.org/3/reference/index.html) (coding in Mako tags and [code blocks](https://docassemble.org/docs/code.html))
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) (used in [DOCX templates](../authoring/docx_templates.md))
+
+You can also use [HTML](https://docassemble.org/docs/markup.html#markdownhtml), [CSS](https://docassemble.org/docs/ui.html#css), and [Javascript](https://docassemble.org/docs/initial.html#javascript) in Docassemble interviews.
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) (advanced formatting)
+- [CSS](https://developer.mozilla.org/en/docs/Web/CSS/Reference) (customizing the UI)
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [jQuery](https://api.jquery.com/) (advanced customization)
+
+:::info JavaScript Workshop Resource
+📺 **First Wednesday Workshop:** For practical guidance on integrating JavaScript into your Docassemble interviews, watch our workshop [Using JavaScript in Docassemble](https://suffolklitlab.org/using-javascript-in-docassemble/). This session covers common JavaScript patterns, jQuery integration, and best practices for enhancing interview functionality.
+:::
+
+## Volunteer resources
+
+If you are a Document Assembly Line volunteer, these resources may be helpful. If you want to volunteer with the Document Assembly Line, sign up here:
+
+<VolunteerFormLink source="docs-resources"/>
+
+### People
+
+**Michelle B.** and **Sam Glover** are the lead volunteer coordinators. Michelle is a software engineer and the developer of [ALKiln](/docs/components/ALKiln/intro). She hosts coding help office hours twice a week and has been an active volunteer with the DAL since early days. Sam coordinates the Document Assembly Line in general. Both can be found in Teams.
+
+### Communication
+
+Teams—especially the [**Volunteers** channel](https://teams.microsoft.com/l/channel/19%3A51759e27ee9749c1956ad38f08560c1f%40thread.tacv2/Volunteers?groupId=eaa9bd9d-cf39-4686-8f30-e55aa9d98c75&tenantId=78733fa9-540e-4eb8-bf29-73c4eeb63412)—is our primary communication channel. We also prefer Teams chat over email.
+
+:::tip
+If you can’t or don’t want to have Teams open all the time, turn on the **Missed activity emails** in the Teams settings under **Notifications and activity**.
+:::
+
+### Common issues/FAQ
+
+<details>
+	<summary>
+		**I can’t access the Document Assembly Line team in Teams**
+	</summary>
+
+	Some workplaces block access to other Teams domains. You should be able to access the Document Assembly Line team in the web app, instead. It works exactly like the desktop app!
+
+	You can also try using a different Microsoft account to log in. Let us know so we can send a Teams invite to your other email address.
+</details>
+
+<details>
+	<summary>
+		**When committing to GitHub from the Playground, why aren’t I seeing the option to create a new branch?**
+	</summary>
+
+	The short answer is that we forgot to add you to the [DAL volunteers team](https://github.com/orgs/SuffolkLITLab/teams/dal-volunteers) in GitHub. Please nudge us by posting a request in the [**Volunteers** channel](https://teams.microsoft.com/l/channel/19%3A51759e27ee9749c1956ad38f08560c1f%40thread.tacv2/Volunteers?groupId=eaa9bd9d-cf39-4686-8f30-e55aa9d98c75&tenantId=78733fa9-540e-4eb8-bf29-73c4eeb63412) in Teams. [Here is the longer answer.](https://teams.microsoft.com/l/message/19:51759e27ee9749c1956ad38f08560c1f@thread.tacv2/1758162954624?tenantId=78733fa9-540e-4eb8-bf29-73c4eeb63412&groupId=eaa9bd9d-cf39-4686-8f30-e55aa9d98c75&parentMessageId=1758146650660&teamName=Document%20Assembly%20Line&channelName=Volunteers&createdTime=1758162954624)
+</details>
