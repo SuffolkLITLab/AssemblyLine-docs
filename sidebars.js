@@ -29,7 +29,6 @@ module.exports = {
             type: 'category',
             items: [
                 'volunteer/sign_up',
-                'volunteer/volunteer_resources',
                 'volunteer/volunteer_flows',
             ]
         },
