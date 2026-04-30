@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-622Z2D6Q3Q"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-622Z2D6Q3Q",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.09075ccb.css">
-<script src="/assets/js/runtime~main.5b213f50.js" defer="defer"></script>
-<script src="/assets/js/main.bd664529.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.74df329c.js" defer="defer"></script>
+<script src="/assets/js/main.78a08dd7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -256,15 +256,26 @@ When this list contains more than one language, the Assembly Line will
 automatically show a language selection dropdown in the navigation bar.</p>
 <div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token key atrule">code</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">|</span><span class="token scalar string" style="color:rgb(195, 232, 141)"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token scalar string" style="color:rgb(195, 232, 141)">  al_interview_languages = [&quot;en&quot;, &quot;es&quot;, &quot;fr&quot;]  # English, Spanish, French</span><br></span></code></pre></div></div>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="al_user_language"><code>al_user_language</code><a href="#al_user_language" class="hash-link" aria-label="Direct link to al_user_language" title="Direct link to al_user_language" translate="no">​</a></h4>
-<p>The currently selected language for the user. This is typically set automatically
-through the language selection interface or URL parameters, but can be set directly
-if needed.</p>
+<p>The interview-wide language choice. This is typically set automatically through
+URL parameters, an early language question, or the inline language list, but can
+be set directly if needed.</p>
+<p>If <code>session_local.al_user_language</code> is set, Assembly Line will use that
+browser-session value first and only fall back to <code>al_user_language</code> when no
+session-local override exists.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="al_change_language-event"><code>al_change_language</code> (event)<a href="#al_change_language-event" class="hash-link" aria-label="Direct link to al_change_language-event" title="Direct link to al_change_language-event" translate="no">​</a></h4>
-<p>An event triggered when the user clicks a language selection link. The event
-handler automatically updates <code>al_user_language</code> based on the <code>lang</code> action
-argument and calls Docassemble&#x27;s <code>set_language()</code> function.</p>
-<p>This event is used internally by the language switching functions like
-<code>get_language_list_dropdown()</code> and <code>get_language_list()</code>.</p>
+<p>An event triggered when the user clicks a language selection link from the
+navigation dropdown. The event handler stores the selected language in
+<code>session_local.al_user_language</code> and calls Docassemble&#x27;s <code>set_language()</code>
+function.</p>
+<p>This event is used internally by <code>get_language_list_dropdown()</code> so one browser
+session can switch languages without changing the interview-wide language for
+other users.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="al_get_language_list_change_language-event"><code>al_get_language_list_change_language</code> (event)<a href="#al_get_language_list_change_language-event" class="hash-link" aria-label="Direct link to al_get_language_list_change_language-event" title="Direct link to al_get_language_list_change_language-event" translate="no">​</a></h4>
+<p>An event triggered by the inline <code>get_language_list()</code> helper. The event handler
+updates <code>al_user_language</code> from the <code>lang</code> action argument and calls
+Docassemble&#x27;s <code>set_language()</code> function.</p>
+<p>Use this behavior when you want the language choice to become the shared,
+interview-wide default for the current run of the interview.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="screen-reader-control">Screen reader control<a href="#screen-reader-control" class="hash-link" aria-label="Direct link to Screen reader control" title="Direct link to Screen reader control" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="speak_text"><code>speak_text</code><a href="#speak_text" class="hash-link" aria-label="Direct link to speak_text" title="Direct link to speak_text" translate="no">​</a></h4>
 <p>Controls whether the screen reader functionality is enabled.
