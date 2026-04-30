@@ -105,14 +105,14 @@ given in the first part of the tuple.
 
 <a id="AssemblyLine.language.get_language_list"></a>
 
-#### get\_language\_list(languages: Optional[List[Tuple[str, str]]] = None, current="", lang\_codes: Optional[List[str]] = None, languages\_path: Optional[str] = None, event\_name="al\_change\_language")
+#### get\_language\_list(languages: Optional[List[Tuple[str, str]]] = None, current="", lang\_codes: Optional[List[str]] = None, languages\_path: Optional[str] = None, event\_name="al\_get\_language\_list\_change\_language")
 
 ```python
 def get_language_list(languages: Optional[List[Tuple[str, str]]] = None,
                       current="",
                       lang_codes: Optional[List[str]] = None,
                       languages_path: Optional[str] = None,
-                      event_name="al_change_language") -> str
+                      event_name="al_get_language_list_change_language") -> str
 ```
 
 Given a list of language codes, returns
@@ -157,4 +157,3 @@ given in the first part of the tuple.
 **Returns**:
 
 - `str` - A string containing the HTML for an unordered inline list item for language selection.
-

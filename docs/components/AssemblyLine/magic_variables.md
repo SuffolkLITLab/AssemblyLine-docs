@@ -459,18 +459,33 @@ code: |
 
 #### `al_user_language`
 
-The currently selected language for the user. This is typically set automatically
-through the language selection interface or URL parameters, but can be set directly
-if needed.
+The interview-wide language choice. This is typically set automatically through
+URL parameters, an early language question, or the inline language list, but can
+be set directly if needed.
+
+If `session_local.al_user_language` is set, Assembly Line will use that
+browser-session value first and only fall back to `al_user_language` when no
+session-local override exists.
 
 #### `al_change_language` (event)
 
-An event triggered when the user clicks a language selection link. The event
-handler automatically updates `al_user_language` based on the `lang` action
-argument and calls Docassemble's `set_language()` function.
+An event triggered when the user clicks a language selection link from the
+navigation dropdown. The event handler stores the selected language in
+`session_local.al_user_language` and calls Docassemble's `set_language()`
+function.
 
-This event is used internally by the language switching functions like
-`get_language_list_dropdown()` and `get_language_list()`.
+This event is used internally by `get_language_list_dropdown()` so one browser
+session can switch languages without changing the interview-wide language for
+other users.
+
+#### `al_get_language_list_change_language` (event)
+
+An event triggered by the inline `get_language_list()` helper. The event handler
+updates `al_user_language` from the `lang` action argument and calls
+Docassemble's `set_language()` function.
+
+Use this behavior when you want the language choice to become the shared,
+interview-wide default for the current run of the interview.
 
 ### Screen reader control
 
