@@ -45,7 +45,7 @@ Here are our current priorities, from our February 2026 roadmapping meeting:
 - Guided coding editor
 - Tools for managing large interview libraries and users
 - Volunteer coordination
-- API access to interview snapshot data
+- **Completed** API access to interview snapshot data
 
 ### Docassemble hosting
 
