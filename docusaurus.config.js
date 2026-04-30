@@ -142,6 +142,10 @@ module.exports = {
           {
             from: '/docs/volunteer',
             to: '/docs/volunteer/sign_up'
+          },
+          {
+            from: '/docs/volunteer/resources',
+            to: '/docs/get_started/resources'
           }
         ],
         
