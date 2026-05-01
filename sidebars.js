@@ -19,20 +19,28 @@ module.exports = {
         },
         'get_started/resources',
         {
-            "type": "link",
-            "label": "Developer documentation",
-            "href": "/docs/overview",
-            "description": "View developer documentation"
-        },
-        {
             label: 'Volunteer',
+            collapsed: false,
             type: 'category',
             items: [
                 'volunteer/sign_up',
+                {
+                    "type": "link",
+                    "label": "Resources",
+                    "href": "/docs/get_started/resources#volunteer-resources",
+                    "description": "Volunteer resources"
+                },
                 'volunteer/volunteer_flows',
             ]
         },
         'get_started/development_roadmap',
+        'get_started/community_practices',
+        {
+            "type": "link",
+            "label": "Developer docs",
+            "href": "/docs/overview",
+            "description": "Go to developer documentation"
+        },
         'contributors',
         {
             label: 'Archived pages',
@@ -42,7 +50,6 @@ module.exports = {
                 'archive/working_with_teams',
             ],
         },
-        'get_started/community_practices',
     ],
     docs: [
         'overview',
