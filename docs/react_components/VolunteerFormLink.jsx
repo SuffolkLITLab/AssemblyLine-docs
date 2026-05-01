@@ -1,5 +1,5 @@
 import { useLocation } from '@docusaurus/router';
-
+import { Button } from '/docs/react_components/Button.jsx';
 
 export function VolunteerFormLink( props ) {
   /**
@@ -11,28 +11,18 @@ export function VolunteerFormLink( props ) {
   const urlParams = new URLSearchParams( search );
   const source = props.source || urlParams.get(`source`);
 
-  let sign_up_text = `Sign up to express your interest`
-  if ( source ) {
-    sign_up_text = `Sign up to volunteer`
-  }
-
+  let sign_up_text = `Sign up to volunteer`
+  
   return (
     <p>
-      <a
-        className={`button button--primary ${ props.className }`}
-        target="_blank"
-        // disabled={ props.disabled }
-        style={{
-          "--ifm-button-size-multiplier": "1.25",
-          fontWeight: "normal",
-          textDecoration: "none"
-        }}
+      <Button
         href={
           `https://apps.suffolklitlab.org/interview?i=docassemble.DALVolunteerSignup:main.yml&source=${ source || 'docs' }`
         }
+        style={{ "--ifm-button-size-multiplier": "1.25" }}
       >
         { sign_up_text }
-      </a>
+      </Button>
     </p>
   )
 
