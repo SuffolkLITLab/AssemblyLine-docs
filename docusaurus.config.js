@@ -79,8 +79,28 @@ module.exports = {
       ],
       copyright: `<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | This documentation website is built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.`,
     },
+    docsearch: {
+      appId: '883YGW898U',
+      apiKey: 'b1e22430da6c3e88d00976160b2f3216',
+      indexName: 'AssemblyLine_Documentation',
+      contextualSearch: false, 
+      externalUrlRegex: 'assemblyline\\.suffolklitlab\\.org',
+      replaceSearchResultPathname: {
+        from: '/docs/', 
+        to: '/',
+      },
+      searchParameters: {},
+      searchPagePath: 'search',
+      insights: true,
+      askAi: {
+        assistantId: '7d240b0f-3a6d-4dc5-ac45-93edee34a0ea', 
+        sidePanel: true,
+        agentStudio: true,
+      },
+    },    
   },
   plugins: [
+    '@docsearch/docusaurus-adapter',
     '@docusaurus/plugin-ideal-image',
     [
       '@docusaurus/plugin-client-redirects',
@@ -152,14 +172,6 @@ module.exports = {
 
       },
       
-    ],
-  ],
-  themes: [
-	  [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        hashed: true,
-      }
     ],
   ],
   presets: [
