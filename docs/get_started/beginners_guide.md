@@ -7,6 +7,7 @@ slug: beginners_guide
 
 If you have never used Docassemble before, you are on the right page! Below are a quick introduction, an in-depth interview builder training course, and additional resources.
 
+
 :::tip
 You will need access to a [Docassemble playground](https://docassemble.org/docs/playground.html), but if you don't have one you can use ours! Register an account on the [LIT Lab Docassemble development server](https://apps-dev.suffolklitlab.org/user/register), then [email us](mailto:litlab@suffolk.edu) and ask for developer privileges.
 :::
