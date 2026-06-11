@@ -146,7 +146,7 @@ button[class*="toggleButton"] {
 /* Algolia search */
 .DocSearch-SidepanelButton {
   &.inline {
-    background-color: white;
+    background-color: white !important;
     border: none !important;
 
     svg {
@@ -157,7 +157,7 @@ button[class*="toggleButton"] {
       background-color: var(--suffolk-dark-gold) !important;
 
       svg {
-        color: white;
+        color: white !important;
       }
     }
   }
