@@ -51,7 +51,7 @@ Here are our current priorities, from our February 2026 roadmapping meeting:
 
 - Docassemble hosting infrastructure upgrades
 - Docassemble hosting support
-- New DevOps engineer onboarding
+- **Completed** New DevOps engineer onboarding
 
 ### E-filing
 
