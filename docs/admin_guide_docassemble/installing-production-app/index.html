@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-admin_guide_docassemble/installing-production-app" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.9.2">
+<meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Installing a docassemble app on your production server | Document Assembly Line</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://assemblyline.suffolklitlab.org/docs/admin_guide_docassemble/installing-production-app"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Installing a docassemble app on your production server | Document Assembly Line"><meta data-rh="true" name="description" content="Installing your app involves three basic steps:"><meta data-rh="true" property="og:description" content="Installing your app involves three basic steps:"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://assemblyline.suffolklitlab.org/docs/admin_guide_docassemble/installing-production-app"><link data-rh="true" rel="alternate" href="https://assemblyline.suffolklitlab.org/docs/admin_guide_docassemble/installing-production-app" hreflang="en"><link data-rh="true" rel="alternate" href="https://assemblyline.suffolklitlab.org/docs/admin_guide_docassemble/installing-production-app" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://883YGW898U-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Installing a docassemble app on your production server","item":"https://assemblyline.suffolklitlab.org/docs/admin_guide_docassemble/installing-production-app"}]}</script><link rel="preconnect" href="https://www.google-analytics.com">
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-622Z2D6Q3Q"></script>
@@ -10,11 +10,11 @@
 
 
 
-<link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.9152b7eb.css">
-<script src="/assets/js/runtime~main.470c5841.js" defer="defer"></script>
-<script src="/assets/js/main.7ae67b38.js" defer="defer"></script>
+<link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.453fcffe.css">
+<script src="/assets/js/runtime~main.52706717.js" defer="defer"></script>
+<script src="/assets/js/main.6d824998.js" defer="defer"></script>
 </head>
-<body class="navigation-with-keyboard">
+<body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
@@ -66,7 +66,7 @@ work.</p>
 <p>Visit the GitHub page for the package. Each docassemble package has the same
 folder structure. Navigate by clicking through the folders as follows, replacing
 &quot;PackageName&quot; with the name of your package.</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">docassemble</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  +---[PackageName]</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">    +----data</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">      +---questions</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">docassemble</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  +---[PackageName]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    +----data</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      +---questions</span><br></div></code></pre></div></div>
 <p>For example, for the MAEvictionDefense package, the folder contents
 look like this:
 <a href="https://github.com/GBLS/docassemble-MAEvictionDefense/tree/master/docassemble/MAEvictionDefense/data/questions" target="_blank" rel="noopener noreferrer" class="">https://github.com/GBLS/docassemble-MAEvictionDefense/tree/master/docassemble/MAEvictionDefense/data/questions</a></p>
@@ -92,14 +92,14 @@ and the <strong>YAML filename</strong>.</p>
 <p>Scroll down and look for an existing <code>dispatch</code> section in your
 configuration file. If you don&#x27;t see one, create a new one that looks
 like this:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">dispatch:</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  alias: docassemble.MyPackageName:data/questions/interview_name.yml</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">dispatch:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  alias: docassemble.MyPackageName:data/questions/interview_name.yml</span><br></div></code></pre></div></div>
 <p>Replace &quot;MyPackageName&quot; and &quot;interview_name.yml&quot; with the package name
 and the YAML filename for your package, respectively. Now, when someone
 visits &quot;<a href="https://docassemble.example.com/start/alias" target="_blank" rel="noopener noreferrer" class="">https://docassemble.example.com/start/alias</a>&quot; they will be redirected to the
 &quot;interview_name.yml&quot; interview.</p>
 <p>For example, for the MAEvictionDefense package, the configuration looks like
 this:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">dispatch:</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  eviction: docassemble.MAEvictionDefense:data/questions/eviction.yml</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">dispatch:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  eviction: docassemble.MAEvictionDefense:data/questions/eviction.yml</span><br></div></code></pre></div></div>
 <p>And the interview can be run via <code>https://interviews.gbls.org/start/eviction</code>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updating-an-app-that-is-already-installed">Updating an app that is already installed<a href="#updating-an-app-that-is-already-installed" class="hash-link" aria-label="Direct link to Updating an app that is already installed" title="Direct link to Updating an app that is already installed" translate="no">​</a></h2>
 <p>If the app has already been installed on the server, you do not need to get the
