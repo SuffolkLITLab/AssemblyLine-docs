@@ -143,6 +143,26 @@ button[class*="toggleButton"] {
   margin-left: 0 !important;
 }
 
+/* Algolia search */
+.DocSearch-SidepanelButton {
+  &.inline {
+    background-color: white;
+    border: none !important;
+
+    svg {
+      color: var(--suffolk-dark-blue) !important;
+    }
+
+    &:hover {
+      background-color: var(--suffolk-dark-gold) !important;
+
+      svg {
+        color: white;
+      }
+    }
+  }
+}
+
 /* Sidebar */
 
 /* This goes with the "Assembly Line components" sidebar heading added in PR #492 */
