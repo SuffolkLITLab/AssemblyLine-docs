@@ -1,7 +1,7 @@
 ---
 slug: run-docassemble-docker-vscode
-title: Setup & Run Docassemble with Docker and VS Code
-sidebar_label: Docassemble with Docker and VS Code
+title: Setup & Run docassemble with Docker and VS Code
+sidebar_label: docassemble with Docker and VS Code
 ---
 
 Author: [Dele Omotosho](https://github.com/deletosh)
@@ -108,7 +108,7 @@ Skip this step on MacOS
 ![](https://i.imgur.com/LRiO87R.gif)
 
 ## Install Python and docassemble command-line app
-Docassemble is written in the Python programming language. To make docassemble work offline, we need to install Python.
+docassemble is written in the Python programming language. To make docassemble work offline, we need to install Python.
 
 ### Install Python on WSL 
 Skip this step on MacOS
@@ -161,7 +161,7 @@ Here’s how:
 	  ![](https://i.imgur.com/GF8SmxY.gif)
 -   Open your browser and go to `http://localhost`. You might see this
     ![](https://i.imgur.com/VaFLb62.png)
--   After a few minutes, you should see Docassemble running.
+-   After a few minutes, you should see docassemble running.
 -   Sign in with the default password:
     -   username: admin@admin.com
     -   password: password 
@@ -172,7 +172,7 @@ Here’s how:
 ### Run your first offline docassemble
 
 Our main setup is now complete. Let's test our first interview.
-First, go to Docassemble running on your system. In your browser, type **http://localhost**, in the navigation section, click **My Profile**.
+First, go to docassemble running on your system. In your browser, type **http://localhost**, in the navigation section, click **My Profile**.
 
 ![](https://i.imgur.com/Wq4KE1X.png)
 
@@ -221,7 +221,7 @@ When we make changes to our files on VS Code, we need to re-run the `dainstall -
 
 ## Points to have on mind while writing interviews locally
 
-here are some things you need to keep in mind with developing Docassemble
+here are some things you need to keep in mind with developing docassemble
 locally:
 
 -   Every docassemble project is self-contained and you need to re-start Docker in each project.

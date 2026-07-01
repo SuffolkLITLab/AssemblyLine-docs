@@ -17,7 +17,7 @@ re-typed.
 
 ## End-user guide to answer sets
 
-Docassemble automatically saves your progress, whether you are logged in or not.
+docassemble automatically saves your progress, whether you are logged in or not.
 Answer sets are a special feature that lets you copy your answers to a new interview.
 You do not need answer sets to save your progress and complete an interview later.
 
@@ -113,7 +113,7 @@ interview session.
 
 ![](../../assets/load_answer_set_json.png)
 
-The JSON file should follow [Docassemble
+The JSON file should follow [docassemble
 conventions](https://docassemble.org/docs/api.html#session_post) and is expected
 to be a dictionary where each key represents the name of a variable that will be
 created in the interview. 
@@ -184,6 +184,6 @@ during the interview.
 In addition, the Assembly Line authors have created a long [list of
 variables](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/blob/cf74a161d35f754d754aedc0456e055c6726b0a6/docassemble/AssemblyLine/sessions.py#L57)
 that have a special meaning inside Assembly Line interviews or inside
-Docassemble. This list of variables will always be removed when you either save
+docassemble. This list of variables will always be removed when you either save
 or load an answer set. It is not likely that you will use these variable names
 unintentionally inside your own interview.

@@ -63,7 +63,7 @@ The LIT Lab continues to develop and maintain the Document Assembly Line with he
 ### Organizations
 
 * [Suffolk University Law School](https://www.suffolk.edu/law)
-* [Docassemble](https://docassemble.org/)
+* [docassemble](https://docassemble.org/)
 * [The Massachusetts Access to Justice Commission](http://www.massa2j.org/a2j/)
 * [Greater Boston Legal Services](https://www.gbls.org/)
 * [Northeast Legal Aid](https://www.northeastlegalaid.org/)

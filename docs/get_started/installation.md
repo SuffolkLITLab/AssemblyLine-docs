@@ -6,7 +6,7 @@ slug: installation
 ---
 
 Before you get started, make sure that you have [installed
-Docassemble](../admin_guide_docassemble/setup-server)
+docassemble](../admin_guide_docassemble/setup-server)
 on a server that you maintain.
 
 Installing the Assembly Line covers the following basic steps:
@@ -32,7 +32,7 @@ It will help you:
 
 To install ALDashboard:
 
-1. visit the "Package Management" menu on your Docassemble server when you are
+1. visit the "Package Management" menu on your docassemble server when you are
    logged in as a server administrator
 1. Type `docassemble.ALDashboard` into the input box labeled `Package on PyPI`
    ![Package on PyPI](../assets/installation_package_on_pypi.png)
@@ -41,7 +41,7 @@ To install ALDashboard:
 ## Run the installation script
 
 Once ALDashboard is successfully installed, edit this link to replace
-`YOUR_SERVER` with the URL to your own Docassemble server and visit it.
+`YOUR_SERVER` with the URL to your own docassemble server and visit it.
 
 ```
 https://YOURSERVER.com/start/ALDashboard/menu
@@ -78,7 +78,7 @@ configuration later.
 is a docassemble package that includes an example of how to modify questions and customize
 them for your own jurisdiction or organization.
 
-To use this package, [pull it into your own Docassemble playground](https://docassemble.org/docs/playground.html#packages).
+To use this package, [pull it into your own docassemble playground](https://docassemble.org/docs/playground.html#packages).
 
 Next, [follow our guide](../components/ALThemeTemplate/althemetemplate_overview.md) to edit the YAML files and add a custom CSS theme to fit your own organization's needs.
 
@@ -88,7 +88,7 @@ Select the files that you customized and push them to your own Github repository
 
 :::info Copy, do not fork
 It is important to copy and create a new package. Do not
-fork the ALThemeTemplate package as Docassemble makes it
+fork the ALThemeTemplate package as docassemble makes it
 challenging to rename a package.
 :::
 
@@ -132,8 +132,8 @@ package:
 
 ### Increase nginx timeouts to 5 minutes
 
-Sometimes, long-running Docassemble processes can "timeout." The default
-experience in Docassemble is to show the server's built-in error page,
+Sometimes, long-running docassemble processes can "timeout." The default
+experience in docassemble is to show the server's built-in error page,
 which can be confusing for your end user.
 
 We recommend that you increase the nginx timeout for uwsgi from 60 seconds

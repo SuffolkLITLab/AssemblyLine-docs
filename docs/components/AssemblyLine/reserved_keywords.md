@@ -13,7 +13,7 @@ results or a hard to understand error in your interview.
 
 In the AssemblyLine framework, we have tried to choose variable names that you
 are unlikely to use by accident. However, some very common English-language
-terms are reserved because they are used in Python, Docassemble, or the
+terms are reserved because they are used in Python, docassemble, or the
 AssemblyLine framework. Use the list of terms below as a guide.
 
 ## Full list of reserved variable names
@@ -466,4 +466,4 @@ zip_file
 
 - [List of Python keywords](https://docs.python.org/3.10/reference/lexical_analysis.html#keywords)
 - [List of Python builtins](https://docs.python.org/3/library/functions.html)
-- [List of Docassemble reserved names](https://docassemble.org/docs/special.html#reserved)
+- [List of docassemble reserved names](https://docassemble.org/docs/special.html#reserved)

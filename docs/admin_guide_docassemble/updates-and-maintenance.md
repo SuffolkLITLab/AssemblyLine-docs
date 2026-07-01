@@ -4,12 +4,12 @@ title: Securing and maintaining your server
 sidebar_label: Securing and maintaining your server
 ---
 
-## Securing Docassemble
+## Securing docassemble
 
-Docassemble has not had any major security incidents in its history. But the
+docassemble has not had any major security incidents in its history. But the
 higher profile your deployment, the more likely you are to have an individual
 attack. Such attacks are hard to entirely prevent. The best way to keep
-Docassemble secure is by upgrading on a regular basis.
+docassemble secure is by upgrading on a regular basis.
 
 In addition:
 
@@ -30,7 +30,7 @@ In addition:
   length`](https://docassemble.org/docs/config.html#maximum%20content%20length)
   configuration option.
 
-You can review [Docassemble's security policy and
+You can review [docassemble's security policy and
 documentation](https://docassemble.org/docs/security.html).
 
 Instructions on applying regular updates are below.
@@ -45,7 +45,7 @@ SSHing into the container and doing a manual docker start generally resolves
 these problems.
 
 The alternative, manual installation of OS updates, is usually worse for most
-people who run a single small Docassemble server. Just set up automated alerts
+people who run a single small docassemble server. Just set up automated alerts
 that tell you when the website is not available.
 
 [UpTimeRobot](https://uptimerobot.com/) is one free option that works well for
@@ -55,9 +55,9 @@ If you do not have automatic updates enabled, you can install the
 [unattended-upgrades](https://wiki.debian.org/UnattendedUpgrades) package manually
 using your host operating system's package manager.
 
-## Upgrading to a new version of Docassemble
+## Upgrading to a new version of docassemble
 
-Docassemble has two parts: 
+docassemble has two parts: 
 
 1. a [Python](../docassemble_intro/python.md) web application, built around the [Flask
 framework](https://flask.palletsprojects.com/en/2.2.x/)
@@ -74,13 +74,13 @@ framework](https://flask.palletsprojects.com/en/2.2.x/)
     - [Nginx](https://www.nginx.com/) as a web server
 
 
-Docassemble is updated regularly. As of this writing, releases come out almost
+docassemble is updated regularly. As of this writing, releases come out almost
 every few weeks. Most updates affect only the frontend, not the Ubuntu operating
 system or its installed applications.
 
 ### When to update
 
-It's a good idea to stay up to date with the latest version of Docassemble. But
+It's a good idea to stay up to date with the latest version of docassemble. But
 sometimes the very latest release can have bugs. It's best to test out the
 release on a development or staging server before you install it on your
 production server.
@@ -89,28 +89,28 @@ If you get too far behind from the latest version, there's always a chance that
 you will run into a bug that only occurs because your version was too far out of
 date. A good cadence is upgrading about once a month.
 
-Jonathan Pyle, the Docassemble author, is generally very responsive to bug
+Jonathan Pyle, the docassemble author, is generally very responsive to bug
 fixes, as well as helping authors install a fixed version. The best way to get
-help with an upgrade gone wrong is to use the Docassemble
+help with an upgrade gone wrong is to use the docassemble
 [Slack](https://docassemble.org/docs/support.html#tocAnchor-1-1) channel.
 
-Upgrade the Docassemble frontend every few weeks. Upgrade the container every
+Upgrade the docassemble frontend every few weeks. Upgrade the container every
 six months or so, unless you need a feature right away. But wait a week or two
 after the new container is released to make sure there are no lingering bugs. 
 
-### Updates to the Docassemble frontend
+### Updates to the docassemble frontend
 
 You can update the Python packages and Flask frontend by using the
 ["Upgrade"](https://docassemble.org/docs/admin.html#upgrade) button in the
 package management menu.
 
 This is safe to do on a monthly basis, but keep in mind that you should test
-the upgraded version of Docassemble on a development or staging server before
+the upgraded version of docassemble on a development or staging server before
 installing on your production server.
 
-### Updates to the Docassemble container
+### Updates to the docassemble container
 
-Updates to the base Docassemble OS image (and Python, LibreOffice, etc) are 
+Updates to the base docassemble OS image (and Python, LibreOffice, etc) are 
 generally optional. They come with new features that aren't possible to
 provide by updating just the frontend. But if you do not want or need
 those new features, you can wait to upgrade.
@@ -121,11 +121,11 @@ want to wait for a few minor releases (which might fix critical bugs)
 before you upgrade your container. The newest container upgrade is the most
 likely to have a few bugs to work out.
 
-The Docassemble [Changelog](https://docassemble.org/docs/changelog.html)
+The docassemble [Changelog](https://docassemble.org/docs/changelog.html)
 announces when there is a new feature that requires a container upgrade.
 Just searching on the page for the word "container" should tell you.
 
-Whenever you upgrade the Docassemble container, you have a small chance of
+Whenever you upgrade the docassemble container, you have a small chance of
 losing data, because the upgrade process involves starting an entirely new
 Docker container and copying the information into it, either from a shared
 Docker volume or from S3. If the Docker container did not properly shut down,
@@ -161,7 +161,7 @@ To prepare for the upgrade:
 
 Here is the upgrade process:
 
-1. SSH into the virtual machine or server that hosts your Docassemble docker container
+1. SSH into the virtual machine or server that hosts your docassemble docker container
 
 2. In the virtual machine's command line, copy and run the following commands:
 
@@ -185,7 +185,7 @@ docker system prune
 
 ## Updating individual packages
 
-You can upgrade individual Python packages and Docassemble interviews on your
+You can upgrade individual Python packages and docassemble interviews on your
 server by [visiting the Package Management
 page](https://docassemble.org/docs/packages.html#updating). and clicking the
 "update" button next to the package you want to update.
@@ -195,7 +195,7 @@ will upgrade all of the key packages that you need, except for the ones that
 represent individual interviews you authored.
 
 The exception is if you installed a package or series of packages that is 
-maintained by someone other than the Docassemble author, such as the 
+maintained by someone other than the docassemble author, such as the 
 Assembly Line packages.
 
 ### Updating the AssemblyLine packages
@@ -230,8 +230,8 @@ the ones that are intended for wider use and installation on production servers.
 Therefore, we recommend that most authors install AssemblyLine from PyPi instead
 of directly using the GitHub URL.
 
-## Docassemble server maintenance checklist
-On August 24, 2023, ILAO gave a presentation on Maintaining your Docassemble
+## docassemble server maintenance checklist
+On August 24, 2023, ILAO gave a presentation on Maintaining your docassemble
 server as part of a [Technology Initiative Grant funded by the Legal Services
 Corporation](https://www.lsc.gov/grants/technology-initiative-grant-program/tig-program-description). 
 
@@ -246,7 +246,7 @@ What follows is a condensed format to serve as a checklist.
 
 ### AWS Lightsail instance
 
-This server instance runs Linux, typically Ubuntu. It is sometimes called the host. Docassemble
+This server instance runs Linux, typically Ubuntu. It is sometimes called the host. docassemble
 software runs on it.
 
  - How to monitor - Log into AWS console and see if it is running. Set up CPU utilization alerts
@@ -289,7 +289,7 @@ sudo shutdown -r now
 
 ### AWS S3 bucket
 
-This is where the Docassemble database lives. Separating the Docassemble data from the software makes it
+This is where the docassemble database lives. Separating the docassemble data from the software makes it
 easier to maintain and rebuild if needed.
  - How to monitor - Log into the AWS console. Go to S3. You should see files within each bucket.
  - What to back up - The most important files to back up are:
@@ -297,42 +297,42 @@ easier to maintain and rebuild if needed.
    - redis.rdb
    - docassemble (inside postgres folder)
  - When to back up - Every few months or as often as you want to have a backup you could rebuild from. By
-   default, Docassemble makes a daily backup of these and other files. Each daily backup is stored in the /backups
+   default, docassemble makes a daily backup of these and other files. Each daily backup is stored in the /backups
    folder.
 
 It is important to make backups of the docassemble database and redis.rdb files at about the same time. If these 
-files are out of sync files when restoring, user accounts and data sync errors may result. See the Docassemble
+files are out of sync files when restoring, user accounts and data sync errors may result. See the docassemble
 documentation to learn more about [Recovery from backup files](https://docassemble.org/docs/docker.html#recovery).
 
 ### Docker container
 
-This virtual machine is installed on the Lightsail instance and runs its own version of Linux. The Docassemble
+This virtual machine is installed on the Lightsail instance and runs its own version of Linux. The docassemble
 software runs within. Using a virtual machine adds to resiliency, though it also requires its own maintenance.
 
  - How to monitor - Use `docker ps` command to make sure it is running.
  - How to update - See
-   [Updates to the Docassemble container](maintaining-docassemble#updates-to-the-docassemble-container).
+   [Updates to the docassemble container](maintaining-docassemble#updates-to-the-docassemble-container).
    You will use these commands: `docker stop, pull, run,` and `prune`. 
     - If you [updated the nginx timeout to 5 minutes](https://assemblyline.suffolklitlab.org/docs/installation/#increase-nginx-timeouts-to-5-minutes)
       earlier, you will need to redo it.
     - This will pull the latest version of each package unless specific version of a package was pinned via PyPI.
-  - When to update - If the [Docassemble Change Log](https://docassemble.org/docs/changelog.html) has an update
-    that says "**System upgrade required**," rebuild the Docker container after updating the Docassemble web
+  - When to update - If the [docassemble Change Log](https://docassemble.org/docs/changelog.html) has an update
+    that says "**System upgrade required**," rebuild the Docker container after updating the docassemble web
     app. Otherwise, about every 6 months.
 
-### Docassemble web app
+### docassemble web app
 
-This is the Docassemble software users and developers most often interact with through interviews and the
+This is the docassemble software users and developers most often interact with through interviews and the
 Playground.
  - How to monitor - If you can get to the Playground, My Interviews, or an individual program, then it's working.
    [UptimeRobot](https://uptimerobot.com/) can be used to receive server up/down notifications by email.
  - How to update - Log in as an administrator. Go to Package Management. Click the "Upgrade" button. See
-   [Updates to the Docassemble frontend](maintaining-docassemble#updates-to-the-docassemble-frontend)
+   [Updates to the docassemble frontend](maintaining-docassemble#updates-to-the-docassemble-frontend)
  - When to update - Every few weeks or as needed if there is a critical bug fix or a desired new feature.
 
 ### Packages
 
-These are the program code, frameworks, and utilities that run on the Docassemble platform. The Assembly Line package
+These are the program code, frameworks, and utilities that run on the docassemble platform. The Assembly Line package
 is an example used by many programs.
  - How to monitor - Monitors like [httpstatus.io](https://httpstatus.io/) or homegrown programs can check if individual
    programs are running. Note: These tools just check whether individual interview pages are reachable. Learn about using

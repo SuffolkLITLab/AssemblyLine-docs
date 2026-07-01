@@ -12,7 +12,7 @@ You can use the Answer Set feature to set up a simple client intake workflow.
 When a client uses the intake interview, you can save their answers. Then you can 
 setup a second interview that retrieves the same answers and reuses them in new template.
 
-You can combine this with Docassemble's [`DACatchAll`](https://docassemble.org/docs/fields.html#catchall)
+You can combine this with docassemble's [`DACatchAll`](https://docassemble.org/docs/fields.html#catchall)
 feature to create a general purpose system that allows you to use client information in 
 one-off letters and simple documents.
 

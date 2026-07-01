@@ -7,7 +7,7 @@ sidebar_label: Installing a docassemble server
 # What this guide is
 
 There are a lot of [ways you can install
-Docassemble](https://docassemble.org/docs/installation.html). This is one quick
+docassemble](https://docassemble.org/docs/installation.html). This is one quick
 path that will help you get started quickly without having to make your own
 choices.
 
@@ -213,7 +213,7 @@ newgrp docker
 
 ### Setup a Linux swap file
 
-While the 4 GB RAM allocation is almost always enough, Docassemble can have odd
+While the 4 GB RAM allocation is almost always enough, docassemble can have odd
 moments where the RAM usage spikes up quickly, which can crash the server. This
 is somewhat more likely to be a problem on a development server.
 
@@ -263,7 +263,7 @@ Update the values as follows:
   and to set the time that daily scheduled cron scripts run.
 * Set LETSENCRYPTEMAIL to an email of your choice. You will receive messages at this
   address if your certificate is about to expire, but otherwise will not.
-* In Docassemble version 1.8.14 and later, if DAEXTRAFONTS and DAGOOGLEFONTS are true they
+* In docassemble version 1.8.14 and later, if DAEXTRAFONTS and DAGOOGLEFONTS are true they
   will install those fonts on startup. These might be necessary for your interviews that do
   DOCX to PDF conversion.
   
@@ -377,14 +377,14 @@ Compose file to ensure you are setting the same flags in the new container.
 
 ## Sit back and wait
 
-In a few minutes, your Docassemble server will be up and running. Visit the website at the DNS
+In a few minutes, your docassemble server will be up and running. Visit the website at the DNS
 name you chose, `https://apps.example.com`. Log in with the default username and password,
 admin@admin.com/password. Change it to something more secure.
 
 ### Monitor progress
 
 While the server starts up, you can run this command to monitor the container's progress, if
-Docassemble is the only docker container in your server:
+docassemble is the only docker container in your server:
 
 ```bash
 docker exec -ti $(docker ps --format '{{.Names}}') sh -c "tail -f /var/log/supervisor/initialize-stderr*"
@@ -392,7 +392,7 @@ docker exec -ti $(docker ps --format '{{.Names}}') sh -c "tail -f /var/log/super
 
 If you have more than one container, you can modify the command as follows:
 
-Note the name of the Docassemble container, which should be listed in the output of `docker ps`
+Note the name of the docassemble container, which should be listed in the output of `docker ps`
 In the command below, replace [YOUR CONTAINER NAME] with the name of your container.
 
 ```bash
@@ -410,10 +410,10 @@ updating, you should just stay patient.
 I recommend at least 2 servers: a production server and a development server. You may also want
 a test server, for a total of 3.
 
-Production should have the most stable version of Docassemble. Development can test bleeding edge code.
+Production should have the most stable version of docassemble. Development can test bleeding edge code.
 Test should mirror Production as much as possible.
 
-If you want to configure load balancing, that is something I have not experimented with in Docassemble. Cost
+If you want to configure load balancing, that is something I have not experimented with in docassemble. Cost
 will be much higher but it may be worthwhile. You still will want at least a test/dev and production environment.
 
 ## Further reading

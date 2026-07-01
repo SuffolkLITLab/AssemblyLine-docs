@@ -29,3 +29,4 @@ yarn.lock
 .yarn/
 .pnp.cjs
 .pnp.loader.mjs
+.codex

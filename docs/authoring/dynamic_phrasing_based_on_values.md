@@ -5,7 +5,7 @@ sidebar_label: Dynamic phrasing based on values
 slug: dynamic_phrasing_based_on_values
 ---
 
-Docassemble has several clever features that you can use in templates
+docassemble has several clever features that you can use in templates
 and in the body of your interview to automatically rephrase text in a
 context specific way depending on:
 
@@ -61,7 +61,7 @@ fields:
 
 ## Show the person's full name, without abbreviation
 
-By default, Docassemble abbreviates an individual's middle name, so
+By default, docassemble abbreviates an individual's middle name, so
 John Quincy Adams is printed as John Q Adams.
 
 You can write someone's full name, in a template or the interview, with the `name_full()` or `name.full(middle="full")`
@@ -71,7 +71,7 @@ For example, in a DOCX template:
 
 ```jinja
 {{ users[0].name_full() }} {# if it is an ALIndividual #}
-{{ users[0].name.full(middle="full") }} {# if it is regular Docassemble Individual #}
+{{ users[0].name.full(middle="full") }} {# if it is regular docassemble Individual #}
 ```
 
 And for a list of people, you can use:
@@ -110,7 +110,7 @@ John or Jane
 If your list is a DAList or a ALPeopleList, referring to the list in
 the YAML or in your template results in the items all being printed,
 separated by a comma and with the ending word "and", thanks to
-Docassemble automatically applying the function [`comma_and_list`](https://docassemble.org/docs/functions.html#comma_and_list)
+docassemble automatically applying the function [`comma_and_list`](https://docassemble.org/docs/functions.html#comma_and_list)
 to the list.
 
 For example, if `children` is a list with "John", "Jane" and "Mary":
@@ -264,7 +264,7 @@ the individual's `pronouns` attribute.
 
 `pronouns` can either be a single string, of the form "he/him/his" or "xe/xir/xirs",
 or a DADict with various pronouns marked as True or False, as would be created by
-a Docassemble [datatype: checkboxes](https://docassemble.org/docs/fields.html#fields%20checkboxes) question.
+a docassemble [datatype: checkboxes](https://docassemble.org/docs/fields.html#fields%20checkboxes) question.
 
 ### `pronoun` and `pronoun_objective`
 
@@ -342,7 +342,7 @@ They are her shoes.
 
 ### Automatically use responsive first and second person pronouns ("I", "We", "You", "Your", etc.)
 
-Versions of the Assembly Line >= 3.0.0 and Docassemble servers later than 1.4.103 can 
+Versions of the Assembly Line >= 3.0.0 and docassemble servers later than 1.4.103 can 
 conjugate pronouns in the first and second person as well as the default third-person.
 This works both for an ALIndividual and an ALPeopleList.
 
@@ -392,7 +392,7 @@ second person pronoun in English):
 
 ### More about adapting language based on gender and plurality
 
-[Docassemble's documentation](https://docassemble.org/docs/objects.html#language%20methods) 
+[docassemble's documentation](https://docassemble.org/docs/objects.html#language%20methods) 
 includes several more comprehensive examples of how to use these functions to automatically 
 use appropriate pronouns.
 

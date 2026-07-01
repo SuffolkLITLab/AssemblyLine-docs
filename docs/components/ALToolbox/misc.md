@@ -106,7 +106,7 @@ def fa_icon(icon: str,
 
 Display a fontawesome icon inline.
 
-Docassemble allows you to display an icon from [fontawesome](https://fontawesome.com),
+docassemble allows you to display an icon from [fontawesome](https://fontawesome.com),
 but it does not provide control over the size or color of the icon. This function gives
 you more control over the icon that is inserted.
 
@@ -493,7 +493,7 @@ def button_array(buttons: List[ButtonDict],
 
 Create a grid of da-buttons from a dictionary of links and icons
 
-This uses the same CSS classes to mimic the look and feel of Docassemble&#x27;s `buttons` field type, but
+This uses the same CSS classes to mimic the look and feel of docassemble&#x27;s `buttons` field type, but
 doesn&#x27;t have the limits of that particular input method. This is meant to appear
 on any page of an interview in the `subquestion` area.
 
@@ -507,7 +507,7 @@ of privileges.
   - `name`: the text to display on the button
   - `image`: the name of a fontawesome icon to display on the button
   - `url`: the name of the page to link to
-  - `privilege`: optional, the name of a Docassemble privilege that the
+  - `privilege`: optional, the name of a docassemble privilege that the
   user must have to see the button. Can be a list or a single string.
 - `custom_container_class` _str, optional_ - Additional CSS classes to add to
   the container div. Defaults to &quot;&quot;.
@@ -517,7 +517,7 @@ of privileges.
 
 **Returns**:
 
-- `str` - HTML for a grid of buttons that mimics Docassemble&#x27;s button field type.
+- `str` - HTML for a grid of buttons that mimics docassemble&#x27;s button field type.
 
 <a id="ALToolbox.misc.none_to_empty"></a>
 

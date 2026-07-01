@@ -431,7 +431,7 @@ Sometimes it may be more helpful to ask the stakeholder to directly edit the tem
 (to make proposed formatting changes that don't directly involve variables) than
 to try to interpret their requests.
 
-1. Download the templates from the Docassemble package or playground
+1. Download the templates from the docassemble package or playground
 1. Send the templates to the user in an email, with instructions to ignore anything inside curly brackets
 1. When you get the documents back, use Word's "compare documents" feature to make sure
    they didn't accidentally change something they weren't supposed to change

@@ -5,11 +5,11 @@ title: AssemblyLine.project_maintenance
 
 #### get\_package\_names
 
-Fetches the JSON file from the given Docassemble server and extracts package names.
+Fetches the JSON file from the given docassemble server and extracts package names.
 
 **Arguments**:
 
-- `server_name` _str_ - Name or IP address of the Docassemble server.
+- `server_name` _str_ - Name or IP address of the docassemble server.
   
 
 **Returns**:
@@ -42,12 +42,12 @@ Adds a specific tag to each repository in the given list.
 
 #### process\_packages\_and\_add\_tag
 
-Fetches package names from a Docassemble server, transforms them into repository names,
+Fetches package names from a docassemble server, transforms them into repository names,
 and adds a specified tag to each repository.
 
 **Arguments**:
 
-- `server_name` _str_ - Name or IP address of the Docassemble server.
+- `server_name` _str_ - Name or IP address of the docassemble server.
 - `token` _str_ - GitHub Personal Access Token.
 - `org_name` _str_ - Name of the GitHub organization.
 - `tag` _str_ - Tag to be added to each repository.

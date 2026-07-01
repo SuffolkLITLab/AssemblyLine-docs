@@ -35,7 +35,7 @@ to edit manually.
 The Assembly Line Weaver does allow you to reorder screens. However:
 you will not be able to add **any** logic in the Weaver process.
 
-This is by design. We want you to quickly get to the Docassemble playground
+This is by design. We want you to quickly get to the docassemble playground
 to continue editing your code.
 
 ## Before you use the Weaver
@@ -92,7 +92,7 @@ you will be asked may change.
 When you have finished using the Weaver, download your package. This will put a
 .zip file in the Downloads folder on your computer.
 
-Next, upload this file to the Docassemble playground's `Packages` folder.
+Next, upload this file to the docassemble playground's `Packages` folder.
 
 ![Folders | Packages ](../assets/playground_packages_menu.png)
 
@@ -107,7 +107,7 @@ Before downloading the package, turn off that behavior:
 1. under the General tab, uncheck the option **Open 'safe' files after downloading**
 :::
 
-## Example of a page in a Docassemble interview
+## Example of a page in a docassemble interview
 A page might look like this:
 
 ![One page of an interview made up of a heading, explanatory text, and the fields](../assets/interview_screen_or_page.png)

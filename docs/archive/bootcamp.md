@@ -29,8 +29,8 @@ If you are finding this page after February 18th, 2021, be sure to watch the vid
 Read:
 
 1. If you are unfamiliar with the Assembly Line project, please give the [intro page](../get_started) a look
-1. Read over this short [introduction to Docassemble](../docassemble_intro/introduction-to-docassemble)
-1. And if you want more context, consider reading [what should you use Docassemble for?](../docassemble_intro/practical-guide-docassemble)
+1. Read over this short [introduction to docassemble](../docassemble_intro/introduction-to-docassemble)
+1. And if you want more context, consider reading [what should you use docassemble for?](../docassemble_intro/practical-guide-docassemble)
 
 Do:
 
@@ -78,13 +78,13 @@ additional questions.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/VAzXYEacN78" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-* [Using Github in Docassemble](../authoring/github.md)
+* [Using Github in docassemble](../authoring/github.md)
 * Customizing basic branding with the [ALThemeTemplate](https://github.com/SuffolkLITLab/docassemble-ALThemeTemplate) package.
     * Logo
     * Intro screen
     * Pushing changes to Github
 
-### Week 4: Advanced Docassemble, Installing the backend
+### Week 4: Advanced docassemble, Installing the backend
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-YtGtVI79dY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -92,8 +92,8 @@ additional questions.
 * [docassemble-ALThemeTemplate](https://github.com/SuffolkLITLab/docassemble-ALThemeTemplate) package
 * Introduction to the docassemble.Income class
 * Working with tables and repeated data
-* How to install the Assembly Line packages on your Docassemble server
-* How to install individual packages on your Docassemble server
+* How to install the Assembly Line packages on your docassemble server
+* How to install individual packages on your docassemble server
     * Creating short links
     * The index page
 

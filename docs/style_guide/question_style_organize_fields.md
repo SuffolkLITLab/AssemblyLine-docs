@@ -74,7 +74,7 @@ to place one question on each screen.
 Others, like HotDocs, can be formatted like a busy paper form, with dozens of fields
 on a screen in multiple columns.
 
-Docassemble is mobile first, and in mobile design of surveys, studies show that the best design
+docassemble is mobile first, and in mobile design of surveys, studies show that the best design
 to reduce interview time for the user and to reduce fatigue emphasizes "scrolling" (multiple
 fields per screen) over "paging" (one question per screen).
 

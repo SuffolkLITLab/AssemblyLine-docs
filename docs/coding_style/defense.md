@@ -8,15 +8,15 @@ slug: defense
 ---
 
 :::info Workshop Resource
-📺 **First Wednesday Workshop:** For hands-on help with debugging and error resolution, watch our workshop on [Troubleshooting Docassemble interview errors](https://suffolklitlab.org/troubleshooting-docassemble-interview-errors-workshop/). This community Q&A session covers common error patterns, debugging strategies, and prevention techniques.
+📺 **First Wednesday Workshop:** For hands-on help with debugging and error resolution, watch our workshop on [Troubleshooting docassemble interview errors](https://suffolklitlab.org/troubleshooting-docassemble-interview-errors-workshop/). This community Q&A session covers common error patterns, debugging strategies, and prevention techniques.
 :::
 
-## Use Docassemble lists, dictionaries, and sets, or subclasses
+## Use docassemble lists, dictionaries, and sets, or subclasses
 
-Docassemble relies heavily on exceptions for its declarative logic
+docassemble relies heavily on exceptions for its declarative logic
 system. Those work better with the DAObject class and classes that
-inherit from it. Docassemble's DAObject class adds an `intrinsicName`
-attribute to every object that helps Docassemble track down a question
+inherit from it. docassemble's DAObject class adds an `intrinsicName`
+attribute to every object that helps docassemble track down a question
 that is able to define a variable.
 
 Where you make uses of lists, dictionaries, or sets, you should
@@ -92,8 +92,8 @@ conditions. Make sure that you handle that possibility.
 
 When working with APIs, be careful to handle possible failures. Decide what the
 failure state should be for your end user. Ordinarily, API integrations in
-Docassemble are for convenience and your user should be able to continue in some
-fashion. You should never drop down to a Docassemble error screen when an
+docassemble are for convenience and your user should be able to continue in some
+fashion. You should never drop down to a docassemble error screen when an
 external dependency fails or is unavailable.
 
 ## Further reading and sources

@@ -25,11 +25,11 @@ title: ALDashboard.project_maintenance
 def get_package_names(server_name: str) -> List[str]
 ```
 
-Fetches the JSON file from the given Docassemble server and extracts package names.
+Fetches the JSON file from the given docassemble server and extracts package names.
 
 **Arguments**:
 
-- `server_name` _str_ - Name or IP address of the Docassemble server.
+- `server_name` _str_ - Name or IP address of the docassemble server.
   
 
 **Returns**:
@@ -76,12 +76,12 @@ def process_packages_and_add_tag(server_name: str, token: str, org_name: str,
                                  tag: str) -> None
 ```
 
-Fetches package names from a Docassemble server, transforms them into repository names,
+Fetches package names from a docassemble server, transforms them into repository names,
 and adds a specified tag to each repository.
 
 **Arguments**:
 
-- `server_name` _str_ - Name or IP address of the Docassemble server.
+- `server_name` _str_ - Name or IP address of the docassemble server.
 - `token` _str_ - GitHub Personal Access Token.
 - `org_name` _str_ - Name of the GitHub organization.
 - `tag` _str_ - Tag to be added to each repository.

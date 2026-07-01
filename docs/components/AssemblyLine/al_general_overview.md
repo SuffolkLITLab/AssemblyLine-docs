@@ -9,7 +9,7 @@ The functions and classes listed on this page are always available in Assembly L
 
 ## ALAddress and ALAddressList classes {#ALAddress}
 
-The `ALAddress` class is an extension of the built-in Docassemble
+The `ALAddress` class is an extension of the built-in docassemble
 [`Address`](https://docassemble.org/docs/objects.html#Address) class.
 
 If an address is an `ALAddress`, it has an `address_fields()` method that can be used inside a `fields: code: |` statement to insert a consistently formatted series of address fields. `address_fields()` will include an autocomplete method and is internationalized.
@@ -39,7 +39,7 @@ examples.
 
 :::note 
 You must use `sets` with the `address_fields()` method. Otherwise
-Docassemble will not be able to find the block to provide a definition
+docassemble will not be able to find the block to provide a definition
 of the address fields.
 :::
 
@@ -59,12 +59,12 @@ The `address_fields()` method includes the following optional parameters:
 
 The `ALAddressList` class is a collection of `ALAddress`es. It is used to
 allow you to collect multiple addresses in one go and otherwise works exactly
-like the built-in Docassemble [`DAList`
+like the built-in docassemble [`DAList`
 object](https://docassemble.org/docs/objects.html#DAList).
 
 The `__str__()` method of an `ALAddressList` has been modified so that using it
 displays a series of addresses on one line, separated by `;`. This is used
-any place that Docassemble treats the variable as text, such as in a
+any place that docassemble treats the variable as text, such as in a
 template, attachment block, or in a `question` or `subquestion` field.
 
 Example:
@@ -75,7 +75,7 @@ The `previous_addresses` attribute of an `ALIndividual` is an `ALAddressList`.
 
 ### ALIndividual and ALPeopleList classes {#ALIndividual}
 
-The `ALIndividual` is an extension of the Docassemble
+The `ALIndividual` is an extension of the docassemble
 [`Individual`](https://docassemble.org/docs/objects.html#Individual) class. It
 should be used to represent both natural people and businesses or other
 entities.
@@ -126,13 +126,13 @@ They return `True` or `False` depending on the value of the `gender` attribute.
 
 #### Relation to the `Individual` class
 
-The `ALIndividual` class inherits from Docassemble's [`Individual`](https://docassemble.org/docs/objects.html#Individual) class, and all other methods of `Individual` work
+The `ALIndividual` class inherits from docassemble's [`Individual`](https://docassemble.org/docs/objects.html#Individual) class, and all other methods of `Individual` work
 the same way as they do in the `Individual` class.
 
 ### ALPeopleList {#ALPeopleList}
 
 The `ALPeopleList` class is used to represent a group of people. Otherwise it
-works exactly like the built-in Docassemble [`DAList`
+works exactly like the built-in docassemble [`DAList`
 object](https://docassemble.org/docs/objects.html#DAList).
 
 It also has the following additional methods:
@@ -158,7 +158,7 @@ list is at or below the limit provided.
 
 ### Relation to the `DAList` class
 
-`ALPeopleList` inherits from Docassemble's
+`ALPeopleList` inherits from docassemble's
 [`DAList`](https://docassemble.org/docs/objects.html#DAList) class, and retains
 all methods and attributes of a `DAList`.
 

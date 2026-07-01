@@ -9,7 +9,7 @@ sidebar_label: Logic
 Sometimes you want to answer a question with some logic rather than directly
 asking the user for information.
 
-Docassemble uses [Python](python.md), a powerful but easy to read programming
+docassemble uses [Python](python.md), a powerful but easy to read programming
 language to control logic inside an interview. Python statements go inside a
 `code` block.
 
@@ -166,7 +166,7 @@ holds the shift key at the wrong time? The one-by-one matching approach gets out
 of hand pretty quickly.
 
 Note that what we explore below is an **advanced** concept. You can get pretty far with
-the building blocks we already explored. The advantage of Docassemble is that **we can**
+the building blocks we already explored. The advantage of docassemble is that **we can**
 use these advanced solutions. So let's see what that might look like.
 
 #### A universal approach
@@ -246,12 +246,12 @@ code: |
 
 #### What to take away from this advanced example
 
-* Logic in Docassemble can take advantage of the full Python programming language
+* Logic in docassemble can take advantage of the full Python programming language
 * Python is full of many helpful building blocks. You can look outside of the
-  Docassemble documentation to find them.
+  docassemble documentation to find them.
 
 We've introduced a lot of new concepts here. But you will be able to do a lot
-of the Python code in your Docassemble interview by copying and pasting and making
+of the Python code in your docassemble interview by copying and pasting and making
 small changes to other working examples. Don't worry about understanding the full
 power of the Python language or memorizing the whole library of available functions
 and methods.

@@ -7,7 +7,7 @@ slug: ai_mcp_and_rest
 
 You can use AI-assisted authoring tools without installing `docassemble.ALWeaver` or `docassemble.ALDashboard` in your local Python environment.
 
-Instead, call the APIs on a running Docassemble server:
+Instead, call the APIs on a running docassemble server:
 
 - ALWeaver REST API (`/al/api/v1/weaver...`)
 - ALDashboard REST API (`/al/api/v1/dashboard/...`)
@@ -17,12 +17,12 @@ Instead, call the APIs on a running Docassemble server:
 
 - Keeps your AI workflow lightweight on local machines.
 - Lets your AI agent work against one shared, server-side environment.
-- Avoids local dependency setup for OCR, PDF tooling, and Docassemble internals.
+- Avoids local dependency setup for OCR, PDF tooling, and docassemble internals.
 - Makes async jobs available for longer-running tasks.
 
 ## Authentication
 
-These endpoints use Docassemble API auth (`api_verify()`), typically:
+These endpoints use docassemble API auth (`api_verify()`), typically:
 
 - `X-API-Key: YOUR_API_KEY`, or
 - `Authorization: Bearer ...` (if configured on your server).

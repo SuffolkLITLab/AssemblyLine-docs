@@ -4,7 +4,7 @@ title: The Mako templating language
 sidebar_label: Mako
 ---
 
-Docassemble uses Mako for formatting throughout the interview file. Mako is also used inside [Markdown](markdown.md) templates.
+docassemble uses Mako for formatting throughout the interview file. Mako is also used inside [Markdown](markdown.md) templates.
 
 Inside docx template files, you will instead use the [Jinja](jinja2.md) templating language.
 

@@ -170,7 +170,7 @@ def validate_tyler_regex(data_field: Mapping) -> Callable[[str], Any]
 ```
 
 Return a function that validates a given input with the provided regex,
-suitable for use with Docassemble&#x27;s `validate:` question modifier
+suitable for use with docassemble&#x27;s `validate:` question modifier
 
 <a id="EFSPIntegration.conversions.parse_service_contacts"></a>
 

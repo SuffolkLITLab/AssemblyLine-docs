@@ -32,7 +32,7 @@ We recommend using Microsoft Word as your editor when possible if the document
 may need additional editing by the user.
 
 If your document will be converted into a PDF for the user, it may be useful to open the 
-DOCX file in Libre Office. Docassemble, by default, uses Libre Office to convert the Word 
+DOCX file in Libre Office. docassemble, by default, uses Libre Office to convert the Word 
 file to PDF. Sometimes formatting glitches will be visible only when the document is opened in Libre Office.
 
 DOCX files can be very simple to work with, but we've taken the time to describe some common tasks,
@@ -47,7 +47,7 @@ Microsoft Word document, surrounded by two sets of curly braces, like: `{{ varia
 The syntax to type in fields in a DOCX template is named `jinja2`.
 
 [Learn more about Jinja2](../docassemble_intro/jinja2)
-and about [DOCX templates in Docassemble](https://docassemble.org/docs/documents.html#docx%20template%20file).
+and about [DOCX templates in docassemble](https://docassemble.org/docs/documents.html#docx%20template%20file).
 
 
 
@@ -57,7 +57,7 @@ are:
 1. Fill in the blank fields, which are simply surrounded with double curly brackets: `{{ field_name }}`
 1. Conditional text with `{% if some_condition %}` and `{% endif %}`, or the slight variation `{%p if some_condition %} ... {%p endif %}` to make a whole paragraph conditional.
 
-:::caution Docassemble uses the [docxtpl](https://docxtpl.readthedocs.io/en/latest/#jinja2-like-syntax) variant of Jinja2
+:::caution docassemble uses the [docxtpl](https://docxtpl.readthedocs.io/en/latest/#jinja2-like-syntax) variant of Jinja2
 
 docxtpl has slight differences to the more
 common Jinja2 format used in HTML documents. If a feature isn't working as
@@ -132,7 +132,7 @@ Always using a space helps avoid you forgetting these special cases. It also hel
 
 :::info Avoid using `-` to control whitespace
 While in standard Jinja2 you can use a `-` to control whitespace, this won't
-work reliably in Docassemble. That is because Docassemble uses [docxtpl](https://docxtpl.readthedocs.io/en/latest/#jinja2-like-syntax), not the standard Jinja2.
+work reliably in docassemble. That is because docassemble uses [docxtpl](https://docxtpl.readthedocs.io/en/latest/#jinja2-like-syntax), not the standard Jinja2.
 
 Avoid using this feature in your templates.
 :::
@@ -157,7 +157,7 @@ Also use `{%p if %}` to control conditional items in a list, like this:
 1. `{%p endif %}`
 
 Keep the condition inside the list itself. Avoid using the condition in its own 
-paragraph, as when Docassemble merges the two lists they may behave unpredictably.
+paragraph, as when docassemble merges the two lists they may behave unpredictably.
 
 Similarly, use `tc` and `tr` to control repeated or conditional rows.
 Keep this in-line in one table when it makes sense. Avoid using `{%p %}` and multiple tables, as this can lead to unexpected table formatting when the two
@@ -224,7 +224,7 @@ For more advanced changes to the variable text, you will use a mix of
 Python functions, methods, and Jinja2 filters. It's not always intuitive which 
 to use when. In some cases, you can use more than one.
 
-Functions and methods are either built-in to Python, Docassemble, or a custom class you create. Note that some Python functions won't work in a DOCX template.
+Functions and methods are either built-in to Python, docassemble, or a custom class you create. Note that some Python functions won't work in a DOCX template.
 If you run into a function that doesn't work as expected, look to see if there's
 an equivalent filter to replace it. In most cases there will be.
 
@@ -246,12 +246,12 @@ This is a filter with a parameter:
 
 Some sources for filters you can use:
 
-* [Docassemble-provided Jinja2 filters](https://docassemble.org/docs/documents.html#filters)
+* [docassemble-provided Jinja2 filters](https://docassemble.org/docs/documents.html#filters)
 * [List of built-in Jinja2 filters](https://jinja.palletsprojects.com/en/2.11.x/templates/#builtin-filters) (but note this easier to read, [unofficial version of this same list](https://tedboy.github.io/jinja2/templ14.html))
 
 :::info
-One filter you'll find yourself using frequently is the `length` filter. Docassemble doesn't make `len()` available
-inside of Docassemble templates, so you must use `length` as a filter instead. For example:
+One filter you'll find yourself using frequently is the `length` filter. docassemble doesn't make `len()` available
+inside of docassemble templates, so you must use `length` as a filter instead. For example:
 
 ```jinja
 {%p if users | length > 2 %}
@@ -400,7 +400,7 @@ For example, suppose every item in the list `my_list` has an attribute
 ```
 
 This only works for checking one attribute, and one value. You can use `selecattr`, described below,
-for more complex situations. One benefit of `filter()` is that the result will be of the special Docassemble
+for more complex situations. One benefit of `filter()` is that the result will be of the special docassemble
 DAList class.
 
 ### Create a sum with the `sum` filter
@@ -465,12 +465,12 @@ To try this fix:
 ### Troubleshooting problems with conversion to PDF
 
 Sometimes the DOCX will look right, but things like headings, numberings, and other
-styles will look off when Docassemble converts your template to PDF.
+styles will look off when docassemble converts your template to PDF.
 
 The first thing to check when troubleshooting a DOCX conversion to PDF is to see
-how the document looks in [Libre Office](https://www.libreoffice.org/). Docassemble
+how the document looks in [Libre Office](https://www.libreoffice.org/). docassemble
 uses Libre Office to convert DOCX to PDF, so if you can fix issues in Libre Office
-on your home computer, it should look right when Docassemble converts it to PDF on the
+on your home computer, it should look right when docassemble converts it to PDF on the
 server.
 
 #### Installing the proper fonts
@@ -478,8 +478,8 @@ server.
 One issue you may find is that the PDF doesn't have the right fonts. There are two potential
 solutions:
 
-1. You can revise your document to use the Microsoft True Type Core Fonts for the Web, which come pre-installed on Docassemble servers. These include Arial and Times New Roman.
-1. You can install the fonts on the Docassemble server. The [ALDashboard](https://github.com/SuffolkLITLab/docassemble-ALDashboard)'s "Install fonts" widget can help you install a TTF (TrueType)
+1. You can revise your document to use the Microsoft True Type Core Fonts for the Web, which come pre-installed on docassemble servers. These include Arial and Times New Roman.
+1. You can install the fonts on the docassemble server. The [ALDashboard](https://github.com/SuffolkLITLab/docassemble-ALDashboard)'s "Install fonts" widget can help you install a TTF (TrueType)
 font on your server.
 1. You can [embed the fonts](https://support.microsoft.com/en-us/office/benefits-of-embedding-custom-fonts-cb3982aa-ea76-4323-b008-86670f222dbc) inside the DOCX file. 
 This might significantly increase the file size.
@@ -494,7 +494,7 @@ manually.
 ## Quality control checklist
 
 - [ ] The DOCX template has valid Jinja syntax. You can use the [ALDashboard](https://github.com/SuffolkLITLab/docassemble-ALDashboard)'s "Validate DOCX template" widget,
-   installed on your own Docassemble server, to check.
+   installed on your own docassemble server, to check.
 - [ ] All of the expected standard field names are recognized by the Weaver (marked in bold when you upload and view the quality control screen)
 - [ ] Custom field names are all properly spelled, without typos
 - [ ] Run the interview with short, long, and one and many items for repeated lists to ensure that the full range of common scenarios looks proper.

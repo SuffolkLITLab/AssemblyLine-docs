@@ -36,7 +36,7 @@ A blank space on a paper form is usually called a `form field`, or `field` for
 short. We call adding unique names that refer to those blank spaces `labeling`
 them.
 
-When you access the labeled field in your Docassemble code, it is usually called
+When you access the labeled field in your docassemble code, it is usually called
 a `variable`.
 
 ### General rules for labels
@@ -143,7 +143,7 @@ scratch. You still have the option to customize those questions later.
 :::note A note about objects
 For those with programming experience, we turn most of the field labels that we
 recognize into `objects`. Learn more about the [Individual
-object](https://docassemble.org/docs/objects.html#Individual) in the Docassemble
+object](https://docassemble.org/docs/objects.html#Individual) in the docassemble
 documentation.
 :::
 
@@ -179,11 +179,11 @@ When the form is automated in the Weaver, the field name becomes part of a list:
 list you are accessing, with the first item starting at 0: `users[0]` represents
 the first user, `users[1]` the second, and so on.
 
-The Docassemble and DOCX variable name `users[0]` is the equivalent of `users`
+The docassemble and DOCX variable name `users[0]` is the equivalent of `users`
 or `users1` in a PDF label. `users[1]` is the equivalent of `user2`.
 
 Names are not transformed at all when you work in a DOCX template. You need to use the
-Docassemble syntax from the beginning if you are identifying a specific person in a list.
+docassemble syntax from the beginning if you are identifying a specific person in a list.
 
 ## Labels for people, places, and things
 
@@ -228,7 +228,7 @@ prompt you to decide if they should be treated as like people in the automation 
 
 Substitute the name `users` with any of the names listed above.
 
- PDF variation     | Docassemble / DOCX form                   | Meaning
+ PDF variation     | docassemble / DOCX form                   | Meaning
 -------------------|-------------------------------------------|-----------
 `users1_name` or `users1_name_full` | `users[0]` or `users[0].name.full()`  | Full name
 `users1_name_first` | `users[0].name.first` or `users[0].familiar()` | First name only
@@ -247,12 +247,12 @@ In a DOCX file, writing out `users` will list all of the `users`
 added to the form, separated by a comma. Writing `users.familiar()`
 will list all of the first names of each `user` separated by a comma.
 
-This works for any Docassemble list.
+This works for any docassemble list.
 ### Demographic data for people {#person-demographics}
 
 Substitute any name for a person for `users` below.
 
- PDF variation        | Docassemble / DOCX form   | Meaning
+ PDF variation        | docassemble / DOCX form   | Meaning
 ----------------------|---------------------------|-----------
 `users1_birthdate`    | `users[0].birthdate`      | Birthdate (formatted like January 1, 2021 by default)
 `users1_age`          | `users[0].age_in_years()` | Calculated age (based on birthdate)
@@ -270,7 +270,7 @@ Substitute any name for a person for `users` below.
 
 Substitute any name for a person for `users` below.
 
- PDF variation               | Docassemble / DOCX form    | Meaning
+ PDF variation               | docassemble / DOCX form    | Meaning
 -----------------------------|----------------------------|-----------
 `users1_address_block`       | `users[0].address.block()`    | Full address, on multiple lines
 `users1_address_on_one_line` | `users[0].address.on_one_line()` | Full address on one line
@@ -293,7 +293,7 @@ to ask a separate question about the user's mailing address.
 
 Substitute any name for a person for `users` below.
 
- PDF variation               | Docassemble / DOCX form    | Meaning
+ PDF variation               | docassemble / DOCX form    | Meaning
 -----------------------------|----------------------------|-----------
 `users1_phone_number`        | `users[0].phone_number`    | Phone number
 `users1_mobile_number`       | `users[0].mobile_number`   | A phone number explicitly labeled as the "mobile" number
@@ -304,14 +304,14 @@ Substitute any name for a person for `users` below.
 
 Substitute any name for a person for `users` below.
 
- PDF variation               | Docassemble / DOCX form    | Meaning
+ PDF variation               | docassemble / DOCX form    | Meaning
 -----------------------------|----------------------------|-----------
 `users1_signature`           | `users[0].signature`       | Signature
 `signature_date`             | `signature_date`           | Date the form is completed (automatically filled in by default)
 
 ### Information about court and court processes {#courts}
 
- PDF variation               | Docassemble / DOCX form    | Meaning
+ PDF variation               | docassemble / DOCX form    | Meaning
 -----------------------------|----------------------------|-----------
 `trial_court`                | `trial_court`              | Court's full name, like: "Eastern Housing Court"
 `trial_court_county`         | `trial_court.address.county` | County where court is located
@@ -322,17 +322,17 @@ Substitute any name for a person for `users` below.
 
 ## Special endings to mark data types
 
-Usually, it is not recommended to mark the type of fields in Docassemble. There are 
+Usually, it is not recommended to mark the type of fields in docassemble. There are 
 a few exceptions that both mark type and carry a separate meaning that the Weaver
 will recognize.
 
 ### Indicating paired yes/no checkboxes {#yes-no-fields}
 
-The Weaver turns paired yes/no checkboxes into a single Docassemble variable.
+The Weaver turns paired yes/no checkboxes into a single docassemble variable.
 
 Use any valid keyword to replace `is_minor` in the example below.
 
- PDF variation               | Docassemble / DOCX form    | Meaning
+ PDF variation               | docassemble / DOCX form    | Meaning
 -----------------------------|----------------------------|-----------
 `is_minor_yes`, `is_minor_no`| `is_minor`                 | Indicates the user is a minor
 
@@ -343,7 +343,7 @@ the Weaver will automatically recognize it as a date.
 
 Replace `firm_founding` with any valid keyword in the example below.
 
- PDF variation         | Docassemble / DOCX form    | Meaning
+ PDF variation         | docassemble / DOCX form    | Meaning
 -----------------------|----------------------------|-----------
 `firm_founding_date`   | `firm_founding_date`       | Will be recognized as a date field by the Weaver.
 
@@ -354,7 +354,7 @@ the Weaver will automatically recognize it as a currency amount.
 
 Replace `expense_rent` or `house` with any valid keyword in the example below.
 
- PDF variation         | Docassemble / DOCX form    | Meaning
+ PDF variation         | docassemble / DOCX form    | Meaning
 -----------------------|----------------------------|-----------
 `expense_rent_amount`  | `expense_rent_amount`      | Will be recognized as a currency value by the Weaver.
 `house_value`          | `house_value`              | Will be recognized as a currency value by the Weaver.
@@ -362,7 +362,7 @@ Replace `expense_rent` or `house` with any valid keyword in the example below.
 
 ## Dealing with PDF limitations - adding the same field twice
 
-Docassemble does not work with PDF forms that use the same label for a field
+docassemble does not work with PDF forms that use the same label for a field
 twice.
 
 To work around this issue, annotate the second or third field with two
@@ -370,7 +370,7 @@ underscores and any digit, like this: `__1`.
 
 Replace `users1_name` with any other valid field name in the example below.
 
- PDF variation         | Docassemble / DOCX form    | Meaning
+ PDF variation         | docassemble / DOCX form    | Meaning
 -----------------------|----------------------------|-----------
 `users1_name__1`       | `users[0]`                 | Allows you to label two fields in the PDF to contain the user's name.
 `user1_name__2`        | `users[0]`                 | Same as above
@@ -380,7 +380,7 @@ DOCX files do not have any limit on using the same variable name twice.
 This special syntax only applies to PDF templates.
 
 :::note Use any digit
-Docassemble does not do anything with the digit. Feel free to use `__1`, `__99` or any
+docassemble does not do anything with the digit. Feel free to use `__1`, `__99` or any
 other series of digits, in any order.
 :::
 
@@ -391,7 +391,7 @@ Getting things right at the beginning can save you a lot of time and effort.
 
 However, you can always edit your template later. When you make changes to your
 template, you do not need to run it through the Weaver again. You can upload
-your edited template directly to the Docassemble playground's templates folder.
+your edited template directly to the docassemble playground's templates folder.
 
 ## See also
 

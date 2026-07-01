@@ -5,7 +5,7 @@ sidebar_label: Interview files
 slug: yaml
 ---
 
-Docassemble interviews are written in
+docassemble interviews are written in
 [YAML](../docassemble_intro/yaml).
 
 They may also contain:
@@ -27,7 +27,7 @@ See [Python style guide](python.md).
 
 ### Use descriptive package names; include state and forum identifiers
 
-For the Docassemble package, use names that help someone understand at a glance
+For the docassemble package, use names that help someone understand at a glance
 what your form does and where it can be used:
 
 * include the form **function** and subject area. E.g., `EvictionStay` not
@@ -46,7 +46,7 @@ future locate your package on GitHub.
 
 ### Avoid spaces in file names; use lowercase letters
 
-Files in your Docassemble package, including YAML files, Python modules, and any
+Files in your docassemble package, including YAML files, Python modules, and any
 static resource files or data sources, should all be be named without spaces.
 You may choose to use `snake_case` (underscores separating words) or `kebab-case`
 (hyphens separating words). Using snake case avoids problems with some
@@ -88,7 +88,7 @@ already has a copy of the same file.
 ### When you have multiple files in a single package, give each file a clear prefix
 
 While simple interviews have one YAML file, there are three strong reasons to have more than one YAML file in
-a single Docassemble package:
+a single docassemble package:
 
 1. If one package has multiple, distinct interviews contained within it, perhaps for different audiences, like
   children, parents, or interested people, or someone filing a complaint or someone answering it.

@@ -1,6 +1,6 @@
 ---
 slug: object-oriented-programming
-title: Object Oriented Programming in Docassemble
+title: Object Oriented Programming in docassemble
 sidebar_label: Object Oriented Programming
 ---
 
@@ -37,7 +37,7 @@ apple2 | 270 grams | green | Granny Smith | 72
 
 Or perhaps a blank form:
 
-<img alt="Overview of the Docassemble Playground" src={useBaseUrl('img/class-registration.png')} />
+<img alt="Overview of the docassemble Playground" src={useBaseUrl('img/class-registration.png')} />
 
 In both cases, what the class definition does it give the individual variables a structure. It provides a meaning to a collection of variables, so that every time you create an object, each object will have the same basic outline and you can use it the same way.
 
@@ -56,7 +56,7 @@ UML diagrams are just one way to represent a class. It's a standard that can mak
 
 We also often list the _type_ of each variable after its name in this diagram. In the example diagram, weight is a _floating point_ number, or float (has a decimal). Color and variety are text, or _str_ types.
 
-Sometimes a class's attributes themselves are classes. You'll see this is common in Docassemble's built-in objects.
+Sometimes a class's attributes themselves are classes. You'll see this is common in docassemble's built-in objects.
 
 ### Class methods
 
@@ -99,16 +99,16 @@ Methods also use dot notation. Like functions, you call a method with two parent
 
 Python Classes all have a special method, named `__init__`. This is called the class constructor. 
 
-> Note: if you write your own class, Docassemble objects should never directly replace the `__init__()` method. Instead, you will use the method `init()`.
+> Note: if you write your own class, docassemble objects should never directly replace the `__init__()` method. Instead, you will use the method `init()`.
 
-Any time that Docassemble (or Python) creates a new object of this class, the `__init__` method will run.
+Any time that docassemble (or Python) creates a new object of this class, the `__init__` method will run.
 
 What is the purpose of a class constructor? The class constructor does any setup work that your object needs. For example: it could take the parameters and assign them to attributes to use later; it could run
 some calculations in advance; or download information from the Internet that it stores for faster access. Just like regular functions and methods, sometimes a class constructor has parameters. For example, a class that represents a Rectangle might have two parameters: side1_length, and side2_length.
 
 ### Special method `__str__()`
 
-Objects have another special built-in method that they expect to see, named `__str__()`. The `__str__()` method will return a string (text) representation of the object. This is very useful for use inside Docassemble, as we often display information on the screen. For example, the standard string representation of a person is: person.name.first + person.name.middle + person.name. Using the `__str__()` method allows you to just mention the person object without having to write out first name, last name, etc.
+Objects have another special built-in method that they expect to see, named `__str__()`. The `__str__()` method will return a string (text) representation of the object. This is very useful for use inside docassemble, as we often display information on the screen. For example, the standard string representation of a person is: person.name.first + person.name.middle + person.name. Using the `__str__()` method allows you to just mention the person object without having to write out first name, last name, etc.
 
 ```markdown
 ${user}
@@ -120,27 +120,27 @@ Is the equivalent of writing:
 ${user.__str__()}
 ```
 
-Think of `__str__()` as a convenient shortcut. It runs anytime you write the object's name that Docassemble expects to see text, like in an interview or in a template.
+Think of `__str__()` as a convenient shortcut. It runs anytime you write the object's name that docassemble expects to see text, like in an interview or in a template.
 
 Writing `${user}` would print out `Quinten Steenhuis` if `user.name.first` is Quinten and `user.name.last` is Steenhuis.
 
-## Classes in Docassemble
+## Classes in docassemble
 
-OK. So far, we learned that an object is a type of variable that can store different, related information in one place. You may not create your own classes for some time. However, this background is helpful for making use of Docassemble's built-in helper classes, methods, and functions that expect to work on a built-in class.
+OK. So far, we learned that an object is a type of variable that can store different, related information in one place. You may not create your own classes for some time. However, this background is helpful for making use of docassemble's built-in helper classes, methods, and functions that expect to work on a built-in class.
 
-### How Docassemble classes differ
+### How docassemble classes differ
 
-In order to work with Docassemble, every object should inherit from the `DAObject` class.
+In order to work with docassemble, every object should inherit from the `DAObject` class.
 
-You may have seen that in most class definitions, you typically list all of the attributes when you create the class. In Docassemble, missing variable definitions are needed to trigger a question being asked. So, instead, you will normally leave those attributes undefined at the class definition time. You can include a comment that lists all of the attributes, and also make use of those attributes inside methods.
+You may have seen that in most class definitions, you typically list all of the attributes when you create the class. In docassemble, missing variable definitions are needed to trigger a question being asked. So, instead, you will normally leave those attributes undefined at the class definition time. You can include a comment that lists all of the attributes, and also make use of those attributes inside methods.
 
-Docassemble objects also expect to know their own name, stored as a special attribute `instanceName`. If you use an existing class, you don't need to worry about this special feature. Docassemble handles this for you when you use the `objects` block. If you write your own classes, this is something that is important to know.
+docassemble objects also expect to know their own name, stored as a special attribute `instanceName`. If you use an existing class, you don't need to worry about this special feature. docassemble handles this for you when you use the `objects` block. If you write your own classes, this is something that is important to know.
 
-### Using an object inside Docassemble
+### Using an object inside docassemble
 
 #### The `modules` block
 
-If you write your own `Class`, you need to tell Docassemble that you plan to use it with a modules block:
+If you write your own `Class`, you need to tell docassemble that you plan to use it with a modules block:
 
 ```yaml
 ---
@@ -149,13 +149,13 @@ modules:
   - .module_in_this_package
 ```
 
-Module files are just Python code. In the background, the modules block tells Docassemble to `import` a Python file with the classes and functions you need for your interview.
+Module files are just Python code. In the background, the modules block tells docassemble to `import` a Python file with the classes and functions you need for your interview.
 
-You do not need to use a modules block for any of the built-in classes. They live in a Python file too, but Docassemble automatically includes it for you.
+You do not need to use a modules block for any of the built-in classes. They live in a Python file too, but docassemble automatically includes it for you.
 
 #### The `objects` block
 
-Unlike regular Python/Docassemble variables, objects need to be named and defined before they are used.
+Unlike regular Python/docassemble variables, objects need to be named and defined before they are used.
 You create an `instance` of an object and assign its name with the `objects` block:
 
 ```yaml
@@ -166,11 +166,11 @@ objects:
 
 Underneath the `objects` keyword, you can write the names of as many object variables that you need for your
 interview. Just like the fields statement, this is a list. On the left of the `:`, write the variable name
-that you want Docassemble to use. On the right, write the name of the class that the object is a member of.
+that you want docassemble to use. On the right, write the name of the class that the object is a member of.
 
-In the background, this tells Docassemble to create a new Python object with the name `user`. It will also run the `__init__()` method of the class and do whatever setup is needed for your object.
+In the background, this tells docassemble to create a new Python object with the name `user`. It will also run the `__init__()` method of the class and do whatever setup is needed for your object.
 
-If your class expects any parameters when you make a new object, you can pass those to the `__init__()` method with a special Docassemble
+If your class expects any parameters when you make a new object, you can pass those to the `__init__()` method with a special docassemble
 method named `.using()`:
 
 ```yaml
@@ -178,11 +178,11 @@ objects:
   - user: Individual.using(parameter1=value1, parameter2=value2)
 ```
 
-You don't need to fully understand this for now. Just remember that sometimes you want to customize your object when you create it. The .using() method is a way to do that inside Docassemble. We'll explain this in more detail when we discuss working with repeated information (Groups).
+You don't need to fully understand this for now. Just remember that sometimes you want to customize your object when you create it. The .using() method is a way to do that inside docassemble. We'll explain this in more detail when we discuss working with repeated information (Groups).
 
 #### Working with the object as a variable
 
-Treat object `attributes` just like ordinary variables. For example, you can use an ordinary Docassemble `field` to assign the value of an attribute:
+Treat object `attributes` just like ordinary variables. For example, you can use an ordinary docassemble `field` to assign the value of an attribute:
 
 ```yaml
 ---
@@ -193,9 +193,9 @@ fields:
     datatype: date
 ```
 
-## Docassemble's built-in objects
+## docassemble's built-in objects
 
-Docassemble has a large number of [built-in Classes](https://docassemble.org/docs/objects.html#stdclasses), as well as optional Classes designed to [simplify legal matters](https://docassemble.org/docs/legal.html#tocAnchor-1-2). Many of these are utility classes that help write an interview in a more abstract way, but don't represent real-world objects.
+docassemble has a large number of [built-in Classes](https://docassemble.org/docs/objects.html#stdclasses), as well as optional Classes designed to [simplify legal matters](https://docassemble.org/docs/legal.html#tocAnchor-1-2). Many of these are utility classes that help write an interview in a more abstract way, but don't represent real-world objects.
 
 You will most likely use these few classes representing things in the physical world again and again:
 
@@ -204,13 +204,13 @@ You will most likely use these few classes representing things in the physical w
 * [`Name`](https://docassemble.org/docs/objects.html#Name) and [`IndividualName`](https://docassemble.org/docs/,objects.html#IndividualName), representing a name
 * [`Address`](https://docassemble.org/docs/objects.html#Address), representing an address in the real-world, together with its different components (street, longitude/latitude, etc).
 
-They are used throughout Docassemble. Several built-in functions also expect these objects as parameters.
+They are used throughout docassemble. Several built-in functions also expect these objects as parameters.
 
 The third party Income class is also useful for working with financial information:
 
 * [`Income`](https://github.com/GBLS/docassemble-income)
 
-It has several advantages over the Docassemble built-in Classes to represent income information.
+It has several advantages over the docassemble built-in Classes to represent income information.
 
 You may define your own objects as [`DAObject`](https://docassemble.org/docs/objects.html#DAObject)s and benefit from the neater method of organizing related attributes in one variable, without needing to write your own class definition. 
 
@@ -243,7 +243,7 @@ code: |
   client.name.first
 
   # We only need to reference one variable on a screen
-  # to tell Docassemble to show that screen
+  # to tell docassemble to show that screen
   client.birthdate 
 
   client.address.address
@@ -304,7 +304,7 @@ Here is a class diagram for the key fields in the IndividualName class:
 
 [![](https://mermaid.ink/img/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5jbGFzcyBJbmRpdmlkdWFsTmFtZSB7XG4gIGZpcnN0XG4gIG1pZGRsZVxuICBsYXN0XG4gIGZ1bGwoKVxuICBmaXJzdGxhc3QoKVxuICBsYXN0Zmlyc3QoKVxufSIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5jbGFzcyBJbmRpdmlkdWFsTmFtZSB7XG4gIGZpcnN0XG4gIG1pZGRsZVxuICBsYXN0XG4gIGZ1bGwoKVxuICBmaXJzdGxhc3QoKVxuICBsYXN0Zmlyc3QoKVxufSIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
-When we refer to just an IndividualName, Docassemble runs the `.full()` method and returns the full name with a middle initial. The `.firstlast()` method leaves out the middle name. The `lastfirst()` method shows the name like this: `Last, First`.
+When we refer to just an IndividualName, docassemble runs the `.full()` method and returns the full name with a middle initial. The `.firstlast()` method leaves out the middle name. The `lastfirst()` method shows the name like this: `Last, First`.
 
 ### Address
 
@@ -316,7 +316,7 @@ Here's a class diagram for the key fields in the [Address](https://docassemble.o
 
 If you want to verify the user's address was entered correctly, you have at least two options:
 
-1. Use the `address autocomplete` feature. This tells Docassemble to use Google to fill-in the address as you type.
+1. Use the `address autocomplete` feature. This tells docassemble to use Google to fill-in the address as you type.
 1. Use the `.normalize()` method to correct any mistakes in the address after you collect it from the user. This will overwrite the user's inputs; see the [full documentation](https://docassemble.org/docs/objects.html#Address) to learn about alternatives.
 
 Here's a sample interview that uses `address autocomplete` to fill-in the user's address as they type:

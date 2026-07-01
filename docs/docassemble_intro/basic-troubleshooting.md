@@ -16,12 +16,12 @@ computer, load an old copy of the code, or just try something new.
 Don't let errors scare you!
 :::
 
-Take this basic approach to solving problems while developing in Docassemble:
+Take this basic approach to solving problems while developing in docassemble:
 
 1. Read the error message
 1. Identify whether the problem is with:
     - The interview YAML file format
-    - Docassemble logic in your interview
+    - docassemble logic in your interview
     - Python code
     - A template file
 1. Isolate the problem to a small section of your project
@@ -31,32 +31,32 @@ Take this basic approach to solving problems while developing in Docassemble:
 
 Slow down and read the error message. Look for key words that might tell you what has gone wrong.
 
-If you don't see a key word in the error that you can understand, read the error screen to see if you can identify which block in the YAML file Docassemble was trying to run. Then search for that block in the YAML file (copy and paste a snippet of the exact text you want to match) and look to see if you can catch a typo.
+If you don't see a key word in the error that you can understand, read the error screen to see if you can identify which block in the YAML file docassemble was trying to run. Then search for that block in the YAML file (copy and paste a snippet of the exact text you want to match) and look to see if you can catch a typo.
 
 Some errors will be easier to read than others. Take a look and see if you can spot the error
 on the screens below.
 
-![Docassemble has finished executing all code blocks marked as initial or mandatory, and finished asking all questions marked as mandatory (if any). It is a best practice to end your interview with a question that says goodbye and offers an Exit button.](img/error_mandatory.png)
+![docassemble has finished executing all code blocks marked as initial or mandatory, and finished asking all questions marked as mandatory (if any). It is a best practice to end your interview with a question that says goodbye and offers an Exit button.](img/error_mandatory.png)
 
-In the error message above, Docassemble tells us that there is no "initial or mandatory" block or question.
+In the error message above, docassemble tells us that there is no "initial or mandatory" block or question.
 You may have seen this screen when you wrote your first interview from scratch.
 
 ![Missing docx template file fake_file.docx](img/error_missing_template.png)
 
-In the error message above, we can see that Docassemble is not able to locate the template file named
+In the error message above, we can see that docassemble is not able to locate the template file named
 `fake_file.docx`.
 
-## Docassemble usage errors
+## docassemble usage errors
 
 ![This block is missing a 'question' directive. In file docassemble.playground10ErrorExamples:error.yml from package docassemble.playground10Error Examples: fields: - Test: abc_123](img/error_missing_question.png)
 
-In the error above, the Docassemble author has forgotten to include a `question` "directive" in a block that Docassemble thinks is intended to be a question block. (The word "directive" has a lot of synonyms in Docassemble--sometimes it is called a "specifier" or a "key").
+In the error above, the docassemble author has forgotten to include a `question` "directive" in a block that docassemble thinks is intended to be a question block. (The word "directive" has a lot of synonyms in docassemble--sometimes it is called a "specifier" or a "key").
 
-Even if we didn't know what a "directive" is, below the error message, the entire block that Docassemble tried to run is reproduced. We can see that this block has a "fields" statement but nothing else. The more you practice working in Docassemble, the more errors like this will stick out.
+Even if we didn't know what a "directive" is, below the error message, the entire block that docassemble tried to run is reproduced. We can see that this block has a "fields" statement but nothing else. The more you practice working in docassemble, the more errors like this will stick out.
 
 ## YAML syntax errors
 
-Sometimes, you don't get an error message from Docassemble at all. Instead, you get an error message that indicates that Docassemble wasn't able to read the YAML file. A lot of subtle syntax errors can make the YAML file invalid.
+Sometimes, you don't get an error message from docassemble at all. Instead, you get an error message that indicates that docassemble wasn't able to read the YAML file. A lot of subtle syntax errors can make the YAML file invalid.
 
 
 <details>
@@ -110,19 +110,19 @@ this valid YAML.
 Error messages with YAML files can include:
 
 - Using the wrong indentation
-- Having a duplicate "key" (what Docassemble sometimes calls a specifier or
+- Having a duplicate "key" (what docassemble sometimes calls a specifier or
   directive -- the word before a `:`)
 - Using an ambiguous symbol, like a `:` in a place that the YAML parser doesn't
   expect
 
 When you run into an error message that you haven't seen before, first figure
-out where Docassemble tells you the error is located. Look to see if anything
+out where docassemble tells you the error is located. Look to see if anything
 seems out of place on that line. If that doesn't help you spot an error, try
 looking a line or two above or below.
 
 ### Try a YAML validator
 
-The error messages you get from Docassemble can be very generic. You might find
+The error messages you get from docassemble can be very generic. You might find
 it helpful to find a website that lets you validate a YAML file. Just copy and
 paste the full YAML document into the online validator. Make sure that the YAML
 validator you try understands multi-part YAML documents (ones with `---` in
@@ -206,7 +206,7 @@ DOCX templates can cause a lot of challenges for troubleshooting. Here are a few
 ### Problems with corrupt DOCX templates or layout problems
 
 Open the file in LibreOffice. However it renders in LibreOffice is how it will
-renders when Docassemble converts it to a PDF. If you can fix it in Libreoffice,
+renders when docassemble converts it to a PDF. If you can fix it in Libreoffice,
 it should still look right in Word.
 
 Sometimes, corrupt DOCX files can be fixed by saving to RTF and then back to DOCX.

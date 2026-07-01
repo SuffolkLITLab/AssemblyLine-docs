@@ -1,28 +1,28 @@
 ---
 slug: introduction-to-docassemble
-title: Introduction to Docassemble
-sidebar_label: Introduction to Docassemble
+title: Introduction to docassemble
+sidebar_label: Introduction to docassemble
 ---
 
-## What is Docassemble?
+## What is docassemble?
 
-[Docassemble](https://docassemble.org) describes itself as a free, [open-source](https://en.wikipedia.org/wiki/Open_source) [expert system](https://en.wikipedia.org/wiki/Expert_system) for guided interviews and [document assembly](https://en.wikipedia.org/wiki/Document_automation), based on [Python](https://www.python.org/), [YAML](https://en.wikipedia.org/wiki/YAML), and [Markdown](https://en.wikipedia.org/wiki/Markdown).
+[docassemble](https://docassemble.org) describes itself as a free, [open-source](https://en.wikipedia.org/wiki/Open_source) [expert system](https://en.wikipedia.org/wiki/Expert_system) for guided interviews and [document assembly](https://en.wikipedia.org/wiki/Document_automation), based on [Python](https://www.python.org/), [YAML](https://en.wikipedia.org/wiki/YAML), and [Markdown](https://en.wikipedia.org/wiki/Markdown).
 
-Another way to say this is that Docassemble is a [web framework](https://en.wikipedia.org/wiki/Web_framework) that can be easily customized to create a wide variety of interactive applications with a (usually linear) question/answer format that might:
+Another way to say this is that docassemble is a [web framework](https://en.wikipedia.org/wiki/Web_framework) that can be easily customized to create a wide variety of interactive applications with a (usually linear) question/answer format that might:
 
 1. Deliver tailored information or advice
 1. Fill out a template with information gathered from a user or client
 1. Place information into an electronic database
 
-For example, a Docassemble interview could ask for something like the user's name and address and use those to add the user's signature to a letter to Congress. A more complex example could ask for facts that underly a complaint and create tailored pleadings: and even electronically file them on PACER.
+For example, a docassemble interview could ask for something like the user's name and address and use those to add the user's signature to a letter to Congress. A more complex example could ask for facts that underly a complaint and create tailored pleadings: and even electronically file them on PACER.
 
-These applications are usually called _interviews_. A server running Docassemble can run many interviews at once.
+These applications are usually called _interviews_. A server running docassemble can run many interviews at once.
 
-An interview author can use Docassemble to create one of these interviews without having to focus on many of the details of running or configuring a web application. At the same time, Docassemble offers a great deal of flexibility to customize and add advanced features without needing to switch to a different platform.
+An interview author can use docassemble to create one of these interviews without having to focus on many of the details of running or configuring a web application. At the same time, docassemble offers a great deal of flexibility to customize and add advanced features without needing to switch to a different platform.
 
 ## Comparable applications
 
-If you are reading this in the United States, you have probably used TurboTax or a competitor for filing your taxes. Docassemble allows the creation of very similar applications. Direct competitors to Docassemble's functionality include:
+If you are reading this in the United States, you have probably used TurboTax or a competitor for filing your taxes. docassemble allows the creation of very similar applications. Direct competitors to docassemble's functionality include:
 
 1. [HotDocs](https://hotdocs.com)
 1. [A2J Author](https://a2jauthor.org)
@@ -34,15 +34,15 @@ Notable apps in the same space but with different functionality include:
 
 1. [QnAMarkup](https://qnamarkup.org)
 
-Docassemble has also inspired two user-friendly low-code frontends: [Afterpattern](https://afterpattern.com/) (previously Community Lawyer) and [Documate](https://www.documate.org/).
+docassemble has also inspired two user-friendly low-code frontends: [Afterpattern](https://afterpattern.com/) (previously Community Lawyer) and [Documate](https://www.documate.org/).
 
-## How does Docassemble work?
+## How does docassemble work?
 
-Docassemble runs on a web server. This could be a desktop or laptop computer, but most commonly, it's a computer in "the cloud," such as Amazon Web Services (AWS).
+docassemble runs on a web server. This could be a desktop or laptop computer, but most commonly, it's a computer in "the cloud," such as Amazon Web Services (AWS).
 
-You typically access Docassemble from a web browser, either on a desktop or a mobile device. Docassemble can also be accessed by SMS text messaging, voice control, or by API.
+You typically access docassemble from a web browser, either on a desktop or a mobile device. docassemble can also be accessed by SMS text messaging, voice control, or by API.
 
-Interview authors need to think about three key components when creating a Docassemble interview:
+Interview authors need to think about three key components when creating a docassemble interview:
 
 1. The _interview_ questions (and their sequence, and logic controlling that sequence)
 1. The _template_ or final output, and any logic internal to the template that decides whether certain sections are shown or hidden.
@@ -61,7 +61,7 @@ Templates are normally one of three choices, each with different systems of logi
 The plain text format can be downloaded by the end user as an RTF, Word or PDF file, and Microsoft Word templates can be downloaded as Word files or automatically converted to PDFs.
 
 ### Logic
-Docassemble runs on Python, a popular and easy to use computer programming logic. It's typical to write business rules in Python. There are slight variations on Python used for logic inside templates.
+docassemble runs on Python, a popular and easy to use computer programming logic. It's typical to write business rules in Python. There are slight variations on Python used for logic inside templates.
 
 There's no one place that you absolutely must put this logic. It can live in the template file. It could be embedded into your interview file. Or it can live in separate Python modules.
 
@@ -75,7 +75,7 @@ def test_rule_against_perpetuities(person, vesting_time):
 for each rule that your interview makes use of. It's even possible to share these rules with other authors and avoid having to go through the difficult process of turning legal rules into computer code when unnecessary.
 
 ## Special features
-Docassemble has a number of special features that make it powerful for representing complex legal applications.
+docassemble has a number of special features that make it powerful for representing complex legal applications.
 
 1. Ability to schedule interaction after the user's session has ended
 1. Integration with email and SMS to automate reminders, follow-up interviews, and more

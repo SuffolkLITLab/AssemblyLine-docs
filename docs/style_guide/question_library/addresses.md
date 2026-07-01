@@ -44,7 +44,7 @@ fields:
 ```      
 
   </TabItem>
-  <TabItem value="Vanilla Docassemble" label="Vanilla Docassemble">
+  <TabItem value="Vanilla docassemble" label="Vanilla docassemble">
 
 ```yaml
 ---
@@ -95,7 +95,7 @@ fields:
 ```      
 
   </TabItem>
-  <TabItem value="Vanilla Docassemble" label="Vanilla Docassemble">
+  <TabItem value="Vanilla docassemble" label="Vanilla docassemble">
 
 ```yaml
 ---
@@ -160,7 +160,7 @@ fields:
 ```      
 
   </TabItem>
-  <TabItem value="Vanilla Docassemble" label="Vanilla Docassemble">
+  <TabItem value="Vanilla docassemble" label="Vanilla docassemble">
 
 ```yaml
 ---
@@ -262,7 +262,7 @@ fields:
 ```      
 
   </TabItem>
-  <TabItem value="Vanilla Docassemble" label="Vanilla Docassemble">
+  <TabItem value="Vanilla docassemble" label="Vanilla docassemble">
 
 ```yaml
 ---
@@ -395,7 +395,7 @@ fields:
 ```
 
   </TabItem>
-  <TabItem value="Vanilla Docassemble" label="Vanilla Docassemble">
+  <TabItem value="Vanilla docassemble" label="Vanilla docassemble">
 
 ```yaml
 ---
@@ -451,7 +451,7 @@ fields:
 ```
 
   </TabItem>
-  <TabItem value="Vanilla Docassemble" label="Vanilla Docassemble">
+  <TabItem value="Vanilla docassemble" label="Vanilla docassemble">
 
 ```yaml
 id: contact information

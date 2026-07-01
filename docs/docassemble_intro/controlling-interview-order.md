@@ -10,7 +10,7 @@ You can think of a docassemble interview as a library of questions.
 The only questions that docassemble will ask are those that are triggered,
 either by a `mandatory` block or in some other way.
 
-Docassemble will scan the interview file until it finds a question
+docassemble will scan the interview file until it finds a question
 that contains the answer to every field that is required by any
 mandatory block. If a field isn't used in the mandatory block, or a
 block that the mandatory block itself triggers, it will never be shown
@@ -52,7 +52,7 @@ subquestion: |
 
 ### What happened?
 
-Docassemble only asks the `air_speed` and `first_name` questions. The `quest`
+docassemble only asks the `air_speed` and `first_name` questions. The `quest`
 question wasn't used by any mandatory blocks in this interview, so it
 was never asked.
 
@@ -159,11 +159,11 @@ code: |
 
 ### How the block is run
 
-Docassemble runs this code block from top to bottom, seeking the definition of
+docassemble runs this code block from top to bottom, seeking the definition of
 each variable listed in the code block in order. Each **undefined** variable
 triggers an exception (`NameError`, `AttributeError` or `KeyError`) which
-Docassemble intercepts, running code or asking a question that can define that
-variable. **Docassemble will then run the interview order block again** from top
+docassemble intercepts, running code or asking a question that can define that
+variable. **docassemble will then run the interview order block again** from top
 to bottom until it reaches the next undefined variable.
 
 Understanding that the code block might run multiple times is important! Use
@@ -173,7 +173,7 @@ multiple times.
 
 ### You cannot trigger a block with `id`
 
-Another common pattern new Docassemble developers try is to trigger a specific
+Another common pattern new docassemble developers try is to trigger a specific
 block in the interview order block by referencing the block's `id` or by
 adding an `event` modifier to the block.
 
@@ -188,7 +188,7 @@ set during it. You should not attach an `event` modifier to a block of code that
 you want to trigger in an `interview order` block. Reserve it for ending
 questions, not to label code you want to run.
 
-The other place that `event` is used is with the Docassemble `actions` system.
+The other place that `event` is used is with the docassemble `actions` system.
 
 `Event`s linked to actions that **do** permanently alter an interview's state
 can be triggered by an [external
@@ -199,15 +199,15 @@ Don't try to use an `event` to trigger code in the main flow of an interview.
 
 ### How the interview order block differs from HotDocs' INTERVIEW computation
 
-Remember, Docassemble is goal seeking. It doesn't care what screens the user has
+Remember, docassemble is goal seeking. It doesn't care what screens the user has
 seen: it tries to define all of the variables that you mark as `mandatory` that
 it can reach.
 
 Unlike in HotDocs, listing a variable that is already defined will not trigger
-anything being displayed. Docassemble only displays something or tries running
+anything being displayed. docassemble only displays something or tries running
 code if the variable triggers a Python exception.
 
-A common mistake when a developer is getting used to Docassemble's built-in
+A common mistake when a developer is getting used to docassemble's built-in
 `Individual` and `Address` classes is to list an object in the interview order
 block. The developer may not realize that the `name` and `address` attributes of
 an Individual are themselves objects and that they get pre-initialized.
@@ -248,11 +248,11 @@ code: |
 
 The `name.first` and `address.address` attributes are not defined yet.
 Mentioning them will cause an `AttributeError` exception and lead
-Docassemble to seeking a question or code block to define them.
+docassemble to seeking a question or code block to define them.
 
 Another way that the `interview order` block differs from HotDocs
 is that you might find that other variables are triggered that you did not
-explicitly list. Remember, Docassemble is seeking to satisfy all of the
+explicitly list. Remember, docassemble is seeking to satisfy all of the
 variables you list in order. If your question or code block in turn 
 depends on another variable, that will be triggered along with the
 variable you explicitly list.
@@ -301,7 +301,7 @@ You can do that a few different ways:
 3. Creating a [review screen](https://docassemble.org/docs/fields.html#review)
 1. Using [`url_action()`](https://docassemble.org/docs/functions.html#url_action)
 
-`invalidate()` will tell Docassemble the variable is not defined without erasing the
+`invalidate()` will tell docassemble the variable is not defined without erasing the
 value it has. This has the effect of allowing you to revisit a question.
 
 `force_ask()` has a similar effect in most circumstances, but offers much more
@@ -411,7 +411,7 @@ user clicks a link.
 ### Avoid setting variables in the interview order block
 
 You might be tempted to treat the interview order block like a script in an
-imperative programming language. This would be incorrect. Docassemble is
+imperative programming language. This would be incorrect. docassemble is
 declarative. The interview order block should list a set of goals. Setting variables
 in the interview order block can:
 
@@ -424,7 +424,7 @@ Yet sometimes you do want to trigger code. Do that by using a "named block".
 
 ### Triggering a question and then continuing: using `continue button field`
 
-Docassemble does have a way for you to invoke a screen more explicitly. When you
+docassemble does have a way for you to invoke a screen more explicitly. When you
 add a [`continue button
 field`](https://docassemble.org/docs/fields.html#continue%20button%20field) to
 a question block, you give the block a variable name. You can mention that
@@ -454,7 +454,7 @@ that doesn't ask any questions. Avoid using it to simulate HotDocs's
 dialog-based interview order. You can run into harder to trace logic.
 
 ### Triggering code and then continuing: using "named" blocks
-Named block is a term that I use that is not in the Docassemble documentation,
+Named block is a term that I use that is not in the docassemble documentation,
 but is a very handy concept.
 
 Here is a short example:
@@ -478,27 +478,27 @@ code: |
 Notice that in our interview order block, we referenced a variable named
 `get_api_results`. This is the "named block." This variable gets defined at the
 **end** of our code block. Because it is not defined until the end of the code
-block, Docassemble needs to run the whole code block to define it.
+block, docassemble needs to run the whole code block to define it.
 
 This is roughly equivalent to a computation in HotDocs, but note that this code
 block will only run once. When the interview order block is run again,
-`get_api_results` will already be defined. There is no need for Docassemble
+`get_api_results` will already be defined. There is no need for docassemble
 to run it again.
 
 What if you **do** want it to run multiple times? You can use the [`depends
 on`](https://docassemble.org/docs/logic.html#depends%20on) modifier to specify
-conditions that will cause Docassemble to recalculate the `get_api_results`
+conditions that will cause docassemble to recalculate the `get_api_results`
 definition. More bluntly, you can use
 [`reconsider`](https://docassemble.org/docs/logic.html#reconsider) to run the
 code block each time the screen is refreshed. It is usually best to avoid
 `reconsider` if there is a different tool that works because overusing it can
-greatly slow down Docassemble's operation and sometimes lead to unintended
+greatly slow down docassemble's operation and sometimes lead to unintended
 behavior. `depends on` also serves a dual purpose of allowing you to explain
 your code's purpose to the next developer to come along and read your interview.
 
 
 # Learn more
 
-* Docassemble Documentation: [Logic](https://docassemble.org/docs/logic.html)
+* docassemble Documentation: [Logic](https://docassemble.org/docs/logic.html)
 
 Quinten Steenhuis, February 2021

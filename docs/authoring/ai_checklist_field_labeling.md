@@ -20,4 +20,4 @@ Related guides (canonical details):
 - [Field labels to use in template files](doc_vars_reference.md)
 - [PDF templates](pdf_templates.md)
 - [DOCX templates](docx_templates.md)
-- [Docassemble variable naming in Python](../coding_style/python.md)
+- [docassemble variable naming in Python](../coding_style/python.md)
