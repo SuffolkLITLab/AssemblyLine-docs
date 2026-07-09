@@ -4,7 +4,7 @@ title: Rebuilding your AWS Lightsail instance
 sidebar_label: Rebuilding your AWS Lightsail instance
 ---
 
-## Rebuilding your Docassemble server
+## Rebuilding your docassemble server
 
 Periodically, a new version of Ubuntu that runs in your Lightsail container
 will be available. A new [Long-term Support (LTS)](https://wiki.ubuntu.com/LTS)
@@ -17,23 +17,23 @@ the specifications. For example, you can upgrade to a container with more RAM,
 CPUs, or storage space.
 
 The good news is that you can update the Ubuntu software in your Lightsail
-container and connect it to your existing Docassemble database. This saves time and
+container and connect it to your existing docassemble database. This saves time and
 minimizes changes.
 
 ## Before you begin
 
 This process involves backing up files, creating a new AWS Lightsail instance, and
 connecting the new instance to your database. It will create a new Docker container.
-The new Docker container will be running the latest version of Docassemble and other
+The new Docker container will be running the latest version of docassemble and other
 installed packages. The process usually takes around 1 hour, so do it when you can
-afford your Docassemble server to be unavailable for a while.
+afford your docassemble server to be unavailable for a while.
 
-This guide assumes you already have an existing, functional Docassemble server with
+This guide assumes you already have an existing, functional docassemble server with
 the following setup:
  - AWS Lightsail instance
  - AWS S3 data storage
  - Docker container
- - Docassemble web app
+ - docassemble web app
 
 It also assumes you can access all those items through AWS, including SSH access to
 the Lightsail instance. See
@@ -83,7 +83,7 @@ When complete, in AWS, go to the Lightsail instance and click **Stop**.
 
 ## Back up S3 files 
 
-You can now make a copy of the Docassemble files that are stored in your S3 bucket. Most
+You can now make a copy of the docassemble files that are stored in your S3 bucket. Most
 of the time you won't need to use these backups. It's reassuring to have a backup copy.
 
 Sign into AWS, and go to your Amazon S3 Buckets. Click on the server you want to upgrade.
@@ -102,7 +102,7 @@ In AWS Lightsail, you can make a new instance by following these steps.
  - Be sure to match the geographical zone where old server is located.
  - Select the platform: Unix/Linux.
  - Select a blueprint: Under the 'Operating System (OS) only' tab, select Ubuntu 22.04 LTS (or the latest version).
- - Choose your instance plan: Most new Docassemble instances use the 4GB Memory option.
+ - Choose your instance plan: Most new docassemble instances use the 4GB Memory option.
  - Give your server a name under Identify your instance. This can't be the same as your existing instance.
 You might want to include the Ubuntu version or year. It is helpful to include something
 like "Dev" or "Prod" to keep these types of severs distinct. For example, you could name the

@@ -5,7 +5,7 @@ sidebar_label: Translating your interview
 slug: translation
 ---
 
-The Assembly Line has several tools that build on Docassemble's native translation system
+The Assembly Line has several tools that build on docassemble's native translation system
 to help you offer your interview in multiple languages:
 
 1. Widgets that you can display to allow the user to switch languages
@@ -22,7 +22,7 @@ to help you offer your interview in multiple languages:
 
 ### Language Codes
 
-In Docassemble, you reference the language you are using with a short name of
+In docassemble, you reference the language you are using with a short name of
 your choice.
 
 Most authors use 2-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 
@@ -36,8 +36,8 @@ one of your own invention, as long as you use the same one everywhere for that d
 
 ### XLSX File format
 
-Docassemble interviews can be translated by adding a special Excel spreadsheet (XLSX format)
-in the `sources` folder of your package. Docassemble's translation system
+docassemble interviews can be translated by adding a special Excel spreadsheet (XLSX format)
+in the `sources` folder of your package. docassemble's translation system
 works without requiring you to maintain multiple YAML files. The translated phrases are loaded
 "live" when you run your interview.
 
@@ -60,11 +60,11 @@ Some parts of the interview require special handling:
   in-place with the `language` modifier.
 * Literal Python strings, like you might use in a call to `validation_code()`
 
-When a phrase has not been translated yet, the user will not get an error. Instead, Docassemble will show the default language.
+When a phrase has not been translated yet, the user will not get an error. Instead, docassemble will show the default language.
 
 Translation works off of an exact match. When you change the original language
 of a question, the translation will no longer be valid. Even changes to 
-punctuation and white space will cause Docassemble to ignore the translation and
+punctuation and white space will cause docassemble to ignore the translation and
 show the page in its original language.
 
 ## Making a translation file
@@ -326,7 +326,7 @@ We manually translated the codes for about 45 common first languages for migrant
 
 If you have a language your interview is available in that isn't contained in this file, you can copy
 and customize the ["languages.yml"](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/blob/main/docassemble/AssemblyLine/data/sources/languages.yml).
-**Be sure to place the customized file in the `data/sources/` folder in your Docassemble package, not in the normal `questions` folder.** 
+**Be sure to place the customized file in the `data/sources/` folder in your docassemble package, not in the normal `questions` folder.** 
 The custom version will be substituted
 for the built-in version. Most US-based legal aid providers won't find it necessary to customize this
 file. We also welcome pull requests to add to the list of supported languages.
@@ -338,7 +338,7 @@ If a language code is not listed in `languages.yml`, the Assembly Line functions
 
 ## Read more
 
-You can read more about the stock language features in the official Docassemble [language features documentation](https://docassemble.org/docs/language.html).
+You can read more about the stock language features in the official docassemble [language features documentation](https://docassemble.org/docs/language.html).
 
 Also, see the documentation for the [AL language module](language.md) for complete API documentation of all language-related functions.
 

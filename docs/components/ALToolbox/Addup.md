@@ -21,7 +21,7 @@ class Addup()
 Utility class for calculating sums of numeric fields across DAList objects.
 
 This class provides functionality to sum specific numeric fields from all
-items in a Docassemble DAList, which is useful for financial calculations
+items in a docassemble DAList, which is useful for financial calculations
 and data aggregation in legal document automation.
 
 <a id="ALToolbox.Addup.Addup.__init__"></a>

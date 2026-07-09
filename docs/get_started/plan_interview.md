@@ -13,7 +13,7 @@ To automate a form using the Assembly Line framework, you must:
 1. identify the template that you will use: either a PDF or DOCX template
 1. add digital **field labels** where the information the user provides will go
 1. run the labeled template through the Assembly Line Weaver
-1. download the "weaved" form and refine in your Docassemble playground
+1. download the "weaved" form and refine in your docassemble playground
 1. test, respond to feedback, and iterate
 1. deploy to a production server and add links on your public website
 

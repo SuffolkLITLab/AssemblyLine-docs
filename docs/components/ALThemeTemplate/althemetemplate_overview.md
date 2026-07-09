@@ -16,7 +16,7 @@ below you want to implement for your organization.
 
 ## Visual customization
 
-You can customize Docassemble, and Assembly Line interviews, with a Bootstrap 5 theme.
+You can customize docassemble, and Assembly Line interviews, with a Bootstrap 5 theme.
 
 ### Customizing the logo and title for Assembly Line interviews
 
@@ -31,7 +31,7 @@ You should also customize the:
 If you want to build a custom theme, encompassing colors, fonts, button styles and other
 options that are configurable with css, you can create a custom Bootstrap theme.
 
-To use a custom theme with Docassemble, you:
+To use a custom theme with docassemble, you:
 
 1. Create a .scss file with your customized variables.
 
@@ -93,7 +93,7 @@ The link should be /start/ALDashboard/compile_bootstrap on your server. If you a
 the Suffolk Development server, you can visit a [live version of the tool](https://apps-dev.suffolklitlab.org/start/ALDashboard/compile_bootstrap)
 to try it out.
 
-Click continue to acknowledge the minimum system version of your Docassemble server.
+Click continue to acknowledge the minimum system version of your docassemble server.
 
 Either copy and paste the snippet you copied from Huemint.com, or open the `_variables.scss` file you exported
 from Bootstrap.build and copy and paste its contents. The `_variables.scss` file is a simple text file
@@ -103,7 +103,7 @@ that can be opened in any editor.
 for your theme to compile.
 
 If you changed the `$primary` color (from the default blue), it usually also makes sense to directly set the
-value of `$blue` to the same value you chose for `$primary`. (Docassemble uses `$blue` for the section navigation,
+value of `$blue` to the same value you chose for `$primary`. (docassemble uses `$blue` for the section navigation,
 and it usually looks better if it is the same color as the next/continue button).
 
 Here is an example of working contents for a custom theme in the Dashboard window:
@@ -125,7 +125,7 @@ $theme-colors: (
 @import "bootstrap";
 ```
 
-The ALDashboard widget will let you see a preview of your theme so you can see what it will look like in Docassemble.
+The ALDashboard widget will let you see a preview of your theme so you can see what it will look like in docassemble.
 
 ![A screenshot that says "Your file is compiled! You can view and copy your file, or download it directly by right clicking the link to save it as a CSS file". Below are examples of Bootstrap components like buttons and nav bars.](../../assets/dashboard-bootstrap-example.png)
 
@@ -171,12 +171,12 @@ npm run css-compile
 ```
 
 Your new `custom.css` file is in the
-`~/bootstrap-5.1.3/dist/css` directory. Copy this file to your Docassemble
+`~/bootstrap-5.1.3/dist/css` directory. Copy this file to your docassemble
 `static` folder and reference it as a `bootstrap theme`.
 
 ### Overriding the favicon for a single interview
 
-Docassemble's global configuration only allows you to define the favicon server-wide,
+docassemble's global configuration only allows you to define the favicon server-wide,
 but sometimes you have a reason for a single interview to use a different one.
 
 You can override the favicon at runtime by loading a custom JavaScript file in your interview:
@@ -209,14 +209,14 @@ The favicon will be updated whenever a new page loads in your interview, overrid
 
 ### Using dark mode
 
-Docassemble by default will show an alternate "dark mode" version of your interview to
+docassemble by default will show an alternate "dark mode" version of your interview to
 users who request it, usually with a browser or OS setting. You can set your browser
 or OS to use dark mode by following [these instructions](https://support.google.com/chrome/answer/9275525?hl=en&co=GENIE.Platform%3DDesktop#zippy=) to see what your interview looks like.
 
 
 ### Using custom fonts in the frontend
 
-You can use custom webfonts with Docassemble, just like you can with any other web
+You can use custom webfonts with docassemble, just like you can with any other web
 product.
 
 This [Mozilla guide about web
@@ -228,12 +228,12 @@ If you do not already have a .woff or .woff2 file but you do have a TrueType
 one with a [free online web font
 tool](https://www.fontsquirrel.com/tools/webfont-generator).
 
-1. Once you have a .woff file, upload it to the /static folder of a Docassemble playground.
+1. Once you have a .woff file, upload it to the /static folder of a docassemble playground.
 1. Add an `@font-face` directive to your bootstrap.css file (or a separate CSS file that you
 reference in the `features` block of your interview)
 
 You cannot include Mako tags in your CSS file, so in order to use the new font face, you should
-add it to a Docassemble package and then install the package on your server.
+add it to a docassemble package and then install the package on your server.
 
 Example:
 
@@ -247,14 +247,14 @@ Example:
 }
 ```
 
-In the example above, MyTheme is a Docassemble package that is installed
+In the example above, MyTheme is a docassemble package that is installed
 server-wide. my_font is both the name of a web font and the name of the WOFF file.
 
 ### Using custom fonts when creating PDF files from DOCX templates
 
 If you would like to use a font **other than** the Microsoft fonts popular in
 the late 1990s-2000 era (Arial, Times New Roman, Courier) then you will need to
-install the fonts on your Docassemble server.
+install the fonts on your docassemble server.
 
 Make sure that you have a license for each font you want to install.
 
@@ -280,7 +280,7 @@ Once you are at the ALDashboard menu page:
    after a short wait.
 
 If the font isn't available, you can try stopping and then re-starting the container by logging in to the server
-hosting your Docassemble container and running `docker stop -t 600 CONTAINERNAME` followed by `docker start CONTAINERNAME`.
+hosting your docassemble container and running `docker stop -t 600 CONTAINERNAME` followed by `docker start CONTAINERNAME`.
 
 #### Manually install the font
 

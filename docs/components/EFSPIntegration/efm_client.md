@@ -94,6 +94,6 @@ Checks the court info: if it has conditional service types, call a special API w
 def serialize_person(person: Union[Person, Individual]) -> Dict
 ```
 
-Converts a Docassemble Person or Individual into a dictionary suitable for
+Converts a docassemble Person or Individual into a dictionary suitable for
 json.dumps and in format expected by Tyler-specific endpoints on the EFSPProxy
 

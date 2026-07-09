@@ -823,7 +823,7 @@ class DALazyAttribute(DAObject)
 Extends the `DAObject` to support attributes that are re-evaluated with every page load.
 
 This is particularly helpful when there&#x27;s a need to cache information on a per-page basis.
-The implementation leverages Docassemble&#x27;s object pickling process by customizing the
+The implementation leverages docassemble&#x27;s object pickling process by customizing the
 `__getstate__` method that Pickle uses for serialization.
 
 **Attributes**:
@@ -2800,7 +2800,7 @@ Creates a plain DAFile out of the first item in a DAFileList
 
 **Arguments**:
 
-- `the_file` _DAFileList_ - an item representing an uploaded document in a Docassemble interview
+- `the_file` _DAFileList_ - an item representing an uploaded document in a docassemble interview
   
 
 **Returns**:

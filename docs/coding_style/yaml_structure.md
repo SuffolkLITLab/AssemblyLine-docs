@@ -84,7 +84,7 @@ Adding an id to each question:
 
 It is important to be able view the logic of your interview at a glance. The
 `interview order` block concept is the most powerful way that we have found to
-accomplish that goal in Docassemble.
+accomplish that goal in docassemble.
 
 [Read more about interview order blocks](../docassemble_intro/controlling-interview-order#the-interview-order-block).
 

@@ -1,8 +1,8 @@
 ---
 id: efiling_through_docassemble
 title: |
-  E-filing through Docassemble
-sidebar_label: Integrating Docassemble interviews with e-filing
+  E-filing through docassemble
+sidebar_label: Integrating docassemble interviews with e-filing
 slug: docassemble_integration
 ---
 
@@ -124,7 +124,7 @@ In addition to a case type that describes the whole "envelope", individual docum
 1. Use the getFilingTypes endpoint to get a list of available filing types and their associated codes. For example: https://efile-test.suffolklitlab.org/jurisdictions/massachusetts/codes/courts/appeals:acsj/filing_types.
 1. You can search in the page for the matching filing type. For example, for "Rule 6.0 Motion to Stay" the filing type is 101450.
 
-Assuming that your Docassemble interview allows filing exactly one case type and category, the efiling_integration.yml file will expect to find the codes defined this way:
+Assuming that your docassemble interview allows filing exactly one case type and category, the efiling_integration.yml file will expect to find the codes defined this way:
 
 ```yaml
 code: |

@@ -145,6 +145,6 @@ click around. It's in different places in different versions of Acrobat.
 
 :::
 
-## Docassemble's documentation
+## docassemble's documentation
 
 * [Gathering the user’s signature into a file variable](https://docassemble.org/docs/fields.html#signature)

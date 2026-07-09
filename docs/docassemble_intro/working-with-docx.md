@@ -39,7 +39,7 @@ You can copy and paste the text above right into the Word file. Name the file
 `hello_world.docx`. Upload it to your playground using the Folders | Templates
 area of the playground.
 
-Next, make a new interview in your Docassemble playground that looks like this:
+Next, make a new interview in your docassemble playground that looks like this:
 
 ```yaml
 ---
@@ -61,7 +61,7 @@ Save and run the interview, and see what you get.
 
 Our interview has a question for one variable: `user_name`. Inside the docx
 file, we put the variable name inside curly brackets, like this: `{{ user_name }}`.
-Docassemble replaced `{{ user_name }}` with the text we entered when we ran the interview.
+docassemble replaced `{{ user_name }}` with the text we entered when we ran the interview.
 
 Notice that the `{{ }}` is pretty similar to what we did in the Hello, World exercise.
 This syntax is called [Jinja2](jinja2.md). The big difference is in a Docx we use two curly
@@ -82,7 +82,7 @@ makes.
 ## Mail Merge can't do **that**
 
 What if we wanted to include some optional text in our template? It's pretty common
-to want different versions of a document for different scenarios. Docassemble of
+to want different versions of a document for different scenarios. docassemble of
 course allows you to use conditional text inside your Docx template.
 
 Create a Word document with the text below. You can copy and paste the 
@@ -149,7 +149,7 @@ headings, bold, and so on? What about changing the format of the `{{ user_name }
 
 1. The [attachment](https://docassemble.org/docs/documents.html#attachment) block
 1. [Docx Templates](https://docassemble.org/docs/documents.html#docx%20template%20file)
-1. [Docassemble tutorial](https://docassemble.org/docs/helloworld.html)
+1. [docassemble tutorial](https://docassemble.org/docs/helloworld.html)
 1. [Jinja reference](https://jinja.palletsprojects.com/en/2.11.x/) (this is
    similar but not the exact syntax used in Docasssemble)
 1. [Docx-template Jinja reference](https://docxtpl.readthedocs.io/en/latest/#jinja2-like-syntax)

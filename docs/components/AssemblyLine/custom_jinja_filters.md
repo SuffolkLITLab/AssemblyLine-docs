@@ -215,7 +215,7 @@ is equal to the expected value (normally &quot;final&quot;); otherwise,
 return a placeholder.
 
 This is useful in ALDocument DOCX templates where you want to show a placeholder when
-the document is being generated for preview or testing, but let Docassemble trigger
+the document is being generated for preview or testing, but let docassemble trigger
 the actual value when the document is being generated for final output.
 
 E.g., to show a placeholder for a signature field when the document is being
@@ -291,7 +291,7 @@ as in an ALDocument&#x27;s &quot;preview&quot; or &quot;final&quot; values.
 def catchall_fields_code(value: Any) -> List[Dict[str, Any]]
 ```
 
-Create Docassemble code for a catchall field with the appropriate datatypes.
+Create docassemble code for a catchall field with the appropriate datatypes.
 
 **Arguments**:
 
@@ -299,5 +299,5 @@ Create Docassemble code for a catchall field with the appropriate datatypes.
 
 **Returns**:
 
-  List[Dict[str, Any]]: A dictionary containing the Docassemble code for the catchall question.
+  List[Dict[str, Any]]: A dictionary containing the docassemble code for the catchall question.
 

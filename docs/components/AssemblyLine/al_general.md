@@ -300,7 +300,7 @@ Returns a one-line formatted address.
 **Arguments**:
 
 - `include_unit` _bool_ - If True, includes the unit in the formatted address. Defaults to True.
-- `omit_default_country` _bool_ - If True, doesn&#x27;t show the Docassemble default country in the formatted address. Defaults to True.
+- `omit_default_country` _bool_ - If True, doesn&#x27;t show the docassemble default country in the formatted address. Defaults to True.
 - `language` _str, optional_ - Language for the address format.
 - `show_country` _bool, optional_ - If True, includes the country in the formatted address.
   If None, decides based on the country attribute.
@@ -630,7 +630,7 @@ other addresses, mailing addresses, previous names, aliases, and a preferred nam
 **Notes**:
 
   Objects as attributes should not be passed directly to the constructor due to
-  initialization requirements in the Docassemble framework. See the `init` method.
+  initialization requirements in the docassemble framework. See the `init` method.
 
 <a id="AssemblyLine.al_general.ALIndividual.init"></a>
 

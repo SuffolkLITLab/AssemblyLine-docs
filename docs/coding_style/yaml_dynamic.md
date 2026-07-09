@@ -103,7 +103,7 @@ However, there are common exceptions to this rule:
 1. use `needs` on review screens and other blocks that do not automatically
    trigger referenced variables to trigger `template:` blocks and the like
 1. use `sets` with `ALIndividual` blocks that rely on `name_fields()` and
-   similar fields, where needed for Docassemble to locate the question
+   similar fields, where needed for docassemble to locate the question
 
 ### Use `validation code` carefully
 

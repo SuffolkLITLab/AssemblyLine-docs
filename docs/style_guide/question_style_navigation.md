@@ -26,14 +26,14 @@ to request the court to waive fees:
 1. Download and next steps
 
 In a HotDocs interview, these sections will correspond 1 to 1 to pages and
-titles of pages in the interview. In Docassemble, you must add these sections
+titles of pages in the interview. In docassemble, you must add these sections
 separately.
 
-In a Docassemble interview, consider using the sections to allow the user to
+In a docassemble interview, consider using the sections to allow the user to
 edit and review their answers as they use the interview. This requires
 additional work but may build the user's confidence as they use your website.
 
-Example of Docassemble's standard navigation:
+Example of docassemble's standard navigation:
 
 ![](./assets/example_navigation_guardianship.png)
 

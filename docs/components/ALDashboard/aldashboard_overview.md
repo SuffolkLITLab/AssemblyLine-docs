@@ -5,7 +5,7 @@ sidebar_label: About ALDashboard
 slug: /components/ALDashboard/overview
 ---
 
-ALDashboard is a collection of tools to help administer a Docassemble server and debug interviews. It provides utilities for package management, server maintenance, translation workflows, and debugging tools specifically designed for the Document Assembly Line ecosystem.
+ALDashboard is a collection of tools to help administer a docassemble server and debug interviews. It provides utilities for package management, server maintenance, translation workflows, and debugging tools specifically designed for the Document Assembly Line ecosystem.
 
 :::warning This page is a stub
 
@@ -25,7 +25,7 @@ ALDashboard consists of several Python modules, each providing specific function
 - **validate_docx.py** - DOCX validation utilities
 - **validate_attachment.py** - Attachment validation tools
 
-Some of this functionality is useful outside of the ALDashboard. `project_maintenance.py` is specifically a tool to run from the commandline and is not available as a "widget" you can interact with from the Docassemble frontend.
+Some of this functionality is useful outside of the ALDashboard. `project_maintenance.py` is specifically a tool to run from the commandline and is not available as a "widget" you can interact with from the docassemble frontend.
 
 ## Installation
 

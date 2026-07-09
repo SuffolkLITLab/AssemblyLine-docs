@@ -207,9 +207,9 @@ def define_fields_from_dict(field_dict: Dict[str, Any],
                             fields_to_ignore: Optional[List] = None) -> None
 ```
 
-Assign values from a dictionary to corresponding Docassemble interview fields.
+Assign values from a dictionary to corresponding docassemble interview fields.
 
-Docassemble and built-in keywords are never defined by this function. If
+docassemble and built-in keywords are never defined by this function. If
 fields_to_ignore is provided, those fields will also be ignored.
 
 **Arguments**:

@@ -53,7 +53,7 @@ Writing a long, descriptive prompt that includes obvious directions is a common
 mistake made by new developers. Short labels are usually easier and faster to process 
 than long questions.
 
-Most prompts (the text that is to the left of the field in a normal Docassemble interview)
+Most prompts (the text that is to the left of the field in a normal docassemble interview)
 should stay on one line.
 
 #### Omit obvious instruction verbs like "write" or "enter"
@@ -62,7 +62,7 @@ Verbs like "enter", "write", or "list" are unnecessary in a field label.
 
 #### Consider labeling optional fields {#label-optional}
 
-Docassemble adds a red asterisk (`*`) next to required fields, but when most
+docassemble adds a red asterisk (`*`) next to required fields, but when most
 fields on the screen are required, it may be helpful to label optional fields instead.
 This is especially useful when the user is presented an area field to enter a potentially
 long explanation.

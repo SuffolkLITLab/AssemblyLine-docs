@@ -13,12 +13,12 @@ Python has a very large collection of [pre-built "modules"](https://docs.python.
 
 ## The basics of programming
 
-Docassemble developers may use only a few features of Python. Still, let's take some time to put the different aspects of any programming language in context, and then talk about how they are used in Python and in Docassemble.
+docassemble developers may use only a few features of Python. Still, let's take some time to put the different aspects of any programming language in context, and then talk about how they are used in Python and in docassemble.
 
 Programming involves two basic concepts: data, and instructions. Data is stored in variables which usually are provided when the program is run. Instructions tell the computer what to do with the data it receives.
 
 ### Variables
-Variables could be considered "buckets" that hold information. Just like `x` in an algebra equation, we don't know the value until our program is run. Docassemble variables (or fields) are also Python variables.
+Variables could be considered "buckets" that hold information. Just like `x` in an algebra equation, we don't know the value until our program is run. docassemble variables (or fields) are also Python variables.
 
 ### Datatypes, Datastructures, and Objects
 
@@ -39,17 +39,17 @@ Python includes the following built-in data structures:
 * `tuple` (like a list, but cannot be changed (immutable))
 * `set` (like a list, but has unique values)
 
-Docassemble has its own implementation of these datastructures, named `DAList`, `DADict`, and `DASet` respectively.
+docassemble has its own implementation of these datastructures, named `DAList`, `DADict`, and `DASet` respectively.
 
 Python also supports object oriented programming principles that allow you to create your own complex types. A `class` is a blueprint for an `object`. When you use objects, you gather a list of `attributes` together with `methods` that can act on the attributes to provide standardized behavior and model your program against the real world.
 
 When you want to create a new class, you can `inherit` the properties of an existing class. For example, if you had a class `apple` it may inherit properties from a `fruit` class.
 
-In Docassemble, you are encouraged to have every object inherit from the base object named `DAObject`. You will make frequent use of the [`Individual`](https://docassemble.org/docs/objects.html#Individual) object in Docassemble, which collects attributes of a person together: such as a first and last name, birthdate, address, and more.
+In docassemble, you are encouraged to have every object inherit from the base object named `DAObject`. You will make frequent use of the [`Individual`](https://docassemble.org/docs/objects.html#Individual) object in docassemble, which collects attributes of a person together: such as a first and last name, birthdate, address, and more.
 
 ### Tests and logical operators
 
-You will use `Boolean` values again and again in Docassemble. Sometimes you will get a True/False value directly from the user. Other times, you will use a logical test. Python's comparison operators should look familiar to you.
+You will use `Boolean` values again and again in docassemble. Sometimes you will get a True/False value directly from the user. Other times, you will use a logical test. Python's comparison operators should look familiar to you.
 
 * `==` (tests for equality. **Note**: `=` is reserved as the assignment operator)
 * `!=` (tests for inequality)
@@ -135,11 +135,11 @@ If you are familiar with other programming languages, you may be surprised that 
 x = 1 if test1 else 2 # Sets x to 1 if test1 is true. Otherwise, it sets x to 2
 ```
 
-The `ternary` operator can be hard to read so it's usually best to avoid it, but sometimes it's convenient to include in Docassemble in a place where you can only fit one line of code, or inside a Mako statement (`${}`).
+The `ternary` operator can be hard to read so it's usually best to avoid it, but sometimes it's convenient to include in docassemble in a place where you can only fit one line of code, or inside a Mako statement (`${}`).
 
 #### Repetition (loops)
 
-Docassemble can easily give you the power to gather repeated information. You usually gather that information into a `list` or `dictionary`. You will use Python's repetition control structures to work with those repeated values.
+docassemble can easily give you the power to gather repeated information. You usually gather that information into a `list` or `dictionary`. You will use Python's repetition control structures to work with those repeated values.
 
 ##### `for` Loops
 
@@ -205,7 +205,7 @@ Conditionally displayed text
 
 ### Functions and methods
 
-Python `functions` and `methods` are an abstraction that lets you "save" a series of instructions and operations that you will want to use again and again. In some languages, these are called `procedures`. You should write some of your own functions. But there is a large [library of functions](https://docassemble.org/docs/functions.html) built-in to Docassemble that you should also peruse when you are about to do something that you think other developers have run into in the past.
+Python `functions` and `methods` are an abstraction that lets you "save" a series of instructions and operations that you will want to use again and again. In some languages, these are called `procedures`. You should write some of your own functions. But there is a large [library of functions](https://docassemble.org/docs/functions.html) built-in to docassemble that you should also peruse when you are about to do something that you think other developers have run into in the past.
 
 You create a function in Python with the `def` keyword. Functions have `arguments` and a `return value`. Consider the following useless example:
 
@@ -224,7 +224,7 @@ For example:
 person.age_in_years() # Uses the person's birthdate attribute to calculate their current age and return it
 ```
 
-Docassemble has many [built-in objects](https://docassemble.org/docs/objects.html). When you are looking in the function library, you might miss a useful shortcut because you do not know that it is considered a method of a class rather than a standalone function.
+docassemble has many [built-in objects](https://docassemble.org/docs/objects.html). When you are looking in the function library, you might miss a useful shortcut because you do not know that it is considered a method of a class rather than a standalone function.
 
 ## Learning more about Python
 

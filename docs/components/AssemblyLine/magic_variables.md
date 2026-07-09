@@ -30,7 +30,7 @@ this feature carries some risk and is disabled by default.
 
 ### Use the AssemblyLine interview list replacement
 
-The AssemblyLine framework includes a replacement for Docassemble's "stock"
+The AssemblyLine framework includes a replacement for docassemble's "stock"
 list of in-progress interviews. It has the following improvements:
 
 1. It is significantly faster to load
@@ -42,7 +42,7 @@ list of in-progress interviews. It has the following improvements:
 If the information is available, the replacement interview list feature can also show a percent
 complete for each interview in the list.
 
-If you would like to use the AssemblyLine interview list instead of Docassemble's
+If you would like to use the AssemblyLine interview list instead of docassemble's
 stock list, edit your configuration to add the following line:
 
 ```yaml
@@ -148,7 +148,7 @@ code: |
   SOME_OPTION = "some value"
 ```
 
-Docassemble will use the code block that is "latest" (closest to the bottom) of
+docassemble will use the code block that is "latest" (closest to the bottom) of
 your main interview file. This way, you can include a default in a global file
 and then override it as needed in an individual interview.
 
@@ -471,7 +471,7 @@ session-local override exists.
 
 An event triggered when the user clicks a language selection link from the
 navigation dropdown. The event handler stores the selected language in
-`session_local.al_user_language` and calls Docassemble's `set_language()`
+`session_local.al_user_language` and calls docassemble's `set_language()`
 function.
 
 This event is used internally by `get_language_list_dropdown()` so one browser
@@ -482,7 +482,7 @@ other users.
 
 An event triggered by the inline `get_language_list()` helper. The event handler
 updates `al_user_language` from the `lang` action argument and calls
-Docassemble's `set_language()` function.
+docassemble's `set_language()` function.
 
 Use this behavior when you want the language choice to become the shared,
 interview-wide default for the current run of the interview.
@@ -574,7 +574,7 @@ It is then used to make the question about `other_parties` dynamic.
 
 `al_menu_items_custom_items` allows you to add custom menu items to the dropdown/hamburger menu that appears in the interview navigation. Custom items are displayed before the default Assembly Line menu items (such as "Start over", "Exit and delete my answers", etc.).
 
-This variable should be a list of dictionaries, where each dictionary represents a menu item. Each menu item should follow the standard Docassemble menu item format with these keys:
+This variable should be a list of dictionaries, where each dictionary represents a menu item. Each menu item should follow the standard docassemble menu item format with these keys:
 
 - `url` (required): The URL that the menu item should link to
 - `label` (required): The text displayed for the menu item  

@@ -21,7 +21,7 @@ def create_package_zip(pkgname: str,
 ```
 
 Given a dictionary of lists, with the keys representing folders and the values
-representing a list of DAFiles, create a Python package with Docassemble conventions.
+representing a list of DAFiles, create a Python package with docassemble conventions.
 info: (created by DAInterview.package_info())
 license
 author_name

@@ -2163,7 +2163,7 @@ Environment variables are the way to configure ALKiln settings or give ALKiln dy
 
 We recommend you start all your environment variable names with "ALKILN_". System-wide environment variables, like one called `PATH`, already exist on your operating system and other processes use those for their own reasons. There is no definitive list of those variables. Starting your own names with "ALKILN_" means those names are less likely to interfere with your system's other environment variables.
 
-### Docassemble config file env vars {#config-vars}
+### docassemble config file env vars {#config-vars}
 
 In <AutoDIY/> tests on your server, you put these values in your [config file](https://docassemble.org/docs/config.html#configfile) under a key you can add called `alkiln`. For example:
 
@@ -2910,7 +2910,7 @@ This is usually fine for test authors. Read about [special characters](#special-
 
 ### Special page characters {#special-chars}
 
-The text that docassemble shows the user - the text our tests need most often - is different than the text we write in our interview YAML file. Docassemble converts those characters to more semantically correct characters for the user. For example, in our code we write:
+The text that docassemble shows the user - the text our tests need most often - is different than the text we write in our interview YAML file. docassemble converts those characters to more semantically correct characters for the user. For example, in our code we write:
 
 ```yml
 subquestion: |
@@ -2929,7 +2929,7 @@ This is called “relief”
 
 They look similar to most humans, but computers think they look quite different.
 
-Docassemble does this for many other characters including single quotes and ellipses. It is best to copy/paste text your tests need **straight from the screen the user sees**.
+docassemble does this for many other characters including single quotes and ellipses. It is best to copy/paste text your tests need **straight from the screen the user sees**.
 
 
 ### Add a tag to each test {#add-tags}
