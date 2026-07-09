@@ -5,7 +5,7 @@ sidebar_label: Editing your interview
 slug: customizing_interview
 ---
 
-## Edit your completed draft interview in the Docassemble playground
+## Edit your completed draft interview in the docassemble playground
 
 While the Weaver is a menu-driven, step-by-step process, you'll make further
 edits in the Playground. In the playground, you can directly edit the
@@ -22,8 +22,8 @@ many changes can be understood by reading the text and then experimenting.
 
 This pages offers information about making some common, simple edits.
 You may also want to take this time to read through the materials in
-[Introduction to Docassemble](../docassemble_intro/introduction-to-docassemble)
-about the underlying Docassemble platform and how it works.
+[Introduction to docassemble](../docassemble_intro/introduction-to-docassemble)
+about the underlying docassemble platform and how it works.
 
 ## Double-check that you got things right in the Weaver stage
 
@@ -54,11 +54,11 @@ Before downloading the package, turn off that behavior:
 :::
 
 First, create a new "Project" in your playground. Using projects will
-help you keep your Docassemble code organized.
+help you keep your docassemble code organized.
 
 ![playground | projects ](../assets/playground_projects.png)
 
-Next, upload this file to the Docassemble playground's `Packages` folder.
+Next, upload this file to the docassemble playground's `Packages` folder.
 
 ![Folders | Packages ](../assets/playground_packages_menu.png)
 
@@ -88,7 +88,7 @@ Then, change the text that you want to change, or change the order of fields.
 
 Below we describe some of the most common starting customizations you will make,
 especially changes that interact with an Assembly Line convention.
-You can use any [Docassemble feature](https://docassemble.org/docs/fields.html)
+You can use any [docassemble feature](https://docassemble.org/docs/fields.html)
 in your interview.
 
 ## Marking a field as optional (not required)
@@ -146,7 +146,7 @@ quickly.
 
 For example, if we wanted to add this question to the interview order block below,
 you would add the variable `temporary_needed` to the interview order block because
-`temporary_needed` is the first variable on this screen. When Docassemble tries to 
+`temporary_needed` is the first variable on this screen. When docassemble tries to 
 define `temporary_needed`, it will show this screen and ask all of the questions
 mentioned on it.
 
@@ -249,7 +249,7 @@ multiple variables in one **if** statement, you need to use the more complex
 When you use `js show if`, you need to use a JavaScript expression that uses the
 function `val()` at least once. `val()` is a JavaScript function that returns
 the value of a variable name that is visible on screen. It takes the name of the
-Docassemble variable in quotes as its only parameter.
+docassemble variable in quotes as its only parameter.
 
 Here is a small example of a `js show if` expression:
 
@@ -274,7 +274,7 @@ documentation](https://docassemble.org/docs/fields.html#js%20show%20if) to learn
 how to use different combinations of values in a `js show if` expression. The
 key is that you'll use ordinary JavaScript keywords to do any comparisons.
 JavaScript is its own language, and keywords such as "or", "and" and even "=="
-work slightly differently, as explained in the Docassemble documentation. You
+work slightly differently, as explained in the docassemble documentation. You
 can also use a general resource that documents JavaScript to learn more.
 
 ## Adding conditional logic inside an attachment block
@@ -457,9 +457,9 @@ is just a YAML file named `ql_baseline.yml`.
 It contains questions about people's names, addresses, 
 birthdates, gender and pronouns, and party roles.
 
-1. **You can always write your own version of a question in the library.**  Docassemble reads your YAML file from top
+1. **You can always write your own version of a question in the library.**  docassemble reads your YAML file from top
 to bottom, so if you add your question that defines the same
-variables after the include block, Docassemble will always use your version.
+variables after the include block, docassemble will always use your version.
 1. **You maybe shouldn't write your own version.** The question library questions are tested by real users. Some customization is to be expected, but be sure you have a clear
 reason for your choice.
 
@@ -540,7 +540,7 @@ Just like `generic object` works for any object, the variable `i` (and other [in
 <details>
   <summary>More  about `i` and `x`</summary>
 
-  Learn more about `i` and `x` and how they work in Docassemble code in this Document Assembly Line workshop:
+  Learn more about `i` and `x` and how they work in docassemble code in this Document Assembly Line workshop:
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/sRfo3ZhbbnY?si=YLwmuxwi4qb3DZLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </details>
@@ -548,7 +548,7 @@ Just like `generic object` works for any object, the variable `i` (and other [in
 
 ### Learning why a question got asked
 
-Every screen in Docassemble is asked for a reason, and you can
+Every screen in docassemble is asked for a reason, and you can
 always find out why.
 
 1. Click the "source" `</>` icon in the top navigation bar.
@@ -642,7 +642,7 @@ any number, or at least one for every list of people in your interview.
 If you didn't answer this at the time, you'll get asked it when you run
 the interview each time.
 
-Fix this by editing the [definition of the list](#list-definition) so Docassemble knows
+Fix this by editing the [definition of the list](#list-definition) so docassemble knows
 there is at least one, more than one, or any number of people in
 the list.
 
@@ -696,7 +696,7 @@ For example:
 objects:
   - attorneys: ALPeopleList # Uses the default `there_are_any` question, no minimum number
   - users: ALPeopleList.using(there_are_any=True) # Will prompt one at a time, but asks for at least one
-  - other_parties: ALPeopleList.using(ask_number=True, target_number=1) # Tells Docassemble there is exactly one other_party
+  - other_parties: ALPeopleList.using(ask_number=True, target_number=1) # Tells docassemble there is exactly one other_party
  ```
 
 #### Placing a limit on the number of items gathered in a list

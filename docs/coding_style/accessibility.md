@@ -9,7 +9,7 @@ slug: accessibility
 
 Making your guided interviews accessible is first and foremost about making them easy to understand and use. Following [our advice about writing good questions](../style_guide/question_overview) can make your interview overall easier to understand and complete, which helps everyone!
 
-Other parts of web accessibility involve writing the interview in a way that the user's browser and other accessibility tools (like screen readers) can understand. Docassemble [handles many of these things](https://docassemble.org/docs/accessibility.html) for you, but there are some parts that you'll have to address when writing your interview.
+Other parts of web accessibility involve writing the interview in a way that the user's browser and other accessibility tools (like screen readers) can understand. docassemble [handles many of these things](https://docassemble.org/docs/accessibility.html) for you, but there are some parts that you'll have to address when writing your interview.
 
 To help you find accessibility problems in your interview you can use the [WAVE browser extension](https://wave.webaim.org/extension/), or if you want to check accessibility of your interview automatically, you can use the [ALKiln testing framework](../components/ALKiln/automated_testing.mdx#accessibility).
 
@@ -47,7 +47,7 @@ There should only ever be one `h1` header on a page, and in docassemble, that he
 
 ### Header sizes
 
-You might notice that the question header in Docassemble looks smaller than headers in the subquestion. This is because docassemble manually styles the question to
+You might notice that the question header in docassemble looks smaller than headers in the subquestion. This is because docassemble manually styles the question to
 look like an `h3` header, even though it is really a `h1` header. If you want the headers in your subquestion, don't skip header levels until they "look right". Instead, you can manually use HTML and style them as such:
 
 ```yaml

@@ -22,14 +22,14 @@ The Assembly Line's reminder system supports both:
 1. Email reminders, and
 1. SMS text messages
 
-This is simply a light API with basic use of Docassemble's built-in 
+This is simply a light API with basic use of docassemble's built-in 
 [cron](https://docassemble.org/docs/background.html#scheduled) system. If it doesn't
 fit your needs, you may want to use our example for inspiration and build your own.
 
 ## Prerequisites
 
 To send reminders by SMS, you will need an SMS provider set up in your docassemble configuration.
-Currently, Docassemble's only supported provider is Twilio.
+Currently, docassemble's only supported provider is Twilio.
 
 To send reminders by **email** you will need email configured on your server.
 
@@ -47,7 +47,7 @@ include:
 ```
 
 :::warning Warning
-The Assembly Line reminder system uses Docassemble's scheduled task system.
+The Assembly Line reminder system uses docassemble's scheduled task system.
 If you want to use reminders but have an existing scheduled task in your interview, you need
 to configure your scheduled tasks so that they work together. 
 :::
@@ -95,7 +95,7 @@ with the following keys:
 1. `email template`: the name of a `template` block in your YAML file that will be used for email reminders
 1. `sms template`: same as the `email template`, but for SMS reminders
 
-In the examples below, we define `al_reminders` with Docassemble's `data` block. But you
+In the examples below, we define `al_reminders` with docassemble's `data` block. But you
 can define it any way that makes sense for you. All entries should be strings. If you use
 a `code` block instead of a `data` block, make sure you put the names of templates in quotes.
 
@@ -185,7 +185,7 @@ to make sure they work together.
 
 Specifically:
 
-1. Combine any `cron_daily` tasks with the [Assembly Line's version](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/blob/main/docassemble/AssemblyLine/data/questions/al_reminders.yml) (search for `cron_daily` in this file and copy the relevant block). Docassemble only evaluates one per interview.
+1. Combine any `cron_daily` tasks with the [Assembly Line's version](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/blob/main/docassemble/AssemblyLine/data/questions/al_reminders.yml) (search for `cron_daily` in this file and copy the relevant block). docassemble only evaluates one per interview.
 1. Make sure you define `al_reminders_evaluate_stop_cron` so that it doesn't stop
 cron before **your** tasks are finished.
 

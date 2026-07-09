@@ -9,7 +9,7 @@ slug: review_screen
 
 ## Overview
 
-In Docassemble, a review screen is the way that a user can make changes to their answers. A review screen displays one or more of the user's existing answers along with buttons that let the user edit each choice.
+In docassemble, a review screen is the way that a user can make changes to their answers. A review screen displays one or more of the user's existing answers along with buttons that let the user edit each choice.
 
 This page is a step-by-step tutorial on how to write a review screen, and covers:
 

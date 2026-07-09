@@ -7,7 +7,7 @@ slug: ALDocument/overview
 
 ## Overview
 
-The `ALDocument` class was created to solve these problems in Docassemble interviews:
+The `ALDocument` class was created to solve these problems in docassemble interviews:
 
 1. handling apps that can assemble multiple forms, with the final list of forms
    depending on the answers that the user gives
@@ -20,7 +20,7 @@ This collection of classes has some other nice benefits:
 
 1. a compact, neat and easily customizable list of downloads at the end, with
    both `view` and `download` buttons
-1. a more customizable email-sending input than the stock Docassemble input that
+1. a more customizable email-sending input than the stock docassemble input that
    can be displayed on the final screen
 1. always-fresh documents that will be updated when the user changes or edits a
    response
@@ -39,7 +39,7 @@ or opposing party.
 template files into one document that the user can download.
 
 Both `ALDocument` and `ALDocumentBundle` objects can be either `enabled` or not.
-The Docassemble interview will seek logic that defines when the document should
+The docassemble interview will seek logic that defines when the document should
 be included in the final output, letting you easily create interviews that have
 contingent documents.
 
@@ -47,7 +47,7 @@ contingent documents.
 
 An `ALDocument` is a
 [`DADict`](https://docassemble.org/docs/objects.html#DADict)  that has top level
-attributes and points to one or more Docassemble [`attachment`
+attributes and points to one or more docassemble [`attachment`
 blocks](https://docassemble.org/docs/documents.html#attachment).
 
 There are usually exactly two keys in the dictionary: `preview` and `final`,
@@ -292,7 +292,7 @@ Parameters:
 * `download_icon`: icon from [fontawesome](https://fontawesome.com)'s "free" library
 * `zip_label`: text used for the row with the "zip" button. If not provided,
   this will refer to the value of `self.zip_label` which should be defined in a
-  Docassemble `template` block. This is to aid translation.
+  docassemble `template` block. This is to aid translation.
 * `zip_icon`: icon from [fontawesome](https://fontawesome.com)'s "free" library
 
 Example: customizing the text on the "zip_label" interview-wide:
@@ -740,7 +740,7 @@ as a model.
 By default, exhibits are labeled sequentially as `A`, `B,` and so on. You can supply your own method for 
 labeling each exhibit by defining the `auto_labeler` attribute of the `your_document.exhibits` object
 to be a Python function that accepts an integer and returns a string. The default labeler is just the 
-Docassemble function [`alpha`](https://docassemble.org/docs/functions.html#alpha). If, for example,
+docassemble function [`alpha`](https://docassemble.org/docs/functions.html#alpha). If, for example,
 you wanted to use Roman numerals:
 
 ```yaml
@@ -749,7 +749,7 @@ code: |
   exhibit_attachment.exhibits.auto_labeler = roman
 ```
 
-where `roman` is referring to the [Docassemble
+where `roman` is referring to the [docassemble
 function](https://docassemble.org/docs/functions.html#roman).
 
 You can also define your own labeling function, like:
@@ -770,7 +770,7 @@ OCR, or Optical Character Recognition, adds a layer of searchable text. This may
 if you expect users to take photographs of documents. Searchable text may also be a 
 requirement for electronically filed documents in your jurisdiction.
 
-By default, `ALExhibit` will be OCRed using Docassemble's native code, which converts
+By default, `ALExhibit` will be OCRed using docassemble's native code, which converts
 images to gray-scale and is somewhat slow.
 
 Optionally, you can tell AssemblyLine interviews to use an improved OCR system, OCRMyPDF.
@@ -789,7 +789,7 @@ debian packages:
 - ocrmypdf
 ```
 
-Next, you can **either** start and then stop your Docassemble docker container on the command
+Next, you can **either** start and then stop your docassemble docker container on the command
 line, or manually install the application as follows:
 
 ```bash
@@ -808,7 +808,7 @@ assembly line:
 ```
 
 If this setting is missing or the `ocr engine` is set to anything other than `ocrmypdf`, the
-default Docassemble OCR engine will be used instead.
+default docassemble OCR engine will be used instead.
 
 ## ALStaticDocument
 
@@ -818,7 +818,7 @@ and have only one version (rather than a preview and final version). It can also
 work for image files or any file that can be converted to PDF.
 
 To use an `ALStaticDocument` in your bundle, upload the desired PDF, Word,
-or image file to the `static` folder in your Docassemble package, and 
+or image file to the `static` folder in your docassemble package, and 
 initialize it like this:
 
 ```yaml

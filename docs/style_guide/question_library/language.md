@@ -59,7 +59,7 @@ language that they will answer questions in the guided interview with. When
 allowing the user to change the guided interview's language, use the native
 language name.
 
-### Adding language fields in Docassemble
+### Adding language fields in docassemble
 <Tabs>
   <TabItem value="Assembly Line Example" label="Assembly Line Example" default>
 
@@ -75,7 +75,7 @@ fields:
 ```      
 
   </TabItem>
-  <TabItem value="Vanilla Docassemble" label="Vanilla Docassemble">
+  <TabItem value="Vanilla docassemble" label="Vanilla docassemble">
 
 ```yaml
 sets:

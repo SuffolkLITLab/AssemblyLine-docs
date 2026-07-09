@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Many variables are 1 to 1. Each person has one birthdate, one full name, etc. But right away we run into information where one person has more than one of the same kind of thing. For example: each person might have more than one phone number; child; and more.
 
-One way to handle that could be to make a bunch of variables: child1, child2, etc. That gets messy fast! In computer programming, we can replace a bunch of variables with one variable that stores that _repeated_ information, giving it a single variable name like `children`. Those special variables are called data structures in computer science. Docassemble calls them "groups". The most common data structures you will run into in Docassemble are lists, dictionaries, and sets.
+One way to handle that could be to make a bunch of variables: child1, child2, etc. That gets messy fast! In computer programming, we can replace a bunch of variables with one variable that stores that _repeated_ information, giving it a single variable name like `children`. Those special variables are called data structures in computer science. docassemble calls them "groups". The most common data structures you will run into in docassemble are lists, dictionaries, and sets.
 
 ## Introduction to lists
 
@@ -22,7 +22,7 @@ Here's a portion of a real paper intake form from Greater Boston Legal Services:
 
 Right away, the first thing you might notice is that our form can only handle up to 9 people. That probably is plenty for most households, but not every household (I come from a family of 11!).
 
-If we wanted to model this intake form in Docassemble, we might start out by using a _list_ named `household_members`.
+If we wanted to model this intake form in docassemble, we might start out by using a _list_ named `household_members`.
 
 Below is a short Python program that demonstrates two ways to handle a list of children: as separate variables, and as one list.
 
@@ -134,18 +134,18 @@ When you use a `for` loop like the one above, Python will run the same series of
 1. On the third loop, `child` is equal to "Lisa"
 
 
-### The DAList class in Docassemble
+### The DAList class in docassemble
 
-When you use a list in Docassemble and want it to handle collecting items for you, you will create an object of class `DAList` instead of creating it using `my_list = []`. Once you've done that, you can access/modify, and otherwise work with the items the same way you do in Python.
+When you use a list in docassemble and want it to handle collecting items for you, you will create an object of class `DAList` instead of creating it using `my_list = []`. Once you've done that, you can access/modify, and otherwise work with the items the same way you do in Python.
 
-As a reminder, we use the `objects` block to create a Docassemble object. Here's an interview that creates a DAList:
+As a reminder, we use the `objects` block to create a docassemble object. Here's an interview that creates a DAList:
 
 ```yaml
 objects:
   - my_list: DAList
 ```
 
-You can read [Docassemble's documentation about lists](https://docassemble.org/docs/groups.html#list).
+You can read [docassemble's documentation about lists](https://docassemble.org/docs/groups.html#list).
 
 ### More explorations of lists
 
@@ -215,18 +215,18 @@ Run the code sample below. Try adding an expense for automobile insurance.
 
 <iframe src="https://trinket.io/embed/python/eb7652260f" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-### Docassemble's DADict class
+### docassemble's DADict class
 
-When you use a dictionary in Docassemble and want it to handle collecting items for you, you will create an object of class `DADict` instead of creating it using `my_dict = {}`. Once you've done that, you can access/modify, and otherwise work with the items the same way you do in Python: you can refer to `my_dadict["keyword"]` and use the method `.update()` to combine two DA dictionaries.
+When you use a dictionary in docassemble and want it to handle collecting items for you, you will create an object of class `DADict` instead of creating it using `my_dict = {}`. Once you've done that, you can access/modify, and otherwise work with the items the same way you do in Python: you can refer to `my_dadict["keyword"]` and use the method `.update()` to combine two DA dictionaries.
 
-As a reminder, we use the `objects` block to create a Docassemble object. Here's an interview that creates a DAList:
+As a reminder, we use the `objects` block to create a docassemble object. Here's an interview that creates a DAList:
 
 ```yaml
 objects:
   - my_dict: DADict
 ```
 
-You can read [Docassemble's documentation about dictionaries](https://docassemble.org/docs/groups.html#dictionary).
+You can read [docassemble's documentation about dictionaries](https://docassemble.org/docs/groups.html#dictionary).
 
 ### More explorations of dictionaries
 
@@ -271,18 +271,18 @@ You can do that with `set()`. Try running the code sample below:
 
 <iframe src="https://trinket.io/embed/python/573e9681c8" width="100%" height="300" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-### Docassemble's DASet class
+### docassemble's DASet class
 
-When you use a dictionary in Docassemble and want it to handle collecting items for you, you will create an object of class `DASet`. Once you've done that, you can work with the items the same way you do in Python. Use the method `.update()` to combine two DASets.
+When you use a dictionary in docassemble and want it to handle collecting items for you, you will create an object of class `DASet`. Once you've done that, you can work with the items the same way you do in Python. Use the method `.update()` to combine two DASets.
 
-As a reminder, we use the `objects` block to create a Docassemble object. Here's an interview that creates a DASet:
+As a reminder, we use the `objects` block to create a docassemble object. Here's an interview that creates a DASet:
 
 ```yaml
 objects:
   - my_set: DASet
 ```
 
-You can read [Docassemble's documentation about sets](https://docassemble.org/docs/groups.html#set).
+You can read [docassemble's documentation about sets](https://docassemble.org/docs/groups.html#set).
 
 ### More explorations of sets
 
@@ -317,17 +317,17 @@ Index | name.first | name.last | gender | birthdate | income_type
 0 | Jane | Smith | F | 10/1/2000 | SSI
 1 | Robert | Smith | M | 1/25/1997 | Employment
 
-Docassemble lets you work with lists, dictionaries, and sets of objects. They just work better together. On one screen, you can collect all 5 fields for each household member, and store them as one object in the list, dictionary, or set.
+docassemble lets you work with lists, dictionaries, and sets of objects. They just work better together. On one screen, you can collect all 5 fields for each household member, and store them as one object in the list, dictionary, or set.
 
-You don't need to create your own objects to store them in lists. Docassemble lets you store the built-in `DAObject` in a list, which can have attributes added in your interview without requiring you to do any special setup.
+You don't need to create your own objects to store them in lists. docassemble lets you store the built-in `DAObject` in a list, which can have attributes added in your interview without requiring you to do any special setup.
 
-## Using Docassemble Groups to Collect Information
+## Using docassemble Groups to Collect Information
 
 ### Special variable `i`
 
 You can always treat a group like an ordinary variable, and simply use the square bracket syntax, like this: `- User name: names[1]`. However, that has no advantage over using ordinary variables, like `name_1`, `name_2`, etc.
 
-Instead, Docassemble offers a convenient placeholder: the [special variable `i`](https://docassemble.org/docs/groups.html#i). In a Docassemble interview, the variable `i` always refers to an item inside a list. A question that refers to `children[i]` will work for any item in the list `children`.
+Instead, docassemble offers a convenient placeholder: the [special variable `i`](https://docassemble.org/docs/groups.html#i). In a docassemble interview, the variable `i` always refers to an item inside a list. A question that refers to `children[i]` will work for any item in the list `children`.
 
 Here's an example:
 
@@ -357,11 +357,11 @@ fields:
 
 This would display on the screen as `Tell us about your first child`.
 
-> Note: if you are working with a list of lists, or even a list of lists of lists, you can use the variables `i`, `j`, `k`, `l`, `m`, and `n` all on the same screen. E.g., `list1[i].children[j].income_sources[k]`. Because of Docassemble's object structure, you rarely need to do this. It's more common to use the `generic object` feature for those lower levels.
+> Note: if you are working with a list of lists, or even a list of lists of lists, you can use the variables `i`, `j`, `k`, `l`, `m`, and `n` all on the same screen. E.g., `list1[i].children[j].income_sources[k]`. Because of docassemble's object structure, you rarely need to do this. It's more common to use the `generic object` feature for those lower levels.
 
 ### The .using() method of an object
 
-One DAList object can work 4 different ways. To configure those options, Docassemble expects us to set an attribute on the object. One way to do that is to use the method `.using()`. Briefly, `.using()` lets you set the attribute of an object at the same time that you create it. We do that with `keyword` parameters.
+One DAList object can work 4 different ways. To configure those options, docassemble expects us to set an attribute on the object. One way to do that is to use the method `.using()`. Briefly, `.using()` lets you set the attribute of an object at the same time that you create it. We do that with `keyword` parameters.
 
 Here's a regular object block:
 
@@ -406,7 +406,7 @@ fields:
 
 ### The .gather() method and other ways to trigger gathering
 
-There are two ways to trigger gathering a group in Docassemble:
+There are two ways to trigger gathering a group in docassemble:
 
 1. Using the .gather() method of the list in a mandatory code block, or
 1. Referencing the full list: in a code block, a question's text, or a template.
@@ -434,10 +434,10 @@ If you want to control when the items of a list will be collected, using the `.g
 
 ### Methods of collection
 
-There are four recommended ways to use groups in Docassemble. These apply to lists, dictionaries, and sets:
+There are four recommended ways to use groups in docassemble. These apply to lists, dictionaries, and sets:
 
-1. Ask for the number of items in the group up front. Docassemble will handle showing a separate screen to collect each item.
-1. After collecting each item, ask if the user has more items to add. Docassemble will keep going until your user answers "no".
+1. Ask for the number of items in the group up front. docassemble will handle showing a separate screen to collect each item.
+1. After collecting each item, ask if the user has more items to add. docassemble will keep going until your user answers "no".
 1. Gather the whole group on one screen, letting the user click a button to add a new item.
 1. Pre-fill the group with prompts or using computer code, and allow your user to edit and add more later.
 
@@ -448,9 +448,9 @@ Some kinds of information we naturally number, and some we don't. For example: i
 Similarly, some information is a good fit for gathering on a single screen, and some is too complex. In our household example, 5 fields might be too many to try to fit multiple rows on a small screen. Usually the on-one-screen method works best when you're collecting 3 or fewer fields for each item.
 
 ### Asking for the number up front
-One way to use a Docassemble list is to ask the user for how many items they are going to gather up front. Let's walk through this process with gathering a list of children.
+One way to use a docassemble list is to ask the user for how many items they are going to gather up front. Let's walk through this process with gathering a list of children.
 
-Asking for the number up front requires us to use two special attributes of a DAList: `.ask_number` and `target_number`. We are collecting a list of objects, so we also need to tell Docassemble what kind of object our list will hold with the `object_type` attribute.
+Asking for the number up front requires us to use two special attributes of a DAList: `.ask_number` and `target_number`. We are collecting a list of objects, so we also need to tell docassemble what kind of object our list will hold with the `object_type` attribute.
 
 First, let's create our `DAList` object:
 
@@ -468,7 +468,7 @@ objects:
   - children: DAList.using(ask_number=True)
 ```
 
-We'll use the class Individual to represent each child in our list. To tell Docassemble what class of object we are storing in the list, modify it one more time:
+We'll use the class Individual to represent each child in our list. To tell docassemble what class of object we are storing in the list, modify it one more time:
 
 ```yaml
 ---
@@ -476,7 +476,7 @@ objects:
   - children: DAList.using(ask_number=True, object_type=Individual)
 ```
 
-By setting the `object_type`, Docassemble will handle creating new objects for us as needed, any time we add a new item to the list.
+By setting the `object_type`, docassemble will handle creating new objects for us as needed, any time we add a new item to the list.
 
 Next, we want to set the `target_number` attribute of our DAList so we know how many children our user has. Let's do that with a question. Add the block below to your interview: 
 
@@ -596,7 +596,7 @@ By default, the list collect screen has buttons to delete each item, as well as 
 
 ### Using code to pre-fill items, with or without prompts
 
-Sometimes, we want to use code to gather items in a list, or otherwise gather the items without Docassemble triggering the questions manually. To do so, we need to set the `auto_gather` attribute to `False`. Then, once we have finished gathering the items into our list, we need to set the `.gathered` attribute to `True`.
+Sometimes, we want to use code to gather items in a list, or otherwise gather the items without docassemble triggering the questions manually. To do so, we need to set the `auto_gather` attribute to `False`. Then, once we have finished gathering the items into our list, we need to set the `.gathered` attribute to `True`.
 
 Here is a short example:
 
@@ -620,7 +620,7 @@ subquestion: |
   ${children}
 ```
 
-## Display information from a Docassemble Group on screen or in a template
+## Display information from a docassemble Group on screen or in a template
 
 ### Using the built-in `comma_and_list()` method
 
@@ -703,18 +703,18 @@ Results in a list like this: `["Apple","Pear"]`
 
 If we want to access the first fruit in our list, we would write `my_list[0]`, which would return `"Apple"`. To access the second fruit, we would write `my_list[1]`.
 
-#### The Docassemble variation
+#### The docassemble variation
 
-When you use a list in Docassemble and want it to handle collecting items for you, you will create an object of class `DAList` instead of creating it using `my_list = []`. Once you've done that, you can access/modify, and otherwise work with the items the same way you do in Python: you can refer to `my_dalist[0]` and use the methods `.append()`, `.extend()`, and even add lists together using `list1 + list2`.
+When you use a list in docassemble and want it to handle collecting items for you, you will create an object of class `DAList` instead of creating it using `my_list = []`. Once you've done that, you can access/modify, and otherwise work with the items the same way you do in Python: you can refer to `my_dalist[0]` and use the methods `.append()`, `.extend()`, and even add lists together using `list1 + list2`.
 
-As a reminder, we use the `objects` block to create a Docassemble object. Here's an interview that creates a DAList:
+As a reminder, we use the `objects` block to create a docassemble object. Here's an interview that creates a DAList:
 
 ```yaml
 objects:
   - my_list: DAList
 ```
 
-You can read [Docassemble's documentation about lists](https://docassemble.org/docs/groups.html#list).
+You can read [docassemble's documentation about lists](https://docassemble.org/docs/groups.html#list).
 
 #### Use in the YAML file format
 
@@ -750,24 +750,24 @@ my_dict["keyword2"] = "Rutabaga"
 
 Would result in `my_dict` looking like this: `{"keyword": 1, "keyword2": "Rutabaga"}`
 
-#### The Docassemble variation
+#### The docassemble variation
 
-When you use a dictionary in Docassemble and want it to handle collecting items for you, you will create an object of class `DADict` instead of creating it using `my_dict = {}`. Once you've done that, you can access/modify, and otherwise work with the items the same way you do in Python: you can refer to `my_dadict["keyword"]` and use the method `.update()` to combine two DA dictionaries.
+When you use a dictionary in docassemble and want it to handle collecting items for you, you will create an object of class `DADict` instead of creating it using `my_dict = {}`. Once you've done that, you can access/modify, and otherwise work with the items the same way you do in Python: you can refer to `my_dadict["keyword"]` and use the method `.update()` to combine two DA dictionaries.
 
-As a reminder, we use the `objects` block to create a Docassemble object. Here's an interview that creates a DAList:
+As a reminder, we use the `objects` block to create a docassemble object. Here's an interview that creates a DAList:
 
 ```yaml
 objects:
   - my_dict: DADict
 ```
 
-You can read [Docassemble's documentation about dictionaries](https://docassemble.org/docs/groups.html#dictionary).
+You can read [docassemble's documentation about dictionaries](https://docassemble.org/docs/groups.html#dictionary).
 
 #### Use in the YAML file format
 
 In the section about [YAML](yaml.md), we discussed that a dictionary in YAML is represented with a `:` (just as in Python). A keyword, followed by a `:` and then a value, is a dictionary in YAML.
 
-Each `specifier` (and some of the options) in a Docassemble interview is actually a dictionary key. For example, `question` is a dictionary key, and whatever text you display to the user (such as "Hello, World") is a dictionary value.
+Each `specifier` (and some of the options) in a docassemble interview is actually a dictionary key. For example, `question` is a dictionary key, and whatever text you display to the user (such as "Hello, World") is a dictionary value.
 
 ### Sets
 
@@ -800,18 +800,18 @@ my_set.add(3)
 
 Results in the value of `my_set` looking like this: `{1,2,3}`. Notice that even though we add 1 and 3 twice, they still only appear once in our set.
 
-#### The Docassemble variation
+#### The docassemble variation
 
-When you use a dictionary in Docassemble and want it to handle collecting items for you, you will create an object of class `DASet`. Once you've done that, you can work with the items the same way you do in Python. Use the method `.update()` to combine two DA sets.
+When you use a dictionary in docassemble and want it to handle collecting items for you, you will create an object of class `DASet`. Once you've done that, you can work with the items the same way you do in Python. Use the method `.update()` to combine two DA sets.
 
-As a reminder, we use the `objects` block to create a Docassemble object. Here's an interview that creates a DASet:
+As a reminder, we use the `objects` block to create a docassemble object. Here's an interview that creates a DASet:
 
 ```yaml
 objects:
   - my_set: DASet
 ```
 
-You can read [Docassemble's documentation about sets](https://docassemble.org/docs/groups.html#set).
+You can read [docassemble's documentation about sets](https://docassemble.org/docs/groups.html#set).
 
 -->
 

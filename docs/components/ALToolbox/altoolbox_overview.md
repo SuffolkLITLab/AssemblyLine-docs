@@ -30,7 +30,7 @@ The overview page also provides instructions for those who want to contribute to
 
 Use `collapse_template()` to display an accordion-style information box that
 starts out hidden but expands when the user clicks on it. The contents of the
-information box come from a Docassemble [`template`
+information box come from a docassemble [`template`
 block](https://docassemble.org/docs/initial.html#template). The `subject` will
 display with an arrow, and the `content` of the template will be shown when the
 `subject` is clicked on.
@@ -75,7 +75,7 @@ content: |
 
 ## Display markdown template with a scroll bar
 
-`display_template()` displays a Docassemble
+`display_template()` displays a docassemble
 [`template`](https://docassemble.org/docs/initial.html#template) with a scroll bar to save screen space if the content is long.
 
 It also displays the subject line along with the content, and allows you to add styles to the display. You can turn the scroll bar on and off.
@@ -92,7 +92,7 @@ include:
 
 ## Display a series of tabs
 
-`tabbed_templates_html()` displays a series of Docassemble
+`tabbed_templates_html()` displays a series of docassemble
 [`template`s](https://docassemble.org/docs/initial.html#template) with Bootstrap
 tabs.
 
@@ -241,7 +241,7 @@ The following income and deductions are \{\{ output_checkbox(is_monthly) \}\} mo
 ![(screenshot)](../../assets/output_checkbox_example_pic.png)
 
   </TabItem>
-  <TabItem value="Docassemble Code" label="Docassemble Code">
+  <TabItem value="docassemble Code" label="docassemble Code">
 
 ```yaml
 ---

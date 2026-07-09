@@ -54,7 +54,7 @@ module.exports = {
     docs: [
         'overview',
         {
-            label: 'Introduction to Docassemble',
+            label: 'Introduction to docassemble',
             type: 'category',
             items: [
                 'docassemble_intro/introduction-to-docassemble',
@@ -66,7 +66,7 @@ module.exports = {
                 'docassemble_intro/basic-troubleshooting',
                 {
                     type: "category",
-                    label: "Docassemble syntax",
+                    label: "docassemble syntax",
                     items: [
                         'docassemble_intro/yaml',
                         'docassemble_intro/markdown',
@@ -85,7 +85,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Administering Docassemble',
+                    label: 'Administering docassemble',
                     items: [
                         'admin_guide_docassemble/setup-server',
                         'admin_guide_docassemble/rebuild-lightsail-instance',

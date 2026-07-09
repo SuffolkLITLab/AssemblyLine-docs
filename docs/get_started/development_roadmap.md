@@ -47,10 +47,10 @@ Here are our current priorities, from our February 2026 roadmapping meeting:
 - Volunteer coordination
 - **Completed** API access to interview snapshot data
 
-### Docassemble hosting
+### docassemble hosting
 
-- Docassemble hosting infrastructure upgrades
-- Docassemble hosting support
+- docassemble hosting infrastructure upgrades
+- docassemble hosting support
 - **Completed** New DevOps engineer onboarding
 
 ### E-filing

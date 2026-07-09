@@ -1,6 +1,6 @@
 ---
 id: coding_style_overview
-title: Docassemble Coding Style Guide
+title: docassemble Coding Style Guide
 sidebar_label: Coding Style
 slug: overview
 ---

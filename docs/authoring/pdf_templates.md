@@ -62,7 +62,7 @@ Do not use:
 ## Turn off "scroll long text"
 
 For all PDF fields, turn off the "scroll long text" option, as this is only
-useful if the PDF is viewed on screen. Docassemble interviews usually produce
+useful if the PDF is viewed on screen. docassemble interviews usually produce
 forms that can be printed and filed.
 
 ## Use auto-expanding text fields for name fields
@@ -104,7 +104,7 @@ If you have a Google, Adobe, Facebook, or Apple account, or if you're willing to
 
 ### Adobe Live Cycle
 If the form was created in Adobe Live Cycle, you will not be able to add form
-fields that are compatible with Docassemble.
+fields that are compatible with docassemble.
 
 To work around this,
 
@@ -134,7 +134,7 @@ with the same field names, for example, in a document bundle, you still may have
 ## Quality control checklist
 
 Many of the below checkbox items can be verified by uploading the PDF to the [Weaver](https://github.com/SuffolkLITLab/docassemble-ALWeaver), 
-installed on your own Docassemble server. When you upload a PDF to the Weaver, it will try filling in all of the PDF's fields with dummy data,
+installed on your own docassemble server. When you upload a PDF to the Weaver, it will try filling in all of the PDF's fields with dummy data,
 allowing for a quick visual inspection.
 
 - [ ] All expected fields have labels and can be completed in the PDF. 

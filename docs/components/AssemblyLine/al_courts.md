@@ -298,7 +298,7 @@ def matching_courts_in_county(
 Retrieve a list of all courts in the specified county.
 
 This function fetches courts suitable for displaying as a drop-down or radio button list
-in Docassemble. The results are tuples where the first element is the dataframe index
+in docassemble. The results are tuples where the first element is the dataframe index
 (useful for retrieving the court&#x27;s full details later using the as_court() method) and
 the second element is the display value from the specified display_column.
 

@@ -15,7 +15,7 @@ use radio buttons. Use a dropdown menu in situations where:
 
 ## Have a "next" or "continue" button on most screens
 
-Docassemble has a "yesno" question type that replaces the "Continue" button
+docassemble has a "yesno" question type that replaces the "Continue" button
 with buttons that immediately move to the next screen. This feature
 can be disorienting to users with a screen reader and you may lose user trust
 by having an inconsistent user interface.
@@ -70,7 +70,7 @@ content: |
   Overpayment. 
 ```
 
-Docassemble has many features that allow you to add help
+docassemble has many features that allow you to add help
 in-context. They include:
 
 1. the [question help button](https://docassemble.org/docs/modifiers.html#help)
@@ -101,6 +101,6 @@ distinctive. The risk with this feature is distracting or confusing users.
 The `field` and `option` help modifiers are both relatively clear and simple to
 use for field-specific hints and to explain choices that may otherwise not be
 clear. Custom CSS may make these features slightly more polished than the
-stock Docassemble appearance.
+stock docassemble appearance.
 
 ## 

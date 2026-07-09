@@ -30,10 +30,10 @@ _italic text_
 
 ## Including variable text
 
-In order to add variable text, Docassemble uses the [Mako templating language](mako.md) which 
-can be inserted directly almost anywhere Docassemble expects text, such as under a 
+In order to add variable text, docassemble uses the [Mako templating language](mako.md) which 
+can be inserted directly almost anywhere docassemble expects text, such as under a 
 `question`, `subquestion`, `content` or `template` block.
 
-The [Docassemble documentation](https://docassemble.org/docs/markup.html) covers Markdown fairly well, with examples. 
+The [docassemble documentation](https://docassemble.org/docs/markup.html) covers Markdown fairly well, with examples. 
 
 This section was originally posted as a blog on [Nonprofittechy.com](https://www.nonprofittechy.com/2020/01/17/understanding-docassembles-yaml-interview-format/).

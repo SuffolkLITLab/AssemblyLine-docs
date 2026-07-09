@@ -32,8 +32,8 @@ language changes.
 ### Avoid hardcoded string in code - use templates instead
 
 Avoid placing literal English text inside code blocks, functions and methods. Instead,
-use Docassemble `template` blocks. You should use an `f` string or explicitly
-convert `template`s to `str` to avoid certain Docassemble bugs.
+use docassemble `template` blocks. You should use an `f` string or explicitly
+convert `template`s to `str` to avoid certain docassemble bugs.
 
 Example:
 
@@ -47,7 +47,7 @@ code: |
   list_options = [{'option1': str(my_text_template)}]
 ```
 
-Template blocks will become part of the Docassemble XLSX or XLIFF translation
+Template blocks will become part of the docassemble XLSX or XLIFF translation
 file, which makes them the most convenient way to handle text that must be
 translated.
 
@@ -76,7 +76,7 @@ sections:
 
 ### Avoid using the language functions from `pattern.en` in your interview
 
-Docassemble includes very useful features to conjugate verbs, match gender, and
+docassemble includes very useful features to conjugate verbs, match gender, and
 more that are drawn from `pattern.en`, such as the `does_verb` method of a
 DAList. These are safe to use inside a language-specific template, such as a
 court form that will always be filed in English. Never use these inside a

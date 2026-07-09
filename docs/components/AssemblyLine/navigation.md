@@ -12,7 +12,7 @@ during the interview.
 The Assembly Line framework adds an optional method to add dynamic navigation when the
 `enable_al_nav_sections` variable is set to `True`. This feature is disabled by default.
 
-Docassemble already has a way to define sections dynamically, with [
+docassemble already has a way to define sections dynamically, with [
 nav.set_sections()](https://docassemble.org/docs/functions.html#DANav.set_sections). Use
 the Assembly Line method when your navigation sections are relatively simple. If your needs
 don't fit well with the Assembly Line's simple declarative approach, you may prefer to use 
@@ -126,7 +126,7 @@ data:
 ### Using nested sections
 
 You can define nested sections. If you would like to be able to hide the top level section,
-you'll need to use the special Docassemble "subsections" syntax (explained in the [documentation](https://docassemble.org/docs/initial.html#sections)).
+you'll need to use the special docassemble "subsections" syntax (explained in the [documentation](https://docassemble.org/docs/initial.html#sections)).
 
 Example:
 

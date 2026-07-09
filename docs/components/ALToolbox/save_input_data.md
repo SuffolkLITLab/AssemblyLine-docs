@@ -21,7 +21,7 @@ def save_input_data(title: str = "",
 Save survey interview input data to JSON storage for data reporting purposes.
 
 Processes and stores user input data from survey-type interviews into the
-Docassemble JSON storage system. Automatically handles type inference and
+docassemble JSON storage system. Automatically handles type inference and
 flattening of complex data structures like checkboxes and multiselect fields.
 
 **Arguments**:

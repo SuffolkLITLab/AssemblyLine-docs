@@ -22,7 +22,7 @@ with significant numbers of Americans reading at a lower level.
 
 You can measure the readability of your text with automated tools:
 
-* in Docassemble, by [clicking the "source" button](https://docassemble.org/docs/helloworld.html#tocAnchor-1-1)
+* in docassemble, by [clicking the "source" button](https://docassemble.org/docs/helloworld.html#tocAnchor-1-1)
 * by installing the free [WriteClearly bookmarklet](https://www.openadvocate.org/writeclearly/)
 * by using free tools such as [Hemingway](https://hemingwayapp.com/)
 

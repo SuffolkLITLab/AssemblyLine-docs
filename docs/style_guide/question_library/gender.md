@@ -59,7 +59,7 @@ For example:
   could replace it.
 * we add a space for the user's self-described gender in other circumstances
 
-### Adding gender fields in Docassemble
+### Adding gender fields in docassemble
 <Tabs>
   <TabItem value="Assembly Line Example" label="Assembly Line Example" default>
 
@@ -75,7 +75,7 @@ fields:
 ```      
 
   </TabItem>
-  <TabItem value="Vanilla Docassemble" label="Vanilla Docassemble">
+  <TabItem value="Vanilla docassemble" label="Vanilla docassemble">
 
 ```yaml
 ---

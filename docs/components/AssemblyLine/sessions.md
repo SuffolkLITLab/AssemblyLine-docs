@@ -665,8 +665,8 @@ def load_interview_json(
         variables_to_filter: Optional[List[str]] = None) -> Optional[int]
 ```
 
-Given a JSON string, this function loads the specified variables into a Docassemble session.
-JSON strings containing annotated class names will be transformed into Docassemble objects.
+Given a JSON string, this function loads the specified variables into a docassemble session.
+JSON strings containing annotated class names will be transformed into docassemble objects.
 If the `new_session` argument is not set, the JSON answers will be loaded into the current interview.
 
 **Arguments**:
@@ -805,7 +805,7 @@ Get a list of all filenames that have sessions saved for a given user. If it is 
 to show a descriptive name for the filename (from the main dispatch area of the configuration),
 it will show that instead of the filename.
 
-The results will be in the form of [\{filename: Descriptive name\}], which is what the Docassemble
+The results will be in the form of [\{filename: Descriptive name\}], which is what the docassemble
 radio button and dropdown list expect.
 
 **Arguments**:

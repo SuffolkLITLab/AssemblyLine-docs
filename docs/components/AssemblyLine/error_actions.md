@@ -7,7 +7,7 @@ slug: error_actions
 
 ## Overview
 
-If you would like to replace the stock Docassemble error page,
+If you would like to replace the stock docassemble error page,
 which is a bit unfriendly, you can configure that both system-wide
 and on an interview-by-interview basis with the Assembly Line framework.
 

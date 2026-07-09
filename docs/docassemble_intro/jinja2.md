@@ -8,7 +8,7 @@ Jinja2 plays the same role inside Microsoft Word docx templates that
 [Mako](mako.md) plays inside the interview file. 
 
 Jinja was originally created as a [templating language for Django](https://jinja.palletsprojects.com/en/2.9.x/).
-Docassemble's version of Jinja is not quite the same; it's a variation built for 
+docassemble's version of Jinja is not quite the same; it's a variation built for 
 [docx-template](https://docxtpl.readthedocs.io/en/latest/). It's useful to keep this in mind if you are
 trying to use an advanced feature and find that it doesn't work.
 
@@ -63,9 +63,9 @@ Sometimes you want to hide an entire paragraph if a certain condition is met. On
 * {%p endif %}
 ```
 
-If you leave out the `p`, you would have an empty line after `Apple`. Using `p` tells Docassemble to remove that line from the document.
+If you leave out the `p`, you would have an empty line after `Apple`. Using `p` tells docassemble to remove that line from the document.
 
-Make sure you use the `{%p endif %}` form to close the statement. Otherwise, Docassemble will raise an error that there is an unmatched if statement.
+Make sure you use the `{%p endif %}` form to close the statement. Otherwise, docassemble will raise an error that there is an unmatched if statement.
 
 ## Use control structures
 

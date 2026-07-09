@@ -5,7 +5,7 @@ sidebar_label: Coding with AI assistance
 slug: authoring_with_ai
 ---
 
-Here's an experimental workflow for using AI assistance to generate Docassemble interviews,
+Here's an experimental workflow for using AI assistance to generate docassemble interviews,
 while leveraging the Assembly Line framework's predictable, rules-based assistance
 at every stage where it can be helpful.
 
@@ -22,13 +22,13 @@ a local code editor is best in order to run the different pieces. You might use:
 
 * GitHub Copilot with VS Code, free for students, faculty, and staff at universities and only $10/month.
 * OpenAI Codex, which is included with a ChatGPT+ subscription ($20/month).
-* Google Gemini or Google's Antigravity, which has a modest free tier (might not be enough to develop a full Docassemble app).
+* Google Gemini or Google's Antigravity, which has a modest free tier (might not be enough to develop a full docassemble app).
 * Claude Code, which also has a $20/month tier.
 
 In fact, you might be able to point your AI agent at this page and have it follow these
 instructions. You just need:
 
-a. Install all of the build dependencies for Docassemble as well as packages that might
+a. Install all of the build dependencies for docassemble as well as packages that might
 be needed to run FormFyxer
 
 ```bash
@@ -149,7 +149,7 @@ Reference (ALWeaver entry point):
 - [ ] Rename PDF fields to AssemblyLine conventions using clear nouns (`users`, `children`, `caregivers`) and contextual dates (avoid `day`, `month`, `year`).
 - [ ] Ensure unique names for multiple parties and signatures (e.g., `users1`, `users2`).
 - [ ] If a PDF radio group is implemented as checkboxes, split into separate checkbox fields and map with boolean expressions in YAML.
-- [ ] For checkboxes, map True/False and let Docassemble handle export values.
+- [ ] For checkboxes, map True/False and let docassemble handle export values.
 - [ ] After PDF edits, re-verify that the YAML field mapping matches the PDF field names.
 
 Docs:
@@ -230,7 +230,7 @@ https://taxonomy.legal/
 
 ## Translation
 
-At the moment, translating a Docassemble interview does require a running Docassemble server to pull in the various strings
+At the moment, translating a docassemble interview does require a running docassemble server to pull in the various strings
 from the different included packages. Install the interview in a playground and use the ALDashboard translation tool
 to do the translation. This is likely to be a human step for now.
 

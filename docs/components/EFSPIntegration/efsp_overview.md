@@ -111,31 +111,31 @@ to connect with Tyler Technologies and JeffNet:
 1. A [Python
    package](https://github.com/SuffolkLITLab/docassemble-EFSPIntegration) that
    provides a python-native interface to the REST API
-1. A [Docassemble YAML
+1. A [docassemble YAML
    file](https://github.com/SuffolkLITLab/docassemble-EFSPIntegration/blob/main/docassemble/EFSPIntegration/data/questions/efiling_integration.yml)
    that uses the Python code to provide an end-to-end filing solution.
 
 Many states are also interested in the accessibility of guided interview that
 use an e-filing integration. We have produced a
 [test suite](../ALKiln/automated_testing.mdx) that can provide automated
-accessibility information to audit Docassemble interview compliance with WCAG 2.0 and 2.1's A and AA certification levels.
+accessibility information to audit docassemble interview compliance with WCAG 2.0 and 2.1's A and AA certification levels.
 
 ### For users of the Assembly Line framework
 
 If you are an interview author using the Assembly Line Framework, using the LIT
-Lab EFSP can be as simple as adding an `include` statement to your [Docassemble
+Lab EFSP can be as simple as adding an `include` statement to your [docassemble
 interview
 YAML](https://github.com/SuffolkLITLab/docassemble-EFSPIntegration/blob/main/docassemble/EFSPIntegration/data/questions/efiling_integration.yml)
 and specifying a few variables, such as the filing code.
 
-[Get started integrating with Docassemble](efiling_through_docassemble.md).
+[Get started integrating with docassemble](efiling_through_docassemble.md).
 
 If you want to use features in any way that is different to our implementation
 in our Assembly Line-focused YAML file, you can use the Python library or the
 REST API directly for advanced features.
 
 In order to pass certification, we had to implement a user interface to all of
-the features in the Tyler Technologies suite. We did that in a [Docassemble
+the features in the Tyler Technologies suite. We did that in a [docassemble
 interview](https://github.com/SuffolkLITLab/docassemble-EFSPIntegration/blob/main/docassemble/EFSPIntegration/data/questions/any_filing_interview.yml)
 that we have made open source, so there is likely sample code for most use
 cases.
@@ -143,12 +143,12 @@ cases.
 ### For owners of third-party document assembly platforms
 
 If you are the owner of a third-party document assembly platform, such as [A2J
-Author](https://a2jauthor.org), you will want to skip the Python and Docassemble
+Author](https://a2jauthor.org), you will want to skip the Python and docassemble
 packages and write code that speaks directly to our [Java REST
 endpoint](https://github.com/SuffolkLITLab/EfileProxyServer/).
 
 This may require understanding some of the Tyler or JeffNet business rules. The
-Docassemble interview may be a useful reference guide as a supplement to the EFSP
+docassemble interview may be a useful reference guide as a supplement to the EFSP
 server documentation.
 
 ## Technical information
@@ -172,7 +172,7 @@ the proxy server.
 
 Further documentation on using the Proxy Server can be found [on Github](https://github.com/SuffolkLITLab/EfileProxyServer/tree/main/docs).
 
-### EFSP Docassemble Package
+### EFSP docassemble Package
 
 There is also a [companion python
 package](https://github.com/SuffolkLITLab/docassemble-EFSPIntegration) to the

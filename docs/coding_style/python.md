@@ -6,7 +6,7 @@ slug: python
 ---
 
 :::info Workshop Resource
-📺 **First Wednesday Workshop:** For help understanding index variables and loop constructs in Docassemble, watch our workshop [Demystifying i and x in Docassemble](https://suffolklitlab.org/demystifying-i-and-x-in-docassemble/). This session clarifies common confusion around indexing and iteration patterns in Docassemble interviews.
+📺 **First Wednesday Workshop:** For help understanding index variables and loop constructs in docassemble, watch our workshop [Demystifying i and x in docassemble](https://suffolklitlab.org/demystifying-i-and-x-in-docassemble/). This session clarifies common confusion around indexing and iteration patterns in docassemble interviews.
 :::
 
 ## Use Python conventions for Python code
@@ -15,7 +15,7 @@ In general, we refer to Python's [PEP 8](https://www.python.org/dev/peps/pep-000
 
 ### Highlights of PEP 8
 
-Docassemble does not force you to write very much Python code. Where you do, however, please
+docassemble does not force you to write very much Python code. Where you do, however, please
 follow Python conventions, listed below.
 
 ### Use snake_case for variable names
@@ -40,5 +40,5 @@ datatype of the variable.
 
 #### Tab width
 
-We use 2 spaces, not 4, for all indentation levels. The Docassemble playground makes it hard to
+We use 2 spaces, not 4, for all indentation levels. The docassemble playground makes it hard to
 edit files that scroll too far horizontally.

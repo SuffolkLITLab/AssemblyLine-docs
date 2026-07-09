@@ -98,7 +98,7 @@ function Home() {
               </div>
               <div className={styles.dalBenefitsText}>  
                 <p><Translate>
-                  Build beautiful, responsive, accessible online guided interviews with Docassemble and the Document Assembly Line tools.
+                  Build beautiful, responsive, accessible online guided interviews with docassemble and the Document Assembly Line tools.
                 </Translate></p>
                 <ul>
                   <li><Translate>Accessible and responsive by design</Translate></li>
@@ -139,7 +139,7 @@ function Home() {
               </div>
               <div className={styles.dalBenefitsText}>  
                 <p><Translate>
-                  Suffolk's open-source e-filing service provider (EFSP) delivers completed forms to court e-filing systems directly from Docassemble interviews.
+                  Suffolk's open-source e-filing service provider (EFSP) delivers completed forms to court e-filing systems directly from docassemble interviews.
                 </Translate></p>
                 <ul>
                   <li><Translate>Removes a major obstacle for self-represented litigants (SRLs)</Translate></li>
@@ -217,9 +217,9 @@ function Home() {
                   __html: translate({
                     id: 'homepage.benefits.dalIsFOSS',
                     description:
-                      'All Document Assembly Line and Docassemble code is free and open source, released under the MIT license.',
+                      'All Document Assembly Line and docassemble code is free and open source, released under the MIT license.',
                     message:
-                      'All Document Assembly Line and Docassemble code is free and open source, released under the <a href="https://opensource.org/license/MIT" target="_blank">MIT license</a>.',
+                      'All Document Assembly Line and docassemble code is free and open source, released under the <a href="https://opensource.org/license/MIT" target="_blank">MIT license</a>.',
                   }),
                 }}></p>
                 <ul>
@@ -291,7 +291,7 @@ function Home() {
                 </div>
               </div>
               <p className={styles.dalPartnersText}><Translate>
-                To facilitate the adoption of open-source access-to-justice tools, we offer affordable Docassemble hosting and e-filing tools for courts and legal aid organizations. If you are interested, send us an email.
+                To facilitate the adoption of open-source access-to-justice tools, we offer affordable docassemble hosting and e-filing tools for courts and legal aid organizations. If you are interested, send us an email.
               </Translate></p>
               <Link
                 className={clsx([

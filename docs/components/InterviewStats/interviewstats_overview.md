@@ -7,7 +7,7 @@ slug: overview
 
 ## Overview
 
-Docassemble is designed to protect the privacy of interview users. However, you may
+docassemble is designed to protect the privacy of interview users. However, you may
 have very good reasons to collect usage information:
 
 * Your users might all be inside a single organization rather than consumers
@@ -17,7 +17,7 @@ have very good reasons to collect usage information:
 
 ## Collecting anonymous analytics with Google or Segment
 
-Docassemble has a native integration with both [Google
+docassemble has a native integration with both [Google
 Analytics](https://docassemble.org/docs/config.html#google%20analytics) and
 [Segment](https://docassemble.org/docs/config.html#segment%20id).
 
@@ -47,7 +47,7 @@ fields:
   - Name: user_name
 ```
 
-Sign up for Google Analytics or Segment, and follow the [Docassemble
+Sign up for Google Analytics or Segment, and follow the [docassemble
 documentation](https://docassemble.org/docs/config.html#google%20analytics) to
 enable tracking with the system of your choice.
 
@@ -72,7 +72,7 @@ store_variables_snapshot({"zip": users[0].address.zip})
 ```
 
 This code runs immediately before the download screen, providing a good proxy of
-completed interviews. It stores the user's zip code in the Docassemble
+completed interviews. It stores the user's zip code in the docassemble
 datatabase, and can be used to run reports about anonymous usage.
 
 You can choose to narrow or expand the data that is captured with this tool. The
@@ -90,18 +90,18 @@ store_variables_snapshot({
     })
 ```
 
-Docassemble interviews can store complex nested objects that don't fit neatly in
+docassemble interviews can store complex nested objects that don't fit neatly in
 a spreadsheet. If you want to manipulate the data later, you may want to
 "flatten" the data so that it is a neat linear list of fields. That will make
 later analysis easier.
 
 You may also want to adjust the time that the data is stored. If you add the
 parameter `persistent=True`, the data will persist even if the user's session is deleted,
-which may happen every 90 days in a default Docassemble server environment.
+which may happen every 90 days in a default docassemble server environment.
 
 Full documentation for
 [`store_variables_snapshot()`](https://docassemble.org/docs/functions.html#store_variables_snapshot)
-can be found on the Docassemble website.
+can be found on the docassemble website.
 
 ### Viewing information stored by `store_variables_snapshot()`
 

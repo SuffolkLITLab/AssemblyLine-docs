@@ -91,9 +91,9 @@ For a boolean value, use a word or phrase that you can answer with yes or no. Th
 
 Use a plural word for a list of things, and a singular word for one thing. **Examples:** `children`, `child`
 
-### Docassemble projects and packages
+### docassemble projects and packages
 
-In the Docassemble playground:
+In the docassemble playground:
 
 * Each project must have a unique name.
 * Your package name doesn't have to be the same as your project name.

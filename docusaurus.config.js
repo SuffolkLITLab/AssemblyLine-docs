@@ -47,7 +47,7 @@ module.exports = {
         },
         {
           href: 'https://docassemble.org/docs.html',
-          label: 'Docassemble docs',
+          label: 'docassemble docs',
           position: 'right',
         },
         {

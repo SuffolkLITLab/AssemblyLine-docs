@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Run this to generate documentation pages from Docassemble interview files directly,
+Run this to generate documentation pages from docassemble interview files directly,
 like we use pydoc to generate docs from .py files.
 
 Currently, just grabs the comment in a `id: interview documentation` block, assumes
