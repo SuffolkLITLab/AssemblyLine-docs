@@ -110,6 +110,7 @@ module.exports = {
                 'authoring/alweaver_overview',
                 'authoring/github',
                 'authoring/customizing_interview',
+                'authoring/combining-interviews',
                 'authoring/writing_review_screen',
                 'authoring/yaml_anatomy',
                 {
