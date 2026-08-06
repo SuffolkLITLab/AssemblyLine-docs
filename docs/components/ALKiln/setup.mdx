@@ -54,7 +54,7 @@ Put these in the setup interview too:
 
 There are three kinds of tests:
 
-1. **<GTOYS/>** - GitHub-triggered tests that create and test a Project on your docassemble server. This type of test runs into the fewest setup barriers, so we recommend this method if you are doing this without help.
+1. **<GTOYS/>** - GitHub-triggered tests that create and test a Project on your docassemble server. This type of test runs into the fewest  barriers, so we recommend this method if you are doing this without help.
 2. **<AutoDIY/>** - Tests that you trigger manually from an [interview](https://github.com/SuffolkLITLab/docassemble-ALKilnInThePlayground) you install on your docassemble server.
 3. **<KittyLitter/>** - GitHub-triggered tests that create their own docassemble server on GitHub and run tests there.[^sand]
 
@@ -76,7 +76,7 @@ Each type of test has its advantages and disadvantages. This documentation expla
 
 Setting up can take some time for someone new, but we do our best to walk you through the process in our setup interview.
 
-<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" className="button button--primary text--no-decoration">Run the ALKiln <GTOYS plain={ true }/> setup interview</a></p>
+<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" className="button button--primary text--no-decoration">Run the ALKiln <GTOYS plain={ true }/> setup interview</a> to set up this kind of test for your GitHub repo.</p>
 
 **The interview will help you use:**
 
@@ -167,6 +167,8 @@ If you are ready to start running tests, you can read about how to [add our exam
 
 The <KittyLitter/> tests are the most secure because they never interact with your server. ALKiln makes a server on GitHub itself and runs the tests there.
 
+<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" className="button button--primary text--no-decoration">Run the ALKiln <KittyLitter plain={ true }/> setup interview</a> to add a simple version of this test to your GitHub repository.</p>
+
 Every repository that needs to use this kind of test must go through this setup process.
 
 This is an advanced method and may not work for everyone. We are happy to help you with it.
@@ -221,6 +223,8 @@ If you are ready to start running tests, you can read about how to [add our exam
 ## GitHub+You™ test details {#githubNyou-details}
 
 <GTOYS plain={true}/> tests run in GitHub whenever a developer commits code to the GitHub repository of the package. As you can read below, to use this type of test we strongly recommend you create a [developer account](security.mdx#test-accounts) for ALKiln on your server, a "testing account".
+
+<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" className="button button--primary text--no-decoration">Run the ALKiln <GTOYS plain={ true }/> setup interview</a></p>
 
 
 ### What is ALKiln doing? {#githubNyou-how}
@@ -355,6 +359,8 @@ For some people:
 Any developer will [trigger <KittyLitter plain={true}/> tests when they commit code to GitHub](writing_tests.mdx#trigger-tests). They create their own docassemble server on GitHub and run tests there.
 
 The <KittyLitter/> tests are the most secure because they never interact with your server and the isolated server they each create is temporary. Unfortunately, these tests also sometimes have more setup complications.
+
+<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" className="button button--primary text--no-decoration">Run the ALKiln <KittyLitter plain={ true }/> setup interview</a> to add a simple version of this test to your GitHub repository.</p>
 
 ### What is ALKiln doing? {#sandbox-how}
 
