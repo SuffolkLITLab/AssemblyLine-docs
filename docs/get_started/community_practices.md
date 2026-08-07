@@ -21,7 +21,7 @@ We also encourage everyone to follow these guidelines:
 
 **Ask for help!** If you have a question, others probably do too! Asking questions is a good way to learn and teach. Make room for others to ask basic questions and support their learning journey. 
 
-**[Step up/step back.](mailto:https://medium.com/the-deep-listen/step-up-step-back-quick-thoughtful-tips-for-being-a-better-collaborator-c4ed03f07d49)** If you have already had a chance to speak, ensure that others get that same chance.  
+**[Step up/step back.](https://medium.com/the-deep-listen/step-up-step-back-quick-thoughtful-tips-for-being-a-better-collaborator-c4ed03f07d49)** If you have already had a chance to speak, ensure that others get that same chance.  
 
 **It’s normal to say no.** The intersections of things we are good at, can do, and want to do are complex and change over time. We want everyone to stay healthy for this work. Listen for and communicate about your boundaries and limitations. Listen for, ask about, and accept the boundaries and limitations of others. 
 
