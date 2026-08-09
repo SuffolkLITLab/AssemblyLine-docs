@@ -11,8 +11,8 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.3dd6c3c6.css">
-<script src="/assets/js/runtime~main.681b0cdb.js" defer="defer"></script>
-<script src="/assets/js/main.f34426ba.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.8e18daaf.js" defer="defer"></script>
+<script src="/assets/js/main.78236665.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -30,7 +30,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="types">Types of tests<a href="#types" class="hash-link" aria-label="Direct link to Types of tests" title="Direct link to Types of tests" translate="no">​</a></h2>
 <p>There are three kinds of tests:</p>
 <ol>
-<li class=""><strong><a href="/docs/components/ALKiln/setup#githubNyou-details">GitHub+You™</a></strong> - GitHub-triggered tests that create and test a Project on your docassemble server. This type of test runs into the fewest setup barriers, so we recommend this method if you are doing this without help.</li>
+<li class=""><strong><a href="/docs/components/ALKiln/setup#githubNyou-details">GitHub+You™</a></strong> - GitHub-triggered tests that create and test a Project on your docassemble server. This type of test runs into the fewest  barriers, so we recommend this method if you are doing this without help.</li>
 <li class=""><strong><a href="/docs/components/ALKiln/setup#diy-details">ALKilnInThePlayground™</a></strong> - Tests that you trigger manually from an <a href="https://github.com/SuffolkLITLab/docassemble-ALKilnInThePlayground" target="_blank" rel="noopener noreferrer" class="">interview</a> you install on your docassemble server.</li>
 <li class=""><strong><a href="/docs/components/ALKiln/setup#sandbox-details">GitHub Sandbox™</a></strong> - GitHub-triggered tests that create their own docassemble server on GitHub and run tests there.<sup><a href="#user-content-fn-sand" id="user-content-fnref-sand" data-footnote-ref="true" aria-describedby="footnote-label" class="anchorTargetStickyNavbar_Vzrq">1</a></sup></li>
 </ol>
@@ -44,7 +44,7 @@
 <li class="">A collaborator or admin account on your package&#x27;s GitHub repository<sup><a href="#user-content-fn-auth" id="user-content-fnref-auth" data-footnote-ref="true" aria-describedby="footnote-label" class="anchorTargetStickyNavbar_Vzrq">2</a></sup> or an admin account in your GitHub organization</li>
 </ul>
 <p>Setting up can take some time for someone new, but we do our best to walk you through the process in our setup interview.</p>
-<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" class="button button--primary text--no-decoration">Run the ALKiln <span>GitHub+You™</span> setup interview</a></p>
+<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" class="button button--primary text--no-decoration">Run the ALKiln <span>GitHub+You™</span> setup interview</a> to set up this kind of test for your GitHub repo.</p>
 <p><strong>The interview will help you use:</strong></p>
 <ul>
 <li class=""><a href="https://docassemble.org/docs/api.html#manage_api" target="_blank" rel="noopener noreferrer" class="">docassemble API keys</a></li>
@@ -98,6 +98,7 @@
 <p>If you are ready to start running tests, you can read about how to <a href="#first-test" class="">add our example test</a>, <a class="" href="/docs/components/ALKiln/writing">write tests</a>, or continue the above interview to <a class="" href="/docs/components/ALKiln/writing#trigger_autodiy">run your tests</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sandbox-how-to">GitHub Sandbox™ tests (advanced)<a href="#sandbox-how-to" class="hash-link" aria-label="Direct link to GitHub Sandbox™ tests (advanced)" title="Direct link to GitHub Sandbox™ tests (advanced)" translate="no">​</a></h2>
 <p>The <a href="/docs/components/ALKiln/setup#sandbox-details">GitHub Sandbox™</a> tests are the most secure because they never interact with your server. ALKiln makes a server on GitHub itself and runs the tests there.</p>
+<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" class="button button--primary text--no-decoration">Run the ALKiln <span>GitHub Sandbox™</span> setup interview</a> to add a simple version of this test to your GitHub repository.</p>
 <p>Every repository that needs to use this kind of test must go through this setup process.</p>
 <p>This is an advanced method and may not work for everyone. We are happy to help you with it.</p>
 <p>The tests <a class="" href="/docs/components/ALKiln/writing#trigger-tests">run</a> whenever you commit any code to any branch on GitHub. Below, see details and the pros and cons of <a href="/docs/components/ALKiln/setup#sandbox-details">GitHub Sandbox™</a> tests.</p>
@@ -133,6 +134,7 @@
 <p>If you are ready to start running tests, you can read about how to <a href="#first-test" class="">add our example test</a>, <a class="" href="/docs/components/ALKiln/writing">write tests</a>, or <a class="" href="/docs/components/ALKiln/writing#trigger-tests">trigger and run <span>GitHub Sandbox™</span> tests on GitHub</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="githubNyou-details">GitHub+You™ test details<a href="#githubNyou-details" class="hash-link" aria-label="Direct link to GitHub+You™ test details" title="Direct link to GitHub+You™ test details" translate="no">​</a></h2>
 <p><span>GitHub+You™</span> tests run in GitHub whenever a developer commits code to the GitHub repository of the package. As you can read below, to use this type of test we strongly recommend you create a <a class="" href="/docs/components/ALKiln/security#test-accounts">developer account</a> for ALKiln on your server, a &quot;testing account&quot;.</p>
+<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" class="button button--primary text--no-decoration">Run the ALKiln <span>GitHub+You™</span> setup interview</a></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="githubNyou-how">What is ALKiln doing?<a href="#githubNyou-how" class="hash-link" aria-label="Direct link to What is ALKiln doing?" title="Direct link to What is ALKiln doing?" translate="no">​</a></h3>
 <p>When <a href="/docs/components/ALKiln/setup#githubNyou-details">GitHub+You™</a> tests get triggered, ALKiln does the following:</p>
 <ol>
@@ -198,6 +200,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sandbox-details">GitHub Sandbox™ test details<a href="#sandbox-details" class="hash-link" aria-label="Direct link to GitHub Sandbox™ test details" title="Direct link to GitHub Sandbox™ test details" translate="no">​</a></h2>
 <p>Any developer will <a class="" href="/docs/components/ALKiln/writing#trigger-tests">trigger <span>GitHub Sandbox™</span> tests when they commit code to GitHub</a>. They create their own docassemble server on GitHub and run tests there.</p>
 <p>The <a href="/docs/components/ALKiln/setup#sandbox-details">GitHub Sandbox™</a> tests are the most secure because they never interact with your server and the isolated server they each create is temporary. Unfortunately, these tests also sometimes have more setup complications.</p>
+<p><a href="https://apps-dev.suffolklitlab.org/start/test-setup" target="_blank" rel="noopener noreferrer" class="button button--primary text--no-decoration">Run the ALKiln <span>GitHub Sandbox™</span> setup interview</a> to add a simple version of this test to your GitHub repository.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sandbox-how">What is ALKiln doing?<a href="#sandbox-how" class="hash-link" aria-label="Direct link to What is ALKiln doing?" title="Direct link to What is ALKiln doing?" translate="no">​</a></h3>
 <p>When you run <a href="/docs/components/ALKiln/setup#sandbox-details">GitHub Sandbox™</a> tests, ALKiln does the following:</p>
 <ol>
