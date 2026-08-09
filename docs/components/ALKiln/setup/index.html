@@ -11,7 +11,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.3dd6c3c6.css">
-<script src="/assets/js/runtime~main.8e18daaf.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.5950b901.js" defer="defer"></script>
 <script src="/assets/js/main.78236665.js" defer="defer"></script>
 </head>
 <body>
@@ -236,17 +236,17 @@
 <p>Right now, <a href="/docs/components/ALKiln/setup#sandbox-details">GitHub Sandbox™</a> tests are unable to handle data stored externally. For example, data stored in an S3 bucket.<sup><a href="#user-content-fn-ways" id="user-content-fnref-ways" data-footnote-ref="true" aria-describedby="footnote-label" class="anchorTargetStickyNavbar_Vzrq">4</a></sup> </p>
 </li>
 <li class="">
-<p>If you are including any other packages in your interview, you <strong>must</strong> make sure you have properly required them in the &quot;Dependencies&quot; section of your <a href="https://docassemble.org/docs/playground.html#packages" target="_blank" rel="noopener noreferrer" class="">Playground Packages page</a>. This is an example of code that uses the Assembly Line package:</p>
+<p>If you are including any other packages in your interview, all those packages, like Assembly Line, <strong>must</strong> be <a href="https://docassemble.org/docs/packages.html#pypi" target="_blank" rel="noopener noreferrer" class="">published on pypi</a> or <a href="https://docassemble.org/docs/packages.html#github" target="_blank" rel="noopener noreferrer" class="">published on GitHub</a>.</p>
+</li>
+<li class="">
+<p>Those packages must also correctly require all <em>their</em> dependencies and those must be published on pypi or GitHub as well.</p>
+</li>
+<li class="">
+<p>If you are including any other packages in your interview, you also <strong>must</strong> make sure that <strong>after you have installed the packages on your server</strong>, you then properly require them in your package using the &quot;Dependencies&quot; section of your <a href="https://docassemble.org/docs/playground.html#packages" target="_blank" rel="noopener noreferrer" class="">Playground Packages page</a> of the Project. This is an example of code that uses the Assembly Line package:</p>
 <div class="language-yml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yml codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token key atrule">include</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> docassemble.AssemblyLine</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain">al_package.yml</span><br></div></code></pre></div></div>
 <p>Because of that code, the author needs to require the AssemblyLine package as a dependency. This is what it looks like to require the Assembly Line package:</p>
 <p><img src="/img/alk_require_an_external_package.png" class="w-75p_n1UG center_nRkL" title="A row that says &#x27;docassemble.AssemblyLine&#x27; is highlighted in gray in the &#x27;Dependencies&#x27; section of the Packages page of a docassemble Playground Project called &#x27;FinancialStatementIncome&#x27;."></p>
 <p>Save your choices and commit them to GitHub.</p>
-</li>
-<li class="">
-<p>All the packages your package uses, like Assembly Line, <strong>must</strong> be <a href="https://docassemble.org/docs/packages.html#pypi" target="_blank" rel="noopener noreferrer" class="">published on pypi</a>. That is the only place that the sandboxed server can get them.</p>
-</li>
-<li class="">
-<p>Those packages must also correctly require all <em>their</em> dependencies and those must be published on pypi as well.</p>
 </li>
 <li class="">
 <p>If your package is too big, you will be unable to use this type of test. <a href="/docs/components/ALKiln/setup#sandbox-details">GitHub Sandbox™</a> tests install your package on the server itself. That makes sure your package&#x27;s dependencies get automatically installed too. The method ALKiln needs to use to install your package on the server will reject big packages. We are unsure about the exact limits, but we know it must be less than 30 MB.</p>
