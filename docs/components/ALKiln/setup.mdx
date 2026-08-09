@@ -399,7 +399,9 @@ For everyone:
 For some people:
 
 - Right now, <KittyLitter/> tests are unable to handle data stored externally. For example, data stored in an S3 bucket.[^ways] <!--  If you still want this type of test, it is more work. You are welcome to use [our GitHub action code](https://github.com/SuffolkLITLab/ALKiln/blob/-/action_for_github_server/action.yml) as a starting point, of course, to write your own GitHub action to create a server on GitHub with the right Docker build environment variables, S3 credentials, and config details from your dev server. -->
-- If you are including any other packages in your interview, you **must** make sure you have properly required them in the "Dependencies" section of your [Playground Packages page](https://docassemble.org/docs/playground.html#packages). This is an example of code that uses the Assembly Line package:
+- If you are including any other packages in your interview, all those packages, like Assembly Line, **must** be [published on pypi](https://docassemble.org/docs/packages.html#pypi) or [published on GitHub](https://docassemble.org/docs/packages.html#github).
+- Those packages must also correctly require all *their* dependencies and those must be published on pypi or GitHub as well.
+- If you are including any other packages in your interview, you also **must** make sure that **after you have installed the packages on your server**, you then properly require them in your package using the "Dependencies" section of your [Playground Packages page](https://docassemble.org/docs/playground.html#packages) of the Project. This is an example of code that uses the Assembly Line package:
 
   ```yml
   include:
@@ -421,8 +423,6 @@ For some people:
   ``` -->
 
   Save your choices and commit them to GitHub.
-- All the packages your package uses, like Assembly Line, **must** be [published on pypi](https://docassemble.org/docs/packages.html#pypi). That is the only place that the sandboxed server can get them.
-- Those packages must also correctly require all *their* dependencies and those must be published on pypi as well.
 - If your package is too big, you will be unable to use this type of test. <KittyLitter/> tests install your package on the server itself. That makes sure your package's dependencies get automatically installed too. The method ALKiln needs to use to install your package on the server will reject big packages. We are unsure about the exact limits, but we know it must be less than 30 MB.
 - If you use any API keys for third-party services, like Google geolocation or recaptcha3, you must write code that has alternatives to using those services. This is fairly complicated. For a simple example with bad code, for recaptcha3 this code might technically work for some situations:
 
