@@ -39,6 +39,8 @@ The prompt tells the model how to behave. It does not contain the source materia
 
 Use the Chat step to ask a few questions before creating formal scenarios. This preview is useful for seeing whether retrieval is working and whether the prompt produces the tone and boundaries you intended. The conversation is session-only; the repeatable evaluation comes next.
 
+![AskLit Playground chat step](../assets/asklit-playground-chat.png)
+
 ## 4. Create and run evaluations
 
 The evaluation area has three parts:
