@@ -20,4 +20,4 @@ Related guides (canonical details):
 - [Coding style for YAML translation](../coding_style/yaml_translation.md)
 - [Writing good questions](../style_guide/question_style_overview.md)
 - [Editing your interview](customizing_interview.md)
-- [Metadata for publishing generated YAML interviews](weaver_code_anatomy.md#interview-metadata-and-metadata-for-publishing-on-courtformsonline)
+- [Metadata and publishing guide](weaver/publishing_and_github.md)

@@ -119,7 +119,7 @@ from the `case_search.found_case`, the variable for the found case. The `details
 
 ### Using case search data in your Assembly Line interview
 
-You are likely using the [ALWeaver](../../authoring/weaver_overview.md) and the rest of the Assembly Line framework
+You are likely using the [Weaver](../../authoring/weaver/overview.md) and the rest of the Assembly Line framework
 in your docassemble interview, and you will want to put this information from the case search into
 variables that your interview knows about, like `users` and `other_parties`. To do this, we can add
 some more code to the above example:

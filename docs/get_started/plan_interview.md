@@ -203,4 +203,4 @@ Start by learning about the automation process for your template, whether it is:
 * A [PDF](../authoring/pdf_templates.md), or
 * A [DOCX](../authoring/docx_templates.md) file.
 
-And then continuing through [labeling](../authoring/doc_vars_reference.md) and running your template through the Weaver(../authoring/weaver_overview.md).
+And then continuing through [labeling](../authoring/doc_vars_reference.md) and building your interview with the [Weaver](../authoring/weaver/overview.md).

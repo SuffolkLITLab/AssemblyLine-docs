@@ -14,8 +14,8 @@ live.
 You can build a landing page in a dedicated web application like CourtFormsOnline (we use Next.js), or in a legal help
 site built on a technology like [Drupal](https://drupal.org) or [WordPress](https://wordpress.org).
 
-The [metadata](../authoring/weaver_code_anatomy.md#interview-metadata-and-metadata-for-publishing-on-courtformsonline)
-block in an interview created by the [AssemblyLine Weaver](../authoring/weaver_overview.md) will help you automatically
+The [metadata](../authoring/weaver/publishing_and_github.md)
+block in an interview created by the [AssemblyLine Weaver](../authoring/weaver/overview.md) will help you automatically
 create a landing page with relevant content for publishing on CourtFormsOnline.
 
 ## Why landing pages matter

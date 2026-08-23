@@ -5,11 +5,11 @@ title: Combining multiple interviews
 
 # Combining multiple docassemble interviews
 
-When you use the AssemblyLine Weaver to create an interview, it gives you a complete, standalone interview out of the box (like you see in [docassemble-ALWeaver](https://github.com/SuffolkLITLab/docassemble-ALWeaver)). But often, you need to combine several different forms or interviews into one unified, seamless user experience. 
+When you use the [AssemblyLine Weaver](weaver/overview.md) to create an interview, it gives you a complete, standalone interview out of the box (like you see in [docassemble-ALWeaver](https://github.com/SuffolkLITLab/docassemble-ALWeaver)). But often, you need to combine several different forms or interviews into one unified, seamless user experience. 
 
 For example, you might want to combine a "Petition for Guardianship" and a "Motion for Temporary Guardian" into a single flow, or bundle multiple housing code complaint forms.
 
-This tutorial walks you through the step-by-step process of taking multiple standalone ALWeaver interviews and combining them.
+This tutorial walks you through the step-by-step process of taking multiple standalone Weaver interviews and combining them.
 
 ## Key concepts
 

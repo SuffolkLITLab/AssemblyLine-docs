@@ -17,7 +17,8 @@ Use this checklist after labels are ready and you are generating a draft intervi
 
 Related guides (canonical details):
 
-- ["Weaving" your form into a draft interview](weaver_overview.md)
+- [The Assembly Line Weaver](weaver/overview.md)
 - [Editing your interview](customizing_interview.md)
-- [Writing your own review screen](writing_review_screen.md)
+- [Writing a review screen](writing_review_screen.md)
+- [Review screen synchronization in the Weaver](weaver/review_screens.md)
 - [Dynamic phrases based on prior answers](dynamic_phrasing_based_on_values.md)

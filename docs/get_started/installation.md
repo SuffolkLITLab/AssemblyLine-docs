@@ -92,9 +92,9 @@ fork the ALThemeTemplate package as docassemble makes it
 challenging to rename a package.
 :::
 
-### Using your ALThemeTemplate with the ALWeaver
+### Using your ALThemeTemplate with the Weaver
 
-If you plan on using the [ALWeaver](../authoring/weaver_overview.md) to create your
+If you plan on using the [Weaver](../authoring/weaver/overview.md) to create your
 interviews, you will want to include your branding package in your
 weaved interviews. You can do this by adding 2 files to your branding
 package:

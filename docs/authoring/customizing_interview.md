@@ -5,60 +5,50 @@ sidebar_label: Editing your interview
 slug: customizing_interview
 ---
 
-## Edit your completed draft interview in the docassemble playground
+## Editing your interview in the Weaver or Playground
 
-While the Weaver is a menu-driven, step-by-step process, you'll make further
-edits in the Playground. In the playground, you can directly edit the
-[YAML](../docassemble_intro/yaml) text to:
+You can edit and refine your interview either visually in the [Assembly Line Weaver](weaver/overview.md) or directly in the Docassemble Playground code editor.
+
+:::tip Visual editing with the Weaver
+The [Assembly Line Weaver](weaver/overview.md) allows you to edit question screens, reorder flow steps, preview screens across devices, configure document bundles, and run safe variable refactorings without manually writing YAML:
+* [Designing question screens and fields](weaver/screens_and_fields.md)
+* [Live screen previews](weaver/screen_previews.md)
+* [Sequencing flow with the interview order builder](weaver/interview_order.md)
+* [Configuring document bundles and templates](weaver/document_bundles.md)
+* [Review screen synchronization](weaver/review_screens.md)
+* [Diagnostics and safe refactoring](weaver/diagnostics_and_refactoring.md)
+:::
+
+If you prefer to edit the raw [YAML](../docassemble_intro/yaml) text directly in the Playground or your local code editor, you can:
 
 1. Change the wording of questions
-1. Change the datatype of questions and add show/hide logic
-1. Edit the order screens appear in
-1. Add conditional and branching logic
-1. Add new variables, such as variables calculated by code
+2. Change the datatype of questions and add show/hide logic
+3. Edit the order screens appear in
+4. Add conditional and branching logic
+5. Add new variables, such as variables calculated by code
 
-Save your work frequently, and don't be intimidated. For the most part,
-many changes can be understood by reading the text and then experimenting.
+Save your work frequently, and don't be intimidated. For the most part, many changes can be understood by reading the text and experimenting.
 
-This pages offers information about making some common, simple edits.
-You may also want to take this time to read through the materials in
-[Introduction to docassemble](../docassemble_intro/introduction-to-docassemble)
-about the underlying docassemble platform and how it works.
+This page offers information about making common manual YAML edits. You may also want to take this time to read through the materials in [Introduction to docassemble](../docassemble_intro/introduction-to-docassemble) about the underlying Docassemble platform.
 
-## Double-check that you got things right in the Weaver stage
+## Double-check that you got things right in the labeling stage
 
-Some common mistakes, like typos in the labels, can lead to a lot of extra work. 
-If you see "extra" questions appear, it's possible that you didn't get the names 
-quite right, perhaps something as simple as a typo.
+Some common mistakes, like typos in the labels, can lead to a lot of extra work. If you see "extra" questions appear, it's possible that you didn't get the names quite right, perhaps something as simple as a typo. Use the [Weaver diagnostics drawer](weaver/diagnostics_and_refactoring.md) to detect missing or mismatched variables automatically.
 
 ## Work towards a readable, usable interview
 
-You should also take this chance to review our guidance about
-[writing good questions](../style_guide/question_style_overview.md). While you edit
-your interview, work steadily to make it better.
+You should also take this chance to review our guidance about [writing good questions](../style_guide/question_style_overview.md). While you edit your interview, work steadily to make it better.
 
-## Getting the draft into your playground
+## Working with Playground projects
 
-When you have finished using the Weaver, download your package. This will put a
-.zip file in the Downloads folder on your computer.
+The Weaver and Docassemble Playground share the same project files:
 
-:::warning If you are using Safari on a Mac OS computer
-Safari, by default, will turn your downloaded package into
-a folder on your PC.
+1. In the Playground or the Weaver project selector, select or create your project.
+2. Changes made in the Weaver are saved directly to your Playground files and can be opened in either environment at any time.
 
-Before downloading the package, turn off that behavior:
-
-1. open Safari 
-1. click Preferences
-1. under the General tab, uncheck the option **Open 'safe' files after downloading**
-:::
-
-First, create a new "Project" in your playground. Using projects will
-help you keep your docassemble code organized.
+If you are using the legacy wizard or an exported `.zip` package, you can upload it to the Playground's **Packages** folder.
 
 ![playground | projects ](../assets/playground_projects.png)
-
-Next, upload this file to the docassemble playground's `Packages` folder.
 
 ![Folders | Packages ](../assets/playground_packages_menu.png)
 

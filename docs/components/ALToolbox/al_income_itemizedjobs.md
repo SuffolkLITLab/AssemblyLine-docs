@@ -191,4 +191,4 @@ subquestion: |
 
 </details>
 
-You'll likely want to display this information in a PDF or word template as well. [This section describing the Attachment block](../../authoring/weaver_code_anatomy.md#attachment-block) will help with displaying information in the PDF, and [this page about working with DOCX files](../../authoring/docx_templates.md) will help DOCX users.
+You'll likely want to display this information in a PDF or word template as well. [This page about working with PDF files](../../authoring/pdf_templates.md) will help with displaying information in the PDF, and [this page about working with DOCX files](../../authoring/docx_templates.md) will help DOCX users.

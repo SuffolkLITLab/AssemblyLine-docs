@@ -391,8 +391,9 @@ Getting things right at the beginning can save you a lot of time and effort.
 
 However, you can always edit your template later. When you make changes to your
 template, you do not need to run it through the Weaver again. You can upload
-your edited template directly to the docassemble playground's templates folder.
+your edited template directly in the [Weaver's Templates tab](weaver/document_bundles.md) or the Docassemble Playground.
 
 ## See also
 
+- [The Assembly Line Weaver](weaver/overview.md)
 - [List of reserved variable names](../components/AssemblyLine/reserved_keywords.md)

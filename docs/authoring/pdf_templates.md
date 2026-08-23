@@ -133,7 +133,7 @@ with the same field names, for example, in a document bundle, you still may have
 
 ## Quality control checklist
 
-Many of the below checkbox items can be verified by uploading the PDF to the [Weaver](https://github.com/SuffolkLITLab/docassemble-ALWeaver), 
+Many of the below checkbox items can be verified by uploading the PDF to the [Weaver](weaver/overview.md), 
 installed on your own docassemble server. When you upload a PDF to the Weaver, it will try filling in all of the PDF's fields with dummy data,
 allowing for a quick visual inspection.
 
