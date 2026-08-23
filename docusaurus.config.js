@@ -12,6 +12,9 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'SuffolkLITLab', // the GitHub org name.
   projectName: 'AssemblyLine-docs', // the repo name.
+  clientModules: [
+    require.resolve('./src/js/gtag-stub.js'),
+  ],
   themeConfig: {
     // Keep for the next LIT Con
     // announcementBar: {

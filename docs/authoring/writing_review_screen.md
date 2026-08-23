@@ -11,6 +11,10 @@ slug: review_screen
 
 In docassemble, a review screen is the way that a user can make changes to their answers. A review screen displays one or more of the user's existing answers along with buttons that let the user edit each choice.
 
+:::tip Synchronized review screens in the Weaver
+If you are building your interview with the [Assembly Line Weaver](weaver/overview.md), review screens are automatically synchronized with your question blocks. See the [Weaver review screen guide](weaver/review_screens.md) for details on visual editing and jump-back linking.
+:::
+
 This page is a step-by-step tutorial on how to write a review screen, and covers:
 
 - [Overview](#overview)
@@ -178,7 +182,7 @@ There are a few sections of the generated review screen YAML:
     
     But your interview might include [objects](https://docassemble.org/docs/objects.html#Individual) and lists of objects, like a list of plaintiffs and another list of defendants. Instead of re-asking every question that someone answered to fill the list, docassemble brings to the user to a `revisit` screen that shows each item in the list to the user, and lets them choose which to edit individually.
 
-    If you used the [Weaver](doc_vars_reference.md#standard-roles) to make your interview, your interview might have a few different lists for people,
+    If you used the [Weaver](weaver/overview.md) to make your interview, your interview might have a few different lists for people,
     like `users`, `other_parties`, `children`, `debt_collectors`, and `guardians`.
 
 4. The `revisit` screens each show the `table` attribute of the `DAList`. If needed, blocks defining the table for the lists will appear at the end of the generated review file.

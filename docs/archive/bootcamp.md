@@ -46,7 +46,7 @@ After signing up, you should have received invites to our docassemble server (ht
 
 Resources from the session:
 
-* [Running templates through the Weaver](../authoring/weaver_overview.md)
+* [Building interviews with the Weaver](../authoring/weaver/overview.md)
 * [Labeling PDF variables](../authoring/pdf_templates.md)
 * [Naming Variables Quick Reference](../authoring/doc_vars_reference.md)
 * [The LIST taxonomy](https://taxonomy.legal/)

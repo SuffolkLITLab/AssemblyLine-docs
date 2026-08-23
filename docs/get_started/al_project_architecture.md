@@ -16,7 +16,7 @@ Below is a snapshot of the Project's overall architecture as of **June 2022**. W
 | Component | Description | GitHub Repository |
 |:----------|:------------|:------------------|
 | [AssemblyLine](https://github.com/suffolkLITLab/docassemble-AssemblyLine) | Utility library that makes it easier to use certain docassemble features in an interview. | [SuffolkLITLab/docassemble-AssemblyLine](https://github.com/SuffolkLITLab/docassemble-AssemblyLine) |
-| [ALWeaver](../authoring/weaver_overview.md) | Helps create a draft interviews from PDF and DOCX forms. | [suffolkLITLab/docassemble-ALWeaver](https://github.com/SuffolkLITLab/docassemble-ALWeaver) |
+| [The Weaver](../authoring/weaver/overview.md) | Helps create and visually author interviews from PDF and DOCX forms. | [SuffolkLITLab/docassemble-ALWeaver](https://github.com/SuffolkLITLab/docassemble-ALWeaver) |
 | [ALToolbox](https://github.com/SuffolkLITLab/docassemble-ALToolbox) | Utility functions and components that are used in AssemblyLine but that can be easily used by docassemble developers who use other platforms. | [SuffolkLITLab/docassemble-ALToolbox](https://github.com/SuffolkLITLab/docassemble-ALToolbox) |
 | [ALKiln](../components/ALKiln/intro.mdx) | Automated testing framework that acts like a user, following your instructions to do things like fill in fields, upload files, sign in, and check your PDFs for accuracy. | [SuffolkLITLab/ALKiln](https://github.com/SuffolkLITLab/ALKiln) |
 | [ALDashboard](/docs/components/ALDashboard/overview) | A collection of tools to help administer a docassemble server and debug interviews. | [SuffolkLITLab/docassemble-ALDashboard](https://github.com/SuffolkLITLab/docassemble-ALDashboard) |

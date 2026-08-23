@@ -24,7 +24,7 @@ This short, 3-minute video by David Colarusso and Quinten Steenhuis explains how
 The LIT Lab gathered more than 200 volunteers from around the world with the goal of making it easier to build online guided interviews with docassemble. The initial tools included:
 
 * The core [AssemblyLine tools](https://github.com/SuffolkLITLab/docassemble-AssemblyLine), to make it easier to use key docassemble features
-* The [the Weaver](../authoring/weaver_overview.md), a tool for converting existing PDF and DOCX court forms into draft docassemble interviews in as little as one hour
+* [The Weaver](../authoring/weaver/overview.md), a visual authoring tool for converting existing PDF and DOCX court forms into production-ready Docassemble interviews
 * A [question library](../style_guide/question_library/names.md) of pre-built, commonly used, accessible questions, vetted by experts and translated into at least 5 languages
 * An [open-source, non-profit e-filing service provider (EFSP)](components/EFSPIntegration/efsp_overview.md) for integrating docassemble interviews with e-filing management systems
 * A [style guide](../style_guide/question_style_overview.md) for interview questions that are easy to read and answer
