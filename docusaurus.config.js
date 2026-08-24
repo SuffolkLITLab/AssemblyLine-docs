@@ -170,6 +170,22 @@ module.exports = {
           {
             from: '/docs/volunteer/resources',
             to: '/docs/get_started/resources'
+          },
+          {
+            from: '/docs/authoring/generating_code',
+            to: '/docs/authoring/weaver/weaver_overview'
+          },
+          {
+            from: '/docs/generating_code',
+            to: '/docs/authoring/weaver/weaver_overview'
+          },
+          {
+            from: '/docs/authoring/weaver_overview',
+            to: '/docs/authoring/weaver/weaver_overview'
+          },
+          {
+            from: '/docs/authoring/alweaver_overview',
+            to: '/docs/authoring/weaver/weaver_overview'
           }
         ],
         
