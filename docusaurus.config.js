@@ -4,8 +4,9 @@ module.exports = {
   url: 'https://assemblyline.suffolklitlab.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  'markdown': {
-    'hooks': {
+  markdown: {
+    mermaid: true,
+    hooks: {
       onBrokenMarkdownLinks: 'warn',
     }
   },
@@ -199,4 +200,5 @@ module.exports = {
       },
     ],
   ],
+  themes: ['@docusaurus/theme-mermaid'],
 };
