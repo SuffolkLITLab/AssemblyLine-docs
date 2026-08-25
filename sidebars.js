@@ -143,6 +143,20 @@ module.exports = {
             ],
         },
         {
+            label: 'AskLITs',
+            type: 'category',
+            collapsed: false,
+            items: [
+                'asklits/asklits_overview',
+                'asklits/building',
+                'asklits/evaluating',
+                'asklits/deploying',
+                'asklits/gallery',
+                'asklits/teaching-clinical-skills',
+                'asklits/ethics',
+            ],
+        },
+        {
             label: 'Writing good questions',
             type: 'category',
             items: [
