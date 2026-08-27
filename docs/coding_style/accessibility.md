@@ -1,7 +1,7 @@
 ---
 id: accessibility
-title: Making your interview accessible
-sidebar_label: Interview accessibility
+title: Making docassemble interviews accessible
+sidebar_label: Accessibility
 slug: accessibility
 ---
 
