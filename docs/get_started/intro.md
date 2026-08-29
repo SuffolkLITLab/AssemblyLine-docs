@@ -53,7 +53,7 @@ We offer:
 * **Community forum.** We also offer support through our online forum in Microsoft Teams
 * **Monthly workshops.** We host [monthly online workshops](https://suffolklitlab.org/tag/first-wednesday-workshops/) where we go in-depth on topics requested by the community
 
-To join the community, just [email us](mailto:litlab@suffolk.edu)!
+Here are some [guiding principles we promote in our community](https://assemblyline.suffolklitlab.org/docs/community_practices/). To join the community, just [email us](mailto:litlab@suffolk.edu)!
 
 ## Get involved/support our work
 
