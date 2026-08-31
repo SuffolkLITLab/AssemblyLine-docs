@@ -11,8 +11,8 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.23ab947e.css">
-<script src="/assets/js/runtime~main.2e20c76c.js" defer="defer"></script>
-<script src="/assets/js/main.f57aafc0.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.65628fd5.js" defer="defer"></script>
+<script src="/assets/js/main.5486c16a.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -22,12 +22,122 @@
 <ul>
 <li class=""><a href="#formfyxer.passive_voice_detection" class="">formfyxer.passive_voice_detection</a>
 <ul>
+<li class=""><a href="#formfyxer.passive_voice_detection.annotations" class="">annotations</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.json" class="">json</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.os" class="">os</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.re" class="">re</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.Path" class="">Path</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.Dict" class="">Dict</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.List" class="">List</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.Optional" class="">Optional</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.Sequence" class="">Sequence</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.Tuple" class="">Tuple</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.Union" class="">Union</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.load_dotenv" class="">load_dotenv</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.OpenAI" class="">OpenAI</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.ChatCompletionMessageParam" class="">ChatCompletionMessageParam</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.ChatCompletionSystemMessageParam" class="">ChatCompletionSystemMessageParam</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.ChatCompletionUserMessageParam" class="">ChatCompletionUserMessageParam</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.AuthenticationError" class="">AuthenticationError</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.get_openai_api_key" class="">get_openai_api_key</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.get_openai_base_url" class="">get_openai_base_url</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.__all__" class="">__all__</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection.DEFAULT_MODEL" class="">DEFAULT_MODEL</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection._cached_client" class="">_cached_client</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection._api_key" class="">_api_key</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection._organization" class="">_organization</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection._load_prompt" class="">_load_prompt</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection._ensure_client" class="">_ensure_client</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection._SENTENCE_REGEX" class="">_SENTENCE_REGEX</a></li>
 <li class=""><a href="#formfyxer.passive_voice_detection.split_sentences" class="">split_sentences</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection._normalize_input" class="">_normalize_input</a></li>
+<li class=""><a href="#formfyxer.passive_voice_detection._extract_text_from_response" class="">_extract_text_from_response</a></li>
 <li class=""><a href="#formfyxer.passive_voice_detection.detect_passive_voice_segments" class="">detect_passive_voice_segments</a></li>
 </ul>
 </li>
 </ul>
 <p>Passive voice detection utilities backed by OpenAI&#x27;s ChatCompletion API.</p>
+<a id="formfyxer.passive_voice_detection.annotations"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="annotations">annotations<a href="#annotations" class="hash-link" aria-label="Direct link to annotations" title="Direct link to annotations" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.json"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="json">json<a href="#json" class="hash-link" aria-label="Direct link to json" title="Direct link to json" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.os"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="os">os<a href="#os" class="hash-link" aria-label="Direct link to os" title="Direct link to os" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.re"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="re">re<a href="#re" class="hash-link" aria-label="Direct link to re" title="Direct link to re" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.Path"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="path">Path<a href="#path" class="hash-link" aria-label="Direct link to Path" title="Direct link to Path" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.Dict"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dict">Dict<a href="#dict" class="hash-link" aria-label="Direct link to Dict" title="Direct link to Dict" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.List"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="list">List<a href="#list" class="hash-link" aria-label="Direct link to List" title="Direct link to List" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.Optional"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="optional">Optional<a href="#optional" class="hash-link" aria-label="Direct link to Optional" title="Direct link to Optional" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.Sequence"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sequence">Sequence<a href="#sequence" class="hash-link" aria-label="Direct link to Sequence" title="Direct link to Sequence" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.Tuple"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tuple">Tuple<a href="#tuple" class="hash-link" aria-label="Direct link to Tuple" title="Direct link to Tuple" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.Union"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="union">Union<a href="#union" class="hash-link" aria-label="Direct link to Union" title="Direct link to Union" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.load_dotenv"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="load_dotenv">load_dotenv<a href="#load_dotenv" class="hash-link" aria-label="Direct link to load_dotenv" title="Direct link to load_dotenv" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.OpenAI"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="openai">OpenAI<a href="#openai" class="hash-link" aria-label="Direct link to OpenAI" title="Direct link to OpenAI" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.ChatCompletionMessageParam"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="chatcompletionmessageparam">ChatCompletionMessageParam<a href="#chatcompletionmessageparam" class="hash-link" aria-label="Direct link to ChatCompletionMessageParam" title="Direct link to ChatCompletionMessageParam" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.ChatCompletionSystemMessageParam"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="chatcompletionsystemmessageparam">ChatCompletionSystemMessageParam<a href="#chatcompletionsystemmessageparam" class="hash-link" aria-label="Direct link to ChatCompletionSystemMessageParam" title="Direct link to ChatCompletionSystemMessageParam" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.ChatCompletionUserMessageParam"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="chatcompletionusermessageparam">ChatCompletionUserMessageParam<a href="#chatcompletionusermessageparam" class="hash-link" aria-label="Direct link to ChatCompletionUserMessageParam" title="Direct link to ChatCompletionUserMessageParam" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.AuthenticationError"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="authenticationerror">AuthenticationError<a href="#authenticationerror" class="hash-link" aria-label="Direct link to AuthenticationError" title="Direct link to AuthenticationError" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.get_openai_api_key"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="get_openai_api_key">get_openai_api_key<a href="#get_openai_api_key" class="hash-link" aria-label="Direct link to get_openai_api_key" title="Direct link to get_openai_api_key" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.get_openai_base_url"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="get_openai_base_url">get_openai_base_url<a href="#get_openai_base_url" class="hash-link" aria-label="Direct link to get_openai_base_url" title="Direct link to get_openai_base_url" translate="no">​</a></h2>
+<a id="formfyxer.passive_voice_detection.__all__"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="__all__">__all__<a href="#__all__" class="hash-link" aria-label="Direct link to __all__" title="Direct link to __all__" translate="no">​</a></h3>
+<a id="formfyxer.passive_voice_detection.DEFAULT_MODEL"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="default_model">DEFAULT_MODEL<a href="#default_model" class="hash-link" aria-label="Direct link to DEFAULT_MODEL" title="Direct link to DEFAULT_MODEL" translate="no">​</a></h3>
+<a id="formfyxer.passive_voice_detection._cached_client"></a>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="_cached_client-optionalopenai">_cached_client: <code>Optional[OpenAI]</code><a href="#_cached_client-optionalopenai" class="hash-link" aria-label="Direct link to _cached_client-optionalopenai" title="Direct link to _cached_client-optionalopenai" translate="no">​</a></h4>
+<a id="formfyxer.passive_voice_detection._api_key"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="_api_key">_api_key<a href="#_api_key" class="hash-link" aria-label="Direct link to _api_key" title="Direct link to _api_key" translate="no">​</a></h3>
+<a id="formfyxer.passive_voice_detection._organization"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="_organization">_organization<a href="#_organization" class="hash-link" aria-label="Direct link to _organization" title="Direct link to _organization" translate="no">​</a></h3>
+<a id="formfyxer.passive_voice_detection._load_prompt"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="_load_prompt">_load_prompt<a href="#_load_prompt" class="hash-link" aria-label="Direct link to _load_prompt" title="Direct link to _load_prompt" translate="no">​</a></h3>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">_load_prompt</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><br></div></code></pre></div></div>
+<p>Load the passive voice detection prompt from the prompts directory.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns">Returns<a href="#returns" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<p>The prompt text as a string.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="raises">Raises<a href="#raises" class="hash-link" aria-label="Direct link to Raises" title="Direct link to Raises" translate="no">​</a></h4>
+<ul>
+<li class=""><code>FileNotFoundError</code> - If the prompt file cannot be found.</li>
+</ul>
+<a id="formfyxer.passive_voice_detection._ensure_client"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="_ensure_client">_ensure_client<a href="#_ensure_client" class="hash-link" aria-label="Direct link to _ensure_client" title="Direct link to _ensure_client" translate="no">​</a></h3>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">_ensure_client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">openai_client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Optional</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">OpenAI</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">None</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                   api_key</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Optional</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">None</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> OpenAI</span><br></div></code></pre></div></div>
+<p>Return an OpenAI client, lazily creating one from various sources.</p>
+<p>This function implements a singleton pattern for OpenAI client creation, using
+cached instances to avoid repeated initialization. If no client is provided,
+it creates one using the provided api_key, docassemble config, or environment variables
+OPENAI_API_KEY and optionally OPENAI_ORGANIZATION/OPENAI_ORG.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="arguments">Arguments<a href="#arguments" class="hash-link" aria-label="Direct link to Arguments" title="Direct link to Arguments" translate="no">​</a></h4>
+<ul>
+<li class=""><code>openai_client</code> - Pre-configured OpenAI client. If provided, this client
+is returned directly without any caching or initialization.</li>
+<li class=""><code>api_key</code> - Explicit API key to use for client creation.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-1">Returns<a href="#returns-1" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<p>An initialized OpenAI client ready for API calls.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="raises-1">Raises<a href="#raises-1" class="hash-link" aria-label="Direct link to Raises" title="Direct link to Raises" translate="no">​</a></h4>
+<ul>
+<li class=""><code>RuntimeError</code> - If no API key can be found from any source and
+no client is provided.</li>
+</ul>
+<a id="formfyxer.passive_voice_detection._SENTENCE_REGEX"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="_sentence_regex">_SENTENCE_REGEX<a href="#_sentence_regex" class="hash-link" aria-label="Direct link to _SENTENCE_REGEX" title="Direct link to _SENTENCE_REGEX" translate="no">​</a></h3>
 <a id="formfyxer.passive_voice_detection.split_sentences"></a>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="split_sentences">split_sentences<a href="#split_sentences" class="hash-link" aria-label="Direct link to split_sentences" title="Direct link to split_sentences" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">split_sentences</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">text</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> List</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><br></div></code></pre></div></div>
@@ -35,23 +145,59 @@
 <p>It uses a regex to identify sentence boundaries
 based on periods, exclamation marks, and question marks, while avoiding splits
 on abbreviations followed by quoted words.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="arguments">Arguments<a href="#arguments" class="hash-link" aria-label="Direct link to Arguments" title="Direct link to Arguments" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="arguments-1">Arguments<a href="#arguments-1" class="hash-link" aria-label="Direct link to Arguments" title="Direct link to Arguments" translate="no">​</a></h4>
 <ul>
 <li class=""><code>text</code> - Input text to split into sentences.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns">Returns<a href="#returns" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-2">Returns<a href="#returns-2" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <p>List of sentence strings with leading/trailing whitespace removed.
 Empty strings are filtered out from the results.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="notes">Notes<a href="#notes" class="hash-link" aria-label="Direct link to Notes" title="Direct link to Notes" translate="no">​</a></h4>
 <p>It replaces the original NLTK-based splitter to reduce dependency weight and
 package conflicts.</p>
+<a id="formfyxer.passive_voice_detection._normalize_input"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="_normalize_input">_normalize_input<a href="#_normalize_input" class="hash-link" aria-label="Direct link to _normalize_input" title="Direct link to _normalize_input" translate="no">​</a></h3>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">_normalize_input</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">text</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Union</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> Sequence</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> List</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><br></div></code></pre></div></div>
+<p>Convert input text into a normalized list of sentences for analysis.</p>
+<p>This function handles both string and sequence inputs, performing sentence
+splitting for strings and validation/filtering for sequences. Only sentences
+with more than 2 words are retained, as shorter fragments are typically
+not meaningful for passive voice analysis.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="arguments-2">Arguments<a href="#arguments-2" class="hash-link" aria-label="Direct link to Arguments" title="Direct link to Arguments" translate="no">​</a></h4>
+<ul>
+<li class=""><code>text</code> - Input text as either a single string (which will be split into
+sentences) or a sequence of strings (which will be validated
+and filtered).</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-3">Returns<a href="#returns-3" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<p>List of sentence strings, each containing more than 2 words with
+leading/trailing whitespace removed.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="raises-2">Raises<a href="#raises-2" class="hash-link" aria-label="Direct link to Raises" title="Direct link to Raises" translate="no">​</a></h4>
+<ul>
+<li class=""><code>ValueError</code> - If input is not a string or sequence of strings, if any
+item in a sequence is not a string, or if no valid sentences
+(&gt;2 words) are found in the input.</li>
+</ul>
+<a id="formfyxer.passive_voice_detection._extract_text_from_response"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="_extract_text_from_response">_extract_text_from_response<a href="#_extract_text_from_response" class="hash-link" aria-label="Direct link to _extract_text_from_response" title="Direct link to _extract_text_from_response" translate="no">​</a></h3>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">_extract_text_from_response</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">response</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><br></div></code></pre></div></div>
+<p>Extract text content from OpenAI ChatCompletion API response object.</p>
+<p>See <a href="https://platform.openai.com/docs/api-reference/responses/object?lang=python" target="_blank" rel="noopener noreferrer" class="">https://platform.openai.com/docs/api-reference/responses/object?lang=python</a> for more information about the OpenAI&#x27;s possible return types.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="arguments-3">Arguments<a href="#arguments-3" class="hash-link" aria-label="Direct link to Arguments" title="Direct link to Arguments" translate="no">​</a></h4>
+<ul>
+<li class=""><code>response</code> - OpenAI API response object with potentially nested content
+structures containing text data.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-4">Returns<a href="#returns-4" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<p>Concatenated text content from the response, with leading/trailing
+whitespace removed. Returns empty string if no text content is found.</p>
 <a id="formfyxer.passive_voice_detection.detect_passive_voice_segments"></a>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="detect_passive_voice_segments">detect_passive_voice_segments<a href="#detect_passive_voice_segments" class="hash-link" aria-label="Direct link to detect_passive_voice_segments" title="Direct link to detect_passive_voice_segments" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">detect_passive_voice_segments</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        text</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Union</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> Sequence</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        openai_client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Optional</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">OpenAI</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">None</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        model</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> DEFAULT_MODEL</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        api_key</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Optional</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">None</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> List</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">Tuple</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> List</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><br></div></code></pre></div></div>
 <p>Detect passive voice constructions in text using OpenAI&#x27;s language model.</p>
 <p>This function analyzes sentences to identify passive voice constructions by
 leveraging OpenAI&#x27;s Chat Completions API with a simple single-prompt approach.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="arguments-1">Arguments<a href="#arguments-1" class="hash-link" aria-label="Direct link to Arguments" title="Direct link to Arguments" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="arguments-4">Arguments<a href="#arguments-4" class="hash-link" aria-label="Direct link to Arguments" title="Direct link to Arguments" translate="no">​</a></h4>
 <ul>
 <li class=""><code>text</code> - Input text as either a single string (which will be split into
 sentences) or a sequence of pre-split sentences to analyze.</li>
@@ -62,14 +208,14 @@ value of DEFAULT_MODEL constant (currently &#x27;gpt-5-nano&#x27;).</li>
 <li class=""><code>api_key</code> - Explicit OpenAI API key to use. If None, will try docassemble
 config (if available) then environment variables (OPENAI_API_KEY required).</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-1">Returns<a href="#returns-1" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-5">Returns<a href="#returns-5" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <p>List of tuples where each tuple contains:</p>
 <ul>
 <li class="">sentence (str): The original sentence text</li>
 <li class="">fragments (List[str]): List of passive voice text fragments found
 in the sentence, or empty list if no passive voice detected</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="raises">Raises<a href="#raises" class="hash-link" aria-label="Direct link to Raises" title="Direct link to Raises" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="raises-3">Raises<a href="#raises-3" class="hash-link" aria-label="Direct link to Raises" title="Direct link to Raises" translate="no">​</a></h4>
 <ul>
 <li class=""><code>ValueError</code> - If input text contains no valid sentences (&gt;2 words) or
 if input format is invalid.</li>
@@ -85,6 +231,6 @@ once without organization header).</li>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="notes-1">Notes<a href="#notes-1" class="hash-link" aria-label="Direct link to Notes" title="Direct link to Notes" translate="no">​</a></h4>
 <p>This implementation uses a single prompt per sentence to classify rather
 than the ChatCompletion API after testing and finding better performance with this
-simple approach.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/SuffolkLITLab/AssemblyLine-docs/edit/main/docs/components/FormFyxer/passive_voice_detection.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#split_sentences" class="table-of-contents__link toc-highlight">split_sentences</a></li><li><a href="#detect_passive_voice_segments" class="table-of-contents__link toc-highlight">detect_passive_voice_segments</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://suffolklitlab.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Suffolk LIT Lab<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | This documentation website is built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.</div></div></div></footer></div>
+simple approach.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/SuffolkLITLab/AssemblyLine-docs/edit/main/docs/components/FormFyxer/passive_voice_detection.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#annotations" class="table-of-contents__link toc-highlight">annotations</a></li><li><a href="#json" class="table-of-contents__link toc-highlight">json</a></li><li><a href="#os" class="table-of-contents__link toc-highlight">os</a></li><li><a href="#re" class="table-of-contents__link toc-highlight">re</a></li><li><a href="#path" class="table-of-contents__link toc-highlight">Path</a></li><li><a href="#dict" class="table-of-contents__link toc-highlight">Dict</a></li><li><a href="#list" class="table-of-contents__link toc-highlight">List</a></li><li><a href="#optional" class="table-of-contents__link toc-highlight">Optional</a></li><li><a href="#sequence" class="table-of-contents__link toc-highlight">Sequence</a></li><li><a href="#tuple" class="table-of-contents__link toc-highlight">Tuple</a></li><li><a href="#union" class="table-of-contents__link toc-highlight">Union</a></li><li><a href="#load_dotenv" class="table-of-contents__link toc-highlight">load_dotenv</a></li><li><a href="#openai" class="table-of-contents__link toc-highlight">OpenAI</a></li><li><a href="#chatcompletionmessageparam" class="table-of-contents__link toc-highlight">ChatCompletionMessageParam</a></li><li><a href="#chatcompletionsystemmessageparam" class="table-of-contents__link toc-highlight">ChatCompletionSystemMessageParam</a></li><li><a href="#chatcompletionusermessageparam" class="table-of-contents__link toc-highlight">ChatCompletionUserMessageParam</a></li><li><a href="#authenticationerror" class="table-of-contents__link toc-highlight">AuthenticationError</a></li><li><a href="#get_openai_api_key" class="table-of-contents__link toc-highlight">get_openai_api_key</a></li><li><a href="#get_openai_base_url" class="table-of-contents__link toc-highlight">get_openai_base_url</a><ul><li><a href="#__all__" class="table-of-contents__link toc-highlight">__all__</a></li><li><a href="#default_model" class="table-of-contents__link toc-highlight">DEFAULT_MODEL</a></li><li><a href="#_api_key" class="table-of-contents__link toc-highlight">_api_key</a></li><li><a href="#_organization" class="table-of-contents__link toc-highlight">_organization</a></li><li><a href="#_load_prompt" class="table-of-contents__link toc-highlight">_load_prompt</a></li><li><a href="#_ensure_client" class="table-of-contents__link toc-highlight">_ensure_client</a></li><li><a href="#_sentence_regex" class="table-of-contents__link toc-highlight">_SENTENCE_REGEX</a></li><li><a href="#split_sentences" class="table-of-contents__link toc-highlight">split_sentences</a></li><li><a href="#_normalize_input" class="table-of-contents__link toc-highlight">_normalize_input</a></li><li><a href="#_extract_text_from_response" class="table-of-contents__link toc-highlight">_extract_text_from_response</a></li><li><a href="#detect_passive_voice_segments" class="table-of-contents__link toc-highlight">detect_passive_voice_segments</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://suffolklitlab.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Suffolk LIT Lab<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | This documentation website is built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.</div></div></div></footer></div>
 </body>
 </html>
