@@ -5,15 +5,34 @@ sidebar_label: Accessibility
 slug: accessibility
 ---
 
-**Web accessibility** is the practice of making your website usable by many different users, such as those who use keyboard controls or screen readers.
+**Web accessibility** means designing websites and tools (like docassemble interviews) so that people with disabilities can use them. Web accessibility also benefits everyone by making websites more usable across a range of situations. 
 
-Making guided interviews accessible is first and foremost about making them easy to understand and use. Following [our advice about writing good questions](../style_guide/question_overview) can make your interview easier to understand and complete overall, which helps everyone!
+Making docassemble interviews accessible involves structuring interviews for people who use keyboard controls and screen readers, which [docassemble handles by default](https://docassemble.org/docs/accessibility.html). To the extent the AssemblyLine software adds features (such as [`AL` object classes](../components/AssemblyLine/reserved_keywords#full-list-of-reserved-variable-names)), they are also built to be accessible by default.
 
-Web accessibility also involves writing interviews in a way the user's browser or accessibility tools like screen readers can understand. docassemble [handles many of these things](https://docassemble.org/docs/accessibility.html) for you, but there are some parts that you have to address when building your interview.
+Interview builders must address accessibility, too, so the Document Assembly Line has powerful accessibility tools, a [style guide for writing questions](../style_guide/question_style_overview.md), and [user interface guidelines](./yaml_interface.md). These address readability and UI choices that improve interview accessibility overall. (Translation can also be considered part of web accessibility, and AssemblyLine also adds [helpful translation tools](../components/AssemblyLine/translation.md).)
 
-To help you find accessibility problems in your interview you can use the [WAVE browser extension](https://wave.webaim.org/extension/), or if you want to check accessibility of your interview automatically, you can use the [ALKiln testing framework](../components/ALKiln/automated_testing.mdx#accessibility).
+## AssemblyLine accessibility tools
 
-## Best practices for accessibility
+
+The AssemblyLine software includes a [code linter](https://en.wikipedia.org/wiki/Lint_(software)) used in the [ALDashboard](../components/ALDashboard/overview) and [ALWeaver](../authoring/weaver/weaver_overview) packages. It can check interviews against the Document Assembly Line style guide, interface guidelines, and [WCAG accessibility guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/). (WCAG accessibility checks must be run manually from the Dashboard **Interview style check (lint)** link.)
+
+<p><img src="/assets/images/aldashboard-interview-linter-icon-637e617e05301566f585ec7978cb46b8.png" style={{borderRadius: 6 + 'px', display: 'block', height: 128 + 'px', width: 128 + 'px', marginRight: 'auto', marginLeft: 'auto'}} alt='ALDashboard icon for the code linter. The text reads "Interview style check (lint)"' /></p>
+
+Accessibility checks include:
+
+- Web Content Accessibility Guidelines (WCAG) clear failures
+- DOCX and PDF template accessibility
+- DAL style guide issues
+- Low contrast
+- Skipped [heading levels](#heading-levels)
+- Empty links
+- Non-descriptive link text
+- Missing [alt text](#alt-text)
+- Missing field labels
+- [Combobox](#avoid-comboboxes) use
+- Translateability
+
+## General tips for improving interview accessibility
 
 ### Use colors that contrast strongly with their backgrounds
 
@@ -24,7 +43,7 @@ You can check that the colors you are using in your interview's branding have pr
 * [WebAIM's contrast checker](https://webaim.org/resources/contrastchecker/)
 * [Accessible Web's contrast checker](https://accessibleweb.com/color-contrast-checker/)
 
-### Use alt-text with images
+### Use alt-text with images {#alt-text}
 
 To describe images in webpages, screen readers read out author-provided descriptions called alternative text, or alt-text. Without alt-text, people visiting your page with screen readers won't get any of the benefits of the graphic. The W3 WAI group has [a good decision tree on how to write alt-text](https://www.w3.org/WAI/tutorials/images/decision-tree/).
 
@@ -38,7 +57,7 @@ In docassemble, you should [set the `alt_text` attribute of a DAFile](https://do
 Don't forget to add alt-text to your organization's logo. It can be a simple description like "Organization A's logo", but it should be present.
 :::
 
-### Maintain consistent heading increments
+### Maintain consistent heading increments {#heading-levels}
 
 Headings provide semantic structure to web pages and help screen readers navigate.
 
@@ -107,7 +126,7 @@ subquestion: |
 
 ```
 
-### Avoid comboboxes
+### Avoid comboboxes {#avoid-comboboxes}
 
 [Comboboxes](https://docassemble.org/docs/fields.html#field%20with%20combobox) allow the user to choose a selection from a list or enter their own "other" value. But as implemented in docassemble, have [several usability problems](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/issues/548), especially with screen readers, so we recommend you don't use them. Instead, split the combobox into multiple fields or use a single text field with validation.
 
@@ -153,7 +172,7 @@ fields:
 
 **Text field with validation.** Use a single text field with input validation by the interview. To help the user fill in the field correctly, include some valid values as examples on the page. Ensure validation errors are descriptive.
 
-## Accessibility testing tools
+## Accessibility testing tools {#accessibility-tools}
 
 You should test your interview with assistive technology as much as you can! The best way to improve your interviews for assistive technology users is by actually experiencing them yourself.
 
@@ -163,39 +182,43 @@ Here are some common tools to help you test and validate the accessibility of yo
 
 Screen readers read content aloud for users who are blind, have low vision, or other challenges reading text. Each screen reader behaves differently, so test with as many as you can.
 
-Do not rewrite your content based on how it sounds in a screen reader. Screen readers may pronounce some words and acronyms differently than you might expect. This is fine; screen reader users are used to these differences. For more discussion of this, see [Adrian Roselli's post about this](https://adrianroselli.com/2023/04/dont-override-screen-reader-pronunciation.html). 
+Do not rewrite your content based on how it sounds in a screen reader. Screen readers may pronounce some words and acronyms differently than you might expect. This is fine; screen reader users are used to these differences. For more discussion of this, see [Adrian Roselli's post about this](https://adrianroselli.com/2023/04/dont-override-screen-reader-pronunciation.html).
+
+:::tip
+docassemble includes a [built-in screen reader based on VoiceRSS](https://docassemble.org/docs/config.html#voicerss).
+:::
 
 Free screen readers:
-* **[NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/)** is a free, open-source screen reader for Windows that is widely used and regularly updated
-* **[VoiceOver](https://www.apple.com/accessibility/vision/)** is built into Apple devices. Activate with Command (⌘) + F5 on Mac.
-* **[TalkBack](https://support.google.com/accessibility/android/answer/6283677)** is Android's built-in screen reader
-* **[Orca](https://help.gnome.org/users/orca/stable/)** is an open-source screen reader for Linux systems
+- **[NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/)** is a free, open-source screen reader for Windows that is widely used and regularly updated
+- **[VoiceOver](https://www.apple.com/accessibility/vision/)** is built into Apple devices. Activate with Command (⌘) + F5 on Mac.
+- **[TalkBack](https://support.google.com/accessibility/android/answer/6283677)** is Android's built-in screen reader
+- **[Orca](https://help.gnome.org/users/orca/stable/)** is an open-source screen reader for Linux systems
 
 Commercial screen readers:
-* **[JAWS (Job Access With Speech)](https://www.freedomscientific.com/products/software/jaws/)** is the most popular screen reader for Windows with advanced features
+- **[JAWS (Job Access With Speech)](https://www.freedomscientific.com/products/software/jaws/)** is the most popular screen reader for Windows with advanced features
 
 ### Browser accessibility checkers
 
 These tools can automatically scan your interview pages for accessibility issues:
 
-* **[WAVE Web Accessibility Evaluator](https://wave.webaim.org/extension/)** is a browser extension that highlights accessibility issues directly on the page
-* **[Axe DevTools](https://www.deque.com/axe/devtools/)** is a browser extension for Chrome, Firefox, and Edge that integrates with developer tools
-* **[Lighthouse](https://developer.chrome.com/docs/lighthouse/)** is built into Chrome DevTools and includes accessibility auditing alongside performance testing
-* **[Accessibility Insights](https://accessibilityinsights.io/)** is Microsoft's accessibility testing tool for web and Windows
+- **[WAVE Web Accessibility Evaluator](https://wave.webaim.org/extension/)** is a browser extension that highlights accessibility issues directly on the page
+- **[Axe DevTools](https://www.deque.com/axe/devtools/)** is a browser extension for Chrome, Firefox, and Edge that integrates with developer tools
+- **[Lighthouse](https://developer.chrome.com/docs/lighthouse/)** is built into Chrome DevTools and includes accessibility auditing alongside performance testing
+- **[Accessibility Insights](https://accessibilityinsights.io/)** is Microsoft's accessibility testing tool for web and Windows
 
 ### Manual testing tools
 
-* **[Colour Contrast Analyser](https://www.tpgi.com/color-contrast-checker/)** is a desktop application for testing color contrast ratios
-* **[Accessibility bookmarklets](https://accessibility-bookmarklets.org/)** is a collection of browser bookmarklets for quick accessibility checks
+- **[Colour Contrast Analyser](https://www.tpgi.com/color-contrast-checker/)** is a desktop application for testing color contrast ratios
+- **[Accessibility bookmarklets](https://accessibility-bookmarklets.org/)** is a collection of browser bookmarklets for quick accessibility checks
 
 ### Mobile accessibility testing
 
-* **[VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios)** is iOS's built-in screen reader
-* **[TalkBack](https://support.google.com/accessibility/android/answer/6283677)** is Android's built-in screen reader
-* **[Switch Access](https://support.google.com/accessibility/android/answer/6122836)** is an Android feature for users with motor disabilities
+- **[VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios)** is iOS's built-in screen reader
+- **[TalkBack](https://support.google.com/accessibility/android/answer/6283677)** is Android's built-in screen reader
+- **[Switch Access](https://support.google.com/accessibility/android/answer/6122836)** is an Android feature for users with motor disabilities
 
 ### Automated testing integration
 
-* **[ALKiln](../components/ALKiln/automated_testing.mdx#accessibility)** is the Document Assembly Line's testing framework with built-in accessibility testing using [axe-core](https://github.com/dequelabs/axe-core)
-* **[aXe-core](https://github.com/dequelabs/axe-core)** is an open-source accessibility testing engine used by many tools
-* **[Pa11y](https://pa11y.org/)** is a command-line accessibility testing tool that can be integrated into CI/CD pipelines
+- **[ALKiln](../components/ALKiln/automated_testing.mdx#accessibility)** is the Document Assembly Line's testing framework with built-in accessibility testing using [axe-core](https://github.com/dequelabs/axe-core)
+- **[aXe-core](https://github.com/dequelabs/axe-core)** is an open-source accessibility testing engine used by many tools
+- **[Pa11y](https://pa11y.org/)** is a command-line accessibility testing tool that can be integrated into CI/CD pipelines
