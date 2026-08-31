@@ -83,30 +83,37 @@ module.exports = {
                         'docassemble_intro/repeated-information',
                     ]
                 },
-                {
-                    type: 'category',
-                    label: 'Administering docassemble',
-                    items: [
-                        'admin_guide_docassemble/setup-server',
-                        'admin_guide_docassemble/rebuild-lightsail-instance',
-                        'admin_guide_docassemble/running-docassemble-without-aws',
-                        'admin_guide_docassemble/run-docassemble-docker-vscode',
-                        //'admin_guide_docassemble/combining-interviews',
-                        'admin_guide_docassemble/installing-production-app',
-                        'admin_guide_docassemble/updates-and-maintenance',
-                    ],
-                },
+                'docassemble_intro/theming-docassemble',
             ]
+        },
+        {
+            type: 'category',
+            label: 'Administering docassemble',
+            items: [
+                'admin_guide_docassemble/setup-server',
+                'admin_guide_docassemble/rebuild-lightsail-instance',
+                'admin_guide_docassemble/running-docassemble-without-aws',
+                'admin_guide_docassemble/run-docassemble-docker-vscode',
+                'admin_guide_docassemble/installing-production-app',
+                'admin_guide_docassemble/updates-and-maintenance',
+            ],
         },
         {
             label: 'Authoring interviews',
             type: 'category',
             items: [
-                'authoring/pdf_templates',
-                'authoring/docx_templates',
-                'authoring/dynamic_phrasing_based_on_values',
-                'authoring/document_variables_reference',
-                'authoring/name_formats',
+                {
+                    label: 'Preparing templates and variables',
+                    type: 'category',
+                    collapsed: false,
+                    items: [
+                        'authoring/pdf_templates',
+                        'authoring/docx_templates',
+                        'authoring/document_variables_reference',
+                        'authoring/name_formats',
+                        'authoring/dynamic_phrasing_based_on_values',
+                    ],
+                },
                 {
                     label: 'The Assembly Line Weaver',
                     type: 'category',
@@ -124,10 +131,17 @@ module.exports = {
                         'authoring/weaver/weaver_authoring_checklist',
                     ],
                 },
-                'authoring/github',
-                'authoring/customizing_interview',
-                'authoring/combining-interviews',
-                'authoring/writing_review_screen',
+                {
+                    label: 'Customizing and extending interviews',
+                    type: 'category',
+                    collapsed: false,
+                    items: [
+                        'authoring/customizing_interview',
+                        'authoring/writing_review_screen',
+                        'authoring/combining-interviews',
+                        'authoring/github',
+                    ],
+                },
                 {
                     label: 'Coding with AI assistance',
                     type: 'category',
@@ -145,7 +159,6 @@ module.exports = {
         {
             label: 'AskLITs',
             type: 'category',
-            collapsed: false,
             items: [
                 'asklits/asklits_overview',
                 'asklits/building',
@@ -162,7 +175,7 @@ module.exports = {
             items: [
                 'style_guide/question_style_overview',
                 'style_guide/style_guide_respect',
-                // 'style_guide/question_style_sensitivities',
+                'style_guide/question_style_sensitivities',
                 'style_guide/style_guide_readability',
                 'style_guide/question_style_structure',
                 'style_guide/question_style_exit_screen',
@@ -196,6 +209,7 @@ module.exports = {
                 'coding_style/yaml_structure',
                 'coding_style/yaml_dynamic',
                 'coding_style/yaml_interface',
+                'coding_style/yaml_lists',
                 'coding_style/yaml_translation',
                 'coding_style/defense',
                 'coding_style/accessibility'
@@ -255,8 +269,12 @@ module.exports = {
                     ]
                 },
                 "components/ALToolbox/al_income",
+                "components/ALToolbox/Addup",
+                "components/ALToolbox/ThreePartsDate",
+                "components/ALToolbox/addenda",
                 "components/ALToolbox/business_days",
                 "components/ALToolbox/copy_button",
+                "components/ALToolbox/display_template",
                 "components/ALToolbox/misc",
                 "components/ALToolbox/save_input_data",
                 "components/ALToolbox/llms",
@@ -266,15 +284,13 @@ module.exports = {
         'components/RateMyPDF/ratemypdf_overview',
         'components/GithubFeedbackForm/githubfeedbackform_overview',
         'components/InterviewStats/interviewstats_overview',
-        'components/ALDashboard/aldashboard_overview',
         {
-            type: 'autogenerated',
-            dirName: 'interviews'
-        },
-        {
-            label: 'ALDashboard modules',
-            type: 'category',
-            items: [
+            "type": "category",
+            "label": "ALDashboard",
+            "items": [
+                'components/ALDashboard/aldashboard_overview',
+                'interviews/ALDashboard/api_test',
+                'interviews/ALDashboard/browse_interviews',
                 'components/ALDashboard/aldashboard',
                 'components/ALDashboard/create_package',
                 'components/ALDashboard/docx_wrangling',
@@ -282,7 +298,7 @@ module.exports = {
                 'components/ALDashboard/project_maintenance',
                 'components/ALDashboard/translation',
                 'components/ALDashboard/validate_docx',
-            ],
+            ]
         },
         {
             "label": "FormFyxer",
@@ -313,12 +329,9 @@ module.exports = {
             label: 'Automated testing (ALKiln)',
             type: 'category',
             items: [
-                // WIPs
                 'components/ALKiln/alkiln_intro',
-                // Old
                 'components/ALKiln/alkiln_about',
                 'components/ALKiln/alkiln_advanced',
-                // WIPs
                 'components/ALKiln/alkiln_setup',
                 'components/ALKiln/alkiln_writing_tests',
                 'components/ALKiln/alkiln_troubleshooting',
