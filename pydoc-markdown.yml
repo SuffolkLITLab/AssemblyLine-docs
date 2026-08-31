@@ -9,6 +9,7 @@ loaders:
 processors:
   - type: filter
     skip_empty_modules: true
+    expression: "not name.startswith('test_') and 'test.' not in name"
   - type: google
     # - type: smart
   - type: crossref
