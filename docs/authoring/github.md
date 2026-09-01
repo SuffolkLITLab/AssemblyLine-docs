@@ -280,12 +280,10 @@ The text `CONFLICT (content): Merge conflict` means the branch you are trying to
 
 ## Automated quality checks in GitHub
 
-Once your repository is on GitHub, you can enable continuous automated testing and quality checks using **[SuffolkLITLab/ALActions](../automated_quality_checks/github_actions.md)**.
-
-Whenever a pull request is created or code is pushed:
-- **[`da_build`](../automated_quality_checks/github_actions.md#da_build)** builds the package, checks Python syntax, runs [`dayamlchecker`](../automated_quality_checks/dayamlchecker.md) on interview YAML files, checks external URLs for 404s, and audits PDF templates with **veraPDF** for PDF/UA-1 accessibility.
-- **[`valid_jinja2`](../automated_quality_checks/github_actions.md#valid_jinja2)** validates all modified `.docx` Jinja2 templates for syntax errors and recognized filters.
-- **[`word_diff`](../automated_quality_checks/github_actions.md#word_diff)** converts changed `.docx` templates into side-by-side visual diffs for instant review in GitHub.
-- **[`black-formatting`](../automated_quality_checks/github_actions.md#black-formatting)** and **[`docsig`](../automated_quality_checks/github_actions.md#docsig)** enforce Python code style and docstrings.
-
-Learn more in our **[Automated quality checks overview](../automated_quality_checks/overview.md)**, **[Running checks before pushing to GitHub](../automated_quality_checks/running_checks_locally.md)**, and **[Navigating logs and artifacts](../automated_quality_checks/navigating_logs_and_artifacts.md)** guides.
+Once your package is on GitHub, add the
+**[Assembly Line GitHub Actions](../automated_quality_checks/github_actions.md)** to check
+every pull request: the package build, interview YAML, Word and PDF template
+accessibility, broken links, and Python style and tests. Start with the
+**[automated quality checks overview](../automated_quality_checks/overview.md)**, or with
+**[running the same checks locally](../automated_quality_checks/running_checks_locally.md)**
+before you push.

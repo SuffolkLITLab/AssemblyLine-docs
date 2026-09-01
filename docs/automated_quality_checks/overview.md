@@ -7,73 +7,85 @@ slug: overview
 
 # Automated quality checks in Assembly Line
 
-Maintaining high quality, security, and accessibility in legal tech applications requires rigorous testing at every stage of the authoring lifecycle. In the Document Assembly Line project, automated quality checks ensure that interview code, template files, hyperlinks, and document outputs are continuously validated before they reach end users.
+Docassemble interviews combine several languages in one package: YAML for interview
+logic, Python for data models, Mako and Jinja2 for templating, Markdown and HTML for
+screen formatting, and DOCX and PDF for the documents users receive. The Document
+Assembly Line runs a set of automated checks over all of them, so that broken links,
+template typos, and accessibility barriers are caught in a pull request instead of by a
+self-represented litigant.
 
 ```mermaid
 flowchart LR
-    A["Local Authoring\n(VS Code / Playground)"] --> B["DAYamlChecker\n(Local Static Linting)"]
-    B --> C["GitHub Pull Request\n(SuffolkLITLab/ALActions)"]
-    C --> D["da_build\n(YAML, URLs, veraPDF)"]
-    C --> E["valid_jinja2\n(DOCX Syntax)"]
-    C --> F["word_diff\n(Visual Diff & Artifacts)"]
-    C --> G["Python Linting\n(Black, Docsig, Tests)"]
-    D & E & F & G --> H{"All Checks Pass?"}
-    H -->|Yes| I["Merge & Deploy\n(da_package / da_playground_install)"]
-    H -->|No| J["Review Logs & Annotations\n(Fix Issues)"]
-    I --> K["Production Monitoring\n(Hall Monitor Uptime)"]
+    A["Local authoring<br/>(VS Code / Playground)"] --> B["dayamlchecker<br/>(local static checks)"]
+    B --> C["GitHub pull request"]
+    C --> D["da_build<br/>(YAML, DOCX, PDF, URLs)"]
+    C --> E["valid_jinja2<br/>(DOCX Jinja2 syntax)"]
+    C --> F["word_diff<br/>(readable DOCX diffs)"]
+    C --> G["black, docsig, pythontests<br/>(Python)"]
+    D & E & F & G --> H{"All checks pass?"}
+    H -->|Yes| I["Merge and deploy<br/>(da_package / da_playground_install)"]
+    H -->|No| J["Review annotations and logs"]
+    I --> K["hall_monitor<br/>(scheduled uptime checks)"]
 ```
 
 ---
 
-## Why automated quality checks matter
+## What the checks catch
 
-Docassemble interviews combine multiple languages and technologies: YAML for interview logic, Python for backend data models, Mako and Jinja2 for text templating, Markdown and HTML for screen formatting, and DOCX/PDF for document assembly. Automated quality checks catch issues early:
-
-1. **Accessibility barriers**: Preventing WCAG failures such as skipped heading levels, unlabelled fields, missing image alt text, low color contrast, and untagged PDFs.
-2. **Template and syntax errors**: Catching broken Jinja2 expressions (`{{ user.nam }}` vs `{{ user.name }}`), malformed Mako logic, and invalid YAML blocks before a user triggers a runtime exception.
-3. **Broken and flaky links**: Automatically scanning all external HTTP/HTTPS links in interview screens and templates so self-represented litigants never encounter dead resources.
-4. **Document visual drift**: Revealing exact text changes in Word `.docx` templates during code review without needing Microsoft Word installed.
-5. **Code style and maintainability**: Enforcing PEP 8 standards with Black, ensuring docstring parity with Docsig, and running automated Python unit tests.
-6. **Continuous server health**: Continuously testing live servers and interviews with Hall Monitor to verify that all deployed interviews load their first page successfully.
+1. **Accessibility barriers**: skipped heading levels, unlabelled fields, missing image
+   alt text, low contrast in custom themes, and untagged PDFs.
+2. **Template and syntax errors**: broken Jinja2 expressions (`{{ user.nam }}` instead of
+   `{{ user.name }}`), malformed Mako, and invalid YAML, before a user hits a runtime
+   exception.
+3. **Broken links**: every absolute HTTP and HTTPS link in interview screens and
+   templates is requested, so users never land on a dead page.
+4. **Document drift**: the exact text that changed in a Word template, readable in a pull
+   request without opening Microsoft Word.
+5. **Python style and correctness**: Black formatting, docstrings that match their
+   signatures, type checks, a security scan, and unit tests.
+6. **Server health**: scheduled checks that every installed interview on a live server
+   still loads.
 
 ---
 
-## The quality check toolchain
+## The toolchain
 
-The Assembly Line quality ecosystem consists of several complementary tools:
-
-| Tool / Action | Scope | Primary Purpose | How It Runs |
+| Tool or action | Scope | What it does | How it runs |
 | :--- | :--- | :--- | :--- |
-| **[`dayamlchecker`](./dayamlchecker.md)** | YAML, Python, DOCX, URLs | Static linter, WCAG auditor, DOCX accessibility checker, and broken link validator | Locally via CLI (`pip install dayamlchecker`) or in CI |
-| **[`ALActions/da_build`](./github_actions.md#da_build)** | Package Build, YAML, DOCX, PDF | Builds Python wheels/tarballs, validates YAML questions, audits DOCX and PDF template accessibility (via `dayamlchecker` & veraPDF), and checks URLs | GitHub Actions CI workflow |
-| **[`ALActions/valid_jinja2`](./github_actions.md#valid_jinja2)** | DOCX Templates | Validates Jinja2 templating expressions across modified `.docx` files, recognizing 70+ Docassemble/AssemblyLine filters | GitHub Actions CI workflow |
-| **[`ALActions/word_diff`](./github_actions.md#word_diff)** | DOCX Templates | Converts changed `.docx` files to Markdown and side-by-side HTML diffs for instant review in GitHub pull requests | GitHub Actions CI workflow |
-| **[`ALActions/black-formatting`](./github_actions.md#black-formatting)** | Python Code | Enforces standardized Python code formatting | GitHub Actions CI workflow |
-| **[`ALActions/docsig`](./github_actions.md#docsig)** | Python Docstrings | Ensures Google-style docstrings match function and method signatures | GitHub Actions CI workflow |
-| **[`ALActions/pythontests`](./github_actions.md#pythontests)** | Python Tests | Discovers and executes standard `unittest` test suites | GitHub Actions CI workflow |
-| **[`ALActions/da_playground_install`](./github_actions.md#da_playground_install)** | Deployment | Deploys package branches directly to a test Docassemble playground project for live manual testing | GitHub Actions CI workflow |
-| **[`ALActions/da_package`](./github_actions.md#da_package)** | Deployment | Installs packages server-wide on test or staging Docassemble servers | GitHub Actions CI workflow |
-| **[`ALActions/hall_monitor`](./github_actions.md#hall_monitor)** | Synthetic Monitoring | Periodically loads the first page of installed interviews on a server and sends alerts (Email/Teams) on failure | GitHub Actions Cron Schedule |
+| **[`dayamlchecker`](./dayamlchecker.md)** | YAML, Python, DOCX, URLs | Static checker for interview structure, WCAG failures, DOCX accessibility, and broken links | Locally from the command line, and inside `da_build` |
+| **[`ALActions/da_build`](./github_actions.md#da_build)** | Package build, YAML, DOCX, PDF, URLs | Builds the package, runs `dayamlchecker` over interview YAML and DOCX templates, audits PDF templates with veraPDF, and checks URLs | GitHub Actions |
+| **[`ALActions/valid_jinja2`](./github_actions.md#valid_jinja2)** | DOCX templates | Compiles the Jinja2 expressions in changed `.docx` files, recognizing 124 Docassemble and Jinja2 filters | GitHub Actions |
+| **[`ALActions/word_diff`](./github_actions.md#word_diff)** | DOCX templates | Converts changed `.docx` files to Markdown and side-by-side HTML diffs | GitHub Actions |
+| **[`ALActions/black-formatting`](./github_actions.md#black-formatting)** | Python | Enforces Black formatting | GitHub Actions |
+| **[`ALActions/docsig`](./github_actions.md#docsig)** | Python docstrings | Checks that Google-style docstrings match function signatures | GitHub Actions |
+| **[`ALActions/pythontests`](./github_actions.md#pythontests)** | Python | Runs Mypy, Bandit, and the `pytest` suite | GitHub Actions |
+| **[`ALActions/da_playground_install`](./github_actions.md#da_playground_install)** | Deployment | Installs the branch into a Docassemble playground project for manual testing | GitHub Actions |
+| **[`ALActions/da_package`](./github_actions.md#da_package)** | Deployment | Installs the package server-wide on a test or staging server | GitHub Actions |
+| **[`ALActions/hall_monitor`](./github_actions.md#hall_monitor)** | Monitoring | Checks that installed interviews on a live server still load, and alerts by email or Teams | GitHub Actions, on a cron schedule |
 
-:::note Static vs. dynamic testing
-- **Static quality checks (ALActions & DAYamlChecker)** run quickly in lightweight containers without booting a full Docassemble server. They inspect source code, templates, and documents for structural and syntax correctness.
-- **Dynamic end-to-end testing ([ALKiln](../components/ALKiln/intro.mdx))** boots a headless browser against a running Docassemble server to simulate real user journeys, form submissions, and multi-page flows.
+:::note Static and dynamic testing are complementary
+These checks are **static**: they run in seconds in a lightweight container, reading
+source code, templates, and documents without booting a Docassemble server. They cannot
+tell you whether an interview actually works. For that, use
+**[ALKiln](../components/ALKiln/intro.mdx)**, which drives a headless browser through a
+real interview on a running server.
 :::
 
 ---
 
-## Workflow preview
+## What a run looks like
 
-When a pull request is submitted, GitHub Actions automatically executes the quality pipeline, posting step summaries, error annotations, and downloadable review artifacts:
-
-![GitHub Actions Workflow Run Summary](../../static/img/quality_checks/actions_workflow_summary.png)
+![The summary page of a da_build workflow run, showing a successful build job and an annotations panel listing URL checker warnings](../assets/quality_checks/actions_workflow_summary.png)
 
 ---
 
 ## Next steps
 
-- **[Running checks before pushing to GitHub](./running_checks_locally.md)**: Set up manual CLI checks and automated Git pre-commit hooks.
-- **[DAYamlChecker guide](./dayamlchecker.md)**: Learn how to run DAYamlChecker locally, understand WCAG & DOCX diagnostic codes, and suppress specific rules.
-- **[Assembly Line GitHub Actions](./github_actions.md)**: Explore the complete catalog of GitHub composite actions in `SuffolkLITLab/ALActions` with ready-to-use workflow configurations.
-- **[Navigating logs and artifacts](./navigating_logs_and_artifacts.md)**: Learn how to inspect pull request step summaries, download Word diffs, and troubleshoot CI job logs.
-- **[Making docassemble interviews accessible](../coding_style/accessibility.md)**: Read our comprehensive guide on accessibility best practices for interview authors.
+- **[Running checks before you push](./running_checks_locally.md)**: command line checks
+  and Git pre-commit hooks.
+- **[DAYamlChecker](./dayamlchecker.md)**: what it checks, what the diagnostic codes
+  mean, and how to suppress a finding.
+- **[GitHub Actions](./github_actions.md)**: every action in
+  `SuffolkLITLab/ALActions`, with workflows you can copy.
+- **[Logs and artifacts](./navigating_logs_and_artifacts.md)**: reading annotations,
+  step summaries, and downloadable reports.

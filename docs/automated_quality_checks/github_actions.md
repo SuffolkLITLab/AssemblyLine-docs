@@ -7,45 +7,57 @@ slug: github_actions
 
 # Assembly Line GitHub Actions (ALActions)
 
-The **[SuffolkLITLab/ALActions](https://github.com/SuffolkLITLab/ALActions)** repository provides a suite of reusable GitHub Actions specifically designed for Docassemble interview packages. 
+**[SuffolkLITLab/ALActions](https://github.com/SuffolkLITLab/ALActions)** holds the
+reusable GitHub Actions the Document Assembly Line uses for Docassemble packages: package
+builds, YAML and template checking, readable Word diffs, PDF accessibility validation
+with veraPDF, Python linting and tests, playground deployments, and uptime monitoring.
 
-These composite actions automate linting, syntax compilation, DOCX template validation, visual Word diffs, accessibility auditing with **veraPDF**, automated playground deployments, and server health monitoring.
+All of them are [composite
+actions](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action).
+Reference them at `@main` so that fixes reach your repositories without a version bump:
+
+```yaml
+- uses: SuffolkLITLab/ALActions/da_build@main
+```
 
 ---
 
-## Action catalog overview
+## Action catalog
 
-| Action | Primary Use Case | Triggers | Key Artifacts / Summaries |
+| Action | What it does | Typical triggers | What it produces |
 | :--- | :--- | :--- | :--- |
-| **[`da_build`](#da_build)** | Package build, Python compile, YAML linting, DOCX & PDF accessibility, URL check | `push`, `pull_request` | GitHub Annotations for broken URLs, DOCX warnings, and PDF/UA-1 failures |
-| **[`valid_jinja2`](#valid_jinja2)** | Validates Jinja2 expressions inside `.docx` Word templates | `push`, `pull_request` (on `.docx` paths) | Step Summary table and `jinja-validation` HTML artifact |
-| **[`word_diff`](#word_diff)** | Converts changed `.docx` templates to Markdown and HTML visual diffs | `pull_request`, `workflow_dispatch` | Markdown diff in Step Summary and `word-doc-diff` HTML bundle |
-| **[`black-formatting`](#black-formatting)** | Enforces PEP 8 Python formatting via Black | `push`, `pull_request` | Formatting failure diffs in job log |
-| **[`docsig`](#docsig)** | Checks Google-style Python docstrings against function signatures | `push`, `pull_request` | Docstring signature mismatch warnings |
-| **[`pythontests`](#pythontests)** | Executes automated Python unit tests (`unittest`/`pytest`), Mypy, and Bandit | `push`, `pull_request` | Test run output, type check, and security audit |
-| **[`da_playground_install`](#da_playground_install)** | Deploys package to a specific Docassemble playground project | `push` (branches / feature branches) | Live interview instance in developer playground |
-| **[`da_package`](#da_package)** | Installs package server-wide on a Docassemble server | `push` (e.g. `main` or release tags) | Server-wide package deployment |
-| **[`hall_monitor`](#hall_monitor)** | Synthetic uptime monitoring of live interviews on a server | `schedule` (cron) | Alerts via SendGrid, Mailgun, or Microsoft Teams |
+| **[`da_build`](#da_build)** | Package build, Python compile, YAML checks, DOCX and PDF accessibility, URL checks | `push`, `pull_request` | Inline annotations, a PDF accessibility step summary |
+| **[`valid_jinja2`](#valid_jinja2)** | Compiles Jinja2 expressions in changed `.docx` templates | `push`, `pull_request` on `.docx` paths | Step summary table, `jinja-validation` artifact |
+| **[`word_diff`](#word_diff)** | Converts changed `.docx` templates to Markdown and HTML diffs | `pull_request`, `workflow_dispatch` | Diffs in the step summary, `word-doc-diff` artifact |
+| **[`black-formatting`](#black-formatting)** | Runs Black over the repository | `push`, `pull_request` | A failing job when files need reformatting |
+| **[`docsig`](#docsig)** | Checks Google-style docstrings against signatures | `push`, `pull_request` | Docstring mismatches in the job log |
+| **[`pythontests`](#pythontests)** | Mypy, Bandit, and `pytest` | `push`, `pull_request` | Type, security, and test output |
+| **[`da_playground_install`](#da_playground_install)** | Installs the branch into a playground project | `push` on feature branches | A live interview to click through |
+| **[`da_package`](#da_package)** | Installs the package server-wide | `push` on `main` or a tag | A deployed package |
+| **[`hall_monitor`](#hall_monitor)** | Checks that installed interviews still load | `schedule` | Email or Teams alerts on failure |
 
 ---
 
-## `da_build`: Comprehensive package and YAML check {#da_build}
+## `da_build`: build and check the package {#da_build}
 
-`da_build` is the primary build and validation action for Docassemble packages. It performs the following checks and build steps:
+`da_build` is the main check for a Docassemble package. It runs, in order:
 
-1. **Python compilation**: Runs `python -m compileall .` to ensure all Python source files are syntactically valid.
-2. **Package build**: Uses `uv build` to build binary wheels and source tarballs in `dist/`.
-3. **YAML verification**: Executes [`dayamlchecker`](./dayamlchecker.md) across all interview YAML files under `docassemble/*/data/questions/` for structural integrity, syntax errors, and WCAG rules.
-4. **DOCX accessibility auditing**: Checks all Word (`.docx`) templates in `docassemble/*/data/templates/` for OpenXML accessibility barriers (missing alt text, unrepeated table headers, merged cells, heading skips) using `dayamlchecker`.
-5. **PDF accessibility auditing**: Downloads **veraPDF** (PDF/UA-1 validation engine) and verifies that all PDF templates in `docassemble/*/data/templates/` comply with PDF/UA-1 accessibility standards.
-6. **URL checking**: Concurrently checks all absolute URLs in question files and template files, reporting broken links and redirects as GitHub Actions annotations.
+1. **Python compile**: `python -m compileall .`, so no Python file has a syntax error.
+2. **Package build**: `uv build`, producing a wheel and an sdist in `dist/`.
+3. **YAML and DOCX checks**: [`dayamlchecker`](./dayamlchecker.md) over the package's
+   interview files and Word templates, reporting findings as GitHub annotations.
+4. **URL checks**: every absolute URL in question and template files is requested. A
+   broken link in a question file fails the job; one in a template is a warning.
+5. **PDF accessibility**: veraPDF is installed and every PDF template is validated
+   against **PDF/UA-1** (ISO 14289-1).
 
 ### Sample workflow
 
-Create `.github/workflows/build_and_check.yml`:
+Create `.github/workflows/build_and_check.yml`. `da_build` checks out the repository
+itself, so you do not need an `actions/checkout` step:
 
 ```yaml
-name: Build and Check Package
+name: Build and check package
 
 on:
   push:
@@ -58,335 +70,341 @@ jobs:
   build-and-validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Build, Lint, and Check
-        uses: SuffolkLITLab/ALActions/da_build@main
+      - uses: SuffolkLITLab/ALActions/da_build@main
         with:
           python-version: "3.12"
-          # Optional: ignore known flaky or rate-limited external domains
+          # Optional: skip endpoints that block CI or are known to be flaky
           ignore-urls: |
             https://example.com/known-flaky-endpoint
-            https://masscourts.gov/status
-          # Optional: 'warning' (default), 'error', or 'off'
-          pdf-validation-mode: "warning"
-          pdf-strict: "false"
+            https://another.example.org/blocked-from-ci
 ```
 
-### Action inputs and configuration options
+### Inputs
 
-| Input | Description | Default | Required |
-| :--- | :--- | :--- | :--- |
-| `python-version` | Python version for virtual environment and uv | `"3.12"` | No |
-| `skip-url-check` | Set to `"true"` to disable external URL network validation | `"false"` | No |
-| `skip-templates` | Set to `"true"` to skip URL checks in `data/templates/` | `"false"` | No |
-| `ignore-urls` | Comma- or newline-separated absolute URLs to ignore in URL checks | `""` | No |
-| `pdf-validation-mode` | How to report veraPDF PDF/UA-1 failures (`"warning"`, `"error"`, `"off"`) | `"warning"` | No |
-| `pdf-strict` | Set to `"true"` to enable strict PDF/UA-1 checking on form field tab order | `"false"` | No |
+| Input | Description | Default |
+| :--- | :--- | :--- |
+| `python-version` | Python version used for the build environment | `"3.12"` |
+| `skip-url-check` | `"true"` skips all URL network calls | `"false"` |
+| `skip-templates` | `"true"` skips URLs found inside `data/templates` files | `"false"` |
+| `ignore-urls` | Comma- or newline-separated URLs to ignore during URL checks | `""` |
+| `docx-validation-mode` | `"warning"` annotates without failing, `"error"` fails on DOCX accessibility errors, `"off"` skips DOCX checks | `"warning"` |
+| `pdf-validation-mode` | `"warning"` annotates without failing, `"error"` fails on PDF/UA-1 failures, `"off"` skips the check and the veraPDF install | `"warning"` |
+| `pdf-strict` | `"true"` also enforces tab-order and annotation-structure rules on form fields | `"false"` |
 
-### DOCX and PDF template checks in `da_build`
+### Which files are checked
 
-`da_build` validates all document templates located in the package's `data/templates/` directory, regardless of whether a particular YAML interview references them:
+`da_build` does not check every file in the repository. It matches:
 
-- **DOCX template accessibility**: `dayamlchecker` inspects all `.docx` templates in `data/templates/` for OpenXML structure issues (missing image/shape alt text, unrepeated table headers, merged cells, heading hierarchy skips). Findings are reported as non-blocking warnings by default.
-- **PDF template accessibility (veraPDF)**: Audits all `.pdf` templates in `data/templates/` against the **PDF/UA-1** (ISO 14289-1) specification.
-- **Template URL validation**: Hyperlinks inside `.docx` templates and YAML files are validated concurrently unless skipped.
+- `docassemble/*/data/questions/**/*.yml` for interview checks, so that workflow files
+  and ALKiln fixtures are not mistaken for interviews, and
+- `docassemble/*/data/templates/**/*.docx` for document accessibility, so that only the
+  documents users actually receive are checked. Word lock files (`~$…`) are skipped.
 
-#### Controlling template check behavior
+`build/`, `dist/`, and `.venv/` are pruned, because the `uv build` step above has already
+copied the package into `build/lib`. Without pruning, every finding would be reported
+twice and the annotations would point at the copy rather than at the file you edit.
 
-- **Controlling PDF validation mode**: Set `pdf-validation-mode: "warning"` (default), `"error"` (fails the build on PDF/UA-1 issues), or `"off"` (skips veraPDF). Set `pdf-strict: "true"` to enforce tab-order rules on fillable forms.
-- **Skipping template URL validation in CI**: Set `skip-templates: "true"` on the `da_build` action step to ignore URLs inside `data/templates/`.
-- **Suppressing specific DOCX/YAML findings in code**: Add block-level suppressions inside your YAML files (such as `# no-dayc-block: accessibility, WA552`) to suppress specific rule findings per interview block.
-- **Auditing DOCX templates locally with strict enforcement**: When running `dayamlchecker` from your local terminal, you can audit your template directory directly and enforce strict zero-error standards:
-  ```bash
-  python3 -m dayamlchecker --docx-accessibility-severity error docassemble/MyPackage/data/templates/
-  ```
+Note that templates are found by scanning the directory, not by following references from
+a YAML file. A template that no interview mentions yet is still checked.
+
+### Adjusting what fails the build
+
+- **DOCX accessibility** is reported as warnings by default, because most existing
+  templates have findings and the intent is to work through them over time. Set
+  `docx-validation-mode: "error"` once a package is clean, or `"off"` to skip it.
+- **PDF accessibility** is likewise `"warning"` by default. Set
+  `pdf-validation-mode: "error"` to block merges on PDF/UA-1 failures. Leave `pdf-strict`
+  at `"false"` unless your forms stay fillable for the user: tab-order and annotation
+  rules are suppressed by default because Assembly Line forms are usually flattened
+  before anyone sees them.
+- **URLs**: set `skip-templates: "true"` to ignore links inside `data/templates`, or
+  `skip-url-check: "true"` to make no network calls at all, which is what you want on a
+  runner without outbound internet access.
+- **Individual findings**: suppress them in the YAML itself with `# no-dayc:` and
+  `# no-dayc-block:` comments. DOCX findings have no YAML to annotate, so a noisy
+  document rule has to be silenced with `--suppress` when running
+  [`dayamlchecker` locally](./dayamlchecker.md#suppressing-findings), or turned off for
+  the whole job with `docx-validation-mode`.
+
+:::note URLs are checked twice
+`dayamlchecker` checks URLs as part of its own run, and `da_build` then runs the URL
+checker again as a separate step so that warnings can be surfaced as a job annotation.
+Seeing the same link reported in two steps is expected.
+:::
+
+To audit templates locally at full strictness before pushing:
+
+```bash
+python3 -m dayamlchecker --docx-accessibility-severity error docassemble/MyPackage/data/templates/
+```
 
 ---
 
-## `valid_jinja2`: DOCX template expression validator {#valid_jinja2}
+## `valid_jinja2`: check Jinja2 in Word templates {#valid_jinja2}
 
-Docassemble uses `docxtpl` (Jinja2) to assemble Microsoft Word documents. A single typographical error like `{{ user.firs_name }}` or an unclosed `{% if %}` tag can cause a live interview to crash when generating a document.
+Docassemble builds Word documents with `docxtpl`, which is Jinja2. A typo like
+`{{ user.firs_name }}` or an unclosed `{% if %}` only fails when a user tries to download
+the document. `valid_jinja2` compiles the templates in a pull request instead.
 
-`valid_jinja2` inspects all modified and newly added `.docx` files in a pull request:
-
-- **Syntax errors**: Invalid Jinja expressions (e.g. unclosed tags, malformed expressions) fail the build.
-- **Custom filter awareness**: Recognizes over 70 common Docassemble and Assembly Line filters (such as `currency`, `date`, `title_case`, `phone_number_3_parts`, `word`, `ordinal`, `comma_and_list`). Unknown filters emit non-blocking warnings.
-- **GitHub step summary**: Automatically posts a formatted Markdown summary directly into the GitHub Actions run summary.
-- **HTML artifacts**: Generates detailed AST validation reports uploaded as artifacts.
+- **Syntax errors** fail the job.
+- **Unknown filters** are warnings, not failures. The action knows 124 Jinja2 and
+  Docassemble filters, including `currency`, `format_date`, `title_case`, `nice_number`,
+  `ordinal`, `word`, and `comma_and_list`.
+- **Added and modified** `.docx` files are found with `git diff` against the pull
+  request base. Only committed changes are compared, so commit a fixed template before
+  expecting the result to change.
+- **A Markdown summary** is always written to the step summary. The HTML artifact is
+  uploaded only when there is something to report.
 
 ### Sample workflow
 
-Create `.github/workflows/validate_docx.yml`:
-
 ```yaml
-name: Validate DOCX Templates
+name: Validate DOCX templates
 
 on:
   pull_request:
-    paths:
-      - '**/*.docx'
+    paths: ['**/*.docx']
   push:
-    paths:
-      - '**/*.docx'
+    paths: ['**/*.docx']
   workflow_dispatch:
 
 jobs:
   validate-templates:
     runs-on: ubuntu-latest
     steps:
-      - name: Validate DOCX Jinja2 templates
-        uses: SuffolkLITLab/ALActions/valid_jinja2@main
-        with:
-          artifact_name: jinja-validation-report
-          output_dir: jinja_validation
-          summary_file: jinja_validation_summary.md
+      - uses: SuffolkLITLab/ALActions/valid_jinja2@main
 ```
 
-### Action inputs and configuration options
+### Inputs
 
-| Input | Description | Default | Required |
-| :--- | :--- | :--- | :--- |
-| `base_ref` | Git comparison base (auto-detected from pull request event) | Auto | No |
-| `working_directory` | Relative working directory path | `.` | No |
-| `artifact_name` | Name of the uploaded artifact bundle | `jinja-validation` | No |
-| `output_dir` | Directory where HTML reports are stored | `jinja_validation` | No |
-| `summary_file` | Path for Markdown summary file | `jinja_validation_summary.md` | No |
-| `skip_checkout` | Set to `"true"` if repository checkout was handled earlier in the job | `"false"` | No |
+| Input | Description | Default |
+| :--- | :--- | :--- |
+| `base_ref` | Git ref to compare against | detected from the event |
+| `working_directory` | Directory to run from | `.` |
+| `artifact_name` | Name of the uploaded artifact | `jinja-validation` |
+| `output_dir` | Directory for the HTML reports | `jinja_validation` |
+| `summary_file` | Path for the Markdown summary | `jinja_validation_summary.md` |
+| `skip_checkout` | `"true"` if the job already checked out the repository with `fetch-depth: 0` | `"false"` |
 
 ---
 
-## `word_diff`: Visual diffing for Word templates {#word_diff}
+## `word_diff`: readable diffs for Word templates {#word_diff}
 
-Reviewing binary `.docx` files in GitHub pull requests is notoriously difficult because GitHub only shows binary file replacements.
+GitHub shows a changed `.docx` as a replaced binary file, which tells a reviewer nothing.
+`word_diff` converts both versions to Markdown and diffs the text.
 
-`word_diff` is not an error-checking or pass/fail gate—it runs on pull requests that touch Word documents and always generates a comparison report even when nothing is wrong. It extracts the text of changed `.docx` files, converts them into cleanly wrapped Markdown, and generates side-by-side HTML diffs:
+It is not a pass/fail check. On any pull request that touches a Word document it produces
+a report, whether or not anything is wrong; when no `.docx` changed between the two
+commits it says so in the summary and stops.
 
-![Word Diff Side by Side Preview](../../static/img/quality_checks/word_diff_preview.png)
+![A side-by-side HTML diff of two versions of a Word template, with removed text on the left and added text on the right](../assets/quality_checks/word_diff_preview.png)
 
-### Key features
-
-1. **Inline step summary**: Displays unified line-by-line diffs in the GitHub Actions Step Summary.
-2. **Rich HTML artifact**: Generates a side-by-side HTML comparison complete with an `index.html` table of contents for downloading and reviewing in any web browser.
-3. **Template tag preservation**: Retains Jinja2 variables (`{{ ... }}`) and formatting tags in the diff so you can review changes to both text and dynamic logic.
+- **In the step summary**: a unified diff per changed file, so a reviewer can read the
+  change without downloading anything.
+- **In the artifact**: side-by-side HTML diffs plus the converted Markdown, with an
+  `index.html` table of contents.
+- **Jinja2 is preserved**, so a change from `{{ user.name }}` to `{{ users[0].name }}`
+  shows up as a text change like any other.
 
 ### Sample workflow
 
-Create `.github/workflows/word_diff.yml`:
-
 ```yaml
-name: Diff Word Documents
+name: Diff Word documents
 
 on:
   pull_request:
-    paths:
-      - '**/*.docx'
+    paths: ['**/*.docx']
   workflow_dispatch:
 
 jobs:
   docx-diff:
     runs-on: ubuntu-latest
     steps:
-      - name: Diff Word documents
-        uses: SuffolkLITLab/ALActions/word_diff@main
-        with:
-          artifact_name: word-doc-diff
-          output_dir: word_diffs
-          summary_file: word_diff_summary.md
+      - uses: SuffolkLITLab/ALActions/word_diff@main
 ```
 
-### Action inputs and configuration options
+### Inputs
 
-| Input | Description | Default | Required |
-| :--- | :--- | :--- | :--- |
-| `base_ref` | Git comparison base ref/SHA (auto-detected from pull request or push) | Auto | No |
-| `working_directory` | Relative path to run the diff from | `.` | No |
-| `artifact_name` | Name of the uploaded artifact bundle | `word-doc-diff` | No |
-| `output_dir` | Directory where diff files and `index.html` are stored | `word_diffs` | No |
-| `summary_file` | File path where the Markdown summary is written | `word_diff_summary.md` | No |
-| `skip_checkout` | Set to `"true"` to skip internal `actions/checkout` | `"false"` | No |
+| Input | Description | Default |
+| :--- | :--- | :--- |
+| `base_ref` | Git ref or SHA to compare against | detected from the event |
+| `working_directory` | Directory to run from | `.` |
+| `artifact_name` | Name of the uploaded artifact | `word-doc-diff` |
+| `output_dir` | Directory for the diff files and `index.html` | `word_diffs` |
+| `summary_file` | Path for the Markdown summary | `word_diff_summary.md` |
+| `skip_checkout` | `"true"` if the job already checked out the repository with `fetch-depth: 0` | `"false"` |
+
+For a manually dispatched run, pass `base_ref` explicitly; the automatic detection only
+covers pull requests and pushes.
 
 ---
 
-## `black-formatting`: Python code formatter {#black-formatting}
+## `black-formatting`: Python formatting {#black-formatting}
 
-`black-formatting` runs [Black](https://black.readthedocs.io/en/stable/) across all Python files in the repository to ensure consistent PEP 8 formatting.
-
-### Sample workflow
+Runs [Black](https://black.readthedocs.io/en/stable/) over the repository, excluding
+`__init__.py` and `setup.py`. The job fails if any file would be reformatted.
 
 ```yaml
 jobs:
   lint-python:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Python formatting
-        uses: SuffolkLITLab/ALActions/black-formatting@main
+      - uses: SuffolkLITLab/ALActions/black-formatting@main
 ```
 
-### Configuration and outputs
-
-- **Outputs**:
-  - `linting-passed`: Set to `"true"` if all Python files pass formatting checks, or `"false"` if unformatted files are found.
-- **`pyproject.toml` Configuration**: Black reads project configuration from `pyproject.toml`:
+Black also reads `pyproject.toml`. Most Assembly Line packages include:
 
 ```toml
 [tool.black]
-line-length = 88
-target-version = ['py312']
 extend-exclude = '(__init__.py|setup.py)'
 ```
 
+:::caution Gate on the job, not the output
+`black-formatting` and `pythontests` both declare an output (`linting-passed` and
+`tests-passed`). Neither is currently populated with a meaningful value. Depend on
+whether the job succeeded instead.
+:::
+
 ---
 
-## `docsig`: Python docstring validation {#docsig}
+## `docsig`: docstrings that match their signatures {#docsig}
 
-`docsig` verifies that Python docstrings match function and method signatures (checking parameter names, return types, and docstring formatting). Assembly Line packages adhere to **Google-style docstrings**.
-
-### Sample workflow
+`docsig` checks that every documented parameter exists, that every parameter is
+documented, and that the style is consistent. Assembly Line packages use **Google-style**
+docstrings.
 
 ```yaml
 jobs:
   docstrings:
     runs-on: ubuntu-latest
     steps:
-      - name: Validate docstrings
-        uses: SuffolkLITLab/ALActions/docsig@main
+      - uses: SuffolkLITLab/ALActions/docsig@main
 ```
 
-### Configuration and outputs
-
-- **Outputs**:
-  - `tests-passed`: Exit code and status of the docsig run.
-- **Behavior**: Scans all `.py` files while ignoring test files, `setup.py`, and `__init__.py`. Configurable via `pyproject.toml` (`[tool.docsig]` table).
+The action checks every `.py` file except `test*.py`, `setup.py`, and `__init__.py`, and
+disables the `description-not-capitalized` rule. Configure the rest through
+`[tool.docsig]` in `pyproject.toml`; see the
+[docsig README](https://github.com/jshwi/docsig#commandline).
 
 ---
 
-## `pythontests`: Python unit tests and security audit {#pythontests}
+## `pythontests`: types, security, and tests {#pythontests}
 
-`pythontests` provides an automated testing and security analysis pipeline for Assembly Line packages:
-
-1. **Dependency Sync**: Automatically checks `pyproject.toml` for `[dependency-groups]`. Runs `uv sync --group dev` if present, or `uv sync`.
-2. **Static Type Checking**: Runs `mypy . --exclude '^build/' --explicit-package-bases` to enforce Python typing.
-3. **Security Analysis**: Executes **Bandit** (`uv tool run bandit -r . --severity-level=high`) to scan for common security vulnerabilities.
-4. **Test Suite**: Runs `pytest` across package test modules.
-
-### Sample workflow
+1. Installs the system libraries Docassemble packages tend to need, and sets
+   `ISUNITTEST=true`.
+2. Installs dependencies with `uv sync --group dev` when `pyproject.toml` has a
+   `[dependency-groups]` table, and `uv sync` otherwise.
+3. Runs `mypy . --exclude '^build/' --explicit-package-bases`.
+4. Runs Bandit at high severity:
+   `uv tool run bandit -r . --exclude './scripts,./venv,./.venv,./build' --severity-level=high`.
+5. Runs `pytest`.
 
 ```yaml
 jobs:
   test-python:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Python tests and security scans
-        uses: SuffolkLITLab/ALActions/pythontests@main
+      - uses: SuffolkLITLab/ALActions/pythontests@main
 ```
 
-### Configuration and outputs
-
-- **Outputs**:
-  - `tests-passed`: Status code of the pytest test suite.
-- **Configuration files**:
-  - `pyproject.toml`: Configures `[tool.pytest.ini_options]`, `[tool.mypy]`, and `[tool.bandit]`.
+Configure each tool through `pyproject.toml`: `[tool.pytest.ini_options]`, `[tool.mypy]`,
+and `[tool.bandit]`.
 
 ---
 
-## `da_playground_install` and `da_package`: Automated deployments {#da_playground_install}
+## `da_playground_install`: deploy to a playground {#da_playground_install}
 
-These actions automate deploying your interview package to test servers or developer playgrounds.
-
-### Deploy to playground (`da_playground_install`)
-
-Installs the package branch directly to a specific developer's playground project on a Docassemble server. This enables reviewers to interactively test the interview:
+Installs the current branch into a project in a developer's Docassemble playground, so a
+reviewer can click through the interview. This action installs whatever is in the working
+directory, so the job **must** check out the repository first.
 
 ```yaml
-name: Deploy to Playground
+name: Deploy to playground
 
 on:
   push:
-    branches:
-      - 'feature/**'
+    branches: ['feature/**']
 
 jobs:
   deploy-playground:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Deploy to Docassemble Playground
-        uses: SuffolkLITLab/ALActions/da_playground_install@main
+      - uses: SuffolkLITLab/ALActions/da_playground_install@main
         with:
           SERVER_URL: ${{ secrets.SERVER_URL }}
           DOCASSEMBLE_DEVELOPER_API_KEY: ${{ secrets.DOCASSEMBLE_DEVELOPER_API_KEY }}
-          PROJECT_NAME: "test-review-${{ github.ref_name }}"
-          # Optional: numerical user ID (defaults to owner of API key)
-          # USER_ID: 1
-          # Optional: 0 to skip server restart
-          # RESTART: 0
+          PROJECT_NAME: "review-${{ github.ref_name }}"
 ```
-
-#### Action inputs
 
 | Input | Description | Default | Required |
 | :--- | :--- | :--- | :--- |
-| `SERVER_URL` | Base URL of the Docassemble server (e.g. `https://apps-dev.example.org`) | None | **Yes** |
-| `DOCASSEMBLE_DEVELOPER_API_KEY` | Developer API key with package installation privileges | None | **Yes** |
-| `PROJECT_NAME` | Name of the playground project to install into | None | **Yes** |
-| `USER_ID` | Numerical user ID for the Docassemble account | API key owner | No |
-| `RESTART` | Control server restart (`0` to skip restart) | Standard restart | No |
+| `SERVER_URL` | Server URL, without a trailing slash, such as `https://apps-dev.example.org` | none | Yes |
+| `DOCASSEMBLE_DEVELOPER_API_KEY` | API key for an account that may install packages | none | Yes |
+| `PROJECT_NAME` | Playground project to install into | none | Yes |
+| `USER_ID` | Numeric user id | the account the API key belongs to | No |
+| `RESTART` | Set to `0` to skip the server restart | restart | No |
 
 ---
 
-### Install server-wide (`da_package`)
+## `da_package`: install server-wide {#da_package}
 
-Installs the package server-wide on a staging or production Docassemble server:
+Installs the package for every user on a server. It picks its source in this order:
+
+1. `PYPI_PACKAGE`, if set.
+2. `GITHUB_URL` (with `GITHUB_BRANCH`, defaulting to the repository's default branch),
+   if set. This is usually what you want, because the server can then be updated later
+   with its own **update** button.
+3. Otherwise, a zip of the working directory — which means the job must run
+   `actions/checkout` first.
 
 ```yaml
-name: Deploy Package Server-Wide
+name: Deploy package server-wide
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deploy-package:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Package
-        uses: SuffolkLITLab/ALActions/da_package@main
+      - uses: SuffolkLITLab/ALActions/da_package@main
         with:
           SERVER_URL: ${{ secrets.PROD_SERVER_URL }}
           DOCASSEMBLE_DEVELOPER_API_KEY: ${{ secrets.DOCASSEMBLE_DEVELOPER_API_KEY }}
-          # Optional: install from GitHub repository URL or specific branch
-          # GITHUB_URL: "https://github.com/SuffolkLITLab/docassemble-MyPackage"
-          # GITHUB_BRANCH: "main"
-          # Optional: install from PyPI package name
-          # PYPI_PACKAGE: "docassemble.MyPackage"
+          GITHUB_URL: "https://github.com/${{ github.repository }}"
+          GITHUB_BRANCH: "main"
 ```
-
-#### Action inputs
 
 | Input | Description | Default | Required |
 | :--- | :--- | :--- | :--- |
-| `SERVER_URL` | Base URL of the Docassemble server | None | **Yes** |
-| `DOCASSEMBLE_DEVELOPER_API_KEY` | Developer API key with server-wide package installation privileges | None | **Yes** |
-| `GITHUB_URL` | Optional GitHub URL of the package to install | Current repo | No |
-| `GITHUB_BRANCH` | Optional branch of the GitHub repo | Default branch | No |
-| `PYPI_PACKAGE` | Optional package name to install from PyPI | None | No |
+| `SERVER_URL` | Server URL, without a trailing slash | none | Yes |
+| `DOCASSEMBLE_DEVELOPER_API_KEY` | API key for an account that may install packages server-wide | none | Yes |
+| `GITHUB_URL` | GitHub URL of the package to install | none | No |
+| `GITHUB_BRANCH` | Branch to install from | the repository's default branch | No |
+| `PYPI_PACKAGE` | PyPI package name to install instead | none | No |
 
 ---
 
-## `hall_monitor`: Synthetic uptime monitoring {#hall_monitor}
+## `hall_monitor`: scheduled checks on a live server {#hall_monitor}
 
-`hall_monitor` visits a live Docassemble server on a scheduled cron interval, verifying that all installed interviews (or the homepage) load successfully without a 500 error or uncaught exception.
+Docassemble's `/list` page marks any installed interview that failed to load.
+`hall_monitor` fetches that page on a schedule and fails the job if any interview is
+marked broken — like a hall monitor looking through doorways, without going in. Set
+`CHECK_TYPE: "homepage"` to check only that `/` responds.
 
-When an outage or error is detected, `hall_monitor` sends alert notifications via **SendGrid**, **Mailgun**, or **Microsoft Teams**:
+When the check fails, the action sends alerts through SendGrid, Mailgun, or a Microsoft
+Teams webhook. This is separate from GitHub's own notifications, which cannot email
+people who are not watching the repository.
 
 ```yaml
-name: Hall Monitor Uptime Check
+name: Hall monitor
 
 on:
   schedule:
-    # Run every morning at 7:00 AM UTC and evening at 7:00 PM UTC
+    # 07:00 and 19:00 UTC
     - cron: "0 7,19 * * *"
   workflow_dispatch:
 
@@ -394,42 +412,34 @@ jobs:
   monitor-server:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Hall Monitor
-        uses: SuffolkLITLab/ALActions/hall_monitor@main
+      - uses: SuffolkLITLab/ALActions/hall_monitor@main
         with:
           SERVER_URL: "https://apps.example.org"
-          CHECK_TYPE: "list"
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-          ERROR_EMAIL_FROM: "alerts@example.org"
+          ERROR_EMAIL_FROM: "Monitor <alerts@example.org>"
           ERROR_EMAILS: "dev-team@example.org,admin@example.org"
-          # Or Mailgun configuration:
-          # MAILGUN_API_KEY: ${{ secrets.MAILGUN_API_KEY }}
-          # MAILGUN_DOMAIN: ${{ secrets.MAILGUN_DOMAIN }}
-          # Or Microsoft Teams webhook:
-          # TEAMS_MONITOR_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK_URL }}
 ```
-
-#### Action inputs
 
 | Input | Description | Default | Required |
 | :--- | :--- | :--- | :--- |
-| `SERVER_URL` | URL of the Docassemble server to monitor | None | **Yes** |
-| `CHECK_TYPE` | `"list"` (checks `/list` endpoint of installed interviews) or `"homepage"` (checks `/`) | `"list"` | No |
-| `SENDGRID_API_KEY` | SendGrid API key for failure email alerts | None | No |
-| `MAILGUN_API_KEY` | Mailgun API key for failure email alerts | None | No |
-| `MAILGUN_DOMAIN` | Mailgun domain to send error emails from | None | No |
-| `ERROR_EMAIL_FROM` | Sender email address for error alerts | None | No |
-| `ERROR_EMAILS` | Comma-separated list of recipient email addresses | None | No |
-| `TEAMS_MONITOR_WEBHOOK`| Microsoft Teams incoming webhook URL for failure announcements | None | No |
+| `SERVER_URL` | Server to check, with or without a trailing slash | none | Yes |
+| `CHECK_TYPE` | `"homepage"` to check only `/`; anything else checks `/list` | check `/list` | No |
+| `SENDGRID_API_KEY` | SendGrid key for failure emails | none | No |
+| `MAILGUN_API_KEY` | Mailgun key for failure emails | none | No |
+| `MAILGUN_DOMAIN` | Mailgun sending domain | none | No |
+| `ERROR_EMAIL_FROM` | Address the alert is sent from | none | No |
+| `ERROR_EMAILS` | Comma-separated recipients | none | No |
+| `TEAMS_MONITOR_WEBHOOK` | Microsoft Teams incoming webhook | none | No |
 
 ---
 
-## Standard production quality workflow template
+## A complete workflow
 
-Here is a complete `.github/workflows/quality_checks.yml` configuration combining all static validation, template verification, and code formatting into a single cohesive CI pipeline:
+`.github/workflows/quality_checks.yml`, combining the checks that run on every change.
+`da_build`, `valid_jinja2`, and `word_diff` each check out the repository themselves.
 
 ```yaml
-name: Quality Checks & Validation
+name: Quality checks
 
 on:
   push:
@@ -439,48 +449,36 @@ on:
   workflow_dispatch:
 
 jobs:
-  # 1. Package build, YAML linting, URL check, and veraPDF
   package-build-and-lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Build, Lint, and Check
-        uses: SuffolkLITLab/ALActions/da_build@main
+      - uses: SuffolkLITLab/ALActions/da_build@main
         with:
           python-version: "3.12"
-          pdf-validation-mode: "warning"
 
-  # 2. DOCX Jinja2 syntax validation
   validate-docx-templates:
     runs-on: ubuntu-latest
     steps:
-      - name: Validate DOCX Jinja2 Expressions
-        uses: SuffolkLITLab/ALActions/valid_jinja2@main
+      - uses: SuffolkLITLab/ALActions/valid_jinja2@main
 
-  # 3. Word document visual diffs on PRs
   diff-word-documents:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - name: Diff Word Documents
-        uses: SuffolkLITLab/ALActions/word_diff@main
+      - uses: SuffolkLITLab/ALActions/word_diff@main
 
-  # 4. Python code formatting, type checking, security audit, and unit tests
   python-quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Check Black Formatting
-        uses: SuffolkLITLab/ALActions/black-formatting@main
-      - name: Check Docstrings
-        uses: SuffolkLITLab/ALActions/docsig@main
-      - name: Run Unit Tests and Security Scans
-        uses: SuffolkLITLab/ALActions/pythontests@main
+      - uses: SuffolkLITLab/ALActions/black-formatting@main
+      - uses: SuffolkLITLab/ALActions/docsig@main
+      - uses: SuffolkLITLab/ALActions/pythontests@main
 ```
 
 ---
 
 ## Related documentation
 
-- **[Navigating logs and artifacts](./navigating_logs_and_artifacts.md)**: Visual guide on reading step summaries, downloading artifacts, and searching logs.
-- **[DAYamlChecker guide](./dayamlchecker.md)**: Deep dive into the static YAML, accessibility, and DOCX checker.
-- **[Automated testing with ALKiln](../components/ALKiln/intro.mdx)**: Browser-based end-to-end testing.
+- **[Logs and artifacts](./navigating_logs_and_artifacts.md)**
+- **[DAYamlChecker](./dayamlchecker.md)**
+- **[Automated testing with ALKiln](../components/ALKiln/intro.mdx)**

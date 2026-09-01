@@ -16,7 +16,7 @@ Interview builders must address accessibility, too, so the Document Assembly Lin
 The Document Assembly Line provides multiple automated tools to check accessibility during development and continuous integration:
 
 - **[DAYamlChecker](../automated_quality_checks/dayamlchecker.md)**: A command-line static analysis tool that checks Docassemble YAML interviews, Python code, and DOCX templates for WCAG violations, skipped headings, missing alt text, non-descriptive links, unlabelled fields, low contrast in custom themes, and template accessibility issues.
-- **[ALActions / da_build](../automated_quality_checks/github_actions.md#da_build)**: Automated GitHub Actions CI workflow that runs `dayamlchecker` and audits all PDF templates against **PDF/UA-1** standards using **veraPDF**.
+- **[ALActions `da_build`](../automated_quality_checks/github_actions.md#da_build)**: Runs `dayamlchecker` over interview YAML and Word templates on every pull request, and audits PDF templates against **PDF/UA-1** with **veraPDF**.
 - **[ALDashboard & ALWeaver](../components/ALDashboard/aldashboard_overview.md)**: The built-in interview style check (lint) in the ALDashboard provides in-browser linting for interview authors.
 
 <p><img src="/assets/images/aldashboard-interview-linter-icon-637e617e05301566f585ec7978cb46b8.png" style={{borderRadius: 6 + 'px', display: 'block', height: 128 + 'px', width: 128 + 'px', marginRight: 'auto', marginLeft: 'auto'}} alt='ALDashboard icon for the code linter. The text reads "Interview style check (lint)"' /></p>
@@ -218,9 +218,8 @@ These tools can automatically scan your interview pages for accessibility issues
 
 ### Automated testing and CI integration
 
-- **[DAYamlChecker](../automated_quality_checks/dayamlchecker.md)**: Static code analysis for YAML interviews and DOCX templates. Automatically catches WCAG violations (skipped headings, unlabelled fields, missing image alt text, non-descriptive links) and template formatting barriers during local development.
-- **[SuffolkLITLab/ALActions](../automated_quality_checks/github_actions.md)**: Automated GitHub Actions pipeline that runs `dayamlchecker`, validates broken hyperlinks, and runs **veraPDF** (PDF/UA-1 compliance) on PDF templates.
+- **[DAYamlChecker](../automated_quality_checks/dayamlchecker.md)**: Static analysis for interview YAML and Word templates, catching skipped headings, unlabelled fields, missing alt text, and non-descriptive links while you are still editing.
+- **[SuffolkLITLab/ALActions](../automated_quality_checks/github_actions.md)**: The GitHub Actions pipeline that runs `dayamlchecker`, checks hyperlinks, and validates PDF templates with **veraPDF**. See the [automated quality checks overview](../automated_quality_checks/overview.md).
 - **[ALKiln](../components/ALKiln/automated_testing.mdx#accessibility)**: Dynamic end-to-end browser testing framework with built-in accessibility testing using [aXe-core](https://github.com/dequelabs/axe-core).
 - **[aXe-core](https://github.com/dequelabs/axe-core)**: An open-source accessibility testing engine used by ALKiln and browser DevTools.
 - **[Pa11y](https://pa11y.org/)**: A command-line accessibility testing tool for rendered HTML pages.
-- **[Automated quality checks overview](../automated_quality_checks/overview.md)**: Comprehensive guide to the Assembly Line automated testing and quality pipeline.
