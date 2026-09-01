@@ -22,7 +22,7 @@ These composite actions automate linting, syntax compilation, DOCX template vali
 | **[`word_diff`](#word_diff)** | Converts changed `.docx` templates to Markdown and HTML visual diffs | `pull_request`, `workflow_dispatch` | Markdown diff in Step Summary and `word-doc-diff` HTML bundle |
 | **[`black-formatting`](#black-formatting)** | Enforces PEP 8 Python formatting via Black | `push`, `pull_request` | Formatting failure diffs in job log |
 | **[`docsig`](#docsig)** | Checks Google-style Python docstrings against function signatures | `push`, `pull_request` | Docstring signature mismatch warnings |
-| **[`pythontests`](#pythontests)** | Executes automated Python unit tests (`unittest`) | `push`, `pull_request` | Test run output and coverage |
+| **[`pythontests`](#pythontests)** | Executes automated Python unit tests (`unittest`/`pytest`), Mypy, and Bandit | `push`, `pull_request` | Test run output, type check, and security audit |
 | **[`da_playground_install`](#da_playground_install)** | Deploys package to a specific Docassemble playground project | `push` (branches / feature branches) | Live interview instance in developer playground |
 | **[`da_package`](#da_package)** | Installs package server-wide on a Docassemble server | `push` (e.g. `main` or release tags) | Server-wide package deployment |
 | **[`hall_monitor`](#hall_monitor)** | Synthetic uptime monitoring of live interviews on a server | `schedule` (cron) | Alerts via SendGrid, Mailgun, or Microsoft Teams |
@@ -70,7 +70,7 @@ jobs:
           pdf-strict: "false"
 ```
 
-### Action inputs
+### Action inputs and configuration options
 
 | Input | Description | Default | Required |
 | :--- | :--- | :--- | :--- |
@@ -122,16 +122,16 @@ jobs:
           summary_file: jinja_validation_summary.md
 ```
 
-### Action inputs
+### Action inputs and configuration options
 
 | Input | Description | Default | Required |
 | :--- | :--- | :--- | :--- |
-| `base_ref` | Git comparison base (auto-detected from pull request) | Auto | No |
+| `base_ref` | Git comparison base (auto-detected from pull request event) | Auto | No |
 | `working_directory` | Relative working directory path | `.` | No |
 | `artifact_name` | Name of the uploaded artifact bundle | `jinja-validation` | No |
 | `output_dir` | Directory where HTML reports are stored | `jinja_validation` | No |
 | `summary_file` | Path for Markdown summary file | `jinja_validation_summary.md` | No |
-| `skip_checkout` | Set to `"true"` if repository checkout was handled earlier | `"false"` | No |
+| `skip_checkout` | Set to `"true"` if repository checkout was handled earlier in the job | `"false"` | No |
 
 ---
 
@@ -174,11 +174,24 @@ jobs:
           summary_file: word_diff_summary.md
 ```
 
+### Action inputs and configuration options
+
+| Input | Description | Default | Required |
+| :--- | :--- | :--- | :--- |
+| `base_ref` | Git comparison base ref/SHA (auto-detected from pull request or push) | Auto | No |
+| `working_directory` | Relative path to run the diff from | `.` | No |
+| `artifact_name` | Name of the uploaded artifact bundle | `word-doc-diff` | No |
+| `output_dir` | Directory where diff files and `index.html` are stored | `word_diffs` | No |
+| `summary_file` | File path where the Markdown summary is written | `word_diff_summary.md` | No |
+| `skip_checkout` | Set to `"true"` to skip internal `actions/checkout` | `"false"` | No |
+
 ---
 
 ## `black-formatting`: Python code formatter {#black-formatting}
 
-`black-formatting` runs [Black](https://black.readthedocs.io/en/stable/) across all Python files in the repository.
+`black-formatting` runs [Black](https://black.readthedocs.io/en/stable/) across all Python files in the repository to ensure consistent PEP 8 formatting.
+
+### Sample workflow
 
 ```yaml
 jobs:
@@ -189,11 +202,16 @@ jobs:
         uses: SuffolkLITLab/ALActions/black-formatting@main
 ```
 
-You can configure Black options in your repository's `pyproject.toml`:
+### Configuration and outputs
+
+- **Outputs**:
+  - `linting-passed`: Set to `"true"` if all Python files pass formatting checks, or `"false"` if unformatted files are found.
+- **`pyproject.toml` Configuration**: Black reads project configuration from `pyproject.toml`:
 
 ```toml
 [tool.black]
 line-length = 88
+target-version = ['py312']
 extend-exclude = '(__init__.py|setup.py)'
 ```
 
@@ -202,6 +220,8 @@ extend-exclude = '(__init__.py|setup.py)'
 ## `docsig`: Python docstring validation {#docsig}
 
 `docsig` verifies that Python docstrings match function and method signatures (checking parameter names, return types, and docstring formatting). Assembly Line packages adhere to **Google-style docstrings**.
+
+### Sample workflow
 
 ```yaml
 jobs:
@@ -212,20 +232,40 @@ jobs:
         uses: SuffolkLITLab/ALActions/docsig@main
 ```
 
+### Configuration and outputs
+
+- **Outputs**:
+  - `tests-passed`: Exit code and status of the docsig run.
+- **Behavior**: Scans all `.py` files while ignoring test files, `setup.py`, and `__init__.py`. Configurable via `pyproject.toml` (`[tool.docsig]` table).
+
 ---
 
-## `pythontests`: Python unit tests {#pythontests}
+## `pythontests`: Python unit tests and security audit {#pythontests}
 
-`pythontests` sets up an isolated Python environment and runs the package's [`unittest`](https://docs.python.org/3/library/unittest.html) test suite.
+`pythontests` provides an automated testing and security analysis pipeline for Assembly Line packages:
+
+1. **Dependency Sync**: Automatically checks `pyproject.toml` for `[dependency-groups]`. Runs `uv sync --group dev` if present, or `uv sync`.
+2. **Static Type Checking**: Runs `mypy . --exclude '^build/' --explicit-package-bases` to enforce Python typing.
+3. **Security Analysis**: Executes **Bandit** (`uv tool run bandit -r . --severity-level=high`) to scan for common security vulnerabilities.
+4. **Test Suite**: Runs `pytest` across package test modules.
+
+### Sample workflow
 
 ```yaml
 jobs:
   test-python:
     runs-on: ubuntu-latest
     steps:
-      - name: Run unit tests
+      - name: Run Python tests and security scans
         uses: SuffolkLITLab/ALActions/pythontests@main
 ```
+
+### Configuration and outputs
+
+- **Outputs**:
+  - `tests-passed`: Status code of the pytest test suite.
+- **Configuration files**:
+  - `pyproject.toml`: Configures `[tool.pytest.ini_options]`, `[tool.mypy]`, and `[tool.bandit]`.
 
 ---
 
@@ -235,7 +275,7 @@ These actions automate deploying your interview package to test servers or devel
 
 ### Deploy to playground (`da_playground_install`)
 
-Useful for feature branch reviews where you want testers to interact with the interview on a staging Docassemble server:
+Installs the package branch directly to a specific developer's playground project on a Docassemble server. This enables reviewers to interactively test the interview:
 
 ```yaml
 name: Deploy to Playground
@@ -258,7 +298,23 @@ jobs:
           SERVER_URL: ${{ secrets.SERVER_URL }}
           DOCASSEMBLE_DEVELOPER_API_KEY: ${{ secrets.DOCASSEMBLE_DEVELOPER_API_KEY }}
           PROJECT_NAME: "test-review-${{ github.ref_name }}"
+          # Optional: numerical user ID (defaults to owner of API key)
+          # USER_ID: 1
+          # Optional: 0 to skip server restart
+          # RESTART: 0
 ```
+
+#### Action inputs
+
+| Input | Description | Default | Required |
+| :--- | :--- | :--- | :--- |
+| `SERVER_URL` | Base URL of the Docassemble server (e.g. `https://apps-dev.example.org`) | None | **Yes** |
+| `DOCASSEMBLE_DEVELOPER_API_KEY` | Developer API key with package installation privileges | None | **Yes** |
+| `PROJECT_NAME` | Name of the playground project to install into | None | **Yes** |
+| `USER_ID` | Numerical user ID for the Docassemble account | API key owner | No |
+| `RESTART` | Control server restart (`0` to skip restart) | Standard restart | No |
+
+---
 
 ### Install server-wide (`da_package`)
 
@@ -281,15 +337,30 @@ jobs:
         with:
           SERVER_URL: ${{ secrets.PROD_SERVER_URL }}
           DOCASSEMBLE_DEVELOPER_API_KEY: ${{ secrets.DOCASSEMBLE_DEVELOPER_API_KEY }}
+          # Optional: install from GitHub repository URL or specific branch
+          # GITHUB_URL: "https://github.com/SuffolkLITLab/docassemble-MyPackage"
+          # GITHUB_BRANCH: "main"
+          # Optional: install from PyPI package name
+          # PYPI_PACKAGE: "docassemble.MyPackage"
 ```
+
+#### Action inputs
+
+| Input | Description | Default | Required |
+| :--- | :--- | :--- | :--- |
+| `SERVER_URL` | Base URL of the Docassemble server | None | **Yes** |
+| `DOCASSEMBLE_DEVELOPER_API_KEY` | Developer API key with server-wide package installation privileges | None | **Yes** |
+| `GITHUB_URL` | Optional GitHub URL of the package to install | Current repo | No |
+| `GITHUB_BRANCH` | Optional branch of the GitHub repo | Default branch | No |
+| `PYPI_PACKAGE` | Optional package name to install from PyPI | None | No |
 
 ---
 
 ## `hall_monitor`: Synthetic uptime monitoring {#hall_monitor}
 
-`hall_monitor` tests a live Docassemble server on a scheduled interval. It visits every installed interview and verifies that the initial screen loads without a 500 error or exception.
+`hall_monitor` visits a live Docassemble server on a scheduled cron interval, verifying that all installed interviews (or the homepage) load successfully without a 500 error or uncaught exception.
 
-When an error occurs, `hall_monitor` sends instant alert notifications via **SendGrid**, **Mailgun**, or **Microsoft Teams** webhooks:
+When an outage or error is detected, `hall_monitor` sends alert notifications via **SendGrid**, **Mailgun**, or **Microsoft Teams**:
 
 ```yaml
 name: Hall Monitor Uptime Check
@@ -308,18 +379,35 @@ jobs:
         uses: SuffolkLITLab/ALActions/hall_monitor@main
         with:
           SERVER_URL: "https://apps.example.org"
+          CHECK_TYPE: "list"
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-          ERROR_FROM_EMAIL: "alerts@example.org"
+          ERROR_EMAIL_FROM: "alerts@example.org"
           ERROR_EMAILS: "dev-team@example.org,admin@example.org"
+          # Or Mailgun configuration:
+          # MAILGUN_API_KEY: ${{ secrets.MAILGUN_API_KEY }}
+          # MAILGUN_DOMAIN: ${{ secrets.MAILGUN_DOMAIN }}
           # Or Microsoft Teams webhook:
-          # TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          # TEAMS_MONITOR_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK_URL }}
 ```
+
+#### Action inputs
+
+| Input | Description | Default | Required |
+| :--- | :--- | :--- | :--- |
+| `SERVER_URL` | URL of the Docassemble server to monitor | None | **Yes** |
+| `CHECK_TYPE` | `"list"` (checks `/list` endpoint of installed interviews) or `"homepage"` (checks `/`) | `"list"` | No |
+| `SENDGRID_API_KEY` | SendGrid API key for failure email alerts | None | No |
+| `MAILGUN_API_KEY` | Mailgun API key for failure email alerts | None | No |
+| `MAILGUN_DOMAIN` | Mailgun domain to send error emails from | None | No |
+| `ERROR_EMAIL_FROM` | Sender email address for error alerts | None | No |
+| `ERROR_EMAILS` | Comma-separated list of recipient email addresses | None | No |
+| `TEAMS_MONITOR_WEBHOOK`| Microsoft Teams incoming webhook URL for failure announcements | None | No |
 
 ---
 
 ## Standard production quality workflow template
 
-Here is a recommended `.github/workflows/quality_checks.yml` configuration combining all static validation, template verification, and code formatting into a single cohesive CI pipeline:
+Here is a complete `.github/workflows/quality_checks.yml` configuration combining all static validation, template verification, and code formatting into a single cohesive CI pipeline:
 
 ```yaml
 name: Quality Checks & Validation
@@ -357,7 +445,7 @@ jobs:
       - name: Diff Word Documents
         uses: SuffolkLITLab/ALActions/word_diff@main
 
-  # 4. Python code formatting and docstrings
+  # 4. Python code formatting, type checking, security audit, and unit tests
   python-quality:
     runs-on: ubuntu-latest
     steps:
@@ -366,7 +454,7 @@ jobs:
         uses: SuffolkLITLab/ALActions/black-formatting@main
       - name: Check Docstrings
         uses: SuffolkLITLab/ALActions/docsig@main
-      - name: Run Unit Tests
+      - name: Run Unit Tests and Security Scans
         uses: SuffolkLITLab/ALActions/pythontests@main
 ```
 

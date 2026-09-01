@@ -221,6 +221,7 @@ python3 -m dayamlchecker --suppress accessibility,EG101,WA502 docassemble/MyPack
 | `--openai-model MODEL` | Model name for LLM checking | `gpt-4o-mini` |
 | `--url-check` / `--no-url-check` | Enable or disable URL reachability validation | `--url-check` |
 | `--url-check-timeout SECONDS` | HTTP request timeout for URL validation | `10` |
+| `--url-check-root PATH` | Repository root for scanning related template URLs | Inferred |
 | `--url-check-ignore-urls URLS` | Comma- or newline-separated absolute URLs to skip | `""` |
 | `--url-check-skip-templates` | Skip checking URLs found in `data/templates` files | `False` |
 | `--template-url-severity CHOICE` | Severity for broken URLs in templates (`error`, `warning`, `ignore`) | `warning` |
