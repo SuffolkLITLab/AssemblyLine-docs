@@ -139,7 +139,7 @@ You might wonder why **DOCX accessibility** is checked directly in `dayamlchecke
 - **Author-time vs. compiled formats**: DOCX templates are author-time source documents. `dayamlchecker` directly parses the OpenXML structure and XML tags in lightweight Python during local editing, catching formatting barriers, missing alt text, and heading skips before document generation.
 - **Engine dependencies**: Validating PDF/UA-1 standards requires **veraPDF**, an industry-standard Java-based validation engine. Bundling a full Java runtime environment (JRE) and heavy veraPDF binaries into `dayamlchecker` would significantly bloat installation requirements for local Python development.
 - **Division of labor**:
-  - **`dayamlchecker`** runs as a fast, pure-Python linter on your local machine or in CI, auditing YAML interview logic and `.docx` OpenXML structures.
+  - **`dayamlchecker`** runs as a fast, pure-Python linter on your local machine or in CI, auditing YAML interview logic and all `.docx` OpenXML templates found in `data/templates/`.
   - **[`da_build`](./github_actions.md#da_build)** runs in GitHub Actions CI, automatically provisioning the Java runtime to execute `veraPDF` across all static and fillable `.pdf` templates in `docassemble/*/data/templates/`.
 
 ### 5. Broken URL verification

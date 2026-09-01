@@ -45,7 +45,7 @@ The Assembly Line quality ecosystem consists of several complementary tools:
 | Tool / Action | Scope | Primary Purpose | How It Runs |
 | :--- | :--- | :--- | :--- |
 | **[`dayamlchecker`](./dayamlchecker.md)** | YAML, Python, DOCX, URLs | Static linter, WCAG auditor, DOCX accessibility checker, and broken link validator | Locally via CLI (`pip install dayamlchecker`) or in CI |
-| **[`ALActions/da_build`](./github_actions.md#da_build)** | Package Build, YAML, PDF | Builds Python wheels/tarballs, runs `dayamlchecker`, validates URLs, and audits PDF templates using **veraPDF** (PDF/UA-1) | GitHub Actions CI workflow |
+| **[`ALActions/da_build`](./github_actions.md#da_build)** | Package Build, YAML, DOCX, PDF | Builds Python wheels/tarballs, validates YAML questions, audits DOCX and PDF template accessibility (via `dayamlchecker` & veraPDF), and checks URLs | GitHub Actions CI workflow |
 | **[`ALActions/valid_jinja2`](./github_actions.md#valid_jinja2)** | DOCX Templates | Validates Jinja2 templating expressions across modified `.docx` files, recognizing 70+ Docassemble/AssemblyLine filters | GitHub Actions CI workflow |
 | **[`ALActions/word_diff`](./github_actions.md#word_diff)** | DOCX Templates | Converts changed `.docx` files to Markdown and side-by-side HTML diffs for instant review in GitHub pull requests | GitHub Actions CI workflow |
 | **[`ALActions/black-formatting`](./github_actions.md#black-formatting)** | Python Code | Enforces standardized Python code formatting | GitHub Actions CI workflow |

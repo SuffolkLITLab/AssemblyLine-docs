@@ -17,7 +17,7 @@ These composite actions automate linting, syntax compilation, DOCX template vali
 
 | Action | Primary Use Case | Triggers | Key Artifacts / Summaries |
 | :--- | :--- | :--- | :--- |
-| **[`da_build`](#da_build)** | Package build, Python compile, YAML linting, URL check, PDF accessibility | `push`, `pull_request` | GitHub Annotations for broken URLs and PDF/UA-1 failures |
+| **[`da_build`](#da_build)** | Package build, Python compile, YAML linting, DOCX & PDF accessibility, URL check | `push`, `pull_request` | GitHub Annotations for broken URLs, DOCX warnings, and PDF/UA-1 failures |
 | **[`valid_jinja2`](#valid_jinja2)** | Validates Jinja2 expressions inside `.docx` Word templates | `push`, `pull_request` (on `.docx` paths) | Step Summary table and `jinja-validation` HTML artifact |
 | **[`word_diff`](#word_diff)** | Converts changed `.docx` templates to Markdown and HTML visual diffs | `pull_request`, `workflow_dispatch` | Markdown diff in Step Summary and `word-doc-diff` HTML bundle |
 | **[`black-formatting`](#black-formatting)** | Enforces PEP 8 Python formatting via Black | `push`, `pull_request` | Formatting failure diffs in job log |
@@ -31,13 +31,14 @@ These composite actions automate linting, syntax compilation, DOCX template vali
 
 ## `da_build`: Comprehensive package and YAML check {#da_build}
 
-`da_build` is the primary build and validation action for Docassemble packages. It performs the following steps:
+`da_build` is the primary build and validation action for Docassemble packages. It performs the following checks and build steps:
 
 1. **Python compilation**: Runs `python -m compileall .` to ensure all Python source files are syntactically valid.
 2. **Package build**: Uses `uv build` to build binary wheels and source tarballs in `dist/`.
-3. **YAML verification**: Executes [`dayamlchecker`](./dayamlchecker.md) across all interview YAML files under `docassemble/*/data/questions/`.
-4. **URL checking**: Concurrently checks all absolute URLs in question files and template files, reporting broken links and redirects as GitHub Actions annotations.
-5. **PDF accessibility auditing**: Downloads **veraPDF** (PDF/UA-1 validation engine) and verifies that all PDF templates in `data/templates/` comply with PDF/UA-1 accessibility standards.
+3. **YAML verification**: Executes [`dayamlchecker`](./dayamlchecker.md) across all interview YAML files under `docassemble/*/data/questions/` for structural integrity, syntax errors, and WCAG rules.
+4. **DOCX accessibility auditing**: Checks all Word (`.docx`) templates in `docassemble/*/data/templates/` for OpenXML accessibility barriers (missing alt text, unrepeated table headers, merged cells, heading skips) using `dayamlchecker`.
+5. **PDF accessibility auditing**: Downloads **veraPDF** (PDF/UA-1 validation engine) and verifies that all PDF templates in `docassemble/*/data/templates/` comply with PDF/UA-1 accessibility standards.
+6. **URL checking**: Concurrently checks all absolute URLs in question files and template files, reporting broken links and redirects as GitHub Actions annotations.
 
 ### Sample workflow
 
@@ -81,17 +82,17 @@ jobs:
 | `pdf-validation-mode` | How to report veraPDF PDF/UA-1 failures (`"warning"`, `"error"`, `"off"`) | `"warning"` | No |
 | `pdf-strict` | Set to `"true"` to enable strict PDF/UA-1 checking on form field tab order | `"false"` | No |
 
-### How DAYamlChecker and DOCX checks run in `da_build`
+### DOCX and PDF template checks in `da_build`
 
-When `da_build` runs the `Run YAML Checker` step, it invokes [`dayamlchecker`](./dayamlchecker.md) across all interview YAML files in `docassemble/*/data/questions/`.
+`da_build` validates all document templates located in the package's `data/templates/` directory, regardless of whether a particular YAML interview references them:
 
-By default, `dayamlchecker`:
-1. **Discovers and audits related DOCX templates**: When validating question files, `dayamlchecker` automatically inspects associated Word (`.docx`) templates located under `data/templates/` for OpenXML accessibility barriers (such as missing image alt text, table header repeats, merged cells, and heading skips).
-2. **Reports DOCX issues as non-blocking warnings**: DOCX accessibility issues are capped at `warning` severity by default so that existing templates do not immediately block your CI build.
-3. **Scans URLs across templates**: Extracts and verifies URLs found in both YAML questions and Word templates unless `skip-templates: "true"` or `skip-url-check: "true"` is set.
+- **DOCX template accessibility**: `dayamlchecker` inspects all `.docx` templates in `data/templates/` for OpenXML structure issues (missing image/shape alt text, unrepeated table headers, merged cells, heading hierarchy skips). Findings are reported as non-blocking warnings by default.
+- **PDF template accessibility (veraPDF)**: Audits all `.pdf` templates in `data/templates/` against the **PDF/UA-1** (ISO 14289-1) specification.
+- **Template URL validation**: Hyperlinks inside `.docx` templates and YAML files are validated concurrently unless skipped.
 
-#### Controlling DOCX and YAML checking behavior
+#### Controlling template check behavior
 
+- **Controlling PDF validation mode**: Set `pdf-validation-mode: "warning"` (default), `"error"` (fails the build on PDF/UA-1 issues), or `"off"` (skips veraPDF). Set `pdf-strict: "true"` to enforce tab-order rules on fillable forms.
 - **Skipping template URL validation in CI**: Set `skip-templates: "true"` on the `da_build` action step to ignore URLs inside `data/templates/`.
 - **Suppressing specific DOCX/YAML findings in code**: Add block-level suppressions inside your YAML files (such as `# no-dayc-block: accessibility, WA552`) to suppress specific rule findings per interview block.
 - **Auditing DOCX templates locally with strict enforcement**: When running `dayamlchecker` from your local terminal, you can audit your template directory directly and enforce strict zero-error standards:
