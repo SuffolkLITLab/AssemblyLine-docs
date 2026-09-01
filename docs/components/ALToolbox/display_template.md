@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALToolbox.display\_template](#ALToolbox.display_template)
+* ALToolbox.display\_template
   * [display\_template](#ALToolbox.display_template.display_template)
 
 ---
@@ -8,9 +8,7 @@ sidebar_label: display_template
 title: ALToolbox.display_template
 ---
 
-<a id="ALToolbox.display_template.display_template"></a>
-
-#### display\_template(template, scrollable=True, collapse=False, copy=False, classname="bg-light", class\_name=None)
+#### display\_template(template, scrollable=True, collapse=False, copy=False, classname="bg-light", class\_name=None) {#ALToolbox.display\_template.display\_template}
 
 ```python
 def display_template(template,

@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [AssemblyLine.al\_document](#AssemblyLine.al_document)
+* AssemblyLine.al\_document
   * [random\_suffix](#AssemblyLine.al_document.random_suffix)
   * [base\_name](#AssemblyLine.al_document.base_name)
   * [label](#AssemblyLine.al_document.label)
@@ -122,9 +122,7 @@ sidebar_label: al_document
 title: AssemblyLine.al_document
 ---
 
-<a id="AssemblyLine.al_document.random_suffix"></a>
-
-#### random\_suffix(length: int = 8)
+#### random\_suffix(length: int = 8) {#AssemblyLine.al\_document.random\_suffix}
 
 ```python
 def random_suffix(length: int = 8) -> str
@@ -144,9 +142,7 @@ a true GUID.
 
 - `str` - A random string of lowercase letters and digits.
 
-<a id="AssemblyLine.al_document.base_name"></a>
-
-#### base\_name(filename: str)
+#### base\_name(filename: str) {#AssemblyLine.al\_document.base\_name}
 
 ```python
 def base_name(filename: str) -> str
@@ -163,9 +159,7 @@ Extracts the base name of a file without its extension.
 
 - `str` - The base name of the file without its extension.
 
-<a id="AssemblyLine.al_document.label"></a>
-
-#### label(dictionary: dict)
+#### label(dictionary: dict) {#AssemblyLine.al\_document.label}
 
 ```python
 def label(dictionary: dict) -> str
@@ -185,9 +179,7 @@ dictionary item. Useful for working with the `columns` method of an ALAddendumFi
 
 - `str` - The value of the first dictionary item or an empty string if not found.
 
-<a id="AssemblyLine.al_document.key"></a>
-
-#### key(dictionary: dict)
+#### key(dictionary: dict) {#AssemblyLine.al\_document.key}
 
 ```python
 def key(dictionary: dict) -> str
@@ -207,9 +199,7 @@ dictionary item. Useful for working with the `columns` method of an ALAddendumFi
 
 - `str` - The key of the first dictionary item or an empty string if not found.
 
-<a id="AssemblyLine.al_document.safeattr"></a>
-
-#### safeattr(object: Any, key: str)
+#### safeattr(object: Any, key: str) {#AssemblyLine.al\_document.safeattr}
 
 ```python
 def safeattr(object: Any, key: str) -> str
@@ -232,9 +222,7 @@ Safely retrieve an attribute or key value from an object.
 
   The `location` attribute of an Address object or any LatitudeLongitude attribute of a DAObject is always skipped.
 
-<a id="AssemblyLine.al_document.html_safe_str"></a>
-
-#### html\_safe\_str(the\_string: str)
+#### html\_safe\_str(the\_string: str) {#AssemblyLine.al\_document.html\_safe\_str}
 
 ```python
 def html_safe_str(the_string: str) -> str
@@ -251,9 +239,7 @@ Convert a string into a format that&#x27;s safe for use as an HTML class or ID.
 
 - `str` - A string that&#x27;s safe for use as an HTML class or ID.
 
-<a id="AssemblyLine.al_document.table_row"></a>
-
-#### table\_row(title: str, button\_htmls: List[str] = [])
+#### table\_row(title: str, button\_htmls: List[str] = []) {#AssemblyLine.al\_document.table\_row}
 
 ```python
 def table_row(title: str, button_htmls: List[str] = []) -> str
@@ -271,9 +257,7 @@ Generate an HTML row string for an AL document-styled table.
 
 - `str` - An HTML string representing a row in an AL document-styled table.
 
-<a id="AssemblyLine.al_document.pdf_page_parity"></a>
-
-#### pdf\_page\_parity(pdf\_path: str)
+#### pdf\_page\_parity(pdf\_path: str) {#AssemblyLine.al\_document.pdf\_page\_parity}
 
 ```python
 def pdf_page_parity(pdf_path: str) -> Literal["even", "odd"]
@@ -292,9 +276,7 @@ if it is not divisible by 2.
 
   Literal[&quot;even&quot;, &quot;odd&quot;]: The parity of the number of pages in the PDF
 
-<a id="AssemblyLine.al_document.add_blank_page"></a>
-
-#### add\_blank\_page(pdf\_path: str)
+#### add\_blank\_page(pdf\_path: str) {#AssemblyLine.al\_document.add\_blank\_page}
 
 ```python
 def add_blank_page(pdf_path: str) -> None
@@ -306,9 +288,7 @@ Add a blank page to the end of a PDF.
 
 - `pdf_path` _str_ - Path to the PDF in the filesystem
 
-<a id="AssemblyLine.al_document.ALAddendumField"></a>
-
-## ALAddendumField Objects
+## ALAddendumField Objects {#AssemblyLine.al\_document.ALAddendumField}
 
 ```python
 class ALAddendumField(DAObject)
@@ -336,9 +316,7 @@ is not currently supported.
 
   The attributes `headers` and `field_style` are planned for future releases and are not currently implemented.
 
-<a id="AssemblyLine.al_document.ALAddendumField.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALAddendumField.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -351,9 +329,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALAddendumField.overflow_value"></a>
-
-#### overflow\_value(preserve\_newlines: bool = False, input\_width: int = 80, overflow\_message: str = "", preserve\_words: bool = True)
+#### overflow\_value(preserve\_newlines: bool = False, input\_width: int = 80, overflow\_message: str = "", preserve\_words: bool = True) {#AssemblyLine.al\_document.ALAddendumField.overflow\_value}
 
 ```python
 def overflow_value(preserve_newlines: bool = False,
@@ -388,9 +364,7 @@ content adheres to whitespace preferences specified by the parameters.
 
 - `Any` - The portion of the variable exceeding the content safe for display, considered as overflow.
 
-<a id="AssemblyLine.al_document.ALAddendumField.max_lines"></a>
-
-#### max\_lines(input\_width: int = 80)
+#### max\_lines(input\_width: int = 80) {#AssemblyLine.al\_document.ALAddendumField.max\_lines}
 
 ```python
 def max_lines(input_width: int = 80) -> int
@@ -407,9 +381,7 @@ Compute the maximum number of lines that can fit in the input given the specifie
 
 - `int` - The maximum number of lines accommodated by the input width.
 
-<a id="AssemblyLine.al_document.ALAddendumField.value"></a>
-
-#### value()
+#### value() {#AssemblyLine.al\_document.ALAddendumField.value}
 
 ```python
 def value() -> Any
@@ -424,9 +396,7 @@ without the necessity of toggling between various sections or pages.
 
 - `Any` - The whole value of the field, irrespective of overflow.
 
-<a id="AssemblyLine.al_document.ALAddendumField.has_overflow"></a>
-
-#### has\_overflow(overflow\_message: str = "", input\_width: int = 80, preserve\_newlines: bool = False, \_original\_value: Optional[str] = None, preserve\_words: bool = True)
+#### has\_overflow(overflow\_message: str = "", input\_width: int = 80, preserve\_newlines: bool = False, \_original\_value: Optional[str] = None, preserve\_words: bool = True) {#AssemblyLine.al\_document.ALAddendumField.has\_overflow}
 
 ```python
 def has_overflow(overflow_message: str = "",
@@ -457,9 +427,7 @@ Return True only if the value&#x27;s length exceeds the overflow trigger.
 
 - `bool` - True if the value&#x27;s length exceeds the overflow trigger, False otherwise.
 
-<a id="AssemblyLine.al_document.ALAddendumField.original_or_overflow_message"></a>
-
-#### original\_or\_overflow\_message(overflow\_message: str = "", input\_width: int = 80, preserve\_newlines: bool = False, \_original\_value: Optional[str] = None, preserve\_words: bool = True)
+#### original\_or\_overflow\_message(overflow\_message: str = "", input\_width: int = 80, preserve\_newlines: bool = False, \_original\_value: Optional[str] = None, preserve\_words: bool = True) {#AssemblyLine.al\_document.ALAddendumField.original\_or\_overflow\_message}
 
 ```python
 def original_or_overflow_message(
@@ -493,9 +461,7 @@ Unlike safe_value(), this will never output a partial value.
 
   Union[str, List[Any]]: Either a string representing the overflow message or the original value
 
-<a id="AssemblyLine.al_document.ALAddendumField.safe_value"></a>
-
-#### safe\_value(overflow\_message: str = "", input\_width: int = 80, preserve\_newlines: bool = False, \_original\_value: Optional[str] = None, preserve\_words: bool = True)
+#### safe\_value(overflow\_message: str = "", input\_width: int = 80, preserve\_newlines: bool = False, \_original\_value: Optional[str] = None, preserve\_words: bool = True) {#AssemblyLine.al\_document.ALAddendumField.safe\_value}
 
 ```python
 def safe_value(overflow_message: str = "",
@@ -536,9 +502,7 @@ with a single space.
 
   Union[str, List[Any]]: The portion of the variable that fits within the overflow trigger.
 
-<a id="AssemblyLine.al_document.ALAddendumField.value_if_defined"></a>
-
-#### value\_if\_defined()
+#### value\_if\_defined() {#AssemblyLine.al\_document.ALAddendumField.value\_if\_defined}
 
 ```python
 def value_if_defined() -> Any
@@ -552,9 +516,7 @@ This method ensures that the addendum does not inadvertently trigger docassemble
 
 - `Any` - The value of the field if it exists, otherwise an empty string.
 
-<a id="AssemblyLine.al_document.ALAddendumField.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#AssemblyLine.al\_document.ALAddendumField.\_\_str\_\_}
 
 ```python
 def __str__()
@@ -566,9 +528,7 @@ Represent the ALAddendumField instance as a string.
 
 - `str` - The string representation of the value contained within the field.
 
-<a id="AssemblyLine.al_document.ALAddendumField.columns"></a>
-
-#### columns(skip\_empty\_attributes: bool = True, skip\_attributes: Optional[set] = None)
+#### columns(skip\_empty\_attributes: bool = True, skip\_attributes: Optional[set] = None) {#AssemblyLine.al\_document.ALAddendumField.columns}
 
 ```python
 def columns(skip_empty_attributes: bool = True,
@@ -597,9 +557,7 @@ from the first value in the list. Empty attributes and the `complete` attribute 
 
   The &quot;location&quot; attribute of an Address object is always skipped in the column list.
 
-<a id="AssemblyLine.al_document.ALAddendumField.type"></a>
-
-#### type()
+#### type() {#AssemblyLine.al\_document.ALAddendumField.type}
 
 ```python
 def type() -> str
@@ -616,9 +574,7 @@ Categories:
 
 - `str` - The type category of the value.
 
-<a id="AssemblyLine.al_document.ALAddendumField.is_list"></a>
-
-#### is\_list()
+#### is\_list() {#AssemblyLine.al\_document.ALAddendumField.is\_list}
 
 ```python
 def is_list() -> bool
@@ -630,9 +586,7 @@ Check if the field contains a list value, whether it consists of objects, dictio
 
 - `bool` - True if the field contains a list, otherwise False.
 
-<a id="AssemblyLine.al_document.ALAddendumField.is_object_list"></a>
-
-#### is\_object\_list()
+#### is\_object\_list() {#AssemblyLine.al\_document.ALAddendumField.is\_object\_list}
 
 ```python
 def is_object_list() -> bool
@@ -644,9 +598,7 @@ Determine if the field contains a list of dictionaries or objects.
 
 - `bool` - True if the field contains a list of dictionaries or objects, otherwise False.
 
-<a id="AssemblyLine.al_document.ALAddendumField.overflow_markdown"></a>
-
-#### overflow\_markdown()
+#### overflow\_markdown() {#AssemblyLine.al\_document.ALAddendumField.overflow\_markdown}
 
 ```python
 def overflow_markdown() -> str
@@ -662,9 +614,7 @@ to manually control the output&#x27;s format.
 
 - `str` - A markdown representation of the overflow values.
 
-<a id="AssemblyLine.al_document.ALAddendumField.overflow_docx"></a>
-
-#### overflow\_docx(path: str = "docassemble.ALDocumentDict:data/templates/addendum\_table.docx")
+#### overflow\_docx(path: str = "docassemble.ALDocumentDict:data/templates/addendum\_table.docx") {#AssemblyLine.al\_document.ALAddendumField.overflow\_docx}
 
 ```python
 def overflow_docx(
@@ -688,9 +638,7 @@ fetching the overflow values using the `overflow_value()` method.
 
   A docx template with the inserted table.
 
-<a id="AssemblyLine.al_document.ALAddendumFieldDict"></a>
-
-## ALAddendumFieldDict Objects
+## ALAddendumFieldDict Objects {#AssemblyLine.al\_document.ALAddendumFieldDict}
 
 ```python
 class ALAddendumFieldDict(DAOrderedDict)
@@ -710,9 +658,7 @@ Adding a new entry will implicitly set the `field_name` attribute of the field
 - `style` _str_ - Determines the display behavior. If set to &quot;overflow_only&quot;,
   only the overflow text will be displayed.
 
-<a id="AssemblyLine.al_document.ALAddendumFieldDict.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALAddendumFieldDict.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -725,9 +671,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALAddendumFieldDict.initializeObject"></a>
-
-#### initializeObject(\*pargs, \*\*kwargs)
+#### initializeObject(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALAddendumFieldDict.initializeObject}
 
 ```python
 def initializeObject(*pargs, **kwargs) -> Any
@@ -749,9 +693,7 @@ its own field name by setting the `field_name` attribute.
 
   The new dictionary entry created
 
-<a id="AssemblyLine.al_document.ALAddendumFieldDict.from_list"></a>
-
-#### from\_list(data: List[Dict])
+#### from\_list(data: List[Dict]) {#AssemblyLine.al\_document.ALAddendumFieldDict.from\_list}
 
 ```python
 def from_list(data: List[Dict]) -> None
@@ -764,9 +706,7 @@ Populate the dictionary using a list of field data.
 - `data` _list_ - List of dictionaries containing ield data with keys &quot;field_name&quot;
   and &quot;overflow_trigger&quot;.
 
-<a id="AssemblyLine.al_document.ALAddendumFieldDict.defined_fields"></a>
-
-#### defined\_fields(style: str = "overflow\_only")
+#### defined\_fields(style: str = "overflow\_only") {#AssemblyLine.al\_document.ALAddendumFieldDict.defined\_fields}
 
 ```python
 def defined_fields(style: str = "overflow_only") -> list
@@ -784,9 +724,7 @@ Fetch a list of fields that are defined.
 
 - `list` - List of defined fields based on the specified style.
 
-<a id="AssemblyLine.al_document.ALAddendumFieldDict.overflow"></a>
-
-#### overflow()
+#### overflow() {#AssemblyLine.al\_document.ALAddendumFieldDict.overflow}
 
 ```python
 def overflow() -> list
@@ -798,9 +736,7 @@ Retrieve fields that have overflowed their character limits.
 
 - `list` - A list of fields with overflow values.
 
-<a id="AssemblyLine.al_document.ALAddendumFieldDict.has_overflow"></a>
-
-#### has\_overflow()
+#### has\_overflow() {#AssemblyLine.al\_document.ALAddendumFieldDict.has\_overflow}
 
 ```python
 def has_overflow() -> bool
@@ -812,9 +748,7 @@ Determine if any field within the dictionary exceeds its overflow limit.
 
 - `bool` - True if at least one field overflows, False otherwise.
 
-<a id="AssemblyLine.al_document.DALazyAttribute"></a>
-
-## DALazyAttribute Objects
+## DALazyAttribute Objects {#AssemblyLine.al\_document.DALazyAttribute}
 
 ```python
 class DALazyAttribute(DAObject)
@@ -830,9 +764,7 @@ The implementation leverages docassemble&#x27;s object pickling process by custo
 
 - `instanceName` _str_ - A unique identifier for the object instance, if available.
 
-<a id="AssemblyLine.al_document.DALazyAttribute.__getstate__"></a>
-
-#### \_\_getstate\_\_()
+#### \_\_getstate\_\_() {#AssemblyLine.al\_document.DALazyAttribute.\_\_getstate\_\_}
 
 ```python
 def __getstate__() -> dict
@@ -848,9 +780,7 @@ persisted across page loads.
 
 - `dict` - A dictionary containing only the `instanceName` if it exists, or empty otherwise.
 
-<a id="AssemblyLine.al_document.ALDocument"></a>
-
-## ALDocument Objects
+## ALDocument Objects {#AssemblyLine.al\_document.ALDocument}
 
 ```python
 class ALDocument(DADict)
@@ -983,9 +913,7 @@ on the final download screen.
       my_doc.overflow_fields.gathered = True
     ```
 
-<a id="AssemblyLine.al_document.ALDocument.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALDocument.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -998,9 +926,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALDocument.as_pdf"></a>
-
-#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True)
+#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALDocument.as\_pdf}
 
 ```python
 def as_pdf(key: str = "final",
@@ -1023,9 +949,7 @@ Generates a PDF version of the assembled document.
 
 - `DAFile` - Assembled document in PDF format, possibly combined with addendum.
 
-<a id="AssemblyLine.al_document.ALDocument.as_docx"></a>
-
-#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = True)
+#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALDocument.as\_docx}
 
 ```python
 def as_docx(key: str = "final",
@@ -1046,9 +970,7 @@ Generates a DOCX version of the assembled document, if possible. Falls back to P
 
 - `DAFile` - Assembled document in DOCX or PDF format.
 
-<a id="AssemblyLine.al_document.ALDocument.as_list"></a>
-
-#### as\_list(key: str = "final", refresh: bool = True)
+#### as\_list(key: str = "final", refresh: bool = True) {#AssemblyLine.al\_document.ALDocument.as\_list}
 
 ```python
 def as_list(key: str = "final", refresh: bool = True) -> List[DAFile]
@@ -1066,9 +988,7 @@ Generates a list containing the main document and its addendum, if applicable.
 
 - `List[DAFile]` - List containing the main document and possibly its addendum.
 
-<a id="AssemblyLine.al_document.ALDocument.need_addendum"></a>
-
-#### need\_addendum()
+#### need\_addendum() {#AssemblyLine.al\_document.ALDocument.need\_addendum}
 
 ```python
 def need_addendum() -> bool
@@ -1081,9 +1001,7 @@ First checks if the addendum is enabled, and then checks if there&#x27;s overflo
 
 - `bool` - True if an addendum is needed, False otherwise.
 
-<a id="AssemblyLine.al_document.ALDocument.has_overflow"></a>
-
-#### has\_overflow()
+#### has\_overflow() {#AssemblyLine.al\_document.ALDocument.has\_overflow}
 
 ```python
 def has_overflow() -> bool
@@ -1095,9 +1013,7 @@ Checks if the document has fields that exceed their character limits.
 
 - `bool` - True if there are overflow fields, False otherwise.
 
-<a id="AssemblyLine.al_document.ALDocument.overflow"></a>
-
-#### overflow()
+#### overflow() {#AssemblyLine.al\_document.ALDocument.overflow}
 
 ```python
 def overflow() -> list
@@ -1109,9 +1025,7 @@ Retrieves a list of fields that have overflowed their character limits.
 
 - `list` - List of overflow fields.
 
-<a id="AssemblyLine.al_document.ALDocument.original_or_overflow_message"></a>
-
-#### original\_or\_overflow\_message(field\_name: str, overflow\_message: str = "", input\_width: int = 80, preserve\_newlines: bool = False, \_original\_value: Optional[str] = None, preserve\_words: bool = True)
+#### original\_or\_overflow\_message(field\_name: str, overflow\_message: str = "", input\_width: int = 80, preserve\_newlines: bool = False, \_original\_value: Optional[str] = None, preserve\_words: bool = True) {#AssemblyLine.al\_document.ALDocument.original\_or\_overflow\_message}
 
 ```python
 def original_or_overflow_message(
@@ -1149,9 +1063,7 @@ Unlike safe_value(), this will never output a partial value.
 
   Union[str, List[Any]]: Either the original value or the overflow message, never a truncated value.
 
-<a id="AssemblyLine.al_document.ALDocument.safe_value"></a>
-
-#### safe\_value(field\_name: str, overflow\_message: Optional[str] = None, preserve\_newlines: bool = False, input\_width: int = 80, preserve\_words: bool = True)
+#### safe\_value(field\_name: str, overflow\_message: Optional[str] = None, preserve\_newlines: bool = False, input\_width: int = 80, preserve\_words: bool = True) {#AssemblyLine.al\_document.ALDocument.safe\_value}
 
 ```python
 def safe_value(field_name: str,
@@ -1176,9 +1088,7 @@ Retrieve the &quot;safe&quot; value of a specified field, which is shorter than 
 
 - `str` - The &quot;safe&quot; value of the specified field.
 
-<a id="AssemblyLine.al_document.ALDocument.overflow_value"></a>
-
-#### overflow\_value(field\_name: str, overflow\_message: Optional[str] = None, preserve\_newlines: bool = False, input\_width: int = 80, preserve\_words: bool = True)
+#### overflow\_value(field\_name: str, overflow\_message: Optional[str] = None, preserve\_newlines: bool = False, input\_width: int = 80, preserve\_words: bool = True) {#AssemblyLine.al\_document.ALDocument.overflow\_value}
 
 ```python
 def overflow_value(field_name: str,
@@ -1203,9 +1113,7 @@ Retrieve the &quot;overflow&quot; value of a specified field, which is the amoun
 
 - `str` - The &quot;overflow&quot; value of the specified field.
 
-<a id="AssemblyLine.al_document.ALDocument.is_enabled"></a>
-
-#### is\_enabled(refresh: bool = True)
+#### is\_enabled(refresh: bool = True) {#AssemblyLine.al\_document.ALDocument.is\_enabled}
 
 ```python
 def is_enabled(refresh: bool = True) -> bool
@@ -1227,9 +1135,7 @@ A document is &quot;enabled&quot; if:
 
 - `bool` - True if the document is enabled, otherwise False.
 
-<a id="AssemblyLine.al_document.ALStaticDocument"></a>
-
-## ALStaticDocument Objects
+## ALStaticDocument Objects {#AssemblyLine.al\_document.ALStaticDocument}
 
 ```python
 class ALStaticDocument(DAStaticFile)
@@ -1265,9 +1171,7 @@ A class for initializing static documents for inclusion in an ALDocumentBundle w
 
   Consider handling files in `/data/templates` if deemed useful, potentially by copying into a DAFile using `pdf_concatenate()`.
 
-<a id="AssemblyLine.al_document.ALStaticDocument.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALStaticDocument.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -1280,9 +1184,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALStaticDocument.__getitem__"></a>
-
-#### \_\_getitem\_\_(key)
+#### \_\_getitem\_\_(key) {#AssemblyLine.al\_document.ALStaticDocument.\_\_getitem\_\_}
 
 ```python
 def __getitem__(key)
@@ -1294,9 +1196,7 @@ Override to ensure &#x27;final&#x27; and &#x27;private&#x27; keys always exist a
 
 - `ALStaticDocument` - Returns self.
 
-<a id="AssemblyLine.al_document.ALStaticDocument.as_list"></a>
-
-#### as\_list(key: str = "final", refresh: bool = True)
+#### as\_list(key: str = "final", refresh: bool = True) {#AssemblyLine.al\_document.ALStaticDocument.as\_list}
 
 ```python
 def as_list(key: str = "final", refresh: bool = True) -> List[DAStaticFile]
@@ -1314,9 +1214,7 @@ Get the document as a list.
 
 - `List[DAStaticFile]` - A list containing this document.
 
-<a id="AssemblyLine.al_document.ALStaticDocument.as_pdf"></a>
-
-#### as\_pdf(key: str = "final", pdfa: bool = False, filename: str = "", append\_matching\_suffix: bool = True, refresh: bool = False)
+#### as\_pdf(key: str = "final", pdfa: bool = False, filename: str = "", append\_matching\_suffix: bool = True, refresh: bool = False) {#AssemblyLine.al\_document.ALStaticDocument.as\_pdf}
 
 ```python
 def as_pdf(key: str = "final",
@@ -1341,9 +1239,7 @@ Convert the document into PDF format.
 
   Union[DAStaticFile, DAFile]: The document in PDF format.
 
-<a id="AssemblyLine.al_document.ALStaticDocument.as_docx"></a>
-
-#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = False)
+#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = False) {#AssemblyLine.al\_document.ALStaticDocument.as\_docx}
 
 ```python
 def as_docx(
@@ -1365,9 +1261,7 @@ Convert the document into DOCX format, if possible. If not, return as PDF.
 
   Union[DAStaticFile, DAFile]: The document in DOCX or PDF format.
 
-<a id="AssemblyLine.al_document.ALStaticDocument.show"></a>
-
-#### show(\*\*kwargs)
+#### show(\*\*kwargs) {#AssemblyLine.al\_document.ALStaticDocument.show}
 
 ```python
 def show(**kwargs) -> DAFile
@@ -1386,9 +1280,7 @@ This method provides a workaround for problems generating thumbnails.
 
 - `DAFile` - Displayable version of the document.
 
-<a id="AssemblyLine.al_document.ALStaticDocument.is_enabled"></a>
-
-#### is\_enabled(\*\*kwargs)
+#### is\_enabled(\*\*kwargs) {#AssemblyLine.al\_document.ALStaticDocument.is\_enabled}
 
 ```python
 def is_enabled(**kwargs) -> bool
@@ -1405,9 +1297,7 @@ Check if the document is enabled.
 
 - `bool` - True if the document is enabled, otherwise False.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle"></a>
-
-## ALDocumentBundle Objects
+## ALDocumentBundle Objects {#AssemblyLine.al\_document.ALDocumentBundle}
 
 ```python
 class ALDocumentBundle(DAList)
@@ -1452,9 +1342,7 @@ bundles, each can be rendered as a merged PDF or a list of documents.
     zipped_files = bundle.as_zip()
     ```
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALDocumentBundle.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -1467,9 +1355,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.as_pdf"></a>
-
-#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True, ensure\_parity: Optional[Literal["even", "odd"]] = None)
+#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True, ensure\_parity: Optional[Literal["even", "odd"]] = None) {#AssemblyLine.al\_document.ALDocumentBundle.as\_pdf}
 
 ```python
 def as_pdf(
@@ -1498,9 +1384,7 @@ Returns a consolidated PDF of all enabled documents in the bundle.
 
 - `Optional[DAFile]` - Combined PDF file or None if no documents are enabled.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#AssemblyLine.al\_document.ALDocumentBundle.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -1514,9 +1398,7 @@ the PDF by default.
 
 - `str` - String representation of the PDF.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.as_zip"></a>
-
-#### as\_zip(key: str = "final", refresh: bool = True, pdfa: bool = False, title: str = "", format: Optional[str] = "pdf", include\_pdf: Optional[bool] = True)
+#### as\_zip(key: str = "final", refresh: bool = True, pdfa: bool = False, title: str = "", format: Optional[str] = "pdf", include\_pdf: Optional[bool] = True) {#AssemblyLine.al\_document.ALDocumentBundle.as\_zip}
 
 ```python
 def as_zip(key: str = "final",
@@ -1543,9 +1425,7 @@ Returns a zip file containing all enabled documents in the bundle in the specifi
 
 - `DAFile` - A zip file containing the enabled documents.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.preview"></a>
-
-#### preview(refresh: bool = True)
+#### preview(refresh: bool = True) {#AssemblyLine.al\_document.ALDocumentBundle.preview}
 
 ```python
 def preview(refresh: bool = True) -> Optional[DAFile]
@@ -1562,9 +1442,7 @@ Returns a preview version of the bundle as a PDF.
 
 - `Optional[DAFile]` - Preview PDF file or None if no documents are enabled.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.has_enabled_documents"></a>
-
-#### has\_enabled\_documents(refresh=False)
+#### has\_enabled\_documents(refresh=False) {#AssemblyLine.al\_document.ALDocumentBundle.has\_enabled\_documents}
 
 ```python
 def has_enabled_documents(refresh=False) -> bool
@@ -1581,9 +1459,7 @@ Checks if there is at least one enabled document in the bundle.
 
 - `bool` - True if there&#x27;s at least one enabled document, otherwise False.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.enabled_documents"></a>
-
-#### enabled\_documents(refresh: bool = True)
+#### enabled\_documents(refresh: bool = True) {#AssemblyLine.al\_document.ALDocumentBundle.enabled\_documents}
 
 ```python
 def enabled_documents(refresh: bool = True) -> List[Any]
@@ -1600,9 +1476,7 @@ Retrieves all enabled documents within the bundle.
 
 - `List[Any]` - List of enabled documents.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.as_flat_list"></a>
-
-#### as\_flat\_list(key: str = "final", refresh: bool = True)
+#### as\_flat\_list(key: str = "final", refresh: bool = True) {#AssemblyLine.al\_document.ALDocumentBundle.as\_flat\_list}
 
 ```python
 def as_flat_list(key: str = "final", refresh: bool = True) -> List[DAFile]
@@ -1620,9 +1494,7 @@ Flattens and returns all enabled documents in the bundle, even from nested bundl
 
 - `List[DAFile]` - Flattened list of enabled documents.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.get_titles"></a>
-
-#### get\_titles(key: str = "final", refresh: bool = True)
+#### get\_titles(key: str = "final", refresh: bool = True) {#AssemblyLine.al\_document.ALDocumentBundle.get\_titles}
 
 ```python
 def get_titles(key: str = "final", refresh: bool = True) -> List[str]
@@ -1640,9 +1512,7 @@ Retrieves the titles of all enabled documents in the bundle.
 
 - `List[str]` - Titles of the enabled documents.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.as_pdf_list"></a>
-
-#### as\_pdf\_list(key: str = "final", refresh: bool = True, pdfa: bool = False)
+#### as\_pdf\_list(key: str = "final", refresh: bool = True, pdfa: bool = False) {#AssemblyLine.al\_document.ALDocumentBundle.as\_pdf\_list}
 
 ```python
 def as_pdf_list(key: str = "final",
@@ -1663,9 +1533,7 @@ Returns all enabled documents in the bundle as individual PDFs, even from nested
 
 - `List[DAFile]` - List of enabled documents as individual PDFs.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.as_docx_list"></a>
-
-#### as\_docx\_list(key: str = "final", refresh: bool = True)
+#### as\_docx\_list(key: str = "final", refresh: bool = True) {#AssemblyLine.al\_document.ALDocumentBundle.as\_docx\_list}
 
 ```python
 def as_docx_list(key: str = "final", refresh: bool = True) -> List[DAFile]
@@ -1685,9 +1553,7 @@ If a particular document can&#x27;t be represented as a DOCX, its original forma
 
 - `List[DAFile]` - List of documents represented as DOCX files or in their original format.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.as_editable_list"></a>
-
-#### as\_editable\_list(key: str = "final", refresh: bool = True)
+#### as\_editable\_list(key: str = "final", refresh: bool = True) {#AssemblyLine.al\_document.ALDocumentBundle.as\_editable\_list}
 
 ```python
 def as_editable_list(key: str = "final", refresh: bool = True) -> List[DAFile]
@@ -1707,9 +1573,7 @@ For documents that are not in DOCX or RTF formats, the original file format is r
 
 - `List[DAFile]` - Flat list of documents in DOCX or RTF formats or their original format.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.get_cacheable_documents"></a>
-
-#### get\_cacheable\_documents(key: str = "final", pdf: bool = True, docx: bool = False, original: bool = False, refresh: bool = True, pdfa: bool = False, include\_zip: bool = True, include\_full\_pdf: bool = False, append\_matching\_suffix: bool = True, zip\_include\_pdf: Optional[bool] = None, zip\_format: Optional[str] = None)
+#### get\_cacheable\_documents(key: str = "final", pdf: bool = True, docx: bool = False, original: bool = False, refresh: bool = True, pdfa: bool = False, include\_zip: bool = True, include\_full\_pdf: bool = False, append\_matching\_suffix: bool = True, zip\_include\_pdf: Optional[bool] = None, zip\_format: Optional[str] = None) {#AssemblyLine.al\_document.ALDocumentBundle.get\_cacheable\_documents}
 
 ```python
 def get_cacheable_documents(
@@ -1757,9 +1621,7 @@ DAFile # PDF of whole bundle
 
   Tuple[List[Dict[str, DAFile]], Optional[DAFile], Optional[DAFile]]: A list of dictionaries containing the enabled documents, a zip file of the whole bundle, and a PDF of the whole
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.download_list_html"></a>
-
-#### download\_list\_html(key: str = "final", format: str = "pdf", view: bool = True, refresh: bool = True, pdfa: bool = False, include\_zip: bool = True, view\_label="View", view\_icon: str = "eye", download\_label: str = "Download", download\_icon: str = "download", send\_label: str = "Send", send\_icon: str = "envelope", zip\_label: Optional[str] = None, zip\_icon: str = "file-archive", zip\_row\_label: Optional[str] = "", append\_matching\_suffix: bool = True, include\_email: bool = False, use\_previously\_cached\_files: bool = False, include\_full\_pdf: bool = False, full\_pdf\_label: Optional[str] = None, zip\_include\_pdf: Optional[bool] = True, zip\_format: Optional[str] = None)
+#### download\_list\_html(key: str = "final", format: str = "pdf", view: bool = True, refresh: bool = True, pdfa: bool = False, include\_zip: bool = True, view\_label="View", view\_icon: str = "eye", download\_label: str = "Download", download\_icon: str = "download", send\_label: str = "Send", send\_icon: str = "envelope", zip\_label: Optional[str] = None, zip\_icon: str = "file-archive", zip\_row\_label: Optional[str] = "", append\_matching\_suffix: bool = True, include\_email: bool = False, use\_previously\_cached\_files: bool = False, include\_full\_pdf: bool = False, full\_pdf\_label: Optional[str] = None, zip\_include\_pdf: Optional[bool] = True, zip\_format: Optional[str] = None) {#AssemblyLine.al\_document.ALDocumentBundle.download\_list\_html}
 
 ```python
 def download_list_html(key: str = "final",
@@ -1819,9 +1681,7 @@ Constructs an HTML table displaying a list of documents with &#x27;view&#x27; an
 
 - `str` - HTML representation of a table with documents and their associated actions.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.download_html"></a>
-
-#### download\_html(key: str = "final", format: str = "pdf", pdfa: bool = False, view: bool = True, refresh: bool = True, view\_label: str = "View", view\_icon: str = "eye", download\_label: str = "Download", download\_icon: str = "download")
+#### download\_html(key: str = "final", format: str = "pdf", pdfa: bool = False, view: bool = True, refresh: bool = True, view\_label: str = "View", view\_icon: str = "eye", download\_label: str = "Download", download\_icon: str = "download") {#AssemblyLine.al\_document.ALDocumentBundle.download\_html}
 
 ```python
 def download_html(key: str = "final",
@@ -1857,9 +1717,7 @@ Deprecated; use download_list_html instead
 
 - `str` - HTML representation of a table with documents and their associated actions.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.send_email_table_row"></a>
-
-#### send\_email\_table\_row(key: str = "final", send\_label: str = "Send", send\_icon: str = "envelope")
+#### send\_email\_table\_row(key: str = "final", send\_label: str = "Send", send\_icon: str = "envelope") {#AssemblyLine.al\_document.ALDocumentBundle.send\_email\_table\_row}
 
 ```python
 def send_email_table_row(key: str = "final",
@@ -1881,9 +1739,7 @@ someone to send the bundle to the specified email address.
 
 - `str` - The generated HTML string for the table row.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.send_button_to_html"></a>
-
-#### send\_button\_to\_html(email: str, editable: Optional[bool] = None, template\_name: str = "", label: str = "Send", icon: str = "envelope", color: str = "primary", key: str = "final", preferred\_formats: Optional[Union[str, List[str]]] = None)
+#### send\_button\_to\_html(email: str, editable: Optional[bool] = None, template\_name: str = "", label: str = "Send", icon: str = "envelope", color: str = "primary", key: str = "final", preferred\_formats: Optional[Union[str, List[str]]] = None) {#AssemblyLine.al\_document.ALDocumentBundle.send\_button\_to\_html}
 
 ```python
 def send_button_to_html(
@@ -1917,9 +1773,7 @@ in contrast to send_button_html.
 
 - `str` - The generated HTML string for the button.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.send_button_html"></a>
-
-#### send\_button\_html(key: str = "final", show\_editable\_checkbox: bool = True, template\_name: str = "", label: str = "Send", icon: str = "envelope", preferred\_formats: Optional[Union[str, List[str]]] = None)
+#### send\_button\_html(key: str = "final", show\_editable\_checkbox: bool = True, template\_name: str = "", label: str = "Send", icon: str = "envelope", preferred\_formats: Optional[Union[str, List[str]]] = None) {#AssemblyLine.al\_document.ALDocumentBundle.send\_button\_html}
 
 ```python
 def send_button_html(
@@ -1955,9 +1809,7 @@ include an editable (Word) copy of the file, if and only if it is available.
 
 - `str` - The generated HTML string for the input box and button.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.send_email"></a>
-
-#### send\_email(to: Any = None, key: str = "final", editable: Optional[bool] = None, template: Optional[Any] = None, preferred\_formats: Optional[Union[str, List[str]]] = "pdf", \*\*kwargs)
+#### send\_email(to: Any = None, key: str = "final", editable: Optional[bool] = None, template: Optional[Any] = None, preferred\_formats: Optional[Union[str, List[str]]] = "pdf", \*\*kwargs) {#AssemblyLine.al\_document.ALDocumentBundle.send\_email}
 
 ```python
 def send_email(to: Any = None,
@@ -1986,9 +1838,7 @@ https://docassemble.org/docs/functions.html#send_email with additional parameter
 
 - `bool` - Indicates if the email was sent successfully.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.is_enabled"></a>
-
-#### is\_enabled(refresh=True)
+#### is\_enabled(refresh=True) {#AssemblyLine.al\_document.ALDocumentBundle.is\_enabled}
 
 ```python
 def is_enabled(refresh=True) -> bool
@@ -2005,9 +1855,7 @@ Check if the bundle itself is enabled, and if it has at least one enabled child 
 
 - `bool` - Indicates if the bundle and its child documents are enabled.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.as_docx"></a>
-
-#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = True)
+#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALDocumentBundle.as\_docx}
 
 ```python
 def as_docx(key: str = "final",
@@ -2028,9 +1876,7 @@ Convert the enabled documents to a single DOCX file or PDF file if conversion fa
 
 - `DAFile` - A DAFile object containing the concatenated DOCX or PDF file.
 
-<a id="AssemblyLine.al_document.ALDocumentBundle.as_list"></a>
-
-#### as\_list(key: str = "final", refresh: bool = True)
+#### as\_list(key: str = "final", refresh: bool = True) {#AssemblyLine.al\_document.ALDocumentBundle.as\_list}
 
 ```python
 def as_list(key: str = "final", refresh: bool = True) -> List[DAFile]
@@ -2048,9 +1894,7 @@ Return a list of enabled documents.
 
 - `List[DAFile]` - A list of enabled DAFile objects.
 
-<a id="AssemblyLine.al_document.ALExhibit"></a>
-
-## ALExhibit Objects
+## ALExhibit Objects {#AssemblyLine.al\_document.ALExhibit}
 
 ```python
 class ALExhibit(DAObject)
@@ -2066,9 +1910,7 @@ Class to represent a single exhibit, with cover page, which may contain multiple
 - `label` _str_ - A label, like &quot;A&quot; or &quot;1&quot; for this exhibit in the cover page and table of contents
 - `starting_page` _int_ - first page number to use in table of contents
 
-<a id="AssemblyLine.al_document.ALExhibit.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALExhibit.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -2081,9 +1923,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALExhibit.ocr_ready"></a>
-
-#### ocr\_ready()
+#### ocr\_ready() {#AssemblyLine.al\_document.ALExhibit.ocr\_ready}
 
 ```python
 def ocr_ready() -> bool
@@ -2100,9 +1940,7 @@ That situation is likely a developer error, as you shouldn&#x27;t wait for OCR i
 
 - `bool` - True iff OCR process has finished on all pages.
 
-<a id="AssemblyLine.al_document.ALExhibit.ocr_pages"></a>
-
-#### ocr\_pages()
+#### ocr\_pages() {#AssemblyLine.al\_document.ALExhibit.ocr\_pages}
 
 ```python
 def ocr_pages() -> List[DAFile]
@@ -2114,9 +1952,7 @@ Retrieve the OCR-processed version of pages if available, else return the origin
 
 - `List[DAFile]` - List of pages, either OCR-processed or original.
 
-<a id="AssemblyLine.al_document.ALExhibit.as_pdf"></a>
-
-#### as\_pdf(\*, refresh: bool = False, prefix: str = "", pdfa: bool = False, add\_page\_numbers: bool = True, add\_cover\_page: bool = True, filename: Optional[str] = None, append\_matching\_suffix: bool = True)
+#### as\_pdf(\*, refresh: bool = False, prefix: str = "", pdfa: bool = False, add\_page\_numbers: bool = True, add\_cover\_page: bool = True, filename: Optional[str] = None, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALExhibit.as\_pdf}
 
 ```python
 def as_pdf(*,
@@ -2148,9 +1984,7 @@ Note that these are keyword only parameters, not positional.
 
 - `DAFile` - PDF representation of the exhibit.
 
-<a id="AssemblyLine.al_document.ALExhibit.num_pages"></a>
-
-#### num\_pages()
+#### num\_pages() {#AssemblyLine.al\_document.ALExhibit.num\_pages}
 
 ```python
 def num_pages() -> int
@@ -2162,9 +1996,7 @@ Calculate the total number of pages in the exhibit.
 
 - `int` - Total page count.
 
-<a id="AssemblyLine.al_document.ALExhibit.complete"></a>
-
-#### complete()
+#### complete() {#AssemblyLine.al\_document.ALExhibit.complete}
 
 ```python
 @property
@@ -2178,9 +2010,7 @@ Indicates if the exhibit is complete.
 
 NOTE: This property always returns True after triggering the required attributes.
 
-<a id="AssemblyLine.al_document.ALExhibit.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#AssemblyLine.al\_document.ALExhibit.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -2192,9 +2022,7 @@ Return the title of the exhibit.
 
 - `str` - Title of the exhibit.
 
-<a id="AssemblyLine.al_document.ocrmypdf_task"></a>
-
-#### ocrmypdf\_task(from\_file: Union[DAFile, DAFileList], to\_pdf: DAFile)
+#### ocrmypdf\_task(from\_file: Union[DAFile, DAFileList], to\_pdf: DAFile) {#AssemblyLine.al\_document.ocrmypdf\_task}
 
 ```python
 def ocrmypdf_task(from_file: Union[DAFile, DAFileList],
@@ -2223,9 +2051,7 @@ This function is designed to be executed as a background task (id: al_exhibit_oc
 
 - `subprocess.TimeoutExpired` - If the ocrmypdf process takes longer than an hour.
 
-<a id="AssemblyLine.al_document.ALExhibitList"></a>
-
-## ALExhibitList Objects
+## ALExhibitList Objects {#AssemblyLine.al\_document.ALExhibitList}
 
 ```python
 class ALExhibitList(DAList)
@@ -2242,9 +2068,7 @@ and rendering them into a single PDF file.
   Uses A..Z labels by default.
 - `auto_ocr` _bool_ - If True, automatically starts OCR processing for uploaded exhibits. Defaults to True.
 
-<a id="AssemblyLine.al_document.ALExhibitList.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALExhibitList.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -2257,9 +2081,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALExhibitList.as_pdf"></a>
-
-#### as\_pdf(filename="file.pdf", pdfa: bool = False, add\_page\_numbers: bool = False, toc\_pages: int = 0, append\_matching\_suffix: bool = True)
+#### as\_pdf(filename="file.pdf", pdfa: bool = False, add\_page\_numbers: bool = False, toc\_pages: int = 0, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALExhibitList.as\_pdf}
 
 ```python
 def as_pdf(filename="file.pdf",
@@ -2284,9 +2106,7 @@ Compiles all exhibits in the list into a single PDF.
 
 - `DAFile` - A single PDF containing all exhibits.
 
-<a id="AssemblyLine.al_document.ALExhibitList.size_in_bytes"></a>
-
-#### size\_in\_bytes()
+#### size\_in\_bytes() {#AssemblyLine.al\_document.ALExhibitList.size\_in\_bytes}
 
 ```python
 def size_in_bytes() -> int
@@ -2298,9 +2118,7 @@ Calculates the total size in bytes of all exhibits in the list.
 
 - `int` - Total size of all exhibits in bytes.
 
-<a id="AssemblyLine.al_document.ALExhibitList.ocr_ready"></a>
-
-#### ocr\_ready()
+#### ocr\_ready() {#AssemblyLine.al\_document.ALExhibitList.ocr\_ready}
 
 ```python
 def ocr_ready() -> bool
@@ -2312,9 +2130,7 @@ Checks if all exhibits in the list have completed the OCR process.
 
 - `bool` - True if all exhibits are OCRed or if OCR hasn&#x27;t started. False otherwise.
 
-<a id="AssemblyLine.al_document.ALExhibitList.hook_after_gather"></a>
-
-#### hook\_after\_gather()
+#### hook\_after\_gather() {#AssemblyLine.al\_document.ALExhibitList.hook\_after\_gather}
 
 ```python
 def hook_after_gather() -> None
@@ -2323,9 +2139,7 @@ def hook_after_gather() -> None
 Callback function executed after the entire list of exhibits is collected.
 Manages auto-labeling and initiates OCR if necessary.
 
-<a id="AssemblyLine.al_document.ALExhibitDocument"></a>
-
-## ALExhibitDocument Objects
+## ALExhibitDocument Objects {#AssemblyLine.al\_document.ALExhibitDocument}
 
 ```python
 class ALExhibitDocument(ALDocument)
@@ -2376,9 +2190,7 @@ objects:
   - exhibit_attachment: ALExhibitDocument.using(title="Exhibits", filename="exhibits" , auto_labeler=item_label)
 ```
 
-<a id="AssemblyLine.al_document.ALExhibitDocument.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALExhibitDocument.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -2391,9 +2203,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALExhibitDocument.has_overflow"></a>
-
-#### has\_overflow()
+#### has\_overflow() {#AssemblyLine.al\_document.ALExhibitDocument.has\_overflow}
 
 ```python
 def has_overflow() -> bool
@@ -2407,9 +2217,7 @@ This is for compatibility with ALDocument; Exhibits inherently don&#x27;t have o
 
 - `bool` - Always False for this implementation.
 
-<a id="AssemblyLine.al_document.ALExhibitDocument.ocr_ready"></a>
-
-#### ocr\_ready()
+#### ocr\_ready() {#AssemblyLine.al\_document.ALExhibitDocument.ocr\_ready}
 
 ```python
 def ocr_ready() -> bool
@@ -2421,9 +2229,7 @@ Determine if all exhibits within the document have undergone OCR processing.
 
 - `bool` - True if all exhibits have been OCRed or if the OCR process hasn&#x27;t been initiated.
 
-<a id="AssemblyLine.al_document.ALExhibitDocument.__getitem__"></a>
-
-#### \_\_getitem\_\_(key)
+#### \_\_getitem\_\_(key) {#AssemblyLine.al\_document.ALExhibitDocument.\_\_getitem\_\_}
 
 ```python
 def __getitem__(key)
@@ -2440,9 +2246,7 @@ Overridden method to ensure &#x27;final&#x27; and &#x27;private&#x27; keys alway
 
 - `ALExhibitDocument` - Returns the current instance of the class.
 
-<a id="AssemblyLine.al_document.ALExhibitDocument.as_list"></a>
-
-#### as\_list(key: str = "final", refresh: bool = True)
+#### as\_list(key: str = "final", refresh: bool = True) {#AssemblyLine.al\_document.ALExhibitDocument.as\_list}
 
 ```python
 def as_list(key: str = "final", refresh: bool = True) -> List[DAFile]
@@ -2460,9 +2264,7 @@ Retrieve the document as a list.
 
 - `List[DAFile]` - A list containing the document.
 
-<a id="AssemblyLine.al_document.ALExhibitDocument.as_pdf"></a>
-
-#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True)
+#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALExhibitDocument.as\_pdf}
 
 ```python
 def as_pdf(key: str = "final",
@@ -2487,9 +2289,7 @@ Render the document as a PDF.
 
 - `DAFile` - The document rendered as a PDF.
 
-<a id="AssemblyLine.al_document.ALExhibitDocument.as_docx"></a>
-
-#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = True)
+#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALExhibitDocument.as\_docx}
 
 ```python
 def as_docx(key: str = "final",
@@ -2510,9 +2310,7 @@ Despite the name, renders the document as a PDF. Provided for signature compatib
 
 - `DAFile` - The document rendered as a PDF.
 
-<a id="AssemblyLine.al_document.ALTableDocument"></a>
-
-## ALTableDocument Objects
+## ALTableDocument Objects {#AssemblyLine.al\_document.ALTableDocument}
 
 ```python
 class ALTableDocument(ALDocument)
@@ -2528,9 +2326,7 @@ This class provides functionality to export data as a table in various formats s
 - `file` _DAFile, optional_ - Reference to the generated file (can be PDF, DOCX, etc.).
 - `table` _???_ - Represents the actual table data. Type and attributes need more context to document.
 
-<a id="AssemblyLine.al_document.ALTableDocument.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALTableDocument.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -2543,9 +2339,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALTableDocument.has_overflow"></a>
-
-#### has\_overflow()
+#### has\_overflow() {#AssemblyLine.al\_document.ALTableDocument.has\_overflow}
 
 ```python
 def has_overflow() -> bool
@@ -2559,9 +2353,7 @@ For compatibility with ALDocument; Tables inherently don&#x27;t have overflow.
 
 - `bool` - Always False for this implementation.
 
-<a id="AssemblyLine.al_document.ALTableDocument.__getitem__"></a>
-
-#### \_\_getitem\_\_(key)
+#### \_\_getitem\_\_(key) {#AssemblyLine.al\_document.ALTableDocument.\_\_getitem\_\_}
 
 ```python
 def __getitem__(key)
@@ -2580,9 +2372,7 @@ Overridden to ensure &#x27;final&#x27; and &#x27;private&#x27; keys always retur
 
 - `DAFile` - The document in its PDF format.
 
-<a id="AssemblyLine.al_document.ALTableDocument.as_list"></a>
-
-#### as\_list(key: str = "final", refresh: bool = True, \*\*kwargs)
+#### as\_list(key: str = "final", refresh: bool = True, \*\*kwargs) {#AssemblyLine.al\_document.ALTableDocument.as\_list}
 
 ```python
 def as_list(key: str = "final",
@@ -2602,9 +2392,7 @@ Retrieve the document as a list.
 
 - `List[DAFile]` - A list containing the document.
 
-<a id="AssemblyLine.al_document.ALTableDocument.as_pdf"></a>
-
-#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True, \*\*kwargs)
+#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True, \*\*kwargs) {#AssemblyLine.al\_document.ALTableDocument.as\_pdf}
 
 ```python
 def as_pdf(key: str = "final",
@@ -2629,9 +2417,7 @@ Name retained for signature compatibility.
 
 - `DAFile` - The table rendered as an XLSX spreadsheet
 
-<a id="AssemblyLine.al_document.ALTableDocument.as_docx"></a>
-
-#### as\_docx(key: str = "bool", refresh: bool = True, append\_matching\_suffix: bool = True)
+#### as\_docx(key: str = "bool", refresh: bool = True, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALTableDocument.as\_docx}
 
 ```python
 def as_docx(key: str = "bool",
@@ -2654,9 +2440,7 @@ Name retained for signature compatibility.
 
 - `DAFile` - The table rendered as an XLSX spreadsheet
 
-<a id="AssemblyLine.al_document.ALUntransformedDocument"></a>
-
-## ALUntransformedDocument Objects
+## ALUntransformedDocument Objects {#AssemblyLine.al\_document.ALUntransformedDocument}
 
 ```python
 class ALUntransformedDocument(ALDocument)
@@ -2671,9 +2455,7 @@ compatibility with ALDocument.
 - `has_addendum` _bool_ - A flag indicating the presence of an addendum in the document.
 - `suffix_to_append` _str_ - Suffix that can be appended to file names, defaulting to &quot;preview&quot;.
 
-<a id="AssemblyLine.al_document.ALUntransformedDocument.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_document.ALUntransformedDocument.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -2686,9 +2468,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_document.ALUntransformedDocument.has_overflow"></a>
-
-#### has\_overflow()
+#### has\_overflow() {#AssemblyLine.al\_document.ALUntransformedDocument.has\_overflow}
 
 ```python
 def has_overflow() -> bool
@@ -2702,9 +2482,7 @@ For compatibility with ALDocument. Untransformed documents inherently don&#x27;t
 
 - `bool` - Always False for this implementation.
 
-<a id="AssemblyLine.al_document.ALUntransformedDocument.as_list"></a>
-
-#### as\_list(key: str = "final", refresh: bool = True, \*\*kwargs)
+#### as\_list(key: str = "final", refresh: bool = True, \*\*kwargs) {#AssemblyLine.al\_document.ALUntransformedDocument.as\_list}
 
 ```python
 def as_list(key: str = "final",
@@ -2724,9 +2502,7 @@ Retrieve the document as a list.
 
 - `List[DAFile]` - A list containing the document.
 
-<a id="AssemblyLine.al_document.ALUntransformedDocument.as_pdf"></a>
-
-#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True, \*\*kwargs)
+#### as\_pdf(key: str = "final", refresh: bool = True, pdfa: bool = False, append\_matching\_suffix: bool = True, \*\*kwargs) {#AssemblyLine.al\_document.ALUntransformedDocument.as\_pdf}
 
 ```python
 def as_pdf(key: str = "final",
@@ -2752,9 +2528,7 @@ This method is primarily for duck-typing compatibility with ALDocument.
 
 - `DAFile` - The original, untransformed document.
 
-<a id="AssemblyLine.al_document.ALUntransformedDocument.as_docx"></a>
-
-#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = True)
+#### as\_docx(key: str = "final", refresh: bool = True, append\_matching\_suffix: bool = True) {#AssemblyLine.al\_document.ALUntransformedDocument.as\_docx}
 
 ```python
 def as_docx(key: str = "final",
@@ -2777,9 +2551,7 @@ This method is primarily for duck-typing compatibility with ALDocument.
 
 - `DAFile` - The original, untransformed document.
 
-<a id="AssemblyLine.al_document.ALDocumentUpload"></a>
-
-## ALDocumentUpload Objects
+## ALDocumentUpload Objects {#AssemblyLine.al\_document.ALDocumentUpload}
 
 ```python
 class ALDocumentUpload(ALUntransformedDocument)
@@ -2788,9 +2560,7 @@ class ALDocumentUpload(ALUntransformedDocument)
 Simplified class to handle uploaded documents, without any of the complexity of the
 ALExhibitDocument class.
 
-<a id="AssemblyLine.al_document.unpack_dafilelist"></a>
-
-#### unpack\_dafilelist(the\_file: DAFileList)
+#### unpack\_dafilelist(the\_file: DAFileList) {#AssemblyLine.al\_document.unpack\_dafilelist}
 
 ```python
 def unpack_dafilelist(the_file: DAFileList) -> DAFile

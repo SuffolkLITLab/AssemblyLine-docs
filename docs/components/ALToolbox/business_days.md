@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALToolbox.business\_days](#ALToolbox.business_days)
+* ALToolbox.business\_days
   * [standard\_holidays](#ALToolbox.business_days.standard_holidays)
   * [non\_business\_days](#ALToolbox.business_days.non_business_days)
   * [is\_business\_day](#ALToolbox.business_days.is_business_day)
@@ -12,9 +12,7 @@ sidebar_label: business_days
 title: ALToolbox.business_days
 ---
 
-<a id="ALToolbox.business_days.standard_holidays"></a>
-
-#### standard\_holidays(year, country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None)
+#### standard\_holidays(year, country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None) {#ALToolbox.business\_days.standard\_holidays}
 
 ```python
 def standard_holidays(
@@ -77,9 +75,7 @@ holidays observed by a local court, but should be very close to accurate.
     )
     ```
 
-<a id="ALToolbox.business_days.non_business_days"></a>
-
-#### non\_business\_days(year, country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None, first\_n\_dates=0, last\_n\_dates=0)
+#### non\_business\_days(year, country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None, first\_n\_dates=0, last\_n\_dates=0) {#ALToolbox.business\_days.non\_business\_days}
 
 ```python
 def non_business_days(year,
@@ -132,9 +128,7 @@ both weekends (Saturdays and Sundays) and official holidays.
     )
     ```
 
-<a id="ALToolbox.business_days.is_business_day"></a>
-
-#### is\_business\_day(date: Union[str, DADateTime], country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None)
+#### is\_business\_day(date: Union[str, DADateTime], country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None) {#ALToolbox.business\_days.is\_business\_day}
 
 ```python
 def is_business_day(date: Union[str, DADateTime],
@@ -186,9 +180,7 @@ in the specified jurisdiction. Business days are considered to be:
     is_business_uk = is_business_day("2023-12-26", country="UK")  # Boxing Day
     ```
 
-<a id="ALToolbox.business_days.get_next_business_day"></a>
-
-#### get\_next\_business\_day(start\_date: Union[str, DADateTime], wait\_n\_days=1, country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None)
+#### get\_next\_business\_day(start\_date: Union[str, DADateTime], wait\_n\_days=1, country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None) {#ALToolbox.business\_days.get\_next\_business\_day}
 
 ```python
 def get_next_business_day(
@@ -252,9 +244,7 @@ https://github.com/dr-prodigy/python-holidays/tree/master/holidays/countries
     # Will skip March 17th as it's now considered a holiday
     ```
 
-<a id="ALToolbox.business_days.get_date_after_n_business_days"></a>
-
-#### get\_date\_after\_n\_business\_days(start\_date: Union[str, DADateTime], wait\_n\_days=1, country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None)
+#### get\_date\_after\_n\_business\_days(start\_date: Union[str, DADateTime], wait\_n\_days=1, country="US", subdiv="MA", add\_holidays: Optional[Mapping] = None, remove\_holidays: Optional[Iterable[str]] = None) {#ALToolbox.business\_days.get\_date\_after\_n\_business\_days}
 
 ```python
 def get_date_after_n_business_days(

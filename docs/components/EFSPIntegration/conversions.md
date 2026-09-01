@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [EFSPIntegration.conversions](#EFSPIntegration.conversions)
+* EFSPIntegration.conversions
   * [error\_notification](#EFSPIntegration.conversions.error_notification)
   * [log\_error\_and\_notify](#EFSPIntegration.conversions.log_error_and_notify)
   * [convert\_court\_to\_id](#EFSPIntegration.conversions.convert_court_to_id)
@@ -25,9 +25,7 @@ title: EFSPIntegration.conversions
 
 Functions that help convert the JSON-ized XML from the proxy server into usable information.
 
-<a id="EFSPIntegration.conversions.error_notification"></a>
-
-#### error\_notification(err, message=None, trace=None, referer=None, the\_vars=None)
+#### error\_notification(err, message=None, trace=None, referer=None, the\_vars=None) {#EFSPIntegration.conversions.error\_notification}
 
 ```python
 def error_notification(err,
@@ -43,9 +41,7 @@ Copied from docassemble.webapp.server.error_notification, since:
 
 Some slight modifications to work without server backends
 
-<a id="EFSPIntegration.conversions.log_error_and_notify"></a>
-
-#### log\_error\_and\_notify(context: str, resp: Optional[ApiResponse] = None)
+#### log\_error\_and\_notify(context: str, resp: Optional[ApiResponse] = None) {#EFSPIntegration.conversions.log\_error\_and\_notify}
 
 ```python
 def log_error_and_notify(context: str, resp: Optional[ApiResponse] = None)
@@ -54,9 +50,7 @@ def log_error_and_notify(context: str, resp: Optional[ApiResponse] = None)
 Similar to docassemble.webapp.server.error_notification, which will send an email to
 the `error_notification_email` in the config.
 
-<a id="EFSPIntegration.conversions.convert_court_to_id"></a>
-
-#### convert\_court\_to\_id(trial\_court)
+#### convert\_court\_to\_id(trial\_court) {#EFSPIntegration.conversions.convert\_court\_to\_id}
 
 ```python
 def convert_court_to_id(trial_court) -> str
@@ -78,9 +72,7 @@ your court object use the &quot;tyler_court_code&quot; attribute though.
 
   the string that should be the Tyler EFM court id, i.e. `adams` or `peoria:cr`
 
-<a id="EFSPIntegration.conversions.choices_and_map"></a>
-
-#### choices\_and\_map(codes\_list: List[Dict[str, Any]], display: str = None, backing: str = None)
+#### choices\_and\_map(codes\_list: List[Dict[str, Any]], display: str = None, backing: str = None) {#EFSPIntegration.conversions.choices\_and\_map}
 
 ```python
 def choices_and_map(codes_list: List[Dict[str, Any]],
@@ -105,9 +97,7 @@ to the full code object
   second, a map of each code, from the backing key to the full code element. Useful for getting
   all of the information about a code after a user has selected it.
 
-<a id="EFSPIntegration.conversions.pretty_display"></a>
-
-#### pretty\_display(data, tab\_depth=0, skip\_xml=True, item\_name=None)
+#### pretty\_display(data, tab\_depth=0, skip\_xml=True, item\_name=None) {#EFSPIntegration.conversions.pretty\_display}
 
 ```python
 def pretty_display(data, tab_depth=0, skip_xml=True, item_name=None) -> str
@@ -129,20 +119,16 @@ Recursive, for subsequent calls `tab_depth` increases.
 
   The string of markdown text that displays info about the given JSON structure
 
-<a id="EFSPIntegration.conversions.debug_display"></a>
-
-#### debug\_display(resp: ApiResponse)
+#### debug\_display(resp: ApiResponse) {#EFSPIntegration.conversions.debug\_display}
 
 ```python
 def debug_display(resp: ApiResponse) -> str
 ```
 
 Returns a string with either the error of the response,
-or it&#x27;s data run through [pretty_display](#pretty_display)
+or it&#x27;s data run through [pretty_display](#EFSPIntegration.conversions.pretty_display)
 
-<a id="EFSPIntegration.conversions.tyler_daterep_to_datetime"></a>
-
-#### tyler\_daterep\_to\_datetime(tyler\_daterep: Mapping)
+#### tyler\_daterep\_to\_datetime(tyler\_daterep: Mapping) {#EFSPIntegration.conversions.tyler\_daterep\_to\_datetime}
 
 ```python
 def tyler_daterep_to_datetime(tyler_daterep: Mapping) -> DADateTime
@@ -151,9 +137,7 @@ def tyler_daterep_to_datetime(tyler_daterep: Mapping) -> DADateTime
 Takes an jsonized-XML object of &quot;\{http://niem.gov/niem/niem-core/2.0\}ActivityDate,
 returns the datetime it represents.
 
-<a id="EFSPIntegration.conversions.tyler_timestamp_to_datetime"></a>
-
-#### tyler\_timestamp\_to\_datetime(timestamp\_ms: int)
+#### tyler\_timestamp\_to\_datetime(timestamp\_ms: int) {#EFSPIntegration.conversions.tyler\_timestamp\_to\_datetime}
 
 ```python
 def tyler_timestamp_to_datetime(timestamp_ms: int) -> DADateTime
@@ -161,9 +145,7 @@ def tyler_timestamp_to_datetime(timestamp_ms: int) -> DADateTime
 
 Given a timestamp in milliseconds from epoch (in UTC), make a datetime from it
 
-<a id="EFSPIntegration.conversions.validate_tyler_regex"></a>
-
-#### validate\_tyler\_regex(data\_field: Mapping)
+#### validate\_tyler\_regex(data\_field: Mapping) {#EFSPIntegration.conversions.validate\_tyler\_regex}
 
 ```python
 def validate_tyler_regex(data_field: Mapping) -> Callable[[str], Any]
@@ -172,9 +154,7 @@ def validate_tyler_regex(data_field: Mapping) -> Callable[[str], Any]
 Return a function that validates a given input with the provided regex,
 suitable for use with docassemble&#x27;s `validate:` question modifier
 
-<a id="EFSPIntegration.conversions.parse_service_contacts"></a>
-
-#### parse\_service\_contacts(service\_list)
+#### parse\_service\_contacts(service\_list) {#EFSPIntegration.conversions.parse\_service\_contacts}
 
 ```python
 def parse_service_contacts(service_list)
@@ -184,9 +164,7 @@ We&#x27;ll take both Tyler service contact lists and Niem service contact lists.
 Tyler&#x27;s are just `\{&quot;firstName&quot;: &quot;Bob&quot;, &quot;middleName&quot;: &quot;P&quot;, ..., &quot;serviceContactId&quot;: &quot;abcrunh-13...&quot;
 Niem&#x27;s are more complicated
 
-<a id="EFSPIntegration.conversions.parse_case_info"></a>
-
-#### parse\_case\_info(proxy\_conn: ProxyConnection, new\_case: DAObject, entry: dict, court\_id: str, \*, fetch: bool = True, roles: dict = None)
+#### parse\_case\_info(proxy\_conn: ProxyConnection, new\_case: DAObject, entry: dict, court\_id: str, \*, fetch: bool = True, roles: dict = None) {#EFSPIntegration.conversions.parse\_case\_info}
 
 ```python
 def parse_case_info(proxy_conn: ProxyConnection,
@@ -211,9 +189,7 @@ Given sparse information about a case, gets the full details about it
 - `roles` - a dictionary of the party type codes to the party type name.
   Used so we can filter and sort participants later
 
-<a id="EFSPIntegration.conversions.fetch_case_info"></a>
-
-#### fetch\_case\_info(proxy\_conn: ProxyConnection, new\_case: DAObject, roles: Optional[dict] = None)
+#### fetch\_case\_info(proxy\_conn: ProxyConnection, new\_case: DAObject, roles: Optional[dict] = None) {#EFSPIntegration.conversions.fetch\_case\_info}
 
 ```python
 def fetch_case_info(proxy_conn: ProxyConnection,
@@ -231,9 +207,7 @@ Fills in these attributes with the full case details:
 * date
 * participants
 
-<a id="EFSPIntegration.conversions.filter_payment_accounts"></a>
-
-#### filter\_payment\_accounts(account\_list, allowable\_card\_types: List)
+#### filter\_payment\_accounts(account\_list, allowable\_card\_types: List) {#EFSPIntegration.conversions.filter\_payment\_accounts}
 
 ```python
 def filter_payment_accounts(account_list, allowable_card_types: List) -> List
@@ -247,16 +221,14 @@ accepted at a particular court.
   account_list:
 - `allowable_card_types` - a list of the accepted card types at a court, usually
   from the &#x27;allowablecardtypes&#x27; dict entry in
-  [get_full_court_info](interview_logic#get_full_court_info)&#x27;s response
+  [get_full_court_info](interview_logic#EFSPIntegration.interview_logic.get_full_court_info)&#x27;s response
   
 
 **Returns**:
 
   the list of payment account choices that are valid for a particular court
 
-<a id="EFSPIntegration.conversions.payment_account_labels"></a>
-
-#### payment\_account\_labels(resp: ApiResponse)
+#### payment\_account\_labels(resp: ApiResponse) {#EFSPIntegration.conversions.payment\_account\_labels}
 
 ```python
 def payment_account_labels(resp: ApiResponse) -> Optional[List[Dict]]
@@ -264,22 +236,18 @@ def payment_account_labels(resp: ApiResponse) -> Optional[List[Dict]]
 
 Returns all payment accounts as choices, without filters.
 
-<a id="EFSPIntegration.conversions.filing_id_and_label"></a>
-
-#### filing\_id\_and\_label(case: Mapping, style: str = "FILING\_ID")
+#### filing\_id\_and\_label(case: Mapping, style: str = "FILING\_ID") {#EFSPIntegration.conversions.filing\_id\_and\_label}
 
 ```python
 def filing_id_and_label(case: Mapping,
                         style: str = "FILING_ID") -> Dict[str, str]
 ```
 
-Converts a raw case information from [proxy_conn.get_filing_list()](py_efsp_client#get_filing_list)
+Converts a raw case information from [proxy_conn.get_filing_list()](py_efsp_client#EFSPIntegration.py_efsp_client.EfspConnection.get_filing_list)
 into a key-value pair, where the key is the filing id and the value is the user-facing label
 for that filing.
 
-<a id="EFSPIntegration.conversions.get_tyler_roles"></a>
-
-#### get\_tyler\_roles(proxy\_conn: ProxyConnection, login\_data: Optional[Mapping], user\_details: Optional[ApiResponse] = None)
+#### get\_tyler\_roles(proxy\_conn: ProxyConnection, login\_data: Optional[Mapping], user\_details: Optional[ApiResponse] = None) {#EFSPIntegration.conversions.get\_tyler\_roles}
 
 ```python
 def get_tyler_roles(

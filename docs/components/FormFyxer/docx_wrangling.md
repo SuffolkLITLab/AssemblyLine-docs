@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [formfyxer.docx\_wrangling](#formfyxer.docx_wrangling)
+* formfyxer.docx\_wrangling
   * [update\_docx](#formfyxer.docx_wrangling.update_docx)
   * [get\_docx\_repr](#formfyxer.docx_wrangling.get_docx_repr)
   * [get\_labeled\_docx\_runs](#formfyxer.docx_wrangling.get_labeled_docx_runs)
@@ -13,9 +13,7 @@ sidebar_label: docx_wrangling
 title: formfyxer.docx_wrangling
 ---
 
-<a id="formfyxer.docx_wrangling.update_docx"></a>
-
-#### update\_docx(document: Union[docx.document.Document, str], modified\_runs: List[Tuple[int, int, str, int]])
+#### update\_docx(document: Union[docx.document.Document, str], modified\_runs: List[Tuple[int, int, str, int]]) {#formfyxer.docx\_wrangling.update\_docx}
 
 ```python
 def update_docx(
@@ -43,9 +41,7 @@ Take a careful look at the output document to make sure it is still correct.
 
   The modified document.
 
-<a id="formfyxer.docx_wrangling.get_docx_repr"></a>
-
-#### get\_docx\_repr(docx\_path: str, paragraph\_start: int = 0, paragraph\_end: Optional[int] = None)
+#### get\_docx\_repr(docx\_path: str, paragraph\_start: int = 0, paragraph\_end: Optional[int] = None) {#formfyxer.docx\_wrangling.get\_docx\_repr}
 
 ```python
 def get_docx_repr(docx_path: str,
@@ -64,9 +60,7 @@ Return a JSON representation of the paragraphs and runs in the DOCX file.
 
   A JSON representation of the paragraphs and runs in the DOCX file.
 
-<a id="formfyxer.docx_wrangling.get_labeled_docx_runs"></a>
-
-#### get\_labeled\_docx\_runs(docx\_path: Optional[str] = None, docx\_repr=Optional[str], custom\_people\_names: Optional[Tuple[str, str]] = None, openai\_client: Optional[OpenAI] = None, api\_key: Optional[str] = None)
+#### get\_labeled\_docx\_runs(docx\_path: Optional[str] = None, docx\_repr=Optional[str], custom\_people\_names: Optional[Tuple[str, str]] = None, openai\_client: Optional[OpenAI] = None, api\_key: Optional[str] = None) {#formfyxer.docx\_wrangling.get\_labeled\_docx\_runs}
 
 ```python
 def get_labeled_docx_runs(
@@ -90,9 +84,7 @@ Scan the DOCX and return a list of modified text with Jinja2 variable names inse
 
   A list of tuples, each containing a paragraph number, run number, and the modified text of the run.
 
-<a id="formfyxer.docx_wrangling.get_modified_docx_runs"></a>
-
-#### get\_modified\_docx\_runs(docx\_path: Optional[str] = None, docx\_repr: Optional[str] = None, custom\_example: str = "", instructions: str = "", openai\_client: Optional[OpenAI] = None, api\_key: Optional[str] = None, temperature=0.5)
+#### get\_modified\_docx\_runs(docx\_path: Optional[str] = None, docx\_repr: Optional[str] = None, custom\_example: str = "", instructions: str = "", openai\_client: Optional[OpenAI] = None, api\_key: Optional[str] = None, temperature=0.5) {#formfyxer.docx\_wrangling.get\_modified\_docx\_runs}
 
 ```python
 def get_modified_docx_runs(docx_path: Optional[str] = None,
@@ -154,9 +146,7 @@ You may also want to customize the input example to better match your use case.
 
   A list of tuples, each containing a paragraph number, run number, and the modified text of the run.
 
-<a id="formfyxer.docx_wrangling.make_docx_plain_language"></a>
-
-#### make\_docx\_plain\_language(docx\_path: str)
+#### make\_docx\_plain\_language(docx\_path: str) {#formfyxer.docx\_wrangling.make\_docx\_plain\_language}
 
 ```python
 def make_docx_plain_language(docx_path: str) -> docx.document.Document
@@ -164,9 +154,7 @@ def make_docx_plain_language(docx_path: str) -> docx.document.Document
 
 Convert a DOCX file to plain language with the help of OpenAI.
 
-<a id="formfyxer.docx_wrangling.modify_docx_with_openai_guesses"></a>
-
-#### modify\_docx\_with\_openai\_guesses(docx\_path: str)
+#### modify\_docx\_with\_openai\_guesses(docx\_path: str) {#formfyxer.docx\_wrangling.modify\_docx\_with\_openai\_guesses}
 
 ```python
 def modify_docx_with_openai_guesses(docx_path: str) -> docx.document.Document

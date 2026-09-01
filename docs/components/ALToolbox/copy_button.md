@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALToolbox.copy\_button](#ALToolbox.copy_button)
+* ALToolbox.copy\_button
   * [copy\_button\_html](#ALToolbox.copy_button.copy_button_html)
 
 ---
@@ -8,9 +8,7 @@ sidebar_label: copy_button
 title: ALToolbox.copy_button
 ---
 
-<a id="ALToolbox.copy_button.copy_button_html"></a>
-
-#### copy\_button\_html(text\_to\_copy: str, text\_before: str = "", label: str = "Copy", tooltip\_inert\_text: str = "Copy to clipboard", tooltip\_copied\_text: str = "Copied!", copy\_template\_block: bool = False, scroll\_class: str = "", style\_class: str = "", adjust\_height: str = "")
+#### copy\_button\_html(text\_to\_copy: str, text\_before: str = "", label: str = "Copy", tooltip\_inert\_text: str = "Copy to clipboard", tooltip\_copied\_text: str = "Copied!", copy\_template\_block: bool = False, scroll\_class: str = "", style\_class: str = "", adjust\_height: str = "") {#ALToolbox.copy\_button.copy\_button\_html}
 
 ```python
 def copy_button_html(text_to_copy: str,

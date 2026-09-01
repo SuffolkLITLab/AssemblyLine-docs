@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [AssemblyLine.sign](#AssemblyLine.sign)
+* AssemblyLine.sign
   * [find\_font\_file\_by\_name](#AssemblyLine.sign.find_font_file_by_name)
   * [get\_font](#AssemblyLine.sign.get_font)
   * [create\_signature](#AssemblyLine.sign.create_signature)
@@ -10,9 +10,7 @@ sidebar_label: sign
 title: AssemblyLine.sign
 ---
 
-<a id="AssemblyLine.sign.find_font_file_by_name"></a>
-
-#### find\_font\_file\_by\_name(font\_name: str, search\_dirs: List[str])
+#### find\_font\_file\_by\_name(font\_name: str, search\_dirs: List[str]) {#AssemblyLine.sign.find\_font\_file\_by\_name}
 
 ```python
 def find_font_file_by_name(font_name: str,
@@ -35,9 +33,7 @@ matches the font name (case-insensitive).
 
 - `Optional[str]` - The full path to the font file if found; otherwise, None.
 
-<a id="AssemblyLine.sign.get_font"></a>
-
-#### get\_font(font\_name: Optional[str] = None, font\_size: int = 48)
+#### get\_font(font\_name: Optional[str] = None, font\_size: int = 48) {#AssemblyLine.sign.get\_font}
 
 ```python
 def get_font(
@@ -63,9 +59,7 @@ if necessary. If no font is found, the function falls back to the default Pillow
 
 - `ImageFont.ImageFont` - The loaded font instance.
 
-<a id="AssemblyLine.sign.create_signature"></a>
-
-#### create\_signature(name: str, output\_file: str, signature\_prefix: str = "/s/", font\_name: Optional[str] = None, font\_size: int = 48)
+#### create\_signature(name: str, output\_file: str, signature\_prefix: str = "/s/", font\_name: Optional[str] = None, font\_size: int = 48) {#AssemblyLine.sign.create\_signature}
 
 ```python
 def create_signature(name: str,

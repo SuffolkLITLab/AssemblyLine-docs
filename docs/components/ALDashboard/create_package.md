@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALDashboard.create\_package](#ALDashboard.create_package)
+* ALDashboard.create\_package
   * [create\_package\_zip](#ALDashboard.create_package.create_package_zip)
 
 ---
@@ -8,9 +8,7 @@ sidebar_label: create_package
 title: ALDashboard.create_package
 ---
 
-<a id="ALDashboard.create_package.create_package_zip"></a>
-
-#### create\_package\_zip(pkgname: str, info: dict, author\_info: dict, folders\_and\_files: dict, fileobj: Optional[DAFile] = None)
+#### create\_package\_zip(pkgname: str, info: dict, author\_info: dict, folders\_and\_files: dict, fileobj: Optional[DAFile] = None) {#ALDashboard.create\_package.create\_package\_zip}
 
 ```python
 def create_package_zip(pkgname: str,

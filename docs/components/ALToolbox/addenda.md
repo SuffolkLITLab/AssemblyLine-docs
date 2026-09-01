@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALToolbox.addenda](#ALToolbox.addenda)
+* ALToolbox.addenda
   * [myTable](#ALToolbox.addenda.myTable)
     * [\_\_init\_\_](#ALToolbox.addenda.myTable.__init__)
   * [myTextList](#ALToolbox.addenda.myTextList)
@@ -14,9 +14,7 @@ sidebar_label: addenda
 title: ALToolbox.addenda
 ---
 
-<a id="ALToolbox.addenda.myTable"></a>
-
-## myTable Objects
+## myTable Objects {#ALToolbox.addenda.myTable}
 
 ```python
 class myTable()
@@ -28,9 +26,7 @@ This class processes DAList objects containing &#x27;Individual&#x27; or &#x27;T
 and converts them into structured table format suitable for document addenda.
 It handles data sanitization and formatting for display purposes.
 
-<a id="ALToolbox.addenda.myTable.__init__"></a>
-
-#### \_\_init\_\_(tblData, tblTitle, tblHeader)
+#### \_\_init\_\_(tblData, tblTitle, tblHeader) {#ALToolbox.addenda.myTable.\_\_init\_\_}
 
 ```python
 def __init__(tblData, tblTitle, tblHeader)
@@ -44,9 +40,7 @@ Initialize a table from DAList data with title and headers.
 - `tblTitle` _str_ - The title for the table.
 - `tblHeader` - The column headers for the table.
 
-<a id="ALToolbox.addenda.myTextList"></a>
-
-## myTextList Objects
+## myTextList Objects {#ALToolbox.addenda.myTextList}
 
 ```python
 class myTextList()
@@ -58,9 +52,7 @@ This class handles text content that might be too long to fit in the main form
 by truncating it at a specified limit and storing the overflow text for use
 in addenda or continuation pages.
 
-<a id="ALToolbox.addenda.myTextList.__init__"></a>
-
-#### \_\_init\_\_(text, limit, title)
+#### \_\_init\_\_(text, limit, title) {#ALToolbox.addenda.myTextList.\_\_init\_\_}
 
 ```python
 def __init__(text, limit, title)
@@ -74,9 +66,7 @@ Initialize text processing with truncation limits.
 - `limit` _int_ - The character limit for the main form field.
 - `title` _str_ - The title or identifier for the text field.
 
-<a id="ALToolbox.addenda.myTextList.g"></a>
-
-#### g(text, limit, title)
+#### g(text, limit, title) {#ALToolbox.addenda.myTextList.g}
 
 ```python
 def g(text, limit, title) -> None
@@ -106,9 +96,7 @@ in an addendum section if truncation occurs.
   &gt;&gt;&gt; text_handler = myTextList(&quot;Very long text...&quot;, 100, &quot;Description&quot;)
   &gt;&gt;&gt; # If text &gt; 100 chars, text_cutoff will end with &quot; (See Addendum.)&quot;
 
-<a id="ALToolbox.addenda.safe_json2"></a>
-
-#### safe\_json2(the\_object, level=0, is\_key=False)
+#### safe\_json2(the\_object, level=0, is\_key=False) {#ALToolbox.addenda.safe\_json2}
 
 ```python
 def safe_json2(the_object, level=0, is_key=False) -> Any
@@ -144,9 +132,7 @@ ISO strings.
   &gt;&gt;&gt; safe_json2(obj)
 - `\{"date"` - &quot;12/25/2023&quot;\}
 
-<a id="ALToolbox.addenda.type_name"></a>
-
-#### type\_name(the\_object)
+#### type\_name(the\_object) {#ALToolbox.addenda.type\_name}
 
 ```python
 def type_name(the_object) -> str

@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALDashboard.package\_scanner](#ALDashboard.package_scanner)
+* ALDashboard.package\_scanner
   * [URL](#ALDashboard.package_scanner.URL)
   * [PARAMETERS](#ALDashboard.package_scanner.PARAMETERS)
   * [DELAY\_BETWEEN\_QUERYS](#ALDashboard.package_scanner.DELAY_BETWEEN_QUERYS)
@@ -12,27 +12,19 @@ sidebar_label: package_scanner
 title: ALDashboard.package_scanner
 ---
 
-<a id="ALDashboard.package_scanner.URL"></a>
-
-#### URL
+#### URL {#ALDashboard.package\_scanner.URL}
 
 The basic URL to use the GitHub API
 
-<a id="ALDashboard.package_scanner.PARAMETERS"></a>
-
-#### PARAMETERS
+#### PARAMETERS {#ALDashboard.package\_scanner.PARAMETERS}
 
 Additional parameters for the query (by default 100 items per page)
 
-<a id="ALDashboard.package_scanner.DELAY_BETWEEN_QUERYS"></a>
-
-#### DELAY\_BETWEEN\_QUERYS
+#### DELAY\_BETWEEN\_QUERYS {#ALDashboard.package\_scanner.DELAY\_BETWEEN\_QUERYS}
 
 The time to wait between different queries to GitHub
 
-<a id="ALDashboard.package_scanner.getUrl"></a>
-
-#### getUrl(url)
+#### getUrl(url) {#ALDashboard.package\_scanner.getUrl}
 
 ```python
 def getUrl(url)
@@ -40,9 +32,7 @@ def getUrl(url)
 
 Given a URL it returns its body
 
-<a id="ALDashboard.package_scanner.fetch_github_repos"></a>
-
-#### fetch\_github\_repos(github\_user, sub\_queries)
+#### fetch\_github\_repos(github\_user, sub\_queries) {#ALDashboard.package\_scanner.fetch\_github\_repos}
 
 ```python
 def fetch_github_repos(github_user, sub_queries) -> dict

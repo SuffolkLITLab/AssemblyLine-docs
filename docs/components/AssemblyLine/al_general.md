@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [AssemblyLine.al\_general](#AssemblyLine.al_general)
+* AssemblyLine.al\_general
   * [safe\_subdivision\_type](#AssemblyLine.al_general.safe_subdivision_type)
   * [ALAddress](#AssemblyLine.al_general.ALAddress)
     * [address\_fields](#AssemblyLine.al_general.ALAddress.address_fields)
@@ -79,9 +79,7 @@ sidebar_label: al_general
 title: AssemblyLine.al_general
 ---
 
-<a id="AssemblyLine.al_general.safe_subdivision_type"></a>
-
-#### safe\_subdivision\_type(country\_code: str)
+#### safe\_subdivision\_type(country\_code: str) {#AssemblyLine.al\_general.safe\_subdivision\_type}
 
 ```python
 def safe_subdivision_type(country_code: str) -> Optional[str]
@@ -99,9 +97,7 @@ If no subdivision type is found, returns None.
 
 - `Optional[str]` - The subdivision type for the country with the given country code.
 
-<a id="AssemblyLine.al_general.ALAddress"></a>
-
-## ALAddress Objects
+## ALAddress Objects {#AssemblyLine.al\_general.ALAddress}
 
 ```python
 class ALAddress(Address)
@@ -121,9 +117,7 @@ handling of the unit attribute when printing a formatted address.
 - `country` _str_ - The country where the person lives.
 - `impounded` _Optional[bool]_ - Whether the address is impounded.
 
-<a id="AssemblyLine.al_general.ALAddress.address_fields"></a>
-
-#### address\_fields(country\_code: Optional[str] = None, default\_state: Optional[str] = None, show\_country: bool = False, show\_county: bool = False, show\_if: Union[str, Dict[str, str], None] = None, allow\_no\_address: bool = False, ask\_if\_impounded: Optional[bool] = False, maxlengths: Optional[Dict[str, int]] = None, required: Optional[Dict[str, bool]] = None)
+#### address\_fields(country\_code: Optional[str] = None, default\_state: Optional[str] = None, show\_country: bool = False, show\_county: bool = False, show\_if: Union[str, Dict[str, str], None] = None, allow\_no\_address: bool = False, ask\_if\_impounded: Optional[bool] = False, maxlengths: Optional[Dict[str, int]] = None, required: Optional[Dict[str, bool]] = None) {#AssemblyLine.al\_general.ALAddress.address\_fields}
 
 ```python
 def address_fields(
@@ -176,9 +170,7 @@ NOTE: This function is stateful under specific conditions. Refer to the conditio
   - Link to ISO-3166-1 alpha-2 codes:
   [Officially assigned code elements](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 
-<a id="AssemblyLine.al_general.ALAddress.formatted_unit"></a>
-
-#### formatted\_unit(language: Optional[str] = None, require: bool = False, bare: bool = False)
+#### formatted\_unit(language: Optional[str] = None, require: bool = False, bare: bool = False) {#AssemblyLine.al\_general.ALAddress.formatted\_unit}
 
 ```python
 def formatted_unit(language: Optional[str] = None,
@@ -205,9 +197,7 @@ Returns the unit, formatted appropriately.
   the unit number, possibly prefixed with &#x27;Unit&#x27;. If the unit attribute exists and is None or an empty
   string, the function will return an empty string.
 
-<a id="AssemblyLine.al_general.ALAddress.block"></a>
-
-#### block(language: Optional[str] = None, international: bool = False, show\_country: Optional[bool] = None, bare: bool = False, long\_state: bool = False, show\_impounded: bool = False)
+#### block(language: Optional[str] = None, international: bool = False, show\_country: Optional[bool] = None, bare: bool = False, long\_state: bool = False, show\_impounded: bool = False) {#AssemblyLine.al\_general.ALAddress.block}
 
 ```python
 def block(language: Optional[str] = None,
@@ -235,9 +225,7 @@ Returns a one-line formatted address, primarily for geocoding.
 
 - `str` - The one-line formatted address.
 
-<a id="AssemblyLine.al_general.ALAddress.line_one"></a>
-
-#### line\_one(language: Optional[str] = None, bare: bool = False, show\_impounded: bool = False)
+#### line\_one(language: Optional[str] = None, bare: bool = False, show\_impounded: bool = False) {#AssemblyLine.al\_general.ALAddress.line\_one}
 
 ```python
 def line_one(language: Optional[str] = None,
@@ -258,9 +246,7 @@ Returns the first line of the address, including the unit number if it exists.
 
 - `str` - The first line of the address.
 
-<a id="AssemblyLine.al_general.ALAddress.line_two"></a>
-
-#### line\_two(language: Optional[str] = None, long\_state: bool = False, show\_impounded: bool = False)
+#### line\_two(language: Optional[str] = None, long\_state: bool = False, show\_impounded: bool = False) {#AssemblyLine.al\_general.ALAddress.line\_two}
 
 ```python
 def line_two(language: Optional[str] = None,
@@ -281,9 +267,7 @@ Returns the second line of the address, including city, state, and postal code.
 
 - `str` - The second line of the address.
 
-<a id="AssemblyLine.al_general.ALAddress.on_one_line"></a>
-
-#### on\_one\_line(include\_unit: bool = True, omit\_default\_country: bool = True, language: Optional[str] = None, show\_country: Optional[bool] = None, bare: bool = False, long\_state: bool = False, show\_impounded: bool = False)
+#### on\_one\_line(include\_unit: bool = True, omit\_default\_country: bool = True, language: Optional[str] = None, show\_country: Optional[bool] = None, bare: bool = False, long\_state: bool = False, show\_impounded: bool = False) {#AssemblyLine.al\_general.ALAddress.on\_one\_line}
 
 ```python
 def on_one_line(include_unit: bool = True,
@@ -313,9 +297,7 @@ Returns a one-line formatted address.
 
 - `str` - The one-line formatted address.
 
-<a id="AssemblyLine.al_general.ALAddress.normalized_address"></a>
-
-#### normalized\_address()
+#### normalized\_address() {#AssemblyLine.al\_general.ALAddress.normalized\_address}
 
 ```python
 def normalized_address() -> Union[Address, "ALAddress"]
@@ -337,9 +319,7 @@ Warning: currently the normalized address will not be redacted if the address is
   Normalized address if geocoding is successful, otherwise
   the original address.
 
-<a id="AssemblyLine.al_general.ALAddress.state_name"></a>
-
-#### state\_name(country\_code: Optional[str] = None)
+#### state\_name(country\_code: Optional[str] = None) {#AssemblyLine.al\_general.ALAddress.state\_name}
 
 ```python
 def state_name(country_code: Optional[str] = None) -> str
@@ -365,9 +345,7 @@ object. Otherwise, the method uses, in order:
 - `str` - The full state name corresponding to the state abbreviation. If an error occurs
   or the full name cannot be determined, returns the state abbreviation.
 
-<a id="AssemblyLine.al_general.ALAddressList"></a>
-
-## ALAddressList Objects
+## ALAddressList Objects {#AssemblyLine.al\_general.ALAddressList}
 
 ```python
 class ALAddressList(DAList)
@@ -379,9 +357,7 @@ Extends the DAList class and specifically caters to ALAddress objects.
 It provides methods to initialize the list and get a string representation
 of the list in a formatted manner.
 
-<a id="AssemblyLine.al_general.ALAddressList.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_general.ALAddressList.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -394,9 +370,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_general.ALAddressList.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#AssemblyLine.al\_general.ALAddressList.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -411,9 +385,7 @@ comma-separated manner using the on_one_line method of ALAddress.
 
 - `str` - Formatted string of all addresses in the list.
 
-<a id="AssemblyLine.al_general.ALNameList"></a>
-
-## ALNameList Objects
+## ALNameList Objects {#AssemblyLine.al\_general.ALNameList}
 
 ```python
 class ALNameList(DAList)
@@ -423,9 +395,7 @@ A class to store a list of IndividualName objects.
 
 Extends the DAList class and is tailored for IndividualName objects.
 
-<a id="AssemblyLine.al_general.ALNameList.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_general.ALNameList.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -438,9 +408,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_general.ALNameList.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#AssemblyLine.al\_general.ALNameList.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -452,9 +420,7 @@ Provide a string representation of the ALNameList.
 
 - `str` - Formatted string of all names in the list.
 
-<a id="AssemblyLine.al_general.ALPeopleList"></a>
-
-## ALPeopleList Objects
+## ALPeopleList Objects {#AssemblyLine.al\_general.ALPeopleList}
 
 ```python
 class ALPeopleList(DAList)
@@ -464,9 +430,7 @@ Class to store a list of ALIndividual objects, representing people.
 
 For example, defendants, plaintiffs, or children.
 
-<a id="AssemblyLine.al_general.ALPeopleList.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_general.ALPeopleList.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -479,9 +443,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_general.ALPeopleList.names_and_addresses_on_one_line"></a>
-
-#### names\_and\_addresses\_on\_one\_line(comma\_string: str = "; ", bare=False)
+#### names\_and\_addresses\_on\_one\_line(comma\_string: str = "; ", bare=False) {#AssemblyLine.al\_general.ALPeopleList.names\_and\_addresses\_on\_one\_line}
 
 ```python
 def names_and_addresses_on_one_line(comma_string: str = "; ",
@@ -500,9 +462,7 @@ Provide names and addresses of individuals on one line.
 
 - `str` - Formatted string of names followed by addresses.
 
-<a id="AssemblyLine.al_general.ALPeopleList.familiar"></a>
-
-#### familiar(\*\*kwargs)
+#### familiar(\*\*kwargs) {#AssemblyLine.al\_general.ALPeopleList.familiar}
 
 ```python
 def familiar(**kwargs) -> str
@@ -518,9 +478,7 @@ Provide a list of familiar forms of names of individuals.
 
 - `str` - Formatted string of familiar names.
 
-<a id="AssemblyLine.al_general.ALPeopleList.familiar_or"></a>
-
-#### familiar\_or(\*\*kwargs)
+#### familiar\_or(\*\*kwargs) {#AssemblyLine.al\_general.ALPeopleList.familiar\_or}
 
 ```python
 def familiar_or(**kwargs) -> str
@@ -537,9 +495,7 @@ Provide a list of familiar forms of names of individuals separated by &#x27;or&#
 
 - `str` - Formatted string of familiar names separated by &#x27;or&#x27;.
 
-<a id="AssemblyLine.al_general.ALPeopleList.short_list"></a>
-
-#### short\_list(limit: int, truncate\_string: str = ", et. al.")
+#### short\_list(limit: int, truncate\_string: str = ", et. al.") {#AssemblyLine.al\_general.ALPeopleList.short\_list}
 
 ```python
 def short_list(limit: int, truncate_string: str = ", et. al.") -> str
@@ -557,9 +513,7 @@ Return a subset of the list, truncated with &#x27;et. al.&#x27; if it exceeds a 
 
 - `str` - Formatted string of names, truncated if needed.
 
-<a id="AssemblyLine.al_general.ALPeopleList.full_names"></a>
-
-#### full\_names(comma\_string=", ", and\_string=word("and"))
+#### full\_names(comma\_string=", ", and\_string=word("and")) {#AssemblyLine.al\_general.ALPeopleList.full\_names}
 
 ```python
 def full_names(comma_string=", ", and_string=word("and")) -> str
@@ -577,9 +531,7 @@ Return a formatted list of full names of individuals.
 
 - `str` - Formatted string of full names.
 
-<a id="AssemblyLine.al_general.ALPeopleList.pronoun_reflexive"></a>
-
-#### pronoun\_reflexive(\*\*kwargs)
+#### pronoun\_reflexive(\*\*kwargs) {#AssemblyLine.al\_general.ALPeopleList.pronoun\_reflexive}
 
 ```python
 def pronoun_reflexive(**kwargs) -> str
@@ -602,9 +554,7 @@ If it is plural, return the appropriate plural reflexive pronoun (e.g., &quot;th
 
 - `str` - The reflexive pronoun for the list.
 
-<a id="AssemblyLine.al_general.ALIndividual"></a>
-
-## ALIndividual Objects
+## ALIndividual Objects {#AssemblyLine.al\_general.ALIndividual}
 
 ```python
 class ALIndividual(Individual)
@@ -632,9 +582,7 @@ other addresses, mailing addresses, previous names, aliases, and a preferred nam
   Objects as attributes should not be passed directly to the constructor due to
   initialization requirements in the docassemble framework. See the `init` method.
 
-<a id="AssemblyLine.al_general.ALIndividual.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_general.ALIndividual.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -647,9 +595,7 @@ Standard DAObject init method.
 - `*pargs` - Positional arguments
 - `**kwargs` - Keyword arguments
 
-<a id="AssemblyLine.al_general.ALIndividual.signature_if_final"></a>
-
-#### signature\_if\_final(i: str)
+#### signature\_if\_final(i: str) {#AssemblyLine.al\_general.ALIndividual.signature\_if\_final}
 
 ```python
 def signature_if_final(i: str) -> Union[DAFile, str]
@@ -666,9 +612,7 @@ Returns the individual&#x27;s signature if `i` is &quot;final&quot;, which usual
 
   Union[DAFile, str]: The signature if the condition is met, otherwise an empty string.
 
-<a id="AssemblyLine.al_general.ALIndividual.phone_numbers"></a>
-
-#### phone\_numbers(country: Optional[str] = None, show\_impounded: bool = False)
+#### phone\_numbers(country: Optional[str] = None, show\_impounded: bool = False) {#AssemblyLine.al\_general.ALIndividual.phone\_numbers}
 
 ```python
 def phone_numbers(country: Optional[str] = None,
@@ -695,9 +639,7 @@ Supports the following attributes:
 
 - `str` - Formatted string of phone numbers.
 
-<a id="AssemblyLine.al_general.ALIndividual.contact_methods"></a>
-
-#### contact\_methods()
+#### contact\_methods() {#AssemblyLine.al\_general.ALIndividual.contact\_methods}
 
 ```python
 def contact_methods() -> str
@@ -709,9 +651,7 @@ Generates a formatted string of all provided contact methods.
 
 - `str` - A formatted string indicating the available methods to contact the individual.
 
-<a id="AssemblyLine.al_general.ALIndividual.merge_letters"></a>
-
-#### merge\_letters(new\_letters: str)
+#### merge\_letters(new\_letters: str) {#AssemblyLine.al\_general.ALIndividual.merge\_letters}
 
 ```python
 def merge_letters(new_letters: str) -> None
@@ -725,9 +665,7 @@ Avoid using. Only used in 209A.
 
 - `new_letters` _str_ - The new letters to add to the existing list of letters
 
-<a id="AssemblyLine.al_general.ALIndividual.formatted_age"></a>
-
-#### formatted\_age()
+#### formatted\_age() {#AssemblyLine.al\_general.ALIndividual.formatted\_age}
 
 ```python
 def formatted_age() -> str
@@ -739,9 +677,7 @@ Calculates and formats the age of the individual based on their birthdate.
 
 - `str` - Formatted age string that shows the most relevant time unit; for example, if under 2 years, it will return &quot;X months&quot;.
 
-<a id="AssemblyLine.al_general.ALIndividual.normalized_address"></a>
-
-#### normalized\_address()
+#### normalized\_address() {#AssemblyLine.al\_general.ALIndividual.normalized\_address}
 
 ```python
 def normalized_address() -> Union[Address, ALAddress]
@@ -753,9 +689,7 @@ Fetches the normalized version of the address.
 
   Union[Address, ALAddress]: The normalized address object.
 
-<a id="AssemblyLine.al_general.ALIndividual.name_fields"></a>
-
-#### name\_fields(person\_or\_business: str = "person", show\_suffix: bool = True, show\_title: bool = False, title\_choices: Optional[Union[List[str], Callable]] = None, show\_if: Union[str, Dict[str, str], None] = None, maxlengths: Optional[Dict[str, int]] = None, suffix\_choices: Optional[Union[List[str], Callable]] = None, title\_options: Optional[Union[List[str], Callable]] = None)
+#### name\_fields(person\_or\_business: str = "person", show\_suffix: bool = True, show\_title: bool = False, title\_choices: Optional[Union[List[str], Callable]] = None, show\_if: Union[str, Dict[str, str], None] = None, maxlengths: Optional[Dict[str, int]] = None, suffix\_choices: Optional[Union[List[str], Callable]] = None, title\_options: Optional[Union[List[str], Callable]] = None) {#AssemblyLine.al\_general.ALIndividual.name\_fields}
 
 ```python
 def name_fields(
@@ -800,9 +734,7 @@ and other provided parameters.
   If `person_or_business` is set to None, the method will offer the end user a choice
   and will set appropriate &quot;show ifs&quot; conditions for each type.
 
-<a id="AssemblyLine.al_general.ALIndividual.address_fields"></a>
-
-#### address\_fields(country\_code: str = "US", default\_state: Optional[str] = None, show\_country: bool = False, show\_county: bool = False, show\_if: Union[str, Dict[str, str], None] = None, allow\_no\_address: bool = False, ask\_if\_impounded: bool = False, maxlengths: Optional[Dict[str, int]] = None, required: Optional[Dict[str, bool]] = None)
+#### address\_fields(country\_code: str = "US", default\_state: Optional[str] = None, show\_country: bool = False, show\_county: bool = False, show\_if: Union[str, Dict[str, str], None] = None, allow\_no\_address: bool = False, ask\_if\_impounded: bool = False, maxlengths: Optional[Dict[str, int]] = None, required: Optional[Dict[str, bool]] = None) {#AssemblyLine.al\_general.ALIndividual.address\_fields}
 
 ```python
 def address_fields(
@@ -836,9 +768,7 @@ Generate field prompts for capturing an address.
 
   List[Dict[str, str]]: A list of dictionaries with field prompts for addresses.
 
-<a id="AssemblyLine.al_general.ALIndividual.gender_fields"></a>
-
-#### gender\_fields(show\_help=False, show\_if: Union[str, Dict[str, str], None] = None, maxlengths: Optional[Dict[str, int]] = None, choices: Optional[Union[List[Dict[str, str]], Callable]] = None)
+#### gender\_fields(show\_help=False, show\_if: Union[str, Dict[str, str], None] = None, maxlengths: Optional[Dict[str, int]] = None, choices: Optional[Union[List[Dict[str, str]], Callable]] = None) {#AssemblyLine.al\_general.ALIndividual.gender\_fields}
 
 ```python
 def gender_fields(
@@ -869,9 +799,7 @@ self-described option.
 
   self-described will provide an input that overrides the value of `gender` and is not persisted.
 
-<a id="AssemblyLine.al_general.ALIndividual.pronoun_fields"></a>
-
-#### pronoun\_fields(show\_help=False, show\_if: Union[str, Dict[str, str], None] = None, required: bool = False, shuffle: bool = False, show\_unknown: Optional[Union[Literal["guess"], bool]] = "guess", maxlengths: Optional[Dict[str, int]] = None, choices: Optional[List[Dict[str, str]]] = None)
+#### pronoun\_fields(show\_help=False, show\_if: Union[str, Dict[str, str], None] = None, required: bool = False, shuffle: bool = False, show\_unknown: Optional[Union[Literal["guess"], bool]] = "guess", maxlengths: Optional[Dict[str, int]] = None, choices: Optional[List[Dict[str, str]]] = None) {#AssemblyLine.al\_general.ALIndividual.pronoun\_fields}
 
 ```python
 def pronoun_fields(
@@ -902,9 +830,7 @@ Generate fields for capturing pronoun information.
 
   List[Dict[str, str]]: A list of dictionaries with field prompts for pronouns.
 
-<a id="AssemblyLine.al_general.ALIndividual.get_pronouns"></a>
-
-#### get\_pronouns()
+#### get\_pronouns() {#AssemblyLine.al\_general.ALIndividual.get\_pronouns}
 
 ```python
 def get_pronouns() -> set
@@ -920,9 +846,7 @@ Can be formatted however the author likes.
 
 - `set` - A set of strings representing the individual&#x27;s pronouns.
 
-<a id="AssemblyLine.al_general.ALIndividual.list_pronouns"></a>
-
-#### list\_pronouns()
+#### list\_pronouns() {#AssemblyLine.al\_general.ALIndividual.list\_pronouns}
 
 ```python
 def list_pronouns() -> str
@@ -935,9 +859,7 @@ the comma_list() function.
 
 - `str` - A formatted string of the individual&#x27;s pronouns.
 
-<a id="AssemblyLine.al_general.ALIndividual.language_fields"></a>
-
-#### language\_fields(choices: Optional[Union[List[Dict[str, str]], Callable]] = None, style: str = "radio", show\_if: Union[str, Dict[str, str], None] = None, maxlengths: Optional[Dict[str, int]] = None)
+#### language\_fields(choices: Optional[Union[List[Dict[str, str]], Callable]] = None, style: str = "radio", show\_if: Union[str, Dict[str, str], None] = None, maxlengths: Optional[Dict[str, int]] = None) {#AssemblyLine.al\_general.ALIndividual.language\_fields}
 
 ```python
 def language_fields(
@@ -961,9 +883,7 @@ Generate fields for capturing language preferences.
 
   List[Dict[str, str]]: A list of dictionaries with field prompts for language preferences.
 
-<a id="AssemblyLine.al_general.ALIndividual.language_name"></a>
-
-#### language\_name()
+#### language\_name() {#AssemblyLine.al\_general.ALIndividual.language\_name}
 
 ```python
 def language_name() -> str
@@ -977,9 +897,7 @@ Get the human-readable version of the individual&#x27;s selected language.
   it returns the value in `language_other`. Otherwise, it uses the
   `language_name` function.
 
-<a id="AssemblyLine.al_general.ALIndividual.gender_male"></a>
-
-#### gender\_male()
+#### gender\_male() {#AssemblyLine.al\_general.ALIndividual.gender\_male}
 
 ```python
 @property
@@ -991,9 +909,7 @@ Returns True only if the gender is male.
 Used to assist with checkbox filling in PDFs with &quot;skip undefined&quot;
 turned on.
 
-<a id="AssemblyLine.al_general.ALIndividual.gender_female"></a>
-
-#### gender\_female()
+#### gender\_female() {#AssemblyLine.al\_general.ALIndividual.gender\_female}
 
 ```python
 @property
@@ -1005,9 +921,7 @@ Returns True only if the gender is female.
 Used to assist with checkbox filling in PDFs with &quot;skip undefined&quot;
 turned on.
 
-<a id="AssemblyLine.al_general.ALIndividual.gender_other"></a>
-
-#### gender\_other()
+#### gender\_other() {#AssemblyLine.al\_general.ALIndividual.gender\_other}
 
 ```python
 @property
@@ -1019,9 +933,7 @@ Returns True only if the gender is not male or female.
 Used to assist with checkbox filling in PDFs with &quot;skip undefined&quot;
 turned on.
 
-<a id="AssemblyLine.al_general.ALIndividual.gender_nonbinary"></a>
-
-#### gender\_nonbinary()
+#### gender\_nonbinary() {#AssemblyLine.al\_general.ALIndividual.gender\_nonbinary}
 
 ```python
 @property
@@ -1033,9 +945,7 @@ Returns True only if the gender is nonbinary.
 Used to assist with checkbox filling in PDFs with &quot;skip undefined&quot;
 turned on.
 
-<a id="AssemblyLine.al_general.ALIndividual.gender_unknown"></a>
-
-#### gender\_unknown()
+#### gender\_unknown() {#AssemblyLine.al\_general.ALIndividual.gender\_unknown}
 
 ```python
 @property
@@ -1047,9 +957,7 @@ Returns True only if the gender is unknown.
 Used to assist with checkbox filling in PDFs with &quot;skip undefined&quot;
 turned on.
 
-<a id="AssemblyLine.al_general.ALIndividual.gender_undisclosed"></a>
-
-#### gender\_undisclosed()
+#### gender\_undisclosed() {#AssemblyLine.al\_general.ALIndividual.gender\_undisclosed}
 
 ```python
 @property
@@ -1061,9 +969,7 @@ Returns True only if the gender is not disclosed (&quot;prefer-not-to-say&quot;)
 Used to assist with checkbox filling in PDFs with &quot;skip undefined&quot;
 turned on.
 
-<a id="AssemblyLine.al_general.ALIndividual.gender_self_described"></a>
-
-#### gender\_self\_described()
+#### gender\_self\_described() {#AssemblyLine.al\_general.ALIndividual.gender\_self\_described}
 
 ```python
 @property
@@ -1075,9 +981,7 @@ Returns True only if the gender is self described.
 Used to assist with checkbox filling in PDFs with &quot;skip undefined&quot;
 turned on.
 
-<a id="AssemblyLine.al_general.ALIndividual.contact_fields"></a>
-
-#### contact\_fields()
+#### contact\_fields() {#AssemblyLine.al\_general.ALIndividual.contact\_fields}
 
 ```python
 def contact_fields() -> None
@@ -1085,9 +989,7 @@ def contact_fields() -> None
 
 Return field prompts for other contact info
 
-<a id="AssemblyLine.al_general.ALIndividual.initials"></a>
-
-#### initials()
+#### initials() {#AssemblyLine.al\_general.ALIndividual.initials}
 
 ```python
 @property
@@ -1098,9 +1000,7 @@ Returns the initials of the individual as a string.
 
 For example, &quot;Quinten K Steenhuis&quot; would return &quot;QKS&quot;.
 
-<a id="AssemblyLine.al_general.ALIndividual.address_block"></a>
-
-#### address\_block(language=None, international=False, show\_country=False, bare=False, show\_impounded=False)
+#### address\_block(language=None, international=False, show\_country=False, bare=False, show\_impounded=False) {#AssemblyLine.al\_general.ALIndividual.address\_block}
 
 ```python
 def address_block(language=None,
@@ -1125,9 +1025,7 @@ Generate a formatted address block for mailings.
 
 - `str` - The formatted address block.
 
-<a id="AssemblyLine.al_general.ALIndividual.pronoun"></a>
-
-#### pronoun(\*\*kwargs)
+#### pronoun(\*\*kwargs) {#AssemblyLine.al\_general.ALIndividual.pronoun}
 
 ```python
 def pronoun(**kwargs) -> str
@@ -1151,9 +1049,7 @@ with `pronouns` taking precedence. As a default, it will either use the value of
 
 - `str` - The appropriate pronoun.
 
-<a id="AssemblyLine.al_general.ALIndividual.pronoun_objective"></a>
-
-#### pronoun\_objective(\*\*kwargs)
+#### pronoun\_objective(\*\*kwargs) {#AssemblyLine.al\_general.ALIndividual.pronoun\_objective}
 
 ```python
 def pronoun_objective(**kwargs) -> str
@@ -1170,9 +1066,7 @@ Returns the same pronoun as the `pronoun()` method.
 
 - `str` - The appropriate objective pronoun.
 
-<a id="AssemblyLine.al_general.ALIndividual.pronoun_possessive"></a>
-
-#### pronoun\_possessive(target, \*\*kwargs)
+#### pronoun\_possessive(target, \*\*kwargs) {#AssemblyLine.al\_general.ALIndividual.pronoun\_possessive}
 
 ```python
 def pronoun_possessive(target, **kwargs) -> str
@@ -1199,9 +1093,7 @@ and whether the individual is the current user.
 
 - `str` - The appropriate possessive phrase, e.g., &quot;her book&quot;, &quot;their document&quot;.
 
-<a id="AssemblyLine.al_general.ALIndividual.pronoun_subjective"></a>
-
-#### pronoun\_subjective(\*\*kwargs)
+#### pronoun\_subjective(\*\*kwargs) {#AssemblyLine.al\_general.ALIndividual.pronoun\_subjective}
 
 ```python
 def pronoun_subjective(**kwargs) -> str
@@ -1223,9 +1115,7 @@ is the current user.
 
 - `str` - The appropriate subjective pronoun.
 
-<a id="AssemblyLine.al_general.ALIndividual.pronoun_reflexive"></a>
-
-#### pronoun\_reflexive(\*\*kwargs)
+#### pronoun\_reflexive(\*\*kwargs) {#AssemblyLine.al\_general.ALIndividual.pronoun\_reflexive}
 
 ```python
 def pronoun_reflexive(**kwargs) -> str
@@ -1249,9 +1139,7 @@ See: https://www.merriam-webster.com/wordplay/themself
 
 - `str` - The appropriate reflexive pronoun.
 
-<a id="AssemblyLine.al_general.ALIndividual.name_full"></a>
-
-#### name\_full()
+#### name\_full() {#AssemblyLine.al\_general.ALIndividual.name\_full}
 
 ```python
 def name_full() -> str
@@ -1267,9 +1155,7 @@ the first name, even if middle, last, or suffix are defined.
 
 - `str` - The individual or business&#x27;s full name.
 
-<a id="AssemblyLine.al_general.ALIndividual.name_initials"></a>
-
-#### name\_initials()
+#### name\_initials() {#AssemblyLine.al\_general.ALIndividual.name\_initials}
 
 ```python
 def name_initials() -> str
@@ -1287,9 +1173,7 @@ the &quot;initials&quot; of the first name, even if middle, last, or suffix are 
 
 - `str` - The individual&#x27;s name with the middle name as an initial.
 
-<a id="AssemblyLine.al_general.ALIndividual.name_short"></a>
-
-#### name\_short()
+#### name\_short() {#AssemblyLine.al\_general.ALIndividual.name\_short}
 
 ```python
 def name_short() -> str
@@ -1307,9 +1191,7 @@ the first name, even if middle, last, or suffix are defined.
 
 - `str` - The individual&#x27;
 
-<a id="AssemblyLine.al_general.ALIndividual.familiar"></a>
-
-#### familiar(unique\_names: Optional[List[Any]] = None, default: Optional[str] = None)
+#### familiar(unique\_names: Optional[List[Any]] = None, default: Optional[str] = None) {#AssemblyLine.al\_general.ALIndividual.familiar}
 
 ```python
 def familiar(unique_names: Optional[List[Any]] = None,
@@ -1354,9 +1236,7 @@ the first name, even if middle, last, or suffix are defined.
     Who do you want to take care of $\{ children.familiar(unique_names=parents + petitioners, default="the minor") \}
     ```
 
-<a id="AssemblyLine.al_general.ALIndividual.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#AssemblyLine.al\_general.ALIndividual.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -1373,9 +1253,7 @@ the first name, even if middle, last, or suffix are defined.
 
 - `str` - The individual&#x27;s name.
 
-<a id="AssemblyLine.al_general.section_links"></a>
-
-#### section\_links(nav)
+#### section\_links(nav) {#AssemblyLine.al\_general.section\_links}
 
 ```python
 def section_links(nav) -> List[str]
@@ -1392,9 +1270,7 @@ Returns a list of clickable navigation links without animation.
 
 - `List[str]` - A list of clickable navigation links without animation.
 
-<a id="AssemblyLine.al_general.will_send_to_real_court"></a>
-
-#### will\_send\_to\_real\_court()
+#### will\_send\_to\_real\_court() {#AssemblyLine.al\_general.will\_send\_to\_real\_court}
 
 ```python
 def will_send_to_real_court() -> bool
@@ -1409,9 +1285,7 @@ The text &quot;dev&quot; or &quot;test&quot; needs to be in the URL root in the 
 
 - `bool` - True if the form is being run on the dev, test, or production server.
 
-<a id="AssemblyLine.al_general.filter_letters"></a>
-
-#### filter\_letters(letter\_strings: Union[List[str], str])
+#### filter\_letters(letter\_strings: Union[List[str], str]) {#AssemblyLine.al\_general.filter\_letters}
 
 ```python
 def filter_letters(letter_strings: Union[List[str], str]) -> str
@@ -1430,9 +1304,7 @@ Avoid using, this is created for 209A.
 
 - `str` - A string of unique letters.
 
-<a id="AssemblyLine.al_general.fa_icon"></a>
-
-#### fa\_icon(icon: str, color: str = "primary", color\_css: Optional[str] = None, size: str = "sm")
+#### fa\_icon(icon: str, color: str = "primary", color\_css: Optional[str] = None, size: str = "sm") {#AssemblyLine.al\_general.fa\_icon}
 
 ```python
 def fa_icon(icon: str,
@@ -1457,9 +1329,7 @@ a CSS variable (such as Bootstrap theme color) or a true CSS color reference, su
 
 - `str` - HTML for the icon.
 
-<a id="AssemblyLine.al_general.is_sms_enabled"></a>
-
-#### is\_sms\_enabled()
+#### is\_sms\_enabled() {#AssemblyLine.al\_general.is\_sms\_enabled}
 
 ```python
 def is_sms_enabled() -> bool
@@ -1473,9 +1343,7 @@ See https://docassemble.org/docs/config.html#twilio for more info.
 
 - `bool` - True if there is a non-empty Twilio config on the server, False otherwise
 
-<a id="AssemblyLine.al_general.is_phone_or_email"></a>
-
-#### is\_phone\_or\_email(text: str)
+#### is\_phone\_or\_email(text: str) {#AssemblyLine.al\_general.is\_phone\_or\_email}
 
 ```python
 def is_phone_or_email(text: str) -> bool
@@ -1500,9 +1368,7 @@ strings.
 
   DAValidationError if the string is neither a valid phone number nor a valid email address.
 
-<a id="AssemblyLine.al_general.github_modified_date"></a>
-
-#### github\_modified\_date(github\_user: str, github\_repo\_name: str, auth=None)
+#### github\_modified\_date(github\_user: str, github\_repo\_name: str, auth=None) {#AssemblyLine.al\_general.github\_modified\_date}
 
 ```python
 def github_modified_date(github_user: str,
@@ -1540,9 +1406,7 @@ The GitHub API is rate-limited to 60 anonymous API queries/hour.
 
   Union[DADateTime, None]: The date that the given GitHub repository was modified or None if API call fails.
 
-<a id="AssemblyLine.al_general.language_name"></a>
-
-#### language\_name(language\_code: str)
+#### language\_name(language\_code: str) {#AssemblyLine.al\_general.language\_name}
 
 ```python
 def language_name(language_code: str) -> str
@@ -1561,9 +1425,7 @@ function.
 
 - `str` - The full name of the language.
 
-<a id="AssemblyLine.al_general.safe_states_list"></a>
-
-#### safe\_states\_list(country\_code: str)
+#### safe\_states\_list(country\_code: str) {#AssemblyLine.al\_general.safe\_states\_list}
 
 ```python
 def safe_states_list(country_code: str) -> List[Dict[str, str]]
@@ -1581,9 +1443,7 @@ an invalid country_code (e.g., a country name spelled out)
 
   List[Dict[str, str]]: A list of dictionaries with field prompts for states.
 
-<a id="AssemblyLine.al_general.has_parsable_pronouns"></a>
-
-#### has\_parsable\_pronouns(pronouns: str)
+#### has\_parsable\_pronouns(pronouns: str) {#AssemblyLine.al\_general.has\_parsable\_pronouns}
 
 ```python
 def has_parsable_pronouns(pronouns: str) -> bool
@@ -1600,9 +1460,7 @@ Returns True if the pronouns string can be parsed into a dictionary of pronouns.
 
   True if the pronouns string can be parsed into a dictionary of pronouns, False otherwise
 
-<a id="AssemblyLine.al_general.parse_custom_pronouns"></a>
-
-#### parse\_custom\_pronouns(pronouns: str)
+#### parse\_custom\_pronouns(pronouns: str) {#AssemblyLine.al\_general.parse\_custom\_pronouns}
 
 ```python
 def parse_custom_pronouns(pronouns: str) -> Dict[str, str]
@@ -1619,9 +1477,7 @@ Parses a custom pronoun string into a dictionary of pronouns.
 
   a dictionary of pronouns in the format \{&quot;o&quot;: objective, &quot;s&quot;: subjective, &quot;p&quot;: possessive\}
 
-<a id="AssemblyLine.al_general.get_visible_al_nav_items"></a>
-
-#### get\_visible\_al\_nav\_items(nav\_items: List[Union[str, dict]])
+#### get\_visible\_al\_nav\_items(nav\_items: List[Union[str, dict]]) {#AssemblyLine.al\_general.get\_visible\_al\_nav\_items}
 
 ```python
 def get_visible_al_nav_items(

@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALDashboard.project\_maintenance](#ALDashboard.project_maintenance)
+* ALDashboard.project\_maintenance
   * [get\_package\_names](#ALDashboard.project_maintenance.get_package_names)
   * [add\_tag\_to\_repos](#ALDashboard.project_maintenance.add_tag_to_repos)
   * [process\_packages\_and\_add\_tag](#ALDashboard.project_maintenance.process_packages_and_add_tag)
@@ -17,9 +17,7 @@ sidebar_label: project_maintenance
 title: ALDashboard.project_maintenance
 ---
 
-<a id="ALDashboard.project_maintenance.get_package_names"></a>
-
-#### get\_package\_names(server\_name: str)
+#### get\_package\_names(server\_name: str) {#ALDashboard.project\_maintenance.get\_package\_names}
 
 ```python
 def get_package_names(server_name: str) -> List[str]
@@ -36,9 +34,7 @@ Fetches the JSON file from the given docassemble server and extracts package nam
 
 - `List[str]` - List of package names.
 
-<a id="ALDashboard.project_maintenance.add_tag_to_repos"></a>
-
-#### add\_tag\_to\_repos(token: str, org\_name: str, repo\_names: List[str], tag: str)
+#### add\_tag\_to\_repos(token: str, org\_name: str, repo\_names: List[str], tag: str) {#ALDashboard.project\_maintenance.add\_tag\_to\_repos}
 
 ```python
 def add_tag_to_repos(token: str, org_name: str, repo_names: List[str],
@@ -67,9 +63,7 @@ Adds a specific tag to each repository in the given list.
   
   add_tag_to_repos(personal_access_token, organization_name, repositories, tag_to_add)
 
-<a id="ALDashboard.project_maintenance.process_packages_and_add_tag"></a>
-
-#### process\_packages\_and\_add\_tag(server\_name: str, token: str, org\_name: str, tag: str)
+#### process\_packages\_and\_add\_tag(server\_name: str, token: str, org\_name: str, tag: str) {#ALDashboard.project\_maintenance.process\_packages\_and\_add\_tag}
 
 ```python
 def process_packages_and_add_tag(server_name: str, token: str, org_name: str,
@@ -86,9 +80,7 @@ and adds a specified tag to each repository.
 - `org_name` _str_ - Name of the GitHub organization.
 - `tag` _str_ - Tag to be added to each repository.
 
-<a id="ALDashboard.project_maintenance.get_project_by_name"></a>
-
-#### get\_project\_by\_name(token: str, org\_name: str, project\_name: str)
+#### get\_project\_by\_name(token: str, org\_name: str, project\_name: str) {#ALDashboard.project\_maintenance.get\_project\_by\_name}
 
 ```python
 def get_project_by_name(token: str, org_name: str,
@@ -108,9 +100,7 @@ Finds a GitHub Next-Generation project by its name within an organization using 
 
 - `dict` - The GitHub project object, or None if not found.
 
-<a id="ALDashboard.project_maintenance.get_repos_by_topic"></a>
-
-#### get\_repos\_by\_topic(token: str, org\_name: str, topic: str)
+#### get\_repos\_by\_topic(token: str, org\_name: str, topic: str) {#ALDashboard.project\_maintenance.get\_repos\_by\_topic}
 
 ```python
 def get_repos_by_topic(token: str, org_name: str,
@@ -130,9 +120,7 @@ Fetches repositories in an organization that have a specific topic.
 
 - `List[Repository]` - A list of repository objects that have the specified topic.
 
-<a id="ALDashboard.project_maintenance.add_issues_and_create_cards"></a>
-
-#### add\_issues\_and\_create\_cards(token: str, org\_name: str, project\_name: str, topic: str, issue\_title: str, issue\_body: str)
+#### add\_issues\_and\_create\_cards(token: str, org\_name: str, project\_name: str, topic: str, issue\_title: str, issue\_body: str) {#ALDashboard.project\_maintenance.add\_issues\_and\_create\_cards}
 
 ```python
 def add_issues_and_create_cards(token: str, org_name: str, project_name: str,
@@ -151,9 +139,7 @@ Adds an issue to each repository with a specific topic and creates a card for ea
 - `issue_title` _str_ - Title of the issue.
 - `issue_body` _str_ - Body of the issue.
 
-<a id="ALDashboard.project_maintenance.find_issues_by_title"></a>
-
-#### find\_issues\_by\_title(token: str, org\_name: str, repo\_names: List[str], issue\_title: str)
+#### find\_issues\_by\_title(token: str, org\_name: str, repo\_names: List[str], issue\_title: str) {#ALDashboard.project\_maintenance.find\_issues\_by\_title}
 
 ```python
 def find_issues_by_title(token: str, org_name: str, repo_names: List[str],
@@ -174,9 +160,7 @@ Finds issues in a list of repositories with a specific title.
 
 - `list` - A list of issue node IDs.
 
-<a id="ALDashboard.project_maintenance.add_issue_to_project"></a>
-
-#### add\_issue\_to\_project(token: str, project\_id: str, issue\_node\_id: str)
+#### add\_issue\_to\_project(token: str, project\_id: str, issue\_node\_id: str) {#ALDashboard.project\_maintenance.add\_issue\_to\_project}
 
 ```python
 def add_issue_to_project(token: str, project_id: str,
@@ -191,9 +175,7 @@ Adds an issue to a Next-Generation GitHub project.
 - `project_id` _str_ - Node ID of the GitHub project.
 - `issue_node_id` _str_ - Node ID of the GitHub issue.
 
-<a id="ALDashboard.project_maintenance.link_issue_title_to_project"></a>
-
-#### link\_issue\_title\_to\_project(token: str, org\_name: str, project\_name: str, topic: str, issue\_title: str)
+#### link\_issue\_title\_to\_project(token: str, org\_name: str, project\_name: str, topic: str, issue\_title: str) {#ALDashboard.project\_maintenance.link\_issue\_title\_to\_project}
 
 ```python
 def link_issue_title_to_project(token: str, org_name: str, project_name: str,
@@ -210,9 +192,7 @@ Links issues with a specific title in repositories with a certain topic to a Nex
 - `topic` _str_ - The GitHub topic to filter repositories by.
 - `issue_title` _str_ - Title of the issue to link.
 
-<a id="ALDashboard.project_maintenance.main"></a>
-
-#### main()
+#### main() {#ALDashboard.project\_maintenance.main}
 
 ```python
 def main() -> None

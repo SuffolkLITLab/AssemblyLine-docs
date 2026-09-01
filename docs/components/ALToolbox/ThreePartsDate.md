@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALToolbox.ThreePartsDate](#ALToolbox.ThreePartsDate)
+* ALToolbox.ThreePartsDate
   * [check\_empty\_parts](#ALToolbox.ThreePartsDate.check_empty_parts)
   * [ThreePartsDate](#ALToolbox.ThreePartsDate.ThreePartsDate)
     * [validate](#ALToolbox.ThreePartsDate.ThreePartsDate.validate)
@@ -14,9 +14,7 @@ sidebar_label: ThreePartsDate
 title: ALToolbox.ThreePartsDate
 ---
 
-<a id="ALToolbox.ThreePartsDate.check_empty_parts"></a>
-
-#### check\_empty\_parts(item: str, default\_msg="{} is not a valid date")
+#### check\_empty\_parts(item: str, default\_msg="{} is not a valid date") {#ALToolbox.ThreePartsDate.check\_empty\_parts}
 
 ```python
 def check_empty_parts(item: str,
@@ -52,17 +50,13 @@ what needs to be entered. Currently only handles US date format.
   &gt;&gt;&gt; check_empty_parts(&quot;12/25/2023&quot;)
   None
 
-<a id="ALToolbox.ThreePartsDate.ThreePartsDate"></a>
-
-## ThreePartsDate Objects
+## ThreePartsDate Objects {#ALToolbox.ThreePartsDate.ThreePartsDate}
 
 ```python
 class ThreePartsDate(CustomDataType)
 ```
 
-<a id="ALToolbox.ThreePartsDate.ThreePartsDate.validate"></a>
-
-#### validate(cls, item: str)
+#### validate(cls, item: str) {#ALToolbox.ThreePartsDate.ThreePartsDate.validate}
 
 ```python
 @classmethod
@@ -85,9 +79,7 @@ Validate a date string in MM/DD/YYYY format.
 
 - `DAValidationError` - If the date string is invalid or cannot be parsed.
 
-<a id="ALToolbox.ThreePartsDate.ThreePartsDate.transform"></a>
-
-#### transform(cls, item)
+#### transform(cls, item) {#ALToolbox.ThreePartsDate.ThreePartsDate.transform}
 
 ```python
 @classmethod
@@ -105,9 +97,7 @@ Transform a date string into a datetime object.
 
   datetime or None: The parsed datetime object, or None if empty.
 
-<a id="ALToolbox.ThreePartsDate.ThreePartsDate.default_for"></a>
-
-#### default\_for(cls, item)
+#### default\_for(cls, item) {#ALToolbox.ThreePartsDate.ThreePartsDate.default\_for}
 
 ```python
 @classmethod
@@ -125,17 +115,13 @@ Convert a datetime object to MM/dd/yyyy format string.
 
   str or None: The formatted date string, or None if empty.
 
-<a id="ALToolbox.ThreePartsDate.BirthDate"></a>
-
-## BirthDate Objects
+## BirthDate Objects {#ALToolbox.ThreePartsDate.BirthDate}
 
 ```python
 class BirthDate(ThreePartsDate)
 ```
 
-<a id="ALToolbox.ThreePartsDate.BirthDate.validate"></a>
-
-#### validate(cls, item: str)
+#### validate(cls, item: str) {#ALToolbox.ThreePartsDate.BirthDate.validate}
 
 ```python
 @classmethod

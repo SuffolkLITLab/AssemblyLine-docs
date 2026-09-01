@@ -48,6 +48,7 @@ jobs:
           pydoc-markdown
           ./make_interview_docs.py ../docassemble-ALDashboard
           ./fix-doc-titles.sh
+          ./fix-doc-anchors.py
       - uses: actions/setup-node@v3
         with:
           node-version: 20

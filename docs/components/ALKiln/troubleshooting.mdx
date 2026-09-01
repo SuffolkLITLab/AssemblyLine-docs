@@ -154,7 +154,7 @@ This is a reference error. It means docassemble tried to get the value for a var
 - It may be that you have a typo in a [variable name or value](#var-val) in your test.
 - It may be that you are [setting the value incorrectly](writing_tests.mdx#values) in your test. [Checkboxes are especially complex fields to set](writing_tests.mdx#checkboxes).
 
-The mistake may have happened on a page much farther back than you expect with a field ALKiln [skipped](writing_tests.mdx#unused-rows).
+The mistake may have happened on a page much farther back than you expect with a field ALKiln [skipped](writing_tests.mdx#unused_rows).
 
 **Debugging:**
 
@@ -188,7 +188,7 @@ Some possible causes:
 
 ## Skipped rows or variables {#skipped}
 
-If you look in a [test suite report](writing_tests.mdx#report) and see that ALKiln [skipped setting a variable](writing_tests.mdx#unused-rows), your test code might be [missing a field or value](#missing) that it needs in order to fill out that field.
+If you look in a [test suite report](writing_tests.mdx#report) and see that ALKiln [skipped setting a variable](writing_tests.mdx#unused_rows), your test code might be [missing a field or value](#missing) that it needs in order to fill out that field.
 
 If the test still passed, the variable probably belongs to a field that was optional.
 
@@ -205,7 +205,7 @@ You can check your test code for incorrect variable or value names in a few diff
 
 <!-- 1. If you have access to the YAML, log `the_var.intrinsicName` in your interview code to get close to the var name. If you use `log( the_var.intrinsicName )` look in the docassemble logs. If you use `log( the_var.intrinsicName, 'console' )` look in the browser console. If it has more than one `[]` then use extra quotes? Not sure how to turn this into proper instructions for the correct var name. Would like to replace the HTML thing with it if we can figure out good instructions. -->
 
-1. If you give every question in your interview an id, the [report](writing_tests.mdx#report) can help show you where the test failed or where ALKiln skipped setting variables. For each test, the report often has a list of question ids. For each question id, the report has a list of variables that ALKiln set on the page that had the error. If the test failed, you can see what question id the test got to. You can also check previous questions to see what variables are missing from each of those pages - what [fields ALKiln skipped](writing_tests.mdx#unused-rows).
+1. If you give every question in your interview an id, the [report](writing_tests.mdx#report) can help show you where the test failed or where ALKiln skipped setting variables. For each test, the report often has a list of question ids. For each question id, the report has a list of variables that ALKiln set on the page that had the error. If the test failed, you can see what question id the test got to. You can also check previous questions to see what variables are missing from each of those pages - what [fields ALKiln skipped](writing_tests.mdx#unused_rows).
 1. It is more annoying, but in most cases[^except] you can copy the variable name from your test and search for it in your interview code. You can do the same for values of multiple choice questions.
 1. Alternatively, in most cases[^except] you can go through the interview manually, but follow this procedure:
    1. For every single page  (even if you think this page has nothing to do with the problem), click on the `</>` in the nav bar to see the source of the page.

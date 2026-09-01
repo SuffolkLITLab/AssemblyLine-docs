@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALDashboard.docx\_wrangling](#ALDashboard.docx_wrangling)
+* ALDashboard.docx\_wrangling
   * [update\_docx](#ALDashboard.docx_wrangling.update_docx)
   * [get\_labeled\_docx\_runs](#ALDashboard.docx_wrangling.get_labeled_docx_runs)
   * [modify\_docx\_with\_openai\_guesses](#ALDashboard.docx_wrangling.modify_docx_with_openai_guesses)
@@ -10,9 +10,7 @@ sidebar_label: docx_wrangling
 title: ALDashboard.docx_wrangling
 ---
 
-<a id="ALDashboard.docx_wrangling.update_docx"></a>
-
-#### update\_docx(document: Union[docx.document.Document, str], modified\_runs: List[Tuple[int, int, str, int]])
+#### update\_docx(document: Union[docx.document.Document, str], modified\_runs: List[Tuple[int, int, str, int]]) {#ALDashboard.docx\_wrangling.update\_docx}
 
 ```python
 def update_docx(
@@ -35,9 +33,7 @@ Update the document with modified runs.
 
   The modified document.
 
-<a id="ALDashboard.docx_wrangling.get_labeled_docx_runs"></a>
-
-#### get\_labeled\_docx\_runs(docx\_path: str, custom\_people\_names: Optional[Tuple[str, str]] = None, openai\_client: Optional[OpenAI] = None)
+#### get\_labeled\_docx\_runs(docx\_path: str, custom\_people\_names: Optional[Tuple[str, str]] = None, openai\_client: Optional[OpenAI] = None) {#ALDashboard.docx\_wrangling.get\_labeled\_docx\_runs}
 
 ```python
 def get_labeled_docx_runs(
@@ -59,9 +55,7 @@ Scan the DOCX and return a list of modified text with Jinja2 variable names inse
 
   A list of tuples, each containing a paragraph number, run number, and the modified text of the run.
 
-<a id="ALDashboard.docx_wrangling.modify_docx_with_openai_guesses"></a>
-
-#### modify\_docx\_with\_openai\_guesses(docx\_path: str)
+#### modify\_docx\_with\_openai\_guesses(docx\_path: str) {#ALDashboard.docx\_wrangling.modify\_docx\_with\_openai\_guesses}
 
 ```python
 def modify_docx_with_openai_guesses(docx_path: str) -> docx.document.Document

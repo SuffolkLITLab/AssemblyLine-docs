@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALToolbox.al\_income](#ALToolbox.al_income)
+* ALToolbox.al\_income
   * [times\_per\_year](#ALToolbox.al_income.times_per_year)
   * [recent\_years](#ALToolbox.al_income.recent_years)
   * [ALPeriodicAmount](#ALToolbox.al_income.ALPeriodicAmount)
@@ -73,9 +73,7 @@ sidebar_label: al_income
 title: ALToolbox.al_income
 ---
 
-<a id="ALToolbox.al_income.times_per_year"></a>
-
-#### times\_per\_year(times\_per\_year\_list: List[Tuple[int, str]], times\_per\_year: float)
+#### times\_per\_year(times\_per\_year\_list: List[Tuple[int, str]], times\_per\_year: float) {#ALToolbox.al\_income.times\_per\_year}
 
 ```python
 def times_per_year(times_per_year_list: List[Tuple[int, str]],
@@ -124,9 +122,7 @@ the nearest whole integer.
   &gt;&gt;&gt; times_per_year([(12, &quot;Monthly&quot;)], 5)
   &#x27;Five times per year&#x27;
 
-<a id="ALToolbox.al_income.recent_years"></a>
-
-#### recent\_years(past: int = 25, order: str = "descending", future: int = 1)
+#### recent\_years(past: int = 25, order: str = "descending", future: int = 1) {#ALToolbox.al\_income.recent\_years}
 
 ```python
 def recent_years(past: int = 25,
@@ -160,9 +156,7 @@ birthdate.
   &gt;&gt;&gt; recent_years(past=2, order=&quot;ascending&quot;, future=0)
   [2022, 2023]
 
-<a id="ALToolbox.al_income.ALPeriodicAmount"></a>
-
-## ALPeriodicAmount Objects
+## ALPeriodicAmount Objects {#ALToolbox.al\_income.ALPeriodicAmount}
 
 ```python
 class ALPeriodicAmount(DAObject)
@@ -182,9 +176,7 @@ is 1 (a year).
 - `display_name` _str, optional_ - If present, will have a translated string to show the
   user, as opposed to a raw english string from the program.
 
-<a id="ALToolbox.al_income.ALPeriodicAmount.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#ALToolbox.al\_income.ALPeriodicAmount.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -196,9 +188,7 @@ Returns the income&#x27;s total value as a string representation.
 
   The string representation of this income&#x27;s total value.
 
-<a id="ALToolbox.al_income.ALPeriodicAmount.total"></a>
-
-#### total(times\_per\_year: float = 1)
+#### total(times\_per\_year: float = 1) {#ALToolbox.al\_income.ALPeriodicAmount.total}
 
 ```python
 def total(times_per_year: float = 1) -> Decimal
@@ -227,9 +217,7 @@ To calculate `.total()`, an ALPeriodicAmount must have a `.times_per_year` and `
   &gt;&gt;&gt; income.total(12)  # Monthly total
   Decimal(&#x27;1000&#x27;)
 
-<a id="ALToolbox.al_income.ALIncome"></a>
-
-## ALIncome Objects
+## ALIncome Objects {#ALToolbox.al\_income.ALIncome}
 
 ```python
 class ALIncome(ALPeriodicAmount)
@@ -254,9 +242,7 @@ is 1 (a year).
 - `source` _str, optional_ - The &quot;source&quot; of the income, like a &quot;job&quot; or a &quot;house&quot;.
 - `owner` _str, optional_ - Full name of the income&#x27;s owner as a single string.
 
-<a id="ALToolbox.al_income.ALIncome.total"></a>
-
-#### total(times\_per\_year: float = 1)
+#### total(times\_per\_year: float = 1) {#ALToolbox.al\_income.ALIncome.total}
 
 ```python
 def total(times_per_year: float = 1) -> Decimal
@@ -282,9 +268,7 @@ It can also have `.is_hourly` and `.hours_per_period`.
 
   The calculated income amount for the specified frequency.
 
-<a id="ALToolbox.al_income.ALExpense"></a>
-
-## ALExpense Objects
+## ALExpense Objects {#ALToolbox.al\_income.ALExpense}
 
 ```python
 class ALExpense(ALPeriodicAmount)
@@ -292,9 +276,7 @@ class ALExpense(ALPeriodicAmount)
 
 Not much changes from ALPeriodic Amount, just the generic object questions
 
-<a id="ALToolbox.al_income.ALIncomeList"></a>
-
-## ALIncomeList Objects
+## ALIncomeList Objects {#ALToolbox.al\_income.ALIncomeList}
 
 ```python
 class ALIncomeList(DAList)
@@ -309,9 +291,7 @@ This list expects its items to have the following attributes and methods:
 - value: Amount value
 - total(): Calculate total amount for a given frequency
 
-<a id="ALToolbox.al_income.ALIncomeList.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#ALToolbox.al\_income.ALIncomeList.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -327,9 +307,7 @@ the list contains appropriate income objects for processing.
 - `*pargs` - Variable length argument list passed to parent class.
 - `**kwargs` - Arbitrary keyword arguments passed to parent class.
 
-<a id="ALToolbox.al_income.ALIncomeList.sources"></a>
-
-#### sources()
+#### sources() {#ALToolbox.al\_income.ALIncomeList.sources}
 
 ```python
 def sources() -> Set[str]
@@ -352,9 +330,7 @@ Returns a set of the unique sources in the ALIncomeList.
   &gt;&gt;&gt; income_list.sources()
   \{&#x27;wages&#x27;, &#x27;tips&#x27;\}
 
-<a id="ALToolbox.al_income.ALIncomeList.matches"></a>
-
-#### matches(source: SourceType, exclude\_source: Optional[SourceType] = None)
+#### matches(source: SourceType, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALIncomeList.matches}
 
 ```python
 def matches(source: SourceType,
@@ -389,9 +365,7 @@ by their source. The source parameter may be a string or a list.
   &gt;&gt;&gt; len(wages_only)
   2
 
-<a id="ALToolbox.al_income.ALIncomeList.total"></a>
-
-#### total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None, owner: Optional[str] = None)
+#### total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None, owner: Optional[str] = None) {#ALToolbox.al\_income.ALIncomeList.total}
 
 ```python
 def total(times_per_year: float = 1,
@@ -432,9 +406,7 @@ exclude deductions.
   &gt;&gt;&gt; income_list.total(source=&quot;wages&quot;)  # Annual wages only
   Decimal(&#x27;60000.00&#x27;)
 
-<a id="ALToolbox.al_income.ALIncomeList.move_checks_to_list"></a>
-
-#### move\_checks\_to\_list(selected\_types: Optional[DADict] = None, selected\_terms: Optional[Mapping] = None)
+#### move\_checks\_to\_list(selected\_types: Optional[DADict] = None, selected\_terms: Optional[Mapping] = None) {#ALToolbox.al\_income.ALIncomeList.move\_checks\_to\_list}
 
 ```python
 def move_checks_to_list(selected_types: Optional[DADict] = None,
@@ -455,9 +427,7 @@ work well.
 - `selected_types` _Optional[DADict]_ - A dictionary of selected types.
 - `selected_terms` _Optional[Mapping]_ - A mapping of selected terms.
 
-<a id="ALToolbox.al_income.ALJob"></a>
-
-## ALJob Objects
+## ALJob Objects {#ALToolbox.al\_income.ALJob}
 
 ```python
 class ALJob(ALIncome)
@@ -488,9 +458,7 @@ Can be stored in an ALJobList.
 - `employer` _Individual, optional_ - A docassemble Individual object, employer.address is the address
   and employer.phone is the phone.
 
-<a id="ALToolbox.al_income.ALJob.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#ALToolbox.al\_income.ALJob.init}
 
 ```python
 def init(*pargs, **kwargs)
@@ -501,9 +469,7 @@ Initialize an ALJob object with employer setup.
 Initializes the employer attribute based on the employer_type if available,
 defaulting to Individual type if no specific type is set.
 
-<a id="ALToolbox.al_income.ALJob.gross_total"></a>
-
-#### gross\_total(times\_per\_year: float = 1)
+#### gross\_total(times\_per\_year: float = 1) {#ALToolbox.al\_income.ALJob.gross\_total}
 
 ```python
 def gross_total(times_per_year: float = 1) -> Decimal
@@ -525,9 +491,7 @@ representing the `.value` attribute of the item.
 
   The calculated gross income amount for the specified frequency.
 
-<a id="ALToolbox.al_income.ALJob.deductions"></a>
-
-#### deductions(times\_per\_year: float = 1)
+#### deductions(times\_per\_year: float = 1) {#ALToolbox.al\_income.ALJob.deductions}
 
 ```python
 def deductions(times_per_year: float = 1) -> Decimal
@@ -549,9 +513,7 @@ Returns the total deductions from someone&#x27;s pay over the specified times_pe
 
   The calculated deduction amount for the specified frequency.
 
-<a id="ALToolbox.al_income.ALJob.net_total"></a>
-
-#### net\_total(times\_per\_year: float = 1)
+#### net\_total(times\_per\_year: float = 1) {#ALToolbox.al\_income.ALJob.net\_total}
 
 ```python
 def net_total(times_per_year: float = 1) -> Decimal
@@ -580,9 +542,7 @@ Returns the net income over a time period, found using
   per hour if hourly). This will force the gathering of the ALJob&#x27;s `.value`
   and `.deduction` attributes.
 
-<a id="ALToolbox.al_income.ALJob.employer_name_address_phone"></a>
-
-#### employer\_name\_address\_phone()
+#### employer\_name\_address\_phone() {#ALToolbox.al\_income.ALJob.employer\_name\_address\_phone}
 
 ```python
 def employer_name_address_phone() -> str
@@ -599,9 +559,7 @@ attributes.
   A formatted string containing employer name, optionally with address
   and/or phone number if available.
 
-<a id="ALToolbox.al_income.ALJob.normalized_hours"></a>
-
-#### normalized\_hours(times\_per\_year: float = 1)
+#### normalized\_hours(times\_per\_year: float = 1) {#ALToolbox.al\_income.ALJob.normalized\_hours}
 
 ```python
 def normalized_hours(times_per_year: float = 1) -> float
@@ -635,9 +593,7 @@ based on the self.hours_per_period and self.times_per_year attributes.
   This will force the gathering of the attributes `.hours_per_period` and
   `.times_per_year`.
 
-<a id="ALToolbox.al_income.ALJobList"></a>
-
-## ALJobList Objects
+## ALJobList Objects {#ALToolbox.al\_income.ALJobList}
 
 ```python
 class ALJobList(ALIncomeList)
@@ -647,9 +603,7 @@ Represents a list of ALJobs. Adds the `.gross_total()` and
 `.net_total()` methods to the ALIncomeList class. It&#x27;s a more common
 way of reporting income than ALItemizedJobList.
 
-<a id="ALToolbox.al_income.ALJobList.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#ALToolbox.al\_income.ALJobList.init}
 
 ```python
 def init(*pargs, **kwargs)
@@ -662,9 +616,7 @@ Initialize an ALJobList with ALJob as the default object type.
 - `*pargs` - Variable length argument list passed to parent class.
 - `**kwargs` - Arbitrary keyword arguments passed to parent class.
 
-<a id="ALToolbox.al_income.ALJobList.total"></a>
-
-#### total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None, owner: Optional[str] = None)
+#### total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None, owner: Optional[str] = None) {#ALToolbox.al\_income.ALJobList.total}
 
 ```python
 def total(times_per_year: float = 1,
@@ -680,9 +632,7 @@ string or a list.
 `times_per_year` is some denominator of a year. E.g, to express a weekly
 period, use 52. The default is 1 (a year).
 
-<a id="ALToolbox.al_income.ALJobList.gross_total"></a>
-
-#### gross\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### gross\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALJobList.gross\_total}
 
 ```python
 def gross_total(times_per_year: float = 1,
@@ -705,9 +655,7 @@ string or a list.
 
   The sum of the gross incomes of its ALJobs divided by the time times_per_year.
 
-<a id="ALToolbox.al_income.ALJobList.net_total"></a>
-
-#### net\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### net\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALJobList.net\_total}
 
 ```python
 def net_total(times_per_year: float = 1,
@@ -733,9 +681,7 @@ If the job is hourly, the `net_total()` may not be comparable to the
 
   The sum of the net incomes of its ALJobs divided by the time times_per_year.
 
-<a id="ALToolbox.al_income.ALJobList.deductions"></a>
-
-#### deductions(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### deductions(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALJobList.deductions}
 
 ```python
 def deductions(times_per_year: float = 1,
@@ -758,9 +704,7 @@ will use all sources.
 
   The sum of the deductions of its ALJobs divided by the time times_per_year.
 
-<a id="ALToolbox.al_income.ALExpenseList"></a>
-
-## ALExpenseList Objects
+## ALExpenseList Objects {#ALToolbox.al\_income.ALExpenseList}
 
 ```python
 class ALExpenseList(ALIncomeList)
@@ -773,9 +717,7 @@ value: The monetary value of the expense
 source: The source category of the expense
 display_name: Human-readable name for display
 
-<a id="ALToolbox.al_income.ALAsset"></a>
-
-## ALAsset Objects
+## ALAsset Objects {#ALToolbox.al\_income.ALAsset}
 
 ```python
 class ALAsset(ALIncome)
@@ -802,9 +744,7 @@ Can be stored in an ALAssetList.
 - `owner` _str, optional_ - Full name of the asset owner as a single string.
 - `source` _str, optional_ - The &quot;source&quot; of the asset, like &quot;vase&quot;.
 
-<a id="ALToolbox.al_income.ALAsset.total"></a>
-
-#### total(times\_per\_year: float = 1)
+#### total(times\_per\_year: float = 1) {#ALToolbox.al\_income.ALAsset.total}
 
 ```python
 def total(times_per_year: float = 1) -> Decimal
@@ -823,9 +763,7 @@ Returns the .value attribute divided by the times per year you want to calculate
 
 - `Decimal` - The .value attribute divided by the times per year.
 
-<a id="ALToolbox.al_income.ALAsset.equity"></a>
-
-#### equity(loan\_attribute="balance")
+#### equity(loan\_attribute="balance") {#ALToolbox.al\_income.ALAsset.equity}
 
 ```python
 def equity(loan_attribute="balance") -> Decimal
@@ -842,9 +780,7 @@ Returns the total equity in the asset (e.g., market value minus balance).
 
 - `Decimal` - The total equity in the asset.
 
-<a id="ALToolbox.al_income.ALAssetList"></a>
-
-## ALAssetList Objects
+## ALAssetList Objects {#ALToolbox.al\_income.ALAssetList}
 
 ```python
 class ALAssetList(ALIncomeList)
@@ -869,9 +805,7 @@ total value of all assets, use the `market_value()` method.
 - `owner` _str, optional_ - Full name of the asset owner as a single string.
 - `source` _str, optional_ - The &quot;source&quot; of the asset, like &quot;vase&quot;.
 
-<a id="ALToolbox.al_income.ALAssetList.market_value"></a>
-
-#### market\_value(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### market\_value(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALAssetList.market\_value}
 
 ```python
 def market_value(source: Optional[SourceType] = None,
@@ -894,9 +828,7 @@ You can filter the assets by `source`. `source` can be a string or a list.
 
 - `Decimal` - The total market value of the assets.
 
-<a id="ALToolbox.al_income.ALAssetList.balance"></a>
-
-#### balance(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### balance(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALAssetList.balance}
 
 ```python
 def balance(source: Optional[SourceType] = None,
@@ -919,9 +851,7 @@ You can filter the assets by `source`. `source` can be a string or a list.
 
 - `Decimal` - The total balance of the assets.
 
-<a id="ALToolbox.al_income.ALAssetList.equity"></a>
-
-#### equity(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None, loan\_attribute: str = "balance")
+#### equity(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None, loan\_attribute: str = "balance") {#ALToolbox.al\_income.ALAssetList.equity}
 
 ```python
 def equity(source: Optional[SourceType] = None,
@@ -945,9 +875,7 @@ specified, or if the asset&#x27;s source satisfies the source criteria, the equi
 
 - `Decimal` - The total equity in the assets.
 
-<a id="ALToolbox.al_income.ALAssetList.owners"></a>
-
-#### owners(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### owners(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALAssetList.owners}
 
 ```python
 def owners(source: Optional[SourceType] = None,
@@ -970,9 +898,7 @@ You can filter the assets by `source`. `source` can be a string or a list.
 
 - `Set[str]` - A set of the unique owners of the assets.
 
-<a id="ALToolbox.al_income.ALVehicle"></a>
-
-## ALVehicle Objects
+## ALVehicle Objects {#ALToolbox.al\_income.ALVehicle}
 
 ```python
 class ALVehicle(ALAsset)
@@ -997,9 +923,7 @@ statement forms.
 - `owner` _str_ - Full name of the vehicle owner.
 - `source` _str, optional_ - The source of the asset, defaults to &#x27;vehicle&#x27;.
 
-<a id="ALToolbox.al_income.ALVehicle.year_make_model"></a>
-
-#### year\_make\_model(separator: str = " / ")
+#### year\_make\_model(separator: str = " / ") {#ALToolbox.al\_income.ALVehicle.year\_make\_model}
 
 ```python
 def year_make_model(separator: str = " / ") -> str
@@ -1028,9 +952,7 @@ Triggers gathering those attributes and formats them as a single string.
   &gt;&gt;&gt; vehicle.year_make_model(separator=&quot;, &quot;)
   &#x27;2020, Toyota, Camry&#x27;
 
-<a id="ALToolbox.al_income.ALVehicleList"></a>
-
-## ALVehicleList Objects
+## ALVehicleList Objects {#ALToolbox.al\_income.ALVehicleList}
 
 ```python
 class ALVehicleList(ALAssetList)
@@ -1038,9 +960,7 @@ class ALVehicleList(ALAssetList)
 
 List of ALVehicles. Extends ALAssetList.
 
-<a id="ALToolbox.al_income.ALSimpleValue"></a>
-
-## ALSimpleValue Objects
+## ALSimpleValue Objects {#ALToolbox.al\_income.ALSimpleValue}
 
 ```python
 class ALSimpleValue(DAObject)
@@ -1056,9 +976,7 @@ item in an ALSimpleValueList.
   negative value to the total of the item.
 - `source` _str, optional_ - The &quot;source&quot; of the item, like &quot;vase&quot;.
 
-<a id="ALToolbox.al_income.ALSimpleValue.total"></a>
-
-#### total()
+#### total() {#ALToolbox.al\_income.ALSimpleValue.total}
 
 ```python
 def total() -> Decimal
@@ -1075,9 +993,7 @@ object. The `total()` method may return unexpected results in that case.
 
   The total value of the item, taking into account the transaction type.
 
-<a id="ALToolbox.al_income.ALSimpleValue.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#ALToolbox.al\_income.ALSimpleValue.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -1085,9 +1001,7 @@ def __str__() -> str
 
 Returns the total as a formatted string
 
-<a id="ALToolbox.al_income.ALSimpleValueList"></a>
-
-## ALSimpleValueList Objects
+## ALSimpleValueList Objects {#ALToolbox.al\_income.ALSimpleValueList}
 
 ```python
 class ALSimpleValueList(DAList)
@@ -1095,9 +1009,7 @@ class ALSimpleValueList(DAList)
 
 Represents a filterable DAList of ALSimpleValues.
 
-<a id="ALToolbox.al_income.ALSimpleValueList.sources"></a>
-
-#### sources()
+#### sources() {#ALToolbox.al\_income.ALSimpleValueList.sources}
 
 ```python
 def sources() -> Set
@@ -1109,9 +1021,7 @@ Returns a set of the unique sources of values stored in the list.
 
   A set of the unique sources of values stored in the list.
 
-<a id="ALToolbox.al_income.ALSimpleValueList.total"></a>
-
-#### total(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### total(source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALSimpleValueList.total}
 
 ```python
 def total(source: Optional[SourceType] = None,
@@ -1132,9 +1042,7 @@ string or a list.
 
   The total value in the list.
 
-<a id="ALToolbox.al_income.ALItemizedValue"></a>
-
-## ALItemizedValue Objects
+## ALItemizedValue Objects {#ALToolbox.al\_income.ALItemizedValue}
 
 ```python
 class ALItemizedValue(DAObject)
@@ -1165,9 +1073,7 @@ job&#x27;s net total.
   If the &quot;.exists&quot; attribute is False or undefined, the item will not be used
   when calculating totals.
 
-<a id="ALToolbox.al_income.ALItemizedValue.income_fields"></a>
-
-#### income\_fields(use\_exists=True)
+#### income\_fields(use\_exists=True) {#ALToolbox.al\_income.ALItemizedValue.income\_fields}
 
 ```python
 def income_fields(use_exists=True) -> List[Dict[str, Any]]
@@ -1185,9 +1091,7 @@ to be passed to a `code` attribute of a question&#x27;s fields
 
   A list of dictionaries representing the fields for an itemized value.
 
-<a id="ALToolbox.al_income.ALItemizedValue.total"></a>
-
-#### total()
+#### total() {#ALToolbox.al\_income.ALItemizedValue.total}
 
 ```python
 def total() -> Decimal
@@ -1213,9 +1117,7 @@ returns 0. Otherwise returns the decimal value of the item.
   &gt;&gt;&gt; item_disabled.total()
   Decimal(&#x27;0&#x27;)
 
-<a id="ALToolbox.al_income.ALItemizedValue.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#ALToolbox.al\_income.ALItemizedValue.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -1223,9 +1125,7 @@ def __str__() -> str
 
 Returns a string of the value of the item with two decimal places.
 
-<a id="ALToolbox.al_income.ALItemizedValueDict"></a>
-
-## ALItemizedValueDict Objects
+## ALItemizedValueDict Objects {#ALToolbox.al\_income.ALItemizedValueDict}
 
 ```python
 class ALItemizedValueDict(DAOrderedDict)
@@ -1242,9 +1142,7 @@ and one for deductions.
   Should only be accessed through an ALItemizedJob. Otherwise
   you may get unexpected results.
 
-<a id="ALToolbox.al_income.ALItemizedValueDict.hook_after_gather"></a>
-
-#### hook\_after\_gather()
+#### hook\_after\_gather() {#ALToolbox.al\_income.ALItemizedValueDict.hook\_after\_gather}
 
 ```python
 def hook_after_gather() -> None
@@ -1258,9 +1156,7 @@ See https://docassemble.org/docs/objects.html#DAList.hook_after_gather.
 If a developer wants to remove these items _before_ gathering is finished,
 they can use similar code in their question&#x27;s `validation code:`
 
-<a id="ALToolbox.al_income.ALItemizedValueDict.total"></a>
-
-#### total()
+#### total() {#ALToolbox.al\_income.ALItemizedValueDict.total}
 
 ```python
 def total() -> Decimal
@@ -1284,9 +1180,7 @@ as not existing (exists=False).
   &gt;&gt;&gt; value_dict.total()
   Decimal(&#x27;1000&#x27;)  # Only includes wages, not bonus
 
-<a id="ALToolbox.al_income.ALItemizedValueDict.__str__"></a>
-
-#### \_\_str\_\_()
+#### \_\_str\_\_() {#ALToolbox.al\_income.ALItemizedValueDict.\_\_str\_\_}
 
 ```python
 def __str__() -> str
@@ -1295,9 +1189,7 @@ def __str__() -> str
 Returns a string of the dictionary&#x27;s key/value pairs as two-element lists in a list.
 E.g. &#x27;[[&quot;federal_taxes&quot;, &quot;2500.00&quot;], [&quot;wages&quot;, &quot;15.50&quot;]]&#x27;
 
-<a id="ALToolbox.al_income.ALItemizedJob"></a>
-
-## ALItemizedJob Objects
+## ALItemizedJob Objects {#ALToolbox.al\_income.ALItemizedJob}
 
 ```python
 class ALItemizedJob(DAObject)
@@ -1359,9 +1251,7 @@ income in code.
   and the total of money going in and money coming out.
   - A user must be able to add their own arbitrary items.
 
-<a id="ALToolbox.al_income.ALItemizedJob.total"></a>
-
-#### total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALItemizedJob.total}
 
 ```python
 def total(times_per_year: float = 1,
@@ -1382,9 +1272,7 @@ Alias for ALItemizedJob.gross_total to integrate with ALIncomeList math.
 
   The gross total of the job.
 
-<a id="ALToolbox.al_income.ALItemizedJob.gross_total"></a>
-
-#### gross\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### gross\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALItemizedJob.gross\_total}
 
 ```python
 def gross_total(times_per_year: float = 1,
@@ -1410,9 +1298,7 @@ If you use sources from deductions, they will be ignored.
 
 - `Decimal` - The sum of positive values for the given parameters.
 
-<a id="ALToolbox.al_income.ALItemizedJob.deduction_total"></a>
-
-#### deduction\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### deduction\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALItemizedJob.deduction\_total}
 
 ```python
 def deduction_total(times_per_year: float = 1,
@@ -1438,9 +1324,7 @@ filter the items by `source`. `source` can be a string or a list.
 
 - `Decimal` - The sum of deductions for the given parameters as a positive value.
 
-<a id="ALToolbox.al_income.ALItemizedJob.net_total"></a>
-
-#### net\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### net\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALItemizedJob.net\_total}
 
 ```python
 def net_total(times_per_year: float = 1,
@@ -1466,9 +1350,7 @@ string or a list. E.g. &quot;full time&quot; or [&quot;full time&quot;, &quot;un
 
 - `Decimal` - The net value (gross minus deductions) for the given parameters.
 
-<a id="ALToolbox.al_income.ALItemizedJob.employer_name_address_phone"></a>
-
-#### employer\_name\_address\_phone()
+#### employer\_name\_address\_phone() {#ALToolbox.al\_income.ALItemizedJob.employer\_name\_address\_phone}
 
 ```python
 def employer_name_address_phone() -> str
@@ -1481,9 +1363,7 @@ address and phone number.
 
   A string containing the employer&#x27;s name, address, and phone number.
 
-<a id="ALToolbox.al_income.ALItemizedJob.normalized_hours"></a>
-
-#### normalized\_hours(times\_per\_year: float = 1)
+#### normalized\_hours(times\_per\_year: float = 1) {#ALToolbox.al\_income.ALItemizedJob.normalized\_hours}
 
 ```python
 def normalized_hours(times_per_year: float = 1) -> float
@@ -1504,9 +1384,7 @@ For example, if the person works 10 hours a week, it will return
 
   The normalized number of hours worked in the given time period.
 
-<a id="ALToolbox.al_income.ALItemizedJobList"></a>
-
-## ALItemizedJobList Objects
+## ALItemizedJobList Objects {#ALToolbox.al\_income.ALItemizedJobList}
 
 ```python
 class ALItemizedJobList(DAList)
@@ -1515,9 +1393,7 @@ class ALItemizedJobList(DAList)
 Represents a list of ALItemizedJobs that can have both payments and money
 out. This is a less common way of reporting income.
 
-<a id="ALToolbox.al_income.ALItemizedJobList.sources"></a>
-
-#### sources(which\_side: Optional[str] = None)
+#### sources(which\_side: Optional[str] = None) {#ALToolbox.al\_income.ALItemizedJobList.sources}
 
 ```python
 def sources(which_side: Optional[str] = None) -> Set[str]
@@ -1535,9 +1411,7 @@ By default gets from both sides, if which_side is &quot;deductions&quot;, only g
 
   A set of the unique sources in all of the jobs.
 
-<a id="ALToolbox.al_income.ALItemizedJobList.total"></a>
-
-#### total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALItemizedJobList.total}
 
 ```python
 def total(times_per_year: float = 1,
@@ -1559,9 +1433,7 @@ ALIncomeList math.
 
   The gross total of the list.
 
-<a id="ALToolbox.al_income.ALItemizedJobList.gross_total"></a>
-
-#### gross\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### gross\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALItemizedJobList.gross\_total}
 
 ```python
 def gross_total(times_per_year: float = 1,
@@ -1588,9 +1460,7 @@ string or a list.
 
 - `Decimal` - The sum of the gross incomes for the given parameters.
 
-<a id="ALToolbox.al_income.ALItemizedJobList.deduction_total"></a>
-
-#### deduction\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### deduction\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALItemizedJobList.deduction\_total}
 
 ```python
 def deduction_total(times_per_year: float = 1,
@@ -1617,9 +1487,7 @@ string or a list.
 
 - `Decimal` - The sum of the deductions for the given parameters.
 
-<a id="ALToolbox.al_income.ALItemizedJobList.net_total"></a>
-
-#### net\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None)
+#### net\_total(times\_per\_year: float = 1, source: Optional[SourceType] = None, exclude\_source: Optional[SourceType] = None) {#ALToolbox.al\_income.ALItemizedJobList.net\_total}
 
 ```python
 def net_total(times_per_year: float = 1,

@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [AssemblyLine.al\_courts](#AssemblyLine.al_courts)
+* AssemblyLine.al\_courts
   * [ALCourt](#AssemblyLine.al_courts.ALCourt)
     * [init](#AssemblyLine.al_courts.ALCourt.init)
     * [short\_label](#AssemblyLine.al_courts.ALCourt.short_label)
@@ -27,9 +27,7 @@ title: AssemblyLine.al_courts
 
 Package for a very simple / MVP list of courts that is mostly signature compatible w/ MACourts for now
 
-<a id="AssemblyLine.al_courts.ALCourt"></a>
-
-## ALCourt Objects
+## ALCourt Objects {#AssemblyLine.al\_courts.ALCourt}
 
 ```python
 class ALCourt(Court)
@@ -42,9 +40,7 @@ address and can use any of those three features of the court to do the filtering
 A list of cities? A list of counties? Instead, we use a function on the CourtList object that filters courts by
 address and can use any of those three features of the court to do the filtering.--&gt;
 
-<a id="AssemblyLine.al_courts.ALCourt.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_courts.ALCourt.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -57,9 +53,7 @@ Create a new court object.
 - `*pargs` - Standard DAObject positional arguments
 - `**kwargs` - Standard DAObject keyword arguments
 
-<a id="AssemblyLine.al_courts.ALCourt.short_label"></a>
-
-#### short\_label()
+#### short\_label() {#AssemblyLine.al\_courts.ALCourt.short\_label}
 
 ```python
 def short_label() -> str
@@ -74,9 +68,7 @@ list.
 
 - `str` - string representing the court&#x27;s name, with city if needed to disambiguate
 
-<a id="AssemblyLine.al_courts.ALCourt.short_label_and_address"></a>
-
-#### short\_label\_and\_address()
+#### short\_label\_and\_address() {#AssemblyLine.al\_courts.ALCourt.short\_label\_and\_address}
 
 ```python
 def short_label_and_address() -> str
@@ -89,9 +81,7 @@ More concise version without description; suitable for a responsive case.
 
 - `str` - string representing the court&#x27;s name and address
 
-<a id="AssemblyLine.al_courts.ALCourt.short_description"></a>
-
-#### short\_description()
+#### short\_description() {#AssemblyLine.al\_courts.ALCourt.short\_description}
 
 ```python
 def short_description() -> str
@@ -105,9 +95,7 @@ buttons.
 
 - `str` - string representing the court&#x27;s name and description
 
-<a id="AssemblyLine.al_courts.ALCourt.from_row"></a>
-
-#### from\_row(df\_row: Union[pd.Series, pd.DataFrame], ensure\_lat\_long: bool = True)
+#### from\_row(df\_row: Union[pd.Series, pd.DataFrame], ensure\_lat\_long: bool = True) {#AssemblyLine.al\_courts.ALCourt.from\_row}
 
 ```python
 def from_row(df_row: Union[pd.Series, pd.DataFrame],
@@ -124,9 +112,7 @@ with existing attributes or methods of DAObject
 - `df_row` - Pandas Series object
 - `ensure_lat_long` - bool, whether to use Google Maps to geocode the address if we don&#x27;t have coordinates
 
-<a id="AssemblyLine.al_courts.ALCourt.geolocate"></a>
-
-#### geolocate()
+#### geolocate() {#AssemblyLine.al\_courts.ALCourt.geolocate}
 
 ```python
 def geolocate() -> None
@@ -136,9 +122,7 @@ Use Google Maps to geocode the court&#x27;s address and store the result in the 
 
 Deprecated: use geocode() instead.
 
-<a id="AssemblyLine.al_courts.ALCourt.geocode"></a>
-
-#### geocode()
+#### geocode() {#AssemblyLine.al\_courts.ALCourt.geocode}
 
 ```python
 def geocode() -> None
@@ -146,9 +130,7 @@ def geocode() -> None
 
 Use Google Maps to geocode the court&#x27;s address and store the result in the location attribute.
 
-<a id="AssemblyLine.al_courts.ALCourtLoader"></a>
-
-## ALCourtLoader Objects
+## ALCourtLoader Objects {#AssemblyLine.al\_courts.ALCourtLoader}
 
 ```python
 class ALCourtLoader(DAObject)
@@ -163,9 +145,7 @@ Built around Pandas dataframe.
 - `filename` _str_ - Path to the file containing court information.
 - `converters` _Dict[str, Callable]_ - A dictionary of functions to apply to columns in the dataframe.
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.init"></a>
-
-#### init(\*pargs, \*\*kwargs)
+#### init(\*pargs, \*\*kwargs) {#AssemblyLine.al\_courts.ALCourtLoader.init}
 
 ```python
 def init(*pargs, **kwargs) -> None
@@ -178,9 +158,7 @@ Create a new courtloader object.
 - `*pargs` - Standard DAObject positional arguments
 - `**kwargs` - Standard DAObject keyword arguments
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.all_courts"></a>
-
-#### all\_courts()
+#### all\_courts() {#AssemblyLine.al\_courts.ALCourtLoader.all\_courts}
 
 ```python
 def all_courts() -> List[Tuple[int, str]]
@@ -192,9 +170,7 @@ Return a list of all courts in the spreadsheet.
 
   List[Tuple[int, str]]: List of tuples where each tuple contains (dataframe_index, display_value). The dataframe_index (int) can be used with as_court() to retrieve the full court object. The display_value (str) is the court&#x27;s name or other display column value.
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.unique_column_values"></a>
-
-#### unique\_column\_values(column\_name: str)
+#### unique\_column\_values(column\_name: str) {#AssemblyLine.al\_courts.ALCourtLoader.unique\_column\_values}
 
 ```python
 def unique_column_values(column_name: str) -> Set[str]
@@ -213,9 +189,7 @@ Retrieve a set of unique values present in a specified dataframe column.
   - A set containing unique values from the specified column.
   - Returns an empty set if the column does not exist or an error occurs.
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.county_list"></a>
-
-#### county\_list(column\_name: str = "address\_county")
+#### county\_list(column\_name: str = "address\_county") {#AssemblyLine.al\_courts.ALCourtLoader.county\_list}
 
 ```python
 def county_list(column_name: str = "address_county") -> Set[str]
@@ -233,9 +207,7 @@ Typically used to get a list of all possible counties that have a court.
 
 - `Set[str]` - A list of all unique values in the specified row in the given spreadsheet
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.county_has_one_court"></a>
-
-#### county\_has\_one\_court(county\_name: str, county\_column: str = "address\_county")
+#### county\_has\_one\_court(county\_name: str, county\_column: str = "address\_county") {#AssemblyLine.al\_courts.ALCourtLoader.county\_has\_one\_court}
 
 ```python
 def county_has_one_court(county_name: str,
@@ -256,9 +228,7 @@ in the spreadsheet. Returns False otherwise.
 
 - `bool` - True if there is only one court associated with the specified county in the spreadsheet.
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.county_court"></a>
-
-#### county\_court(intrinsicName: str, county\_name: str, county\_column: str = "address\_county")
+#### county\_court(intrinsicName: str, county\_name: str, county\_column: str = "address\_county") {#AssemblyLine.al\_courts.ALCourtLoader.county\_court}
 
 ```python
 def county_court(intrinsicName: str,
@@ -281,9 +251,7 @@ when you know there is exactly one match
 
 - `ALCourt` - The first court matching the county name.
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.matching_courts_in_county"></a>
-
-#### matching\_courts\_in\_county(county\_name: str, county\_column: str = "address\_county", display\_column: str = "name", search\_string: Optional[str] = None, search\_columns: Optional[Union[List[str], str]] = None)
+#### matching\_courts\_in\_county(county\_name: str, county\_column: str = "address\_county", display\_column: str = "name", search\_string: Optional[str] = None, search\_columns: Optional[Union[List[str], str]] = None) {#AssemblyLine.al\_courts.ALCourtLoader.matching\_courts\_in\_county}
 
 ```python
 def matching_courts_in_county(
@@ -316,9 +284,7 @@ the second element is the display value from the specified display_column.
 
   List[Tuple[int, str]]: List of tuples where each tuple contains (dataframe_index, display_value). The dataframe_index (int) can be used with as_court() to retrieve the full court object. The display_value (str) is the court&#x27;s name or other display column value.
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.filter_courts"></a>
-
-#### filter\_courts(court\_types: Optional[Union[List[str], str]], column: str = "department", display\_column: str = "name", search\_string: Optional[str] = None, search\_columns: Optional[Union[List[str], str]] = None)
+#### filter\_courts(court\_types: Optional[Union[List[str], str]], column: str = "department", display\_column: str = "name", search\_string: Optional[str] = None, search\_columns: Optional[Union[List[str], str]] = None) {#AssemblyLine.al\_courts.ALCourtLoader.filter\_courts}
 
 ```python
 def filter_courts(
@@ -350,9 +316,7 @@ is determined by the `display_column`.
 
   List[Tuple[int, str]]: List of tuples where each tuple contains (dataframe_index, display_value). The dataframe_index (int) can be used with as_court() to retrieve the full court object. The display_value (str) is the court&#x27;s name or other display column value.
 
-<a id="AssemblyLine.al_courts.ALCourtLoader.as_court"></a>
-
-#### as\_court(intrinsicName: str, index: Union[int, str], ensure\_lat\_long: bool = True)
+#### as\_court(intrinsicName: str, index: Union[int, str], ensure\_lat\_long: bool = True) {#AssemblyLine.al\_courts.ALCourtLoader.as\_court}
 
 ```python
 def as_court(intrinsicName: str,

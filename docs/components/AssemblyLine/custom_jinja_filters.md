@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [AssemblyLine.custom\_jinja\_filters](#AssemblyLine.custom_jinja_filters)
+* AssemblyLine.custom\_jinja\_filters
   * [catchall\_options](#AssemblyLine.custom_jinja_filters.catchall_options)
   * [catchall\_label](#AssemblyLine.custom_jinja_filters.catchall_label)
   * [catchall\_datatype](#AssemblyLine.custom_jinja_filters.catchall_datatype)
@@ -14,9 +14,7 @@ sidebar_label: custom_jinja_filters
 title: AssemblyLine.custom_jinja_filters
 ---
 
-<a id="AssemblyLine.custom_jinja_filters.catchall_options"></a>
-
-#### catchall\_options(value: Any, \*raw\_items: Any)
+#### catchall\_options(value: Any, \*raw\_items: Any) {#AssemblyLine.custom\_jinja\_filters.catchall\_options}
 
 ```python
 def catchall_options(value: Any, *raw_items: Any) -> DACatchAll
@@ -69,9 +67,7 @@ fields:
 
 - `DACatchAll` - The modified DACatchAll object with the assigned options.
 
-<a id="AssemblyLine.custom_jinja_filters.catchall_label"></a>
-
-#### catchall\_label(value: Any, label: str)
+#### catchall\_label(value: Any, label: str) {#AssemblyLine.custom\_jinja\_filters.catchall\_label}
 
 ```python
 def catchall_label(value: Any, label: str) -> DACatchAll
@@ -107,9 +103,7 @@ fields:
 
 - `DACatchAll` - The modified DACatchAll object with the assigned label.
 
-<a id="AssemblyLine.custom_jinja_filters.catchall_datatype"></a>
-
-#### catchall\_datatype(value: Any, datatype: str)
+#### catchall\_datatype(value: Any, datatype: str) {#AssemblyLine.custom\_jinja\_filters.catchall\_datatype}
 
 ```python
 def catchall_datatype(value: Any, datatype: str) -> DACatchAll
@@ -137,9 +131,7 @@ Example usage in a DOCX template:
 
 - `DACatchAll` - The modified DACatchAll object with the assigned datatype.
 
-<a id="AssemblyLine.custom_jinja_filters.catchall_question"></a>
-
-#### catchall\_question(value: Any, question: str)
+#### catchall\_question(value: Any, question: str) {#AssemblyLine.custom\_jinja\_filters.catchall\_question}
 
 ```python
 def catchall_question(value: Any, question: str) -> DACatchAll
@@ -167,9 +159,7 @@ Example usage in a DOCX template:
 
 - `DACatchAll` - The modified DACatchAll object with the assigned question.
 
-<a id="AssemblyLine.custom_jinja_filters.catchall_subquestion"></a>
-
-#### catchall\_subquestion(value: Any, subquestion: str)
+#### catchall\_subquestion(value: Any, subquestion: str) {#AssemblyLine.custom\_jinja\_filters.catchall\_subquestion}
 
 ```python
 def catchall_subquestion(value: Any, subquestion: str) -> DACatchAll
@@ -197,9 +187,7 @@ Example usage in a DOCX template:
 
 - `DACatchAll` - The modified DACatchAll object with the assigned subquestion.
 
-<a id="AssemblyLine.custom_jinja_filters.if_final"></a>
-
-#### if\_final(context: Jinja2Context, value: Any, i: Optional[str] = None, expected\_i: Union[str, List[str]] = "final", placeholder: Optional[str] = None)
+#### if\_final(context: Jinja2Context, value: Any, i: Optional[str] = None, expected\_i: Union[str, List[str]] = "final", placeholder: Optional[str] = None) {#AssemblyLine.custom\_jinja\_filters.if\_final}
 
 ```python
 @pass_context
@@ -283,9 +271,7 @@ as in an ALDocument&#x27;s &quot;preview&quot; or &quot;final&quot; values.
 
 - `Any` - The original `value` if `i` matches `expected_i`, otherwise the `placeholder`.
 
-<a id="AssemblyLine.custom_jinja_filters.catchall_fields_code"></a>
-
-#### catchall\_fields\_code(value: Any)
+#### catchall\_fields\_code(value: Any) {#AssemblyLine.custom\_jinja\_filters.catchall\_fields\_code}
 
 ```python
 def catchall_fields_code(value: Any) -> List[Dict[str, Any]]

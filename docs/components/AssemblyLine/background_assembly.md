@@ -161,7 +161,7 @@ Optionally, it will also produce a .ZIP and a .PDF version of the full bundle.
 This is called from a YAML block in the Assembly Line standard include files to define the `_downloadable_files`
 attribute of a bundle.
 
-[download_list_html()](al_document.md#download_list_html) has an optional parameter,
+[download_list_html()](al_document.md#AssemblyLine.al_document.ALDocumentBundle.download_list_html) has an optional parameter,
 `use_previously_cached_files` which must be set to `True` to make use of the `_downloadable_files`
 attribute of the bundle.
 

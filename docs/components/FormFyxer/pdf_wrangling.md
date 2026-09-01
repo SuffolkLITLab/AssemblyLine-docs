@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [formfyxer.pdf\_wrangling](#formfyxer.pdf_wrangling)
+* formfyxer.pdf\_wrangling
   * [FieldType](#formfyxer.pdf_wrangling.FieldType)
     * [TEXT](#formfyxer.pdf_wrangling.FieldType.TEXT)
     * [AREA](#formfyxer.pdf_wrangling.FieldType.AREA)
@@ -36,41 +36,29 @@ sidebar_label: pdf_wrangling
 title: formfyxer.pdf_wrangling
 ---
 
-<a id="formfyxer.pdf_wrangling.FieldType"></a>
-
-## FieldType Objects
+## FieldType Objects {#formfyxer.pdf\_wrangling.FieldType}
 
 ```python
 class FieldType(Enum)
 ```
 
-<a id="formfyxer.pdf_wrangling.FieldType.TEXT"></a>
-
-#### TEXT
+#### TEXT {#formfyxer.pdf\_wrangling.FieldType.TEXT}
 
 Text input Field
 
-<a id="formfyxer.pdf_wrangling.FieldType.AREA"></a>
-
-#### AREA
+#### AREA {#formfyxer.pdf\_wrangling.FieldType.AREA}
 
 Text input Field, but an area
 
-<a id="formfyxer.pdf_wrangling.FieldType.LIST_BOX"></a>
-
-#### LIST\_BOX
+#### LIST\_BOX {#formfyxer.pdf\_wrangling.FieldType.LIST\_BOX}
 
 allows multiple selection
 
-<a id="formfyxer.pdf_wrangling.FieldType.CHOICE"></a>
-
-#### CHOICE
+#### CHOICE {#formfyxer.pdf\_wrangling.FieldType.CHOICE}
 
 allows only one selection
 
-<a id="formfyxer.pdf_wrangling.FormField"></a>
-
-## FormField Objects
+## FormField Objects {#formfyxer.pdf\_wrangling.FormField}
 
 ```python
 class FormField()
@@ -78,9 +66,7 @@ class FormField()
 
 A data holding class, used to easily specify how a PDF form field should be created.
 
-<a id="formfyxer.pdf_wrangling.FormField.__init__"></a>
-
-#### \_\_init\_\_(field\_name: str, type\_name: Union[FieldType, str], x: int, y: int, font\_size: Optional[int] = None, tooltip: str = "", configs: Optional[Dict[str, Any]] = None)
+#### \_\_init\_\_(field\_name: str, type\_name: Union[FieldType, str], x: int, y: int, font\_size: Optional[int] = None, tooltip: str = "", configs: Optional[Dict[str, Any]] = None) {#formfyxer.pdf\_wrangling.FormField.\_\_init\_\_}
 
 ```python
 def __init__(field_name: str,
@@ -107,9 +93,7 @@ Constructor
   [reportlab User Guide](https://www.reportlab.com/docs/reportlab-userguide.pdf)
 - `field_name` - the name of the field, exposed to via most APIs. Not the tooltip, but `users1_name__0`
 
-<a id="formfyxer.pdf_wrangling.set_fields"></a>
-
-#### set\_fields(in\_file: Union[str, Path, BinaryIO], out\_file: Union[str, Path, BinaryIO], fields\_per\_page: Iterable[Iterable[FormField]], \*, overwrite=False)
+#### set\_fields(in\_file: Union[str, Path, BinaryIO], out\_file: Union[str, Path, BinaryIO], fields\_per\_page: Iterable[Iterable[FormField]], \*, overwrite=False) {#formfyxer.pdf\_wrangling.set\_fields}
 
 ```python
 def set_fields(in_file: Union[str, Path, BinaryIO],
@@ -157,9 +141,7 @@ set_fields('no_fields.pdf', 'four_fields_on_second_page.pdf',
 
   Nothing.
 
-<a id="formfyxer.pdf_wrangling.rename_pdf_fields"></a>
-
-#### rename\_pdf\_fields(in\_file: Union[str, Path, BinaryIO], out\_file: Union[str, Path, BinaryIO], mapping: Mapping[str, str])
+#### rename\_pdf\_fields(in\_file: Union[str, Path, BinaryIO], out\_file: Union[str, Path, BinaryIO], mapping: Mapping[str, str]) {#formfyxer.pdf\_wrangling.rename\_pdf\_fields}
 
 ```python
 def rename_pdf_fields(in_file: Union[str, Path, BinaryIO],
@@ -185,9 +167,9 @@ Args:
 Returns:
   Nothing
 
-<a id="formfyxer.pdf_wrangling.unlock_pdf_in_place"></a>
+```
 
-#### unlock\_pdf\_in\_place(in\_file: Union[str, Path, BinaryIO])
+#### unlock\_pdf\_in\_place(in\_file: Union[str, Path, BinaryIO]) {#formfyxer.pdf\_wrangling.unlock\_pdf\_in\_place}
 
 ```python
 def unlock_pdf_in_place(in_file: Union[str, Path, BinaryIO]) -> None
@@ -195,9 +177,7 @@ def unlock_pdf_in_place(in_file: Union[str, Path, BinaryIO]) -> None
 
 Try using pikePDF to unlock the PDF it it is locked. This won&#x27;t work if it has a non-zero length password.
 
-<a id="formfyxer.pdf_wrangling.has_fields"></a>
-
-#### has\_fields(pdf\_file: str)
+#### has\_fields(pdf\_file: str) {#formfyxer.pdf\_wrangling.has\_fields}
 
 ```python
 def has_fields(pdf_file: str) -> bool
@@ -214,9 +194,7 @@ Check if a PDF has at least one form field using PikePDF.
 
 - `bool` - True if the PDF has at least one form field, False otherwise.
 
-<a id="formfyxer.pdf_wrangling.get_existing_pdf_fields"></a>
-
-#### get\_existing\_pdf\_fields(in\_file: Union[str, Path, BinaryIO, Pdf])
+#### get\_existing\_pdf\_fields(in\_file: Union[str, Path, BinaryIO, Pdf]) {#formfyxer.pdf\_wrangling.get\_existing\_pdf\_fields}
 
 ```python
 def get_existing_pdf_fields(
@@ -225,9 +203,7 @@ def get_existing_pdf_fields(
 
 Use PikePDF to get fields from the PDF
 
-<a id="formfyxer.pdf_wrangling.swap_pdf_page"></a>
-
-#### swap\_pdf\_page(\*, source\_pdf: Union[str, Path, Pdf], destination\_pdf: Union[str, Path, Pdf], source\_offset: int = 0, destination\_offset: int = 0, append\_fields: bool = False)
+#### swap\_pdf\_page(\*, source\_pdf: Union[str, Path, Pdf], destination\_pdf: Union[str, Path, Pdf], source\_offset: int = 0, destination\_offset: int = 0, append\_fields: bool = False) {#formfyxer.pdf\_wrangling.swap\_pdf\_page}
 
 ```python
 def swap_pdf_page(*,
@@ -242,9 +218,7 @@ def swap_pdf_page(*,
 the source and destination PDFs. By default, it will remove any existing annotations (which include form fields)
 in the destination PDF. If you wish to append annotations instead, specify `append_fields = True`
 
-<a id="formfyxer.pdf_wrangling.copy_pdf_fields"></a>
-
-#### copy\_pdf\_fields(\*, source\_pdf: Union[str, Path, Pdf], destination\_pdf: Union[str, Path, Pdf], source\_offset: int = 0, destination\_offset: int = 0, append\_fields: bool = False)
+#### copy\_pdf\_fields(\*, source\_pdf: Union[str, Path, Pdf], destination\_pdf: Union[str, Path, Pdf], source\_offset: int = 0, destination\_offset: int = 0, append\_fields: bool = False) {#formfyxer.pdf\_wrangling.copy\_pdf\_fields}
 
 ```python
 def copy_pdf_fields(*,
@@ -288,9 +262,7 @@ new_pdf_with_fields.save("new_pdf_with_fields.pdf")
   A pikepdf.Pdf object with new fields. If `blank_pdf` was a pikepdf.Pdf object, the
   same object is returned.
 
-<a id="formfyxer.pdf_wrangling.get_textboxes_in_pdf"></a>
-
-#### get\_textboxes\_in\_pdf(in\_file: Union[str, Path, BinaryIO], line\_margin=0.02, char\_margin=2.0)
+#### get\_textboxes\_in\_pdf(in\_file: Union[str, Path, BinaryIO], line\_margin=0.02, char\_margin=2.0) {#formfyxer.pdf\_wrangling.get\_textboxes\_in\_pdf}
 
 ```python
 def get_textboxes_in_pdf(in_file: Union[str, Path, BinaryIO],
@@ -300,9 +272,7 @@ def get_textboxes_in_pdf(in_file: Union[str, Path, BinaryIO],
 
 Gets all of the text boxes found by pdfminer in a PDF, as well as their bounding boxes
 
-<a id="formfyxer.pdf_wrangling.get_bracket_chars_in_pdf"></a>
-
-#### get\_bracket\_chars\_in\_pdf(in\_file: Union[str, Path, BinaryIO], line\_margin=0.02, char\_margin=0.0)
+#### get\_bracket\_chars\_in\_pdf(in\_file: Union[str, Path, BinaryIO], line\_margin=0.02, char\_margin=0.0) {#formfyxer.pdf\_wrangling.get\_bracket\_chars\_in\_pdf}
 
 ```python
 def get_bracket_chars_in_pdf(in_file: Union[str, Path, BinaryIO],
@@ -315,9 +285,7 @@ TODO: Will eventually be used to find [ ] as checkboxes, but right now we can&#x
 This simply gets all of the brackets, and the characters of [hi] in a PDF and [ ] are the exact same distance apart.
 Currently going with just &quot;[hi]&quot; doesn&#x27;t happen, let&#x27;s hope that assumption holds.
 
-<a id="formfyxer.pdf_wrangling.intersect_bbox"></a>
-
-#### intersect\_bbox(bbox\_a, bbox\_b, vert\_dilation=2, horiz\_dilation=2)
+#### intersect\_bbox(bbox\_a, bbox\_b, vert\_dilation=2, horiz\_dilation=2) {#formfyxer.pdf\_wrangling.intersect\_bbox}
 
 ```python
 def intersect_bbox(bbox_a, bbox_b, vert_dilation=2, horiz_dilation=2) -> bool
@@ -325,9 +293,7 @@ def intersect_bbox(bbox_a, bbox_b, vert_dilation=2, horiz_dilation=2) -> bool
 
 bboxes are [left edge, bottom edge, horizontal length, vertical length]
 
-<a id="formfyxer.pdf_wrangling.intersect_bboxs"></a>
-
-#### intersect\_bboxs(bbox\_a, bboxes, vert\_dilation=2, horiz\_dilation=2)
+#### intersect\_bboxs(bbox\_a, bboxes, vert\_dilation=2, horiz\_dilation=2) {#formfyxer.pdf\_wrangling.intersect\_bboxs}
 
 ```python
 def intersect_bboxs(bbox_a,
@@ -338,9 +304,7 @@ def intersect_bboxs(bbox_a,
 
 Returns an iterable of booleans, one of each of the input bboxes, true if it collides with bbox_a
 
-<a id="formfyxer.pdf_wrangling.contain_boxes"></a>
-
-#### contain\_boxes(bbox\_a: BoundingBoxF, bbox\_b: BoundingBoxF)
+#### contain\_boxes(bbox\_a: BoundingBoxF, bbox\_b: BoundingBoxF) {#formfyxer.pdf\_wrangling.contain\_boxes}
 
 ```python
 def contain_boxes(bbox_a: BoundingBoxF, bbox_b: BoundingBoxF) -> BoundingBoxF
@@ -348,9 +312,7 @@ def contain_boxes(bbox_a: BoundingBoxF, bbox_b: BoundingBoxF) -> BoundingBoxF
 
 Given two bounding boxes, return a single bounding box that contains both of them.
 
-<a id="formfyxer.pdf_wrangling.get_dist_sq"></a>
-
-#### get\_dist\_sq(point\_a: XYPair, point\_b: XYPair)
+#### get\_dist\_sq(point\_a: XYPair, point\_b: XYPair) {#formfyxer.pdf\_wrangling.get\_dist\_sq}
 
 ```python
 def get_dist_sq(point_a: XYPair, point_b: XYPair) -> float
@@ -358,9 +320,7 @@ def get_dist_sq(point_a: XYPair, point_b: XYPair) -> float
 
 returns the distance squared between two points. Faster than the true euclidean dist
 
-<a id="formfyxer.pdf_wrangling.get_dist"></a>
-
-#### get\_dist(point\_a: XYPair, point\_b: XYPair)
+#### get\_dist(point\_a: XYPair, point\_b: XYPair) {#formfyxer.pdf\_wrangling.get\_dist}
 
 ```python
 def get_dist(point_a: XYPair, point_b: XYPair) -> float
@@ -368,9 +328,7 @@ def get_dist(point_a: XYPair, point_b: XYPair) -> float
 
 euclidean (L^2 norm) distance between two points
 
-<a id="formfyxer.pdf_wrangling.get_connected_edges"></a>
-
-#### get\_connected\_edges(point: XYPair, point\_list: Sequence)
+#### get\_connected\_edges(point: XYPair, point\_list: Sequence) {#formfyxer.pdf\_wrangling.get\_connected\_edges}
 
 ```python
 def get_connected_edges(point: XYPair, point_list: Sequence)
@@ -379,9 +337,7 @@ def get_connected_edges(point: XYPair, point_list: Sequence)
 point list is always ordered clockwise from the bottom left,
 i.e. bottom left, top left, top right, bottom right
 
-<a id="formfyxer.pdf_wrangling.bbox_distance"></a>
-
-#### bbox\_distance(bbox\_a: BoundingBoxF, bbox\_b: BoundingBoxF)
+#### bbox\_distance(bbox\_a: BoundingBoxF, bbox\_b: BoundingBoxF) {#formfyxer.pdf\_wrangling.bbox\_distance}
 
 ```python
 def bbox_distance(
@@ -396,9 +352,7 @@ around a field, is the most likely to be the actual text label for the PDF field
 
 bboxes are 4 floats, x, y, width and height
 
-<a id="formfyxer.pdf_wrangling.get_possible_fields"></a>
-
-#### get\_possible\_fields(in\_pdf\_file: Union[str, Path], textboxes: Optional[List[List[Textbox]]] = None)
+#### get\_possible\_fields(in\_pdf\_file: Union[str, Path], textboxes: Optional[List[List[Textbox]]] = None) {#formfyxer.pdf\_wrangling.get\_possible\_fields}
 
 ```python
 def get_possible_fields(
@@ -432,9 +386,7 @@ print(fields[0][0])
 
   For each page in the input PDF, a list of predicted form fields
 
-<a id="formfyxer.pdf_wrangling.get_possible_checkboxes"></a>
-
-#### get\_possible\_checkboxes(img: Union[str, cv2.Mat], find\_small=False)
+#### get\_possible\_checkboxes(img: Union[str, cv2.Mat], find\_small=False) {#formfyxer.pdf\_wrangling.get\_possible\_checkboxes}
 
 ```python
 def get_possible_checkboxes(img: Union[str, cv2.Mat],
@@ -447,9 +399,7 @@ Assumes the checkbox is square.
 find_small: if true, finds smaller checkboxes. Sometimes will &quot;find&quot; a checkbox in letters,
 like O and D, if the font is too small
 
-<a id="formfyxer.pdf_wrangling.get_possible_radios"></a>
-
-#### get\_possible\_radios(img: Union[str, BinaryIO, cv2.Mat])
+#### get\_possible\_radios(img: Union[str, BinaryIO, cv2.Mat]) {#formfyxer.pdf\_wrangling.get\_possible\_radios}
 
 ```python
 def get_possible_radios(img: Union[str, BinaryIO, cv2.Mat])
@@ -458,9 +408,7 @@ def get_possible_radios(img: Union[str, BinaryIO, cv2.Mat])
 Even though it&#x27;s called &quot;radios&quot;, it just gets things shaped like circles, not
 doing any semantic analysis yet.
 
-<a id="formfyxer.pdf_wrangling.get_possible_text_fields"></a>
-
-#### get\_possible\_text\_fields(img: Union[str, BinaryIO, cv2.Mat], text\_lines: List[Textbox], default\_line\_height: int = 44)
+#### get\_possible\_text\_fields(img: Union[str, BinaryIO, cv2.Mat], text\_lines: List[Textbox], default\_line\_height: int = 44) {#formfyxer.pdf\_wrangling.get\_possible\_text\_fields}
 
 ```python
 def get_possible_text_fields(
@@ -476,9 +424,7 @@ Won&#x27;t find field inputs as boxes
 
 default_line_height: the default height (16 pt), in pixels (at 200 dpi), which is 45
 
-<a id="formfyxer.pdf_wrangling.auto_add_fields"></a>
-
-#### auto\_add\_fields(in\_pdf\_file: Union[str, Path], out\_pdf\_file: Union[str, Path])
+#### auto\_add\_fields(in\_pdf\_file: Union[str, Path], out\_pdf\_file: Union[str, Path]) {#formfyxer.pdf\_wrangling.auto\_add\_fields}
 
 ```python
 def auto_add_fields(in_pdf_file: Union[str, Path], out_pdf_file: Union[str,
@@ -508,9 +454,7 @@ auto_add_fields('no_fields.pdf', 'newly_added_fields.pdf')
 
   Nothing
 
-<a id="formfyxer.pdf_wrangling.is_tagged"></a>
-
-#### is\_tagged(in\_pdf\_file: Union[str, Path, pikepdf.Pdf])
+#### is\_tagged(in\_pdf\_file: Union[str, Path, pikepdf.Pdf]) {#formfyxer.pdf\_wrangling.is\_tagged}
 
 ```python
 def is_tagged(in_pdf_file: Union[str, Path, pikepdf.Pdf]) -> bool

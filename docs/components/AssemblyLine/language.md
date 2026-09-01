@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [AssemblyLine.language](#AssemblyLine.language)
+* AssemblyLine.language
   * [get\_local\_languages\_yaml](#AssemblyLine.language.get_local_languages_yaml)
   * [get\_tuples](#AssemblyLine.language.get_tuples)
   * [get\_language\_list\_dropdown](#AssemblyLine.language.get_language_list_dropdown)
@@ -13,9 +13,7 @@ sidebar_label: language
 title: AssemblyLine.language
 ---
 
-<a id="AssemblyLine.language.get_local_languages_yaml"></a>
-
-#### get\_local\_languages\_yaml()
+#### get\_local\_languages\_yaml() {#AssemblyLine.language.get\_local\_languages\_yaml}
 
 ```python
 def get_local_languages_yaml() -> str
@@ -27,9 +25,7 @@ Get the path to the local languages.yml file. If it does not exist, it will retu
 
 - `str` - the path to the local languages.yml file if it exists, otherwise the path to the languages.yml file
 
-<a id="AssemblyLine.language.get_tuples"></a>
-
-#### get\_tuples(lang\_codes: List[str], languages\_path: Optional[str] = None)
+#### get\_tuples(lang\_codes: List[str], languages\_path: Optional[str] = None) {#AssemblyLine.language.get\_tuples}
 
 ```python
 def get_tuples(lang_codes: List[str],
@@ -51,9 +47,7 @@ English name from pycountry. If neither is present, it will use the language cod
 
   A list of tuples representing the language name, followed by language ISO 639-1 code.
 
-<a id="AssemblyLine.language.get_language_list_dropdown"></a>
-
-#### get\_language\_list\_dropdown(lang\_codes: List[str], current: str = "", languages\_path: Optional[str] = None, event\_name="al\_change\_language", icon="fa-solid fa-language fa-xl", extra\_class: str = "text-light")
+#### get\_language\_list\_dropdown(lang\_codes: List[str], current: str = "", languages\_path: Optional[str] = None, event\_name="al\_change\_language", icon="fa-solid fa-language fa-xl", extra\_class: str = "text-light") {#AssemblyLine.language.get\_language\_list\_dropdown}
 
 ```python
 def get_language_list_dropdown(lang_codes: List[str],
@@ -79,9 +73,7 @@ Get a Bootstrap 5 dropdown menu for language selection that can be added to navi
 
   A string containing the HTML for a dropdown menu for language selection.
 
-<a id="AssemblyLine.language.get_language_list_dropdown_item"></a>
-
-#### get\_language\_list\_dropdown\_item(language: Tuple[str, str], link: bool = True, event\_name="al\_change\_language")
+#### get\_language\_list\_dropdown\_item(language: Tuple[str, str], link: bool = True, event\_name="al\_change\_language") {#AssemblyLine.language.get\_language\_list\_dropdown\_item}
 
 ```python
 def get_language_list_dropdown_item(language: Tuple[str, str],
@@ -103,9 +95,7 @@ given in the first part of the tuple.
 
 - `str` - A string containing the HTML for a dropdown menu item for language selection.
 
-<a id="AssemblyLine.language.get_language_list"></a>
-
-#### get\_language\_list(languages: Optional[List[Tuple[str, str]]] = None, current="", lang\_codes: Optional[List[str]] = None, languages\_path: Optional[str] = None, event\_name="al\_get\_language\_list\_change\_language")
+#### get\_language\_list(languages: Optional[List[Tuple[str, str]]] = None, current="", lang\_codes: Optional[List[str]] = None, languages\_path: Optional[str] = None, event\_name="al\_get\_language\_list\_change\_language") {#AssemblyLine.language.get\_language\_list}
 
 ```python
 def get_language_list(languages: Optional[List[Tuple[str, str]]] = None,
@@ -134,9 +124,7 @@ tuples containing the language name and language code. This is deprecated and ma
 
   A string containing the HTML for an unordered inline list of language selection.
 
-<a id="AssemblyLine.language.get_language_list_item"></a>
-
-#### get\_language\_list\_item(language, link=True, event\_name="al\_change\_language")
+#### get\_language\_list\_item(language, link=True, event\_name="al\_change\_language") {#AssemblyLine.language.get\_language\_list\_item}
 
 ```python
 def get_language_list_item(language,

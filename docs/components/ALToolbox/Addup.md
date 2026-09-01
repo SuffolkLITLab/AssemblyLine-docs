@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALToolbox.Addup](#ALToolbox.Addup)
+* ALToolbox.Addup
   * [Addup](#ALToolbox.Addup.Addup)
     * [\_\_init\_\_](#ALToolbox.Addup.Addup.__init__)
     * [g](#ALToolbox.Addup.Addup.g)
@@ -10,9 +10,7 @@ sidebar_label: Addup
 title: ALToolbox.Addup
 ---
 
-<a id="ALToolbox.Addup.Addup"></a>
-
-## Addup Objects
+## Addup Objects {#ALToolbox.Addup.Addup}
 
 ```python
 class Addup()
@@ -24,9 +22,7 @@ This class provides functionality to sum specific numeric fields from all
 items in a docassemble DAList, which is useful for financial calculations
 and data aggregation in legal document automation.
 
-<a id="ALToolbox.Addup.Addup.__init__"></a>
-
-#### \_\_init\_\_(listName, varName)
+#### \_\_init\_\_(listName, varName) {#ALToolbox.Addup.Addup.\_\_init\_\_}
 
 ```python
 def __init__(listName, varName)
@@ -40,9 +36,7 @@ Initialize the Addup calculator and compute the sum immediately.
 - `listName` - A DAList object containing items with numeric fields.
 - `varName` _str_ - The name of the field to sum across all list items.
 
-<a id="ALToolbox.Addup.Addup.g"></a>
-
-#### g(listName, varName)
+#### g(listName, varName) {#ALToolbox.Addup.Addup.g}
 
 ```python
 def g(listName, varName) -> float

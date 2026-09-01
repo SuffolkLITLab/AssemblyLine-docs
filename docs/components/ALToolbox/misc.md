@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [ALToolbox.misc](#ALToolbox.misc)
+* ALToolbox.misc
   * [thousands](#ALToolbox.misc.thousands)
   * [tel](#ALToolbox.misc.tel)
   * [fa\_icon](#ALToolbox.misc.fa_icon)
@@ -28,9 +28,7 @@ sidebar_label: misc
 title: ALToolbox.misc
 ---
 
-<a id="ALToolbox.misc.thousands"></a>
-
-#### thousands(num: Union[float, str, Decimal], show\_decimals=False)
+#### thousands(num: Union[float, str, Decimal], show\_decimals=False) {#ALToolbox.misc.thousands}
 
 ```python
 def thousands(num: Union[float, str, Decimal], show_decimals=False) -> str
@@ -63,9 +61,7 @@ closest int.
   &gt;&gt;&gt; thousands(1234.56, show_decimals=True)
   &#x27;1,234.56&#x27;
 
-<a id="ALToolbox.misc.tel"></a>
-
-#### tel(phone\_number)
+#### tel(phone\_number) {#ALToolbox.misc.tel}
 
 ```python
 def tel(phone_number) -> str
@@ -91,9 +87,7 @@ and dial the number on mobile devices or applications that support tel links.
   &gt;&gt;&gt; tel(&quot;555-123-4567&quot;)
   &#x27;&lt;a href=&quot;tel:555-123-4567&quot;&gt;555-123-4567&lt;/a&gt;&#x27;
 
-<a id="ALToolbox.misc.fa_icon"></a>
-
-#### fa\_icon(icon: str, color: Optional[str] = "primary", color\_css: Optional[str] = None, size: Optional[str] = "sm", fa\_class: str = "fa-solid", aria\_hidden: bool = True)
+#### fa\_icon(icon: str, color: Optional[str] = "primary", color\_css: Optional[str] = None, size: Optional[str] = "sm", fa\_class: str = "fa-solid", aria\_hidden: bool = True) {#ALToolbox.misc.fa\_icon}
 
 ```python
 def fa_icon(icon: str,
@@ -129,9 +123,7 @@ you more control over the icon that is inserted.
 
   HTML for a font-awesome icon of the specified size and color.
 
-<a id="ALToolbox.misc.space"></a>
-
-#### space(var\_name: str, prefix=" ", suffix="")
+#### space(var\_name: str, prefix=" ", suffix="") {#ALToolbox.misc.space}
 
 ```python
 def space(var_name: str, prefix=" ", suffix="") -> str
@@ -163,9 +155,7 @@ if the variable name is valid and the variable is defined and has a value.
   &gt;&gt;&gt; space(&quot;undefined_var&quot;)
   &quot;&quot;  # if variable is not defined
 
-<a id="ALToolbox.misc.yes_no_unknown"></a>
-
-#### yes\_no\_unknown(var\_name: str, condition: Optional[bool], unknown="Unknown", placeholder=0)
+#### yes\_no\_unknown(var\_name: str, condition: Optional[bool], unknown="Unknown", placeholder=0) {#ALToolbox.misc.yes\_no\_unknown}
 
 ```python
 def yes_no_unknown(var_name: str,
@@ -204,9 +194,7 @@ False (explicitly no) and None (unknown/not answered).
   &gt;&gt;&gt; yes_no_unknown(&quot;user_answer&quot;, False, &quot;Unknown&quot;, 0)
   0
 
-<a id="ALToolbox.misc.number_to_letter"></a>
-
-#### number\_to\_letter(n: Optional[int])
+#### number\_to\_letter(n: Optional[int]) {#ALToolbox.misc.number\_to\_letter}
 
 ```python
 def number_to_letter(n: Optional[int]) -> str
@@ -236,9 +224,7 @@ with Excel/Google Sheets column naming conventions. 27=AA, 28=AB...
   &gt;&gt;&gt; number_to_letter(27)
   &#x27;AA&#x27;
 
-<a id="ALToolbox.misc.collapse_template"></a>
-
-#### collapse\_template(template: DALazyTemplate, classname: str | None = None, closed\_icon: str = "caret-right", open\_icon: str = "caret-down", collapsed: bool = True)
+#### collapse\_template(template: DALazyTemplate, classname: str | None = None, closed\_icon: str = "caret-right", open\_icon: str = "caret-down", collapsed: bool = True) {#ALToolbox.misc.collapse\_template}
 
 ```python
 def collapse_template(template: DALazyTemplate,
@@ -280,9 +266,7 @@ The default icons are &quot;right caret&quot; which displays when the text is co
   &gt;&gt;&gt; collapse_template(my_template, classname=&quot;bg-primary&quot;, collapsed=False)
   &#x27;&lt;div id=&quot;...&quot; class=&quot;al_collapse_template&quot;&gt;...&lt;/div&gt;&#x27;
 
-<a id="ALToolbox.misc.tabbed_templates_html"></a>
-
-#### tabbed\_templates\_html(tab\_group\_name: str, \*pargs)
+#### tabbed\_templates\_html(tab\_group\_name: str, \*pargs) {#ALToolbox.misc.tabbed\_templates\_html}
 
 ```python
 def tabbed_templates_html(tab_group_name: str, *pargs) -> str
@@ -312,9 +296,7 @@ subject becomes the tab label and the content becomes the tab panel content.
   &gt;&gt;&gt; tabbed_templates_html(&quot;my_tabs&quot;, template1, template2, template3)
   &#x27;&lt;ul class=&quot;nav nav-tabs&quot; id=&quot;my_tabs&quot;&gt;...&lt;/ul&gt;&lt;div class=&quot;tab-content&quot;&gt;...&lt;/div&gt;&#x27;
 
-<a id="ALToolbox.misc.review_widget"></a>
-
-#### review\_widget(\*, up\_action: str, down\_action: str, review\_action: Optional[str] = None, thumbs\_display: str = "Did we help you?", review\_display: str = "Thank you for your feedback. Let us know what we could do better", submit\_review\_button: str = "Add your review", post\_review\_display: str = "Thank you for your review!")
+#### review\_widget(\*, up\_action: str, down\_action: str, review\_action: Optional[str] = None, thumbs\_display: str = "Did we help you?", review\_display: str = "Thank you for your feedback. Let us know what we could do better", submit\_review\_button: str = "Add your review", post\_review\_display: str = "Thank you for your review!") {#ALToolbox.misc.review\_widget}
 
 ```python
 def review_widget(
@@ -353,9 +335,7 @@ a submit button appears, and once the text review is submitted (or after the thu
 
   the HTML string of the widget
 
-<a id="ALToolbox.misc.sum_if_defined"></a>
-
-#### sum\_if\_defined(\*pargs)
+#### sum\_if\_defined(\*pargs) {#ALToolbox.misc.sum\_if\_defined}
 
 ```python
 def sum_if_defined(*pargs) -> Union[int, float, Decimal]
@@ -382,9 +362,7 @@ that are defined. Undefined variables are skipped rather than causing errors.
   &gt;&gt;&gt; sum_if_defined(&quot;income1&quot;, &quot;income2&quot;, &quot;income3&quot;)
   # Returns sum of defined income variables, skipping any undefined ones
 
-<a id="ALToolbox.misc.add_records"></a>
-
-#### add\_records(obj, labels)
+#### add\_records(obj, labels) {#ALToolbox.misc.add\_records}
 
 ```python
 def add_records(obj, labels) -> Any
@@ -413,9 +391,7 @@ including name, description, and reference for creating a demo landing page.
   &gt;&gt;&gt; add_records(my_list, interviews)
   # my_list[0].name = &quot;intake&quot;, description = &quot;Intake Interview&quot;, etc.
 
-<a id="ALToolbox.misc.output_checkbox"></a>
-
-#### output\_checkbox(value\_to\_check: bool, checked\_value: str = "[X]", unchecked\_value: str = "[  ]")
+#### output\_checkbox(value\_to\_check: bool, checked\_value: str = "[X]", unchecked\_value: str = "[  ]") {#ALToolbox.misc.output\_checkbox}
 
 ```python
 def output_checkbox(value_to_check: bool,
@@ -450,9 +426,7 @@ useful for creating checkboxes in document templates.
   &gt;&gt;&gt; output_checkbox(False, checked_value=&quot;YES&quot;, unchecked_value=&quot;NO&quot;)
   &#x27;NO&#x27;
 
-<a id="ALToolbox.misc.nice_county_name"></a>
-
-#### nice\_county\_name(address: Address)
+#### nice\_county\_name(address: Address) {#ALToolbox.misc.nice\_county\_name}
 
 ```python
 def nice_county_name(address: Address) -> str
@@ -481,9 +455,7 @@ Autocomplete does by default, remove it to get a cleaner display name.
   &gt;&gt;&gt; nice_county_name(address_without_county)
   &#x27;&#x27;
 
-<a id="ALToolbox.misc.button_array"></a>
-
-#### button\_array(buttons: List[ButtonDict], custom\_container\_class="", custom\_link\_class="")
+#### button\_array(buttons: List[ButtonDict], custom\_container\_class="", custom\_link\_class="") {#ALToolbox.misc.button\_array}
 
 ```python
 def button_array(buttons: List[ButtonDict],
@@ -519,9 +491,7 @@ of privileges.
 
 - `str` - HTML for a grid of buttons that mimics docassemble&#x27;s button field type.
 
-<a id="ALToolbox.misc.none_to_empty"></a>
-
-#### none\_to\_empty(val: Any)
+#### none\_to\_empty(val: Any) {#ALToolbox.misc.none\_to\_empty}
 
 ```python
 def none_to_empty(val: Any) -> Any
@@ -543,9 +513,7 @@ without raising an error.
 
   a DAEmpty if the value is None, otherwise the value
 
-<a id="ALToolbox.misc.option_or_other"></a>
-
-#### option\_or\_other(variable\_name: str, other\_variable\_name: Optional[str] = None)
+#### option\_or\_other(variable\_name: str, other\_variable\_name: Optional[str] = None) {#ALToolbox.misc.option\_or\_other}
 
 ```python
 def option_or_other(variable_name: str,
@@ -565,9 +533,7 @@ This is useful for filling in a template and to prevent the word &#x27;Other&#x2
 
   the value of the variable if it is not &#x27;Other&#x27;, otherwise the value of the other variable
 
-<a id="ALToolbox.misc.true_values_with_other"></a>
-
-#### true\_values\_with\_other(variable\_name: str, other\_variable\_name: Optional[str] = None)
+#### true\_values\_with\_other(variable\_name: str, other\_variable\_name: Optional[str] = None) {#ALToolbox.misc.true\_values\_with\_other}
 
 ```python
 def true_values_with_other(
@@ -592,9 +558,7 @@ This is useful for filling in a template and to prevent the word &#x27;Other&#x2
   A list of values that are True, with the value of the &#x27;other&#x27;
   variable appended to the end of the list if &#x27;other&#x27;/&#x27;Other&#x27; was selected.
 
-<a id="ALToolbox.misc.include_a_year"></a>
-
-#### include\_a\_year(text: str, field: Optional[str] = None)
+#### include\_a\_year(text: str, field: Optional[str] = None) {#ALToolbox.misc.include\_a\_year}
 
 ```python
 def include_a_year(text: str, field: Optional[str] = None) -> bool
@@ -630,9 +594,7 @@ birthdate or a moving date.
   True
   &gt;&gt;&gt; include_a_year(&quot;Born long ago&quot;)  # raises DAValidationError
 
-<a id="ALToolbox.misc.is_leap_year"></a>
-
-#### is\_leap\_year(year: int)
+#### is\_leap\_year(year: int) {#ALToolbox.misc.is\_leap\_year}
 
 ```python
 def is_leap_year(year: int) -> bool
@@ -648,9 +610,7 @@ Helper function for `age_in_years` to determine if a year is a leap year.
 
   True if the year is a leap year, False otherwise.
 
-<a id="ALToolbox.misc.age_in_years"></a>
-
-#### age\_in\_years(the\_date: Union[str, DADateTime])
+#### age\_in\_years(the\_date: Union[str, DADateTime]) {#ALToolbox.misc.age\_in\_years}
 
 ```python
 def age_in_years(the_date: Union[str, DADateTime]) -> int
@@ -666,9 +626,7 @@ Calculate the age in years from a date (treated like a date of birth).
 
   The age in years as an integer.
 
-<a id="ALToolbox.misc.format_date_if_defined"></a>
-
-#### format\_date\_if\_defined(date\_object\_name: str, \*pargs, default: str = "", \*\*kwargs)
+#### format\_date\_if\_defined(date\_object\_name: str, \*pargs, default: str = "", \*\*kwargs) {#ALToolbox.misc.format\_date\_if\_defined}
 
 ```python
 def format_date_if_defined(date_object_name: str,

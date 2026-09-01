@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [AssemblyLine.sessions](#AssemblyLine.sessions)
+* AssemblyLine.sessions
   * [is\_file\_like](#AssemblyLine.sessions.is_file_like)
   * [set\_interview\_metadata](#AssemblyLine.sessions.set_interview_metadata)
   * [get\_interview\_metadata](#AssemblyLine.sessions.get_interview_metadata)
@@ -35,9 +35,7 @@ sidebar_label: sessions
 title: AssemblyLine.sessions
 ---
 
-<a id="AssemblyLine.sessions.is_file_like"></a>
-
-#### is\_file\_like(obj: Any)
+#### is\_file\_like(obj: Any) {#AssemblyLine.sessions.is\_file\_like}
 
 ```python
 def is_file_like(obj: Any) -> bool
@@ -54,9 +52,7 @@ Return True if the object is a file-like object.
 
 - `bool` - True if the object is a file-like object.
 
-<a id="AssemblyLine.sessions.set_interview_metadata"></a>
-
-#### set\_interview\_metadata(filename: str, session\_id: str, data: Dict, metadata\_key\_name="metadata")
+#### set\_interview\_metadata(filename: str, session\_id: str, data: Dict, metadata\_key\_name="metadata") {#AssemblyLine.sessions.set\_interview\_metadata}
 
 ```python
 def set_interview_metadata(filename: str,
@@ -80,9 +76,7 @@ Standardized metadata dictionary:
 - `data` _Dict_ - The metadata to add
 - `metadata_key_name` _str, optional_ - The name of the metadata key. Defaults to &quot;metadata&quot;.
 
-<a id="AssemblyLine.sessions.get_interview_metadata"></a>
-
-#### get\_interview\_metadata(filename: str, session\_id: str, metadata\_key\_name: str = "metadata")
+#### get\_interview\_metadata(filename: str, session\_id: str, metadata\_key\_name: str = "metadata") {#AssemblyLine.sessions.get\_interview\_metadata}
 
 ```python
 def get_interview_metadata(
@@ -105,9 +99,7 @@ We implement this with the docassemble jsonstorage table and a dedicated `tag` w
 
   Dict[str, Any]: The metadata associated with the interview
 
-<a id="AssemblyLine.sessions.get_saved_interview_list"></a>
-
-#### get\_saved\_interview\_list(filename: Optional[str] = al\_session\_store\_default\_filename, user\_id: Union[int, str, None] = None, metadata\_key\_name: str = "metadata", limit: int = 50, offset: int = 0, filename\_to\_exclude: str = "", exclude\_current\_filename: bool = True, exclude\_filenames: Optional[List[str]] = None, exclude\_newly\_started\_sessions: bool = False)
+#### get\_saved\_interview\_list(filename: Optional[str] = al\_session\_store\_default\_filename, user\_id: Union[int, str, None] = None, metadata\_key\_name: str = "metadata", limit: int = 50, offset: int = 0, filename\_to\_exclude: str = "", exclude\_current\_filename: bool = True, exclude\_filenames: Optional[List[str]] = None, exclude\_newly\_started\_sessions: bool = False) {#AssemblyLine.sessions.get\_saved\_interview\_list}
 
 ```python
 def get_saved_interview_list(
@@ -150,9 +142,7 @@ an existing interview to the answer set.
 
   List[Dict[str, Any]]: A list of saved sessions for the specified filename.
 
-<a id="AssemblyLine.sessions.find_matching_sessions"></a>
-
-#### find\_matching\_sessions(keyword: str, metadata\_column\_names: Optional[Union[Set[str], List[str]]] = None, filenames: Optional[Union[Set[str], List[str]]] = None, user\_id: Union[int, str, None] = None, metadata\_key\_name: str = "metadata", limit: int = 50, offset: int = 0, filename\_to\_exclude: str = "", exclude\_current\_filename: bool = True, exclude\_filenames: Optional[List[str]] = None, exclude\_newly\_started\_sessions: bool = False, global\_search\_allowed\_roles: Optional[Union[Set[str], List[str]]] = None, metadata\_filters: Optional[Dict[str, Tuple[Any, str, Optional[str]]]] = None)
+#### find\_matching\_sessions(keyword: str, metadata\_column\_names: Optional[Union[Set[str], List[str]]] = None, filenames: Optional[Union[Set[str], List[str]]] = None, user\_id: Union[int, str, None] = None, metadata\_key\_name: str = "metadata", limit: int = 50, offset: int = 0, filename\_to\_exclude: str = "", exclude\_current\_filename: bool = True, exclude\_filenames: Optional[List[str]] = None, exclude\_newly\_started\_sessions: bool = False, global\_search\_allowed\_roles: Optional[Union[Set[str], List[str]]] = None, metadata\_filters: Optional[Dict[str, Tuple[Any, str, Optional[str]]]] = None) {#AssemblyLine.sessions.find\_matching\_sessions}
 
 ```python
 def find_matching_sessions(
@@ -221,9 +211,7 @@ The keyword search is case-insensitive and will match any part of the metadata c
 
 - `\{"owner"` - (&quot;samantha&quot;, &quot;ILIKE&quot;, None), &quot;age&quot;: (30, &quot;&gt;=&quot;, &quot;int&quot;), &quot;status&quot;: (&quot;%complete%&quot;, &quot;LIKE&quot;, None)\}
 
-<a id="AssemblyLine.sessions.delete_interview_sessions"></a>
-
-#### delete\_interview\_sessions(user\_id: Optional[int] = None, filename\_to\_exclude: str = al\_session\_store\_default\_filename, exclude\_current\_filename: bool = True)
+#### delete\_interview\_sessions(user\_id: Optional[int] = None, filename\_to\_exclude: str = al\_session\_store\_default\_filename, exclude\_current\_filename: bool = True) {#AssemblyLine.sessions.delete\_interview\_sessions}
 
 ```python
 def delete_interview_sessions(
@@ -242,9 +230,7 @@ interview_list(action=&quot;delete_all&quot;) is both quite slow and because it 
 - `filename_to_exclude` _str, optional_ - The filename to exclude from the results. Defaults to al_session_store_default_filename.
 - `exclude_current_filename` _bool, optional_ - Whether to exclude the current filename from the results. Defaults to True.
 
-<a id="AssemblyLine.sessions.interview_list_html"></a>
-
-#### interview\_list\_html(filename: str = al\_session\_store\_default\_filename, user\_id: Union[int, str, None] = None, metadata\_key\_name: str = "metadata", exclude\_newly\_started\_sessions=False, date\_label: str = word("Date"), details\_label: str = word("Details"), actions\_label: str = word("Actions"), delete\_label: str = word("Delete"), view\_label: str = word("View"), load\_action: str = "al\_sessions\_fast\_forward\_session", delete\_action: str = "al\_sessions\_delete\_session", view\_only: bool = False, limit: int = 50, offset: int = 0, display\_interview\_title: bool = True, show\_view\_button: bool = True, answers: Optional[List[Dict[str, Any]]] = None)
+#### interview\_list\_html(filename: str = al\_session\_store\_default\_filename, user\_id: Union[int, str, None] = None, metadata\_key\_name: str = "metadata", exclude\_newly\_started\_sessions=False, date\_label: str = word("Date"), details\_label: str = word("Details"), actions\_label: str = word("Actions"), delete\_label: str = word("Delete"), view\_label: str = word("View"), load\_action: str = "al\_sessions\_fast\_forward\_session", delete\_action: str = "al\_sessions\_delete\_session", view\_only: bool = False, limit: int = 50, offset: int = 0, display\_interview\_title: bool = True, show\_view\_button: bool = True, answers: Optional[List[Dict[str, Any]]] = None) {#AssemblyLine.sessions.interview\_list\_html}
 
 ```python
 def interview_list_html(filename: str = al_session_store_default_filename,
@@ -302,9 +288,7 @@ itself in a way that adds additional steps)
 
 - `str` - HTML-formatted table containing the list of saved answers.
 
-<a id="AssemblyLine.sessions.nice_interview_title"></a>
-
-#### nice\_interview\_title(answer: Dict[str, str])
+#### nice\_interview\_title(answer: Dict[str, str]) {#AssemblyLine.sessions.nice\_interview\_title}
 
 ```python
 def nice_interview_title(answer: Dict[str, str]) -> str
@@ -325,9 +309,7 @@ in descending priority order.
 
 - `str` - The human readable interview title
 
-<a id="AssemblyLine.sessions.pascal_to_zwspace"></a>
-
-#### pascal\_to\_zwspace(text: str)
+#### pascal\_to\_zwspace(text: str) {#AssemblyLine.sessions.pascal\_to\_zwspace}
 
 ```python
 def pascal_to_zwspace(text: str) -> str
@@ -345,9 +327,7 @@ with word breaks on small viewports.
 
 - `str` - The text with zero-width spaces inserted
 
-<a id="AssemblyLine.sessions.nice_interview_subtitle"></a>
-
-#### nice\_interview\_subtitle(answer: Dict[str, str], exclude\_identical=True)
+#### nice\_interview\_subtitle(answer: Dict[str, str], exclude\_identical=True) {#AssemblyLine.sessions.nice\_interview\_subtitle}
 
 ```python
 def nice_interview_subtitle(answer: Dict[str, str],
@@ -368,9 +348,7 @@ If exclude_identical, return empty string when title is the same as the subtitle
 
 - `str` - The human readable interview subtitle
 
-<a id="AssemblyLine.sessions.radial_progress"></a>
-
-#### radial\_progress(answer: Dict[str, Union[str, int]])
+#### radial\_progress(answer: Dict[str, Union[str, int]]) {#AssemblyLine.sessions.radial\_progress}
 
 ```python
 def radial_progress(answer: Dict[str, Union[str, int]]) -> str
@@ -387,9 +365,7 @@ Return HTML for a radial progress bar, or the number of steps if progress isn&#x
 
 - `str` - the HTML as a string
 
-<a id="AssemblyLine.sessions.local_date"></a>
-
-#### local\_date(utcstring: Optional[str])
+#### local\_date(utcstring: Optional[str]) {#AssemblyLine.sessions.local\_date}
 
 ```python
 def local_date(utcstring: Optional[str]) -> DADateTime
@@ -406,9 +382,7 @@ Return a localized date from a UTC string.
 
 - `DADateTime` - The localized date
 
-<a id="AssemblyLine.sessions.session_list_html"></a>
-
-#### session\_list\_html(filename: Optional[str] = None, user\_id: Union[int, str, None] = None, metadata\_key\_name: str = "metadata", filename\_to\_exclude: str = al\_session\_store\_default\_filename, exclude\_current\_filename: bool = True, exclude\_filenames: Optional[List[str]] = None, exclude\_newly\_started\_sessions: bool = False, name\_label: str = word("Title"), date\_label: str = word("Date modified"), details\_label: str = word("Progress"), actions\_label: str = word("Actions"), delete\_label: str = word("Delete"), rename\_label: str = word("Rename"), rename\_action: str = "interview\_list\_rename\_action", delete\_action: str = "interview\_list\_delete\_session", copy\_action: str = "interview\_list\_copy\_action", clone\_label: str = word("Copy as answer set"), show\_title: bool = True, show\_copy\_button: bool = True, limit: int = 50, offset: int = 0, answers: Optional[List[Dict[str, Any]]] = None)
+#### session\_list\_html(filename: Optional[str] = None, user\_id: Union[int, str, None] = None, metadata\_key\_name: str = "metadata", filename\_to\_exclude: str = al\_session\_store\_default\_filename, exclude\_current\_filename: bool = True, exclude\_filenames: Optional[List[str]] = None, exclude\_newly\_started\_sessions: bool = False, name\_label: str = word("Title"), date\_label: str = word("Date modified"), details\_label: str = word("Progress"), actions\_label: str = word("Actions"), delete\_label: str = word("Delete"), rename\_label: str = word("Rename"), rename\_action: str = "interview\_list\_rename\_action", delete\_action: str = "interview\_list\_delete\_session", copy\_action: str = "interview\_list\_copy\_action", clone\_label: str = word("Copy as answer set"), show\_title: bool = True, show\_copy\_button: bool = True, limit: int = 50, offset: int = 0, answers: Optional[List[Dict[str, Any]]] = None) {#AssemblyLine.sessions.session\_list\_html}
 
 ```python
 def session_list_html(
@@ -471,9 +445,7 @@ user sessions. The results exclude the answer set filename by default.
 
 - `str` - HTML-formatted table containing the list of user sessions.
 
-<a id="AssemblyLine.sessions.rename_interview_answers"></a>
-
-#### rename\_interview\_answers(filename: str, session\_id: str, new\_name: str, metadata\_key\_name: str = "metadata")
+#### rename\_interview\_answers(filename: str, session\_id: str, new\_name: str, metadata\_key\_name: str = "metadata") {#AssemblyLine.sessions.rename\_interview\_answers}
 
 ```python
 def rename_interview_answers(filename: str,
@@ -494,9 +466,7 @@ metadata that may be present.
   
   If exception is raised in set_session_variables, this will silently fail but log the error.
 
-<a id="AssemblyLine.sessions.set_current_session_metadata"></a>
-
-#### set\_current\_session\_metadata(data: Dict[str, Any], metadata\_key\_name: str = "metadata")
+#### set\_current\_session\_metadata(data: Dict[str, Any], metadata\_key\_name: str = "metadata") {#AssemblyLine.sessions.set\_current\_session\_metadata}
 
 ```python
 def set_current_session_metadata(data: Dict[str, Any],
@@ -510,9 +480,7 @@ Set metadata for the current session, such as the title, in an unencrypted datab
 - `data` _Dict[str, Any]_ - The metadata to set
 - `metadata_key_name` _str, optional_ - The name of the metadata key. Defaults to &quot;metadata&quot;.
 
-<a id="AssemblyLine.sessions.rename_current_session"></a>
-
-#### rename\_current\_session(new\_name: str, metadata\_key\_name: str = "metadata")
+#### rename\_current\_session(new\_name: str, metadata\_key\_name: str = "metadata") {#AssemblyLine.sessions.rename\_current\_session}
 
 ```python
 def rename_current_session(new_name: str,
@@ -527,9 +495,7 @@ metadata that might be present.
 - `new_name` _str_ - The new name to set for the interview
 - `metadata_key_name` _str, optional_ - The name of the metadata key. Defaults to &quot;metadata&quot;.
 
-<a id="AssemblyLine.sessions.save_interview_answers"></a>
-
-#### save\_interview\_answers(filename: str = al\_session\_store\_default\_filename, variables\_to\_filter: Union[Set[str], List[str], None] = None, metadata: Optional[Dict] = None, metadata\_key\_name: str = "metadata", original\_interview\_filename=None, source\_filename=None, source\_session=None, additional\_variables\_to\_filter=None)
+#### save\_interview\_answers(filename: str = al\_session\_store\_default\_filename, variables\_to\_filter: Union[Set[str], List[str], None] = None, metadata: Optional[Dict] = None, metadata\_key\_name: str = "metadata", original\_interview\_filename=None, source\_filename=None, source\_session=None, additional\_variables\_to\_filter=None) {#AssemblyLine.sessions.save\_interview\_answers}
 
 ```python
 def save_interview_answers(filename: str = al_session_store_default_filename,
@@ -561,9 +527,7 @@ Copies the answers from a given session into a new session with a specified inte
 
 - `str` - ID of the new session.
 
-<a id="AssemblyLine.sessions.get_filtered_session_variables"></a>
-
-#### get\_filtered\_session\_variables(filename: Optional[str] = None, session\_id: Optional[str] = None, variables\_to\_filter: Optional[Union[Set[str], List[str]]] = None, additional\_variables\_to\_filter: Optional[Union[Set[str], List[str]]] = None)
+#### get\_filtered\_session\_variables(filename: Optional[str] = None, session\_id: Optional[str] = None, variables\_to\_filter: Optional[Union[Set[str], List[str]]] = None, additional\_variables\_to\_filter: Optional[Union[Set[str], List[str]]] = None) {#AssemblyLine.sessions.get\_filtered\_session\_variables}
 
 ```python
 def get_filtered_session_variables(
@@ -590,9 +554,7 @@ from the current interview.
 
   Dict[str, Any]: A dictionary of filtered session variables.
 
-<a id="AssemblyLine.sessions.get_filtered_session_variables_string"></a>
-
-#### get\_filtered\_session\_variables\_string(filename: Optional[str] = None, session\_id: Optional[str] = None, variables\_to\_filter: Union[Set[str], List[str], None] = None, additional\_variables\_to\_filter: Optional[Union[Set[str], List[str]]] = None, indent: int = 4)
+#### get\_filtered\_session\_variables\_string(filename: Optional[str] = None, session\_id: Optional[str] = None, variables\_to\_filter: Union[Set[str], List[str], None] = None, additional\_variables\_to\_filter: Optional[Union[Set[str], List[str]]] = None, indent: int = 4) {#AssemblyLine.sessions.get\_filtered\_session\_variables\_string}
 
 ```python
 def get_filtered_session_variables_string(
@@ -620,9 +582,7 @@ If no filename and session ID are provided, the current session&#x27;s variables
 
 - `str` - A JSON-formatted string of filtered session variables.
 
-<a id="AssemblyLine.sessions.load_interview_answers"></a>
-
-#### load\_interview\_answers(old\_interview\_filename: str, old\_session\_id: str, new\_session: bool = False, new\_interview\_filename: Optional[str] = None, variables\_to\_filter: Optional[List[str]] = None, additional\_variables\_to\_filter: Optional[List[str]] = None)
+#### load\_interview\_answers(old\_interview\_filename: str, old\_session\_id: str, new\_session: bool = False, new\_interview\_filename: Optional[str] = None, variables\_to\_filter: Optional[List[str]] = None, additional\_variables\_to\_filter: Optional[List[str]] = None) {#AssemblyLine.sessions.load\_interview\_answers}
 
 ```python
 def load_interview_answers(
@@ -653,9 +613,7 @@ the active session. This function is primarily used for migrating answers betwee
 
   Optional[Union[int, bool]]: ID of the newly created session if `new_session` is True, otherwise True or False based on success.
 
-<a id="AssemblyLine.sessions.load_interview_json"></a>
-
-#### load\_interview\_json(json\_string: str, new\_session: bool = False, new\_interview\_filename: Optional[str] = None, variables\_to\_filter: Optional[List[str]] = None)
+#### load\_interview\_json(json\_string: str, new\_session: bool = False, new\_interview\_filename: Optional[str] = None, variables\_to\_filter: Optional[List[str]] = None) {#AssemblyLine.sessions.load\_interview\_json}
 
 ```python
 def load_interview_json(
@@ -681,9 +639,7 @@ If the `new_session` argument is not set, the JSON answers will be loaded into t
 
   Optional[Union[int, bool]]: ID of the newly created session if `new_session` is True, otherwise True or False based on success.
 
-<a id="AssemblyLine.sessions.export_interview_variables"></a>
-
-#### export\_interview\_variables(filename: Optional[str] = None, session\_id: Optional[str] = None, variables\_to\_filter: Union[Set, List[str], None] = None, output: DAFile = None, additional\_variables\_to\_filter: Union[Set, List[str], None] = None)
+#### export\_interview\_variables(filename: Optional[str] = None, session\_id: Optional[str] = None, variables\_to\_filter: Union[Set, List[str], None] = None, output: DAFile = None, additional\_variables\_to\_filter: Union[Set, List[str], None] = None) {#AssemblyLine.sessions.export\_interview\_variables}
 
 ```python
 def export_interview_variables(
@@ -712,9 +668,7 @@ The resultant output is compatible with `set_session_variables(process_objects=T
 
 - `DAFile` - DAFile with a JSON representation of the answers
 
-<a id="AssemblyLine.sessions.is_valid_json"></a>
-
-#### is\_valid\_json(json\_string: str)
+#### is\_valid\_json(json\_string: str) {#AssemblyLine.sessions.is\_valid\_json}
 
 ```python
 def is_valid_json(json_string: str) -> bool
@@ -731,9 +685,7 @@ Checks if the provided string is a valid JSON-formatted string.
 
 - `bool` - True if the string is a valid JSON, otherwise it raises a validation error and returns False.
 
-<a id="AssemblyLine.sessions.config_with_language_fallback"></a>
-
-#### config\_with\_language\_fallback(config\_key: str, top\_level\_config\_key: Optional[str] = None)
+#### config\_with\_language\_fallback(config\_key: str, top\_level\_config\_key: Optional[str] = None) {#AssemblyLine.sessions.config\_with\_language\_fallback}
 
 ```python
 def config_with_language_fallback(
@@ -766,9 +718,7 @@ short title: My forms
 
 - `str` - The value of the config key, or the alternative key, or None.
 
-<a id="AssemblyLine.sessions.get_filenames_having_sessions"></a>
-
-#### get\_filenames\_having\_sessions(user\_id: Optional[Union[int, str]] = None, global\_search\_allowed\_roles: Optional[Union[Set[str], List[str]]] = None)
+#### get\_filenames\_having\_sessions(user\_id: Optional[Union[int, str]] = None, global\_search\_allowed\_roles: Optional[Union[Set[str], List[str]]] = None) {#AssemblyLine.sessions.get\_filenames\_having\_sessions}
 
 ```python
 def get_filenames_having_sessions(
@@ -790,9 +740,7 @@ to help show the user a good list of interviews to filter search results.
 
 - `List[str]` - List of filenames that have sessions saved for the user.
 
-<a id="AssemblyLine.sessions.get_combined_filename_list"></a>
-
-#### get\_combined\_filename\_list(user\_id: Optional[Union[int, str]] = None, global\_search\_allowed\_roles: Optional[Union[Set[str], List[str]]] = None)
+#### get\_combined\_filename\_list(user\_id: Optional[Union[int, str]] = None, global\_search\_allowed\_roles: Optional[Union[Set[str], List[str]]] = None) {#AssemblyLine.sessions.get\_combined\_filename\_list}
 
 ```python
 def get_combined_filename_list(
@@ -818,9 +766,7 @@ radio button and dropdown list expect.
 
   List[Dict[str, str]]: List of filenames that have sessions saved for the user.
 
-<a id="AssemblyLine.sessions.update_session_metadata"></a>
-
-#### update\_session\_metadata(filename: str, session\_id: str, data: Dict[str, Any], metadata\_key\_name: str = "metadata")
+#### update\_session\_metadata(filename: str, session\_id: str, data: Dict[str, Any], metadata\_key\_name: str = "metadata") {#AssemblyLine.sessions.update\_session\_metadata}
 
 ```python
 def update_session_metadata(filename: str,
@@ -839,9 +785,7 @@ Upsert session metadata into jsonstorage using a PostgreSQL advisory lock
 - `data` - A dict of metadata to add or update.
 - `metadata_key_name` - The tag for the metadata in jsonstorage. Defaults to &quot;metadata&quot;.
 
-<a id="AssemblyLine.sessions.update_current_session_metadata"></a>
-
-#### update\_current\_session\_metadata(data: Dict[str, Any], metadata\_key\_name: str = "metadata")
+#### update\_current\_session\_metadata(data: Dict[str, Any], metadata\_key\_name: str = "metadata") {#AssemblyLine.sessions.update\_current\_session\_metadata}
 
 ```python
 def update_current_session_metadata(data: Dict[str, Any],
