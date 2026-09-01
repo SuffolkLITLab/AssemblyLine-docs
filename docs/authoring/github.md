@@ -277,3 +277,15 @@ If you think your GitHub account does have permission, try [redoing the GitHub i
 #### If you see `CONFLICT (content): Merge conflict`
 
 The text `CONFLICT (content): Merge conflict` means the branch you are trying to push to changed while you were making your changes. It is what a [merge conflict](#resolve-conflicts) looks like in docassemble in git. Simply make a new branch and commit the changes there. Work out the merge conflicts afterwards.
+
+## Automated Quality Checks in GitHub
+
+Once your repository is on GitHub, you can enable continuous automated testing and quality checks using **[SuffolkLITLab/ALActions](../automated_quality_checks/github_actions.md)**.
+
+Whenever a pull request is created or code is pushed:
+- **[`da_build`](../automated_quality_checks/github_actions.md#da_build)** builds the package, checks Python syntax, runs [`dayamlchecker`](../automated_quality_checks/dayamlchecker.md) on interview YAML files, checks external URLs for 404s, and audits PDF templates with **veraPDF** for PDF/UA-1 accessibility.
+- **[`valid_jinja2`](../automated_quality_checks/github_actions.md#valid_jinja2)** validates all modified `.docx` Jinja2 templates for syntax errors and recognized filters.
+- **[`word_diff`](../automated_quality_checks/github_actions.md#word_diff)** converts changed `.docx` templates into side-by-side visual diffs for instant review in GitHub.
+- **[`black-formatting`](../automated_quality_checks/github_actions.md#black-formatting)** and **[`docsig`](../automated_quality_checks/github_actions.md#docsig)** enforce Python code style and docstrings.
+
+Learn more in our **[Automated Quality Checks Overview](../automated_quality_checks/overview.md)** and **[Navigating Logs and Artifacts](../automated_quality_checks/navigating_logs_and_artifacts.md)** guide.

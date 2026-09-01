@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 620" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .sidebar { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+      .job-item { fill: #21262d; rx: 6; stroke: #388bfd; stroke-width: 1; }
+      .job-item-inactive { fill: transparent; rx: 6; }
+      .job-name { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #f0f6fc; }
+      .job-name-dim { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; fill: #8b949e; }
+      .step-header { fill: #161b22; stroke: #30363d; stroke-width: 1; rx: 4; }
+      .step-title { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #c9d1d9; }
+      .step-time { font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; fill: #8b949e; text-anchor: end; }
+      .log-pane { fill: #090d13; stroke: #30363d; stroke-width: 1; rx: 4; }
+      .log-line { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 11.5px; fill: #8b949e; }
+      .log-cmd { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11.5px; fill: #58a6ff; font-weight: 600; }
+      .log-pass { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11.5px; fill: #3fb950; }
+      .log-warn { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11.5px; fill: #d29922; }
+      .log-ts { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11px; fill: #484f58; }
+    </style>
+  </defs>
+
+  <rect width="950" height="620" rx="8" class="bg"/>
+
+  <!-- Left Sidebar: Jobs List -->
+  <rect x="0" y="0" width="260" height="620" class="sidebar"/>
+  <text x="20" y="32" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14px" font-weight="700" fill="#f0f6fc">Workflow Jobs</text>
+
+  <!-- Job 1 (Active) -->
+  <g transform="translate(15, 55)">
+    <rect x="0" y="0" width="230" height="42" class="job-item"/>
+    <circle cx="20" cy="21" r="8" fill="#238636"/>
+    <path d="M 16 21 L 19 24 L 24 18" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <text x="36" y="25" class="job-name">build-n-check (3.12)</text>
+  </g>
+
+  <!-- Job 2 -->
+  <g transform="translate(15, 105)">
+    <rect x="0" y="0" width="230" height="42" class="job-item-inactive"/>
+    <circle cx="20" cy="21" r="8" fill="#238636"/>
+    <path d="M 16 21 L 19 24 L 24 18" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <text x="36" y="25" class="job-name-dim">validate-docx</text>
+  </g>
+
+  <!-- Job 3 -->
+  <g transform="translate(15, 155)">
+    <rect x="0" y="0" width="230" height="42" class="job-item-inactive"/>
+    <circle cx="20" cy="21" r="8" fill="#238636"/>
+    <path d="M 16 21 L 19 24 L 24 18" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <text x="36" y="25" class="job-name-dim">word-diff</text>
+  </g>
+
+  <!-- Job 4 -->
+  <g transform="translate(15, 205)">
+    <rect x="0" y="0" width="230" height="42" class="job-item-inactive"/>
+    <circle cx="20" cy="21" r="8" fill="#238636"/>
+    <path d="M 16 21 L 19 24 L 24 18" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <text x="36" y="25" class="job-name-dim">python-tests</text>
+  </g>
+
+  <!-- Main Log Area -->
+  <!-- Step 1 (Collapsed) -->
+  <g transform="translate(280, 20)">
+    <rect x="0" y="0" width="650" height="34" class="step-header"/>
+    <text x="15" y="22" class="step-title">✓ Set up job &amp; actions/checkout@v6</text>
+    <text x="635" y="22" class="step-time">4s</text>
+  </g>
+
+  <!-- Step 2 (Collapsed) -->
+  <g transform="translate(280, 62)">
+    <rect x="0" y="0" width="650" height="34" class="step-header"/>
+    <text x="15" y="22" class="step-title">✓ Install uv &amp; dayamlchecker</text>
+    <text x="635" y="22" class="step-time">8s</text>
+  </g>
+
+  <!-- Step 3 (Expanded) -->
+  <g transform="translate(280, 104)">
+    <rect x="0" y="0" width="650" height="34" class="step-header" fill="#21262d"/>
+    <text x="15" y="22" class="step-title">▾ Run YAML Checker (dayamlchecker)</text>
+    <text x="635" y="22" class="step-time">12s</text>
+    
+    <!-- Expanded Log Content -->
+    <rect x="0" y="36" width="650" height="235" class="log-pane"/>
+    
+    <text x="15" y="60" class="log-ts">2026-09-01T09:20:14.120Z</text>
+    <text x="195" y="60" class="log-cmd">$ find . -name "*.yml" -path "*/questions/*" | xargs python -m dayamlchecker</text>
+    
+    <text x="15" y="85" class="log-ts">2026-09-01T09:20:15.340Z</text>
+    <text x="195" y="85" class="log-line">Scanning 14 interview question files...</text>
+
+    <text x="15" y="110" class="log-ts">2026-09-01T09:20:16.890Z</text>
+    <text x="195" y="110" class="log-pass">PASS  docassemble/MyPackage/data/questions/main.yml (32 blocks verified)</text>
+
+    <text x="15" y="135" class="log-ts">2026-09-01T09:20:17.450Z</text>
+    <text x="195" y="135" class="log-pass">PASS  docassemble/MyPackage/data/questions/interview_order.yml</text>
+
+    <text x="15" y="160" class="log-ts">2026-09-01T09:20:18.100Z</text>
+    <text x="195" y="160" class="log-warn">WARN  [WA502] docassemble/MyPackage/data/questions/income.yml:74: non-descriptive link text "click here"</text>
+
+    <text x="15" y="185" class="log-ts">2026-09-01T09:20:19.220Z</text>
+    <text x="195" y="185" class="log-pass">PASS  docassemble/MyPackage/data/questions/review_screen.yml</text>
+
+    <text x="15" y="210" class="log-ts">2026-09-01T09:20:20.010Z</text>
+    <text x="195" y="210" class="log-pass">Found 0 errors, 1 warning across 14 files.</text>
+
+    <text x="15" y="235" class="log-ts">2026-09-01T09:20:20.150Z</text>
+    <text x="195" y="235" class="log-pass">YAML verification completed successfully.</text>
+  </g>
+
+  <!-- Step 4 (Collapsed) -->
+  <g transform="translate(280, 385)">
+    <rect x="0" y="0" width="650" height="34" class="step-header"/>
+    <text x="15" y="22" class="step-title">✓ Check URLs in question/template files</text>
+    <text x="635" y="22" class="step-time">14s</text>
+  </g>
+
+  <!-- Step 5 (Collapsed) -->
+  <g transform="translate(280, 427)">
+    <rect x="0" y="0" width="650" height="34" class="step-header"/>
+    <text x="15" y="22" class="step-title">✓ Check PDF accessibility with veraPDF (PDF/UA-1)</text>
+    <text x="635" y="22" class="step-time">22s</text>
+  </g>
+
+  <!-- Step 6 (Collapsed) -->
+  <g transform="translate(280, 469)">
+    <rect x="0" y="0" width="650" height="34" class="step-header"/>
+    <text x="15" y="22" class="step-title">✓ Post Run Actions &amp; Artifact Upload</text>
+    <text x="635" y="22" class="step-time">3s</text>
+  </g>
+</svg>

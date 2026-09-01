@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .card { fill: #161b22; stroke: #30363d; stroke-width: 1; rx: 8; }
+      .header-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 16px; fill: #f0f6fc; }
+      .sub-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; fill: #8b949e; }
+      .badge-success { fill: #238636; rx: 12; }
+      .badge-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; fill: #ffffff; }
+      .table-header { fill: #21262d; stroke: #30363d; stroke-width: 1; }
+      .table-header-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; fill: #c9d1d9; }
+      .table-row { fill: #161b22; stroke: #21262d; stroke-width: 1; }
+      .table-row-alt { fill: #0d1117; stroke: #21262d; stroke-width: 1; }
+      .table-cell-text { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 12px; fill: #c9d1d9; }
+      .table-cell-pass { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; fill: #3fb950; }
+      .table-cell-warn { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; fill: #d29922; }
+      .artifact-card { fill: #21262d; stroke: #30363d; stroke-width: 1; rx: 6; }
+      .link-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; fill: #58a6ff; font-weight: 600; }
+      .annot-box { fill: rgba(187, 128, 9, 0.15); stroke: #9e6a03; stroke-width: 1; rx: 6; }
+      .annot-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 12px; fill: #f0883e; }
+      .annot-msg { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 11px; fill: #c9d1d9; }
+    </style>
+  </defs>
+
+  <rect width="950" height="680" rx="8" class="bg"/>
+
+  <!-- Top Navigation Bar -->
+  <rect x="0" y="0" width="950" height="48" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <circle cx="25" cy="24" r="10" fill="#238636"/>
+  <path d="M 21 24 L 24 27 L 29 20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  <text x="45" y="29" class="header-text">Quality Checks &amp; Template Validation #142</text>
+  <rect x="790" y="14" width="135" height="24" rx="12" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="805" y="30" class="sub-text">main @ 4a8e2b1</text>
+
+  <!-- Workflow Meta Header Card -->
+  <rect x="25" y="65" width="900" height="65" class="card"/>
+  <text x="45" y="93" class="header-text">Assembly Line Continuous Quality Pipeline</text>
+  <text x="45" y="114" class="sub-text">Triggered via pull_request #24 • Total duration: 1m 42s • Artifacts retained for 90 days</text>
+  <rect x="800" y="80" width="105" height="30" class="badge-success"/>
+  <text x="822" y="100" class="badge-text">✓ Passing</text>
+
+  <!-- Annotations Section -->
+  <g transform="translate(25, 145)">
+    <text x="0" y="16" class="header-text" font-size="14px">Annotations (1 warning)</text>
+    <rect x="0" y="26" width="900" height="52" class="annot-box"/>
+    <text x="16" y="47" class="annot-title">⚠️ URL checker warning (da_build)</text>
+    <text x="16" y="66" class="annot-msg">docassemble/MyPackage/data/questions/court_info.yml:42 — URL https://masscourts.gov/lookup returned HTTP 302 (redirects to https://www.masscourts.gov/courts)</text>
+  </g>
+
+  <!-- Step Summary: Jinja2 Validation -->
+  <g transform="translate(25, 240)">
+    <text x="0" y="18" class="header-text" font-size="14px">📄 DOCX Jinja2 Validation Summary</text>
+    
+    <rect x="0" y="28" width="900" height="28" class="table-header"/>
+    <text x="15" y="46" class="table-header-text">Template File</text>
+    <text x="420" y="46" class="table-header-text">Status</text>
+    <text x="560" y="46" class="table-header-text">Jinja Expressions</text>
+    <text x="750" y="46" class="table-header-text">Custom Filters</text>
+
+    <rect x="0" y="56" width="900" height="28" class="table-row"/>
+    <text x="15" y="74" class="table-cell-text">data/templates/motion_to_dismiss.docx</text>
+    <text x="420" y="74" class="table-cell-pass">✓ Valid</text>
+    <text x="560" y="74" class="sub-text">42 tags verified</text>
+    <text x="750" y="74" class="sub-text">currency, date, title_case</text>
+
+    <rect x="0" y="84" width="900" height="28" class="table-row-alt"/>
+    <text x="15" y="102" class="table-cell-text">data/templates/certificate_of_service.docx</text>
+    <text x="420" y="102" class="table-cell-pass">✓ Valid</text>
+    <text x="560" y="102" class="sub-text">18 tags verified</text>
+    <text x="750" y="102" class="sub-text">phone_number_3_parts</text>
+  </g>
+
+  <!-- Step Summary: Word Diff Summary -->
+  <g transform="translate(25, 375)">
+    <text x="0" y="18" class="header-text" font-size="14px">📝 Word Document Diff Summary (word_diff)</text>
+    
+    <rect x="0" y="28" width="900" height="28" class="table-header"/>
+    <text x="15" y="46" class="table-header-text">Document</text>
+    <text x="420" y="46" class="table-header-text">Changes Detected</text>
+    <text x="600" y="46" class="table-header-text">Summary Diff</text>
+    <text x="780" y="46" class="table-header-text">Side-by-Side View</text>
+
+    <rect x="0" y="56" width="900" height="28" class="table-row"/>
+    <text x="15" y="74" class="table-cell-text">data/templates/motion_to_dismiss.docx</text>
+    <text x="420" y="74" class="table-cell-warn">+14 lines / -3 lines</text>
+    <text x="600" y="74" class="sub-text">Updated venue clause</text>
+    <text x="780" y="74" class="link-text">In Artifacts ↓</text>
+  </g>
+
+  <!-- Artifacts Section -->
+  <g transform="translate(25, 495)">
+    <text x="0" y="18" class="header-text" font-size="14px">📦 Workflow Artifacts (Downloadable)</text>
+    <text x="0" y="38" class="sub-text">Inspect detailed HTML diffs and validation logs generated during this run:</text>
+
+    <g transform="translate(0, 50)">
+      <rect x="0" y="0" width="435" height="95" class="artifact-card"/>
+      <rect x="15" y="18" width="36" height="36" rx="6" fill="#1f6feb"/>
+      <text x="24" y="41" font-family="sans-serif" font-size="18px" fill="#ffffff">📄</text>
+      <text x="65" y="32" class="link-text" font-size="14px">word-doc-diff.zip</text>
+      <text x="65" y="50" class="sub-text">Contains HTML side-by-side diff &amp; markdown text</text>
+      <text x="65" y="72" class="sub-text" font-size="11px">Size: 245 KB • Includes index.html preview</text>
+      <rect x="345" y="30" width="75" height="28" rx="4" fill="#238636"/>
+      <text x="357" y="48" class="badge-text">Download</text>
+    </g>
+
+    <g transform="translate(465, 50)">
+      <rect x="0" y="0" width="435" height="95" class="artifact-card"/>
+      <rect x="15" y="18" width="36" height="36" rx="6" fill="#8957e5"/>
+      <text x="24" y="41" font-family="sans-serif" font-size="18px" fill="#ffffff">📊</text>
+      <text x="65" y="32" class="link-text" font-size="14px">jinja-validation.zip</text>
+      <text x="65" y="50" class="sub-text">Detailed syntax AST reports and unknown filter warnings</text>
+      <text x="65" y="72" class="sub-text" font-size="11px">Size: 18 KB • Jinja validation HTML</text>
+      <rect x="345" y="30" width="75" height="28" rx="4" fill="#238636"/>
+      <text x="357" y="48" class="badge-text">Download</text>
+    </g>
+  </g>
+</svg>
