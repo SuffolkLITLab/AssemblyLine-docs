@@ -277,3 +277,13 @@ If you think your GitHub account does have permission, try [redoing the GitHub i
 #### If you see `CONFLICT (content): Merge conflict`
 
 The text `CONFLICT (content): Merge conflict` means the branch you are trying to push to changed while you were making your changes. It is what a [merge conflict](#resolve-conflicts) looks like in docassemble in git. Simply make a new branch and commit the changes there. Work out the merge conflicts afterwards.
+
+## Automated quality checks in GitHub
+
+Once your package is on GitHub, add the
+**[Assembly Line GitHub Actions](../automated_quality_checks/github_actions.md)** to check
+every pull request: the package build, interview YAML, Word and PDF template
+accessibility, broken links, and Python style and tests. Start with the
+**[automated quality checks overview](../automated_quality_checks/overview.md)**, or with
+**[running the same checks locally](../automated_quality_checks/running_checks_locally.md)**
+before you push.

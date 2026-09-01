@@ -151,3 +151,4 @@ allowing for a quick visual inspection.
 - [ ] Checkboxes all use a consistent fill-in style. We recommend using the cross (`X`) to fill in the checkbox (under the Checkbox Properties | Options dialog in Adobe Acrobat).
 - [ ] Checkboxes use the export value "Yes" (less important, but can resolve some rare issues)
 - [ ] Signature fields use the `digital signature` field type in Adobe Acrobat or Gavel, not a standard text field.
+- [ ] PDF document is tagged for accessibility (PDF/UA-1 standard). You can audit this automatically in CI via [ALActions `da_build` with veraPDF](../automated_quality_checks/github_actions.md#da_build).

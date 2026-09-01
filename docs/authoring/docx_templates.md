@@ -493,8 +493,9 @@ manually.
 
 ## Quality control checklist
 
-- [ ] The DOCX template has valid Jinja syntax. You can use the [ALDashboard](https://github.com/SuffolkLITLab/docassemble-ALDashboard)'s "Validate DOCX template" widget,
-   installed on your own docassemble server, to check.
+- [ ] The DOCX template has valid Jinja syntax. You can validate templates locally with [DAYamlChecker](../automated_quality_checks/dayamlchecker.md), in your browser with the [ALDashboard](../components/ALDashboard/validate_docx.md)'s "Validate DOCX template" widget, or automatically in GitHub pull requests using [ALActions `valid_jinja2`](../automated_quality_checks/github_actions.md#valid_jinja2).
+- [ ] Template visual diffs and text changes have been reviewed in pull requests using [ALActions `word_diff`](../automated_quality_checks/github_actions.md#word_diff).
+- [ ] Document accessibility has been checked (headings structure, image alt text, table headers, no floating text boxes) using [DAYamlChecker's DOCX accessibility checks](../automated_quality_checks/dayamlchecker.md#4-docx-template-accessibility-accessibility).
 - [ ] All of the expected standard field names are recognized by the Weaver (marked in bold when you upload and view the quality control screen)
 - [ ] Custom field names are all properly spelled, without typos
 - [ ] Run the interview with short, long, and one and many items for repeated lists to ensure that the full range of common scenarios looks proper.

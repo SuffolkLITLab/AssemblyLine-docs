@@ -13,24 +13,26 @@ Interview builders must address accessibility, too, so the Document Assembly Lin
 
 ## AssemblyLine accessibility tools
 
+The Document Assembly Line provides multiple automated tools to check accessibility during development and continuous integration:
 
-The AssemblyLine software includes a [code linter](https://en.wikipedia.org/wiki/Lint_(software)) used in the [ALDashboard](../components/ALDashboard/overview) and [ALWeaver](../authoring/weaver/weaver_overview) packages. It can check interviews against the Document Assembly Line style guide, interface guidelines, and [WCAG accessibility guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/). (WCAG accessibility checks must be run manually from the Dashboard **Interview style check (lint)** link.)
+- **[DAYamlChecker](../automated_quality_checks/dayamlchecker.md)**: A command-line static analysis tool that checks Docassemble YAML interviews, Python code, and DOCX templates for WCAG violations, skipped headings, missing alt text, non-descriptive links, unlabelled fields, low contrast in custom themes, and template accessibility issues.
+- **[ALActions `da_build`](../automated_quality_checks/github_actions.md#da_build)**: Runs `dayamlchecker` over interview YAML and Word templates on every pull request, and audits PDF templates against **PDF/UA-1** with **veraPDF**.
+- **[ALDashboard & ALWeaver](../components/ALDashboard/aldashboard_overview.md)**: The built-in interview style check (lint) in the ALDashboard provides in-browser linting for interview authors.
 
 <p><img src="/img/aldashboard-interview-linter-icon.png" style={{borderRadius: 6 + 'px', display: 'block', height: 128 + 'px', width: 128 + 'px', marginRight: 'auto', marginLeft: 'auto'}} alt='ALDashboard icon for the code linter. The text reads "Interview style check (lint)"' /></p>
 
-Accessibility checks include:
+Automated accessibility checks include:
 
-- Web Content Accessibility Guidelines (WCAG) clear failures
-- DOCX and PDF template accessibility
-- DAL style guide issues
-- Low contrast
+- Web Content Accessibility Guidelines (WCAG 2.1/2.2) clear static failures
+- DOCX and PDF template accessibility ([veraPDF PDF/UA-1 checks](../automated_quality_checks/github_actions.md#da_build) and [DOCX accessibility rules](../automated_quality_checks/dayamlchecker.md#4-docx-template-accessibility-accessibility))
+- DAL style guide and plain language issues
+- Low color contrast in custom themes
 - Skipped [heading levels](#heading-levels)
-- Empty links
-- Non-descriptive link text
-- Missing [alt text](#alt-text)
-- Missing field labels
-- [Combobox](#avoid-comboboxes) use
-- Translateability
+- Empty links and non-descriptive link text
+- Missing [alt text](#alt-text) on images (`[FILE ...]`, Markdown, and HTML `<img>`)
+- Missing field labels on multi-field screens
+- [Combobox](#avoid-comboboxes) usage detection
+- Translatability & sentence fragmentation
 
 ## General tips for improving interview accessibility
 
@@ -214,8 +216,10 @@ These tools can automatically scan your interview pages for accessibility issues
 - **[TalkBack](https://support.google.com/accessibility/android/answer/6283677)** is Android's built-in screen reader
 - **[Switch Access](https://support.google.com/accessibility/android/answer/6122836)** is an Android feature for users with motor disabilities
 
-### Automated testing integration
+### Automated testing and CI integration
 
-- **[ALKiln](../components/ALKiln/automated_testing.mdx#accessibility)** is the Document Assembly Line's testing framework with built-in accessibility testing using [axe-core](https://github.com/dequelabs/axe-core)
-- **[aXe-core](https://github.com/dequelabs/axe-core)** is an open-source accessibility testing engine used by many tools
-- **[Pa11y](https://pa11y.org/)** is a command-line accessibility testing tool that can be integrated into CI/CD pipelines
+- **[DAYamlChecker](../automated_quality_checks/dayamlchecker.md)**: Static analysis for interview YAML and Word templates, catching skipped headings, unlabelled fields, missing alt text, and non-descriptive links while you are still editing.
+- **[SuffolkLITLab/ALActions](../automated_quality_checks/github_actions.md)**: The GitHub Actions pipeline that runs `dayamlchecker`, checks hyperlinks, and validates PDF templates with **veraPDF**. See the [automated quality checks overview](../automated_quality_checks/overview.md).
+- **[ALKiln](../components/ALKiln/automated_testing.mdx#accessibility)**: Dynamic end-to-end browser testing framework with built-in accessibility testing using [aXe-core](https://github.com/dequelabs/axe-core).
+- **[aXe-core](https://github.com/dequelabs/axe-core)**: An open-source accessibility testing engine used by ALKiln and browser DevTools.
+- **[Pa11y](https://pa11y.org/)**: A command-line accessibility testing tool for rendered HTML pages.

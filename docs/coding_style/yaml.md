@@ -196,3 +196,7 @@ Remember that the descriptive name is great when you are sure that you will only
 name in the package. If you might edit the package later to add multiple documents, it might be best
 to start with `main.yml` right at the start of the interview.
 :::
+
+## Validating YAML files automatically
+
+To ensure that YAML interview files adhere to correct syntax, do not duplicate keys, and follow docassemble structural rules, use **[DAYamlChecker](../automated_quality_checks/dayamlchecker.md)** locally and enable the **[ALActions `da_build`](../automated_quality_checks/github_actions.md#da_build)** workflow in GitHub.
