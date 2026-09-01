@@ -47,7 +47,7 @@ Check for proper contrast with these tools:
 
 To describe images, screen readers read out descriptions called alternative text, or alt-text. Without alt-text, people using a screen reader won't get any of the benefits of the graphic. The W3 WAI group has [a good decision tree on how to write alt-text](https://www.w3.org/WAI/tutorials/images/decision-tree/).
 
-So describe an image in docassemble, [set the `alt_text` attribute of a DAFile](https://docassemble.org/docs/objects.html#DAFile), or use [the `set_alt_text()` function](https://docassemble.org/docs/objects.html#DAFile.set_alt_text). If you are writing HTML directly, add an `alt` property to all `img` tags:
+To describe an image in docassemble, [set the `alt_text` attribute of a DAFile](https://docassemble.org/docs/objects.html#DAFile), or use [the `set_alt_text()` function](https://docassemble.org/docs/objects.html#DAFile.set_alt_text). If you are writing HTML directly, add an `alt` property to all `img` tags:
 
 ```html
 <img src="my_image.png" alt="A drawing of a flowchart: the question is 'do you have any children?', the option 'yes' leads to 'scenario 1', and the option 'no' leads to 'scenario 2'."/>
