@@ -278,7 +278,7 @@ If you think your GitHub account does have permission, try [redoing the GitHub i
 
 The text `CONFLICT (content): Merge conflict` means the branch you are trying to push to changed while you were making your changes. It is what a [merge conflict](#resolve-conflicts) looks like in docassemble in git. Simply make a new branch and commit the changes there. Work out the merge conflicts afterwards.
 
-## Automated Quality Checks in GitHub
+## Automated quality checks in GitHub
 
 Once your repository is on GitHub, you can enable continuous automated testing and quality checks using **[SuffolkLITLab/ALActions](../automated_quality_checks/github_actions.md)**.
 
@@ -288,4 +288,4 @@ Whenever a pull request is created or code is pushed:
 - **[`word_diff`](../automated_quality_checks/github_actions.md#word_diff)** converts changed `.docx` templates into side-by-side visual diffs for instant review in GitHub.
 - **[`black-formatting`](../automated_quality_checks/github_actions.md#black-formatting)** and **[`docsig`](../automated_quality_checks/github_actions.md#docsig)** enforce Python code style and docstrings.
 
-Learn more in our **[Automated Quality Checks Overview](../automated_quality_checks/overview.md)** and **[Navigating Logs and Artifacts](../automated_quality_checks/navigating_logs_and_artifacts.md)** guide.
+Learn more in our **[Automated quality checks overview](../automated_quality_checks/overview.md)** and **[Navigating logs and artifacts](../automated_quality_checks/navigating_logs_and_artifacts.md)** guide.

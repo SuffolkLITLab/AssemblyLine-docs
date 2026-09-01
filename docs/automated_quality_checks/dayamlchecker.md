@@ -1,13 +1,13 @@
 ---
 id: dayamlchecker
-title: "DAYamlChecker: Static Analysis & Linter"
+title: "DAYamlChecker: Static analysis and linter"
 sidebar_label: DAYamlChecker
 slug: dayamlchecker
 ---
 
-# DAYamlChecker: Static Analysis & Linter
+# DAYamlChecker: Static analysis and linter
 
-`dayamlchecker` is a static analysis tool and Language Server Protocol (LSP) implementation designed specifically for **Docassemble** YAML interview packages, Python modules, and Word (`.docx`) templates.
+`dayamlchecker` is a static analysis and linting tool designed specifically for **Docassemble** YAML interview packages, Python modules, and Word (`.docx`) templates.
 
 It detects broken interview logic, syntax errors in embedded code, broken URLs, style guide violations, and Web Content Accessibility Guidelines (WCAG) failures before code is pushed to production.
 
@@ -64,75 +64,75 @@ python3 -m dayamlchecker docassemble/MyPackage/data/templates/
 
 ---
 
-## What DAYamlChecker Checks
+## What DAYamlChecker checks
 
 `dayamlchecker` categorizes findings into four primary classes: `general`, `accessibility`, `style`, and `translatability`.
 
-### 1. YAML Structure and Docassemble Integrity (`general`)
+### 1. YAML structure and docassemble integrity (`general`)
 
 | Check Area | Description | Example Codes |
 | :--- | :--- | :--- |
-| **YAML Syntax** | Unclosed quotes, indentation mistakes, invalid characters | `EG103` (`yaml_parse_error`) |
-| **Duplicate Keys** | Repeated keys in dictionaries or question blocks | `EG101` (`yaml_duplicate_key`) |
+| **YAML syntax** | Unclosed quotes, indentation mistakes, invalid characters | `EG103` (`yaml_parse_error`) |
+| **Duplicate keys** | Repeated keys in dictionaries or question blocks | `EG101` (`yaml_duplicate_key`) |
 | **Duplicate IDs** | Reused `id:` tags across question blocks | `EG102` (`yaml_duplicate_block_id`) |
-| **Docassemble Keys** | Unrecognized top-level keys in question blocks | `EG105` (`unknown_keys`) |
+| **Docassemble keys** | Unrecognized top-level keys in question blocks | `EG105` (`unknown_keys`) |
 | **Question IDs** | Missing mandatory `id:` attributes on questions | `WG104` (`missing_question_id`) |
-| **Mandatory Logic** | Multiple unconditioned `mandatory: True` blocks | `EG108` (`multiple_mandatory_blocks`) |
-| **Field Definitions** | Invalid choices structures, missing variable names | `EG110` (`fields_empty`), `EG111` (`fields_no_input`) |
+| **Mandatory logic** | Multiple unconditioned `mandatory: True` blocks | `EG108` (`multiple_mandatory_blocks`) |
+| **Field definitions** | Invalid choices structures, missing variable names | `EG110` (`fields_empty`), `EG111` (`fields_no_input`) |
 
 ### 2. Embedded Python, Mako, and JavaScript (`general`)
 
 `dayamlchecker` parses and validates code embedded inside YAML blocks:
 
-- **Python Code Blocks**: Verifies Python syntax (`python_syntax_error`), prohibits illegal function definitions inside simple code blocks, and validates datatype assignments.
-- **Mako Expressions**: Validates Mako templates `${ ... }` and `% if ... %` control tags inside strings, subquestions, and field definitions (`mako_syntax_error`, `mako_compile_error`).
-- **JavaScript Modifiers**: Checks client-side JavaScript expressions in `datatype: js` fields, ensuring correct `.val()` method invocations and valid field references.
+- **Python code blocks**: Verifies Python syntax (`python_syntax_error`), prohibits illegal function definitions inside simple code blocks, and validates datatype assignments.
+- **Mako expressions**: Validates Mako templates `${ ... }` and `% if ... %` control tags inside strings, subquestions, and field definitions (`mako_syntax_error`, `mako_compile_error`).
+- **JavaScript modifiers**: Checks client-side JavaScript expressions in `datatype: js` fields, ensuring correct `.val()` method invocations and valid field references.
 
-### 3. WCAG & Web Accessibility (`accessibility`)
+### 3. WCAG and web accessibility (`accessibility`)
 
 Accessibility checks run by default. They catch static WCAG 2.1/2.2 violations directly in interview YAML source code:
 
-- **Heading Structure**:
+- **Heading structure**:
   - Detects skipped Markdown headings (`##` jumping to `####`) (`accessibility_markdown_heading_level_skip`).
   - Detects skipped HTML headings (`<h2>` jumping to `<h4>`) (`accessibility_html_heading_level_skip`).
   - Flags improper use of `<h1>` or `#` (which should only be set by the main `question` tag).
-- **Alternative Text for Images**:
+- **Alternative text for images**:
   - Markdown images missing alt text: `![](image.png)` (`accessibility_image_missing_alt_text`).
   - HTML images missing alt text: `<img src="logo.png">`.
   - Docassemble `[FILE ...]` tags missing alt text: `[FILE logo.png]`. Must be written as `[FILE logo.png, alt="Suffolk LIT Lab Logo"]`.
-- **Descriptive Hyperlink Text**:
+- **Descriptive hyperlink text**:
   - Flags empty links: `[]()`.
   - Flags non-descriptive links: `"click here"`, `"here"`, `"read more"`, `"link"`, `"more info"`, and Spanish equivalents like `"haga clic aquí"` (`accessibility_non_descriptive_link_text`).
   - Flags links opening in a new tab (`target="_blank"`) without warning users in the link text or icon.
-- **Form Control Labels**:
+- **Form control labels**:
   - Prohibits `no label` and empty labels on screens with two or more fields (`accessibility_no_label_multi_field`).
   - Flags non-descriptive or duplicate field labels on the same screen.
-- **Combobox Widgets**:
+- **Combobox widgets**:
   - Comboboxes pose severe screen reader barriers. Opt into combobox errors with `--accessibility-error-on-widget combobox` (`accessibility_combobox_not_accessible`).
-- **Custom Theme Color Contrast**:
+- **Custom theme color contrast**:
   - When a custom Bootstrap theme is loaded via `features: bootstrap theme: ...`, `dayamlchecker` parses the CSS and calculates the contrast ratio for body text, navbar links, dropdown items, and buttons against their backgrounds (requiring at least 4.5:1 for normal text and 3:1 for large text) (`accessibility_theme_contrast_too_low`).
-- **Display Templates**:
+- **Display templates**:
   - Ensures templates invoked via `display_template()` define a descriptive `subject` (`accessibility_display_template_missing_subject`).
-- **PDF Tagging**:
+- **PDF tagging**:
   - Emits informational notes when DOCX attachment blocks lack `tagged pdf: True` (`accessibility_tagged_pdf_not_enabled`).
 
-### 4. DOCX Template Accessibility (`accessibility`)
+### 4. DOCX template accessibility (`accessibility`)
 
 When passed `.docx` template files, `dayamlchecker` inspects the internal OpenXML structure:
 
-- **Image & Object Alt Text**: Flags images, shapes, and charts missing alternative text descriptions.
+- **Image and object alt text**: Flags images, shapes, and charts missing alternative text descriptions.
 - **Hyperlinks**: Detects empty hyperlinks and raw URLs used as link text.
-- **Document Language**: Validates that document language metadata is set.
-- **Heading Hierarchy**: Checks that Word heading styles (`Heading 1`, `Heading 2`, etc.) do not skip levels.
-- **Table Headers & Merged Cells**: Flags tables without repeated header rows (`tblHeader`) and tables with complex merged cells that disrupt screen readers.
-- **Reading Order Distruptions**: Detects floating objects and text boxes that pull text out of the primary document flow.
-- **Spacing Paragraphs**: Identifies long runs of empty paragraphs used for spacing instead of paragraph margins.
+- **Document language**: Validates that document language metadata is set.
+- **Heading hierarchy**: Checks that Word heading styles (`Heading 1`, `Heading 2`, etc.) do not skip levels.
+- **Table headers and merged cells**: Flags tables without repeated header rows (`tblHeader`) and tables with complex merged cells that disrupt screen readers.
+- **Reading order disruptions**: Detects floating objects and text boxes that pull text out of the primary document flow.
+- **Spacing paragraphs**: Identifies long runs of empty paragraphs used for spacing instead of paragraph margins.
 
-:::tip Default Severity for DOCX
+:::tip Default severity for DOCX
 DOCX accessibility findings are capped at **warning** severity by default so that existing templates do not immediately break CI builds. Use `--docx-accessibility-severity error` to enforce strict document accessibility.
 :::
 
-### 5. Broken URL Verification
+### 5. Broken URL verification
 
 `dayamlchecker` automatically extracts all absolute HTTP and HTTPS links in interview questions and template files, pinging them concurrently to verify they return valid HTTP 200 responses:
 
@@ -147,7 +147,7 @@ python3 -m dayamlchecker --url-check-ignore-urls "https://flaky-court.gov,https:
 python3 -m dayamlchecker --no-url-check path/to/questions/
 ```
 
-### 6. Style and Translatability (`style`, `translatability`)
+### 6. Style and translatability (`style`, `translatability`)
 
 Enable Document Assembly Line style checks with `--style` or `--style-llm`:
 
@@ -166,11 +166,11 @@ OPENAI_API_KEY="sk-..." python3 -m dayamlchecker --style-llm path/to/questions/
 
 ---
 
-## Suppressing Findings
+## Suppressing findings
 
 You can suppress specific diagnostics inline within YAML files or globally via the command line.
 
-### Inline Suppression (Single Line)
+### Inline suppression (single line)
 Add `# no-dayc: <CODE>` at the end of the line:
 
 ```yaml
@@ -180,7 +180,7 @@ subquestion: |
   Please [click here](https://example.com) for details.  # no-dayc: WA502
 ```
 
-### Block Suppression (Entire Document Block)
+### Block suppression (entire document block)
 Add `# no-dayc-block: <CODES>` anywhere inside the YAML block (typically right below the `---` separator):
 
 ```yaml
@@ -191,13 +191,13 @@ fields:
   - no label: custom_widget_data
 ```
 
-### Suppress All Codes
+### Suppress all codes
 Use `ALL` or `*` to silence all findings for a line or block:
 ```yaml
 # no-dayc: ALL
 ```
 
-### Global CLI Suppression
+### Global CLI suppression
 Pass comma-separated codes or finding classes to `--suppress`:
 ```bash
 python3 -m dayamlchecker --suppress accessibility,EG101,WA502 docassemble/MyPackage/
@@ -205,7 +205,7 @@ python3 -m dayamlchecker --suppress accessibility,EG101,WA502 docassemble/MyPack
 
 ---
 
-## Command-Line Reference
+## Command-line reference
 
 | Flag | Description | Default |
 | :--- | :--- | :--- |
@@ -232,7 +232,7 @@ python3 -m dayamlchecker --suppress accessibility,EG101,WA502 docassemble/MyPack
 
 ---
 
-## Python Module API
+## Python module API
 
 You can also use `dayamlchecker` programmatically in Python test suites or custom scripts:
 
@@ -263,8 +263,8 @@ style_findings = find_style_findings_from_string(yaml_code, runtime_options=opti
 
 ---
 
-## Related Documentation
+## Related documentation
 
 - **[Assembly Line GitHub Actions](./github_actions.md)**: Run DAYamlChecker automatically on every commit and pull request.
-- **[Navigating Logs and Artifacts](./navigating_logs_and_artifacts.md)**: How to read DAYamlChecker annotations and summaries in GitHub CI.
-- **[Making Docassemble Interviews Accessible](../coding_style/accessibility.md)**: Full guide to WCAG standards and accessible interview design.
+- **[Navigating logs and artifacts](./navigating_logs_and_artifacts.md)**: How to read DAYamlChecker annotations and summaries in GitHub CI.
+- **[Making docassemble interviews accessible](../coding_style/accessibility.md)**: Full guide to WCAG standards and accessible interview design.

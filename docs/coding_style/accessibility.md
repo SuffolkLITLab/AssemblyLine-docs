@@ -15,7 +15,7 @@ Interview builders must address accessibility, too, so the Document Assembly Lin
 
 The Document Assembly Line provides multiple automated tools to check accessibility during development and continuous integration:
 
-- **[DAYamlChecker](../automated_quality_checks/dayamlchecker.md)**: A command-line tool and Language Server Protocol (LSP) that statically checks Docassemble YAML interviews, Python code, and DOCX templates for WCAG violations, skipped headings, missing alt text, non-descriptive links, unlabelled fields, low contrast in custom themes, and template accessibility issues.
+- **[DAYamlChecker](../automated_quality_checks/dayamlchecker.md)**: A command-line static analysis tool that checks Docassemble YAML interviews, Python code, and DOCX templates for WCAG violations, skipped headings, missing alt text, non-descriptive links, unlabelled fields, low contrast in custom themes, and template accessibility issues.
 - **[ALActions / da_build](../automated_quality_checks/github_actions.md#da_build)**: Automated GitHub Actions CI workflow that runs `dayamlchecker` and audits all PDF templates against **PDF/UA-1** standards using **veraPDF**.
 - **[ALDashboard & ALWeaver](../components/ALDashboard/aldashboard_overview.md)**: The built-in interview style check (lint) in the ALDashboard provides in-browser linting for interview authors.
 
@@ -223,4 +223,4 @@ These tools can automatically scan your interview pages for accessibility issues
 - **[ALKiln](../components/ALKiln/automated_testing.mdx#accessibility)**: Dynamic end-to-end browser testing framework with built-in accessibility testing using [aXe-core](https://github.com/dequelabs/axe-core).
 - **[aXe-core](https://github.com/dequelabs/axe-core)**: An open-source accessibility testing engine used by ALKiln and browser DevTools.
 - **[Pa11y](https://pa11y.org/)**: A command-line accessibility testing tool for rendered HTML pages.
-- **[Automated Quality Checks Overview](../automated_quality_checks/overview.md)**: Comprehensive guide to the Assembly Line automated testing and quality pipeline.
+- **[Automated quality checks overview](../automated_quality_checks/overview.md)**: Comprehensive guide to the Assembly Line automated testing and quality pipeline.

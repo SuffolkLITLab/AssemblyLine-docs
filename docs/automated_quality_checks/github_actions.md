@@ -13,7 +13,7 @@ These composite actions automate linting, syntax compilation, DOCX template vali
 
 ---
 
-## Action Catalog Overview
+## Action catalog overview
 
 | Action | Primary Use Case | Triggers | Key Artifacts / Summaries |
 | :--- | :--- | :--- | :--- |
@@ -29,17 +29,17 @@ These composite actions automate linting, syntax compilation, DOCX template vali
 
 ---
 
-## `da_build`: Comprehensive Package & YAML Check {#da_build}
+## `da_build`: Comprehensive package and YAML check {#da_build}
 
 `da_build` is the primary build and validation action for Docassemble packages. It performs the following steps:
 
-1. **Python Compilation**: Runs `python -m compileall .` to ensure all Python source files are syntactically valid.
-2. **Package Build**: Uses `uv build` to build binary wheels and source tarballs in `dist/`.
-3. **YAML Verification**: Executes [`dayamlchecker`](./dayamlchecker.md) across all interview YAML files under `docassemble/*/data/questions/`.
-4. **URL Checking**: Concurrently checks all absolute URLs in question files and template files, reporting broken links and redirects as GitHub Actions annotations.
-5. **PDF Accessibility Auditing**: Downloads **veraPDF** (PDF/UA-1 validation engine) and verifies that all PDF templates in `data/templates/` comply with PDF/UA-1 accessibility standards.
+1. **Python compilation**: Runs `python -m compileall .` to ensure all Python source files are syntactically valid.
+2. **Package build**: Uses `uv build` to build binary wheels and source tarballs in `dist/`.
+3. **YAML verification**: Executes [`dayamlchecker`](./dayamlchecker.md) across all interview YAML files under `docassemble/*/data/questions/`.
+4. **URL checking**: Concurrently checks all absolute URLs in question files and template files, reporting broken links and redirects as GitHub Actions annotations.
+5. **PDF accessibility auditing**: Downloads **veraPDF** (PDF/UA-1 validation engine) and verifies that all PDF templates in `data/templates/` comply with PDF/UA-1 accessibility standards.
 
-### Sample Workflow
+### Sample workflow
 
 Create `.github/workflows/build_and_check.yml`:
 
@@ -70,7 +70,7 @@ jobs:
           pdf-strict: "false"
 ```
 
-### Action Inputs
+### Action inputs
 
 | Input | Description | Default | Required |
 | :--- | :--- | :--- | :--- |
@@ -83,18 +83,18 @@ jobs:
 
 ---
 
-## `valid_jinja2`: DOCX Template Expression Validator {#valid_jinja2}
+## `valid_jinja2`: DOCX template expression validator {#valid_jinja2}
 
 Docassemble uses `docxtpl` (Jinja2) to assemble Microsoft Word documents. A single typographical error like `{{ user.firs_name }}` or an unclosed `{% if %}` tag can cause a live interview to crash when generating a document.
 
 `valid_jinja2` inspects all modified and newly added `.docx` files in a pull request:
 
-- **Syntax Errors**: Invalid Jinja expressions (e.g. unclosed tags, malformed expressions) fail the build.
-- **Custom Filter Awareness**: Recognizes over 70 common Docassemble and Assembly Line filters (such as `currency`, `date`, `title_case`, `phone_number_3_parts`, `word`, `ordinal`, `comma_and_list`). Unknown filters emit non-blocking warnings.
-- **GitHub Step Summary**: Automatically posts a formatted Markdown summary directly into the GitHub Actions run summary.
-- **HTML Artifacts**: Generates detailed AST validation reports uploaded as artifacts.
+- **Syntax errors**: Invalid Jinja expressions (e.g. unclosed tags, malformed expressions) fail the build.
+- **Custom filter awareness**: Recognizes over 70 common Docassemble and Assembly Line filters (such as `currency`, `date`, `title_case`, `phone_number_3_parts`, `word`, `ordinal`, `comma_and_list`). Unknown filters emit non-blocking warnings.
+- **GitHub step summary**: Automatically posts a formatted Markdown summary directly into the GitHub Actions run summary.
+- **HTML artifacts**: Generates detailed AST validation reports uploaded as artifacts.
 
-### Sample Workflow
+### Sample workflow
 
 Create `.github/workflows/validate_docx.yml`:
 
@@ -122,7 +122,7 @@ jobs:
           summary_file: jinja_validation_summary.md
 ```
 
-### Action Inputs
+### Action inputs
 
 | Input | Description | Default | Required |
 | :--- | :--- | :--- | :--- |
@@ -135,7 +135,7 @@ jobs:
 
 ---
 
-## `word_diff`: Visual Diffing for Word Templates {#word_diff}
+## `word_diff`: Visual diffing for Word templates {#word_diff}
 
 Reviewing binary `.docx` files in GitHub pull requests is notoriously difficult because GitHub only shows binary file replacements.
 
@@ -143,13 +143,13 @@ Reviewing binary `.docx` files in GitHub pull requests is notoriously difficult 
 
 ![Word Diff Side by Side Preview](../../static/img/quality_checks/word_diff_preview.png)
 
-### Key Features
+### Key features
 
-1. **Inline Step Summary**: Displays unified line-by-line diffs in the GitHub Actions Step Summary.
-2. **Rich HTML Artifact**: Generates a side-by-side HTML comparison complete with an `index.html` table of contents for downloading and reviewing in any web browser.
-3. **Template Tag Preservation**: Retains Jinja2 variables (`{{ ... }}`) and formatting tags in the diff so you can review changes to both text and dynamic logic.
+1. **Inline step summary**: Displays unified line-by-line diffs in the GitHub Actions Step Summary.
+2. **Rich HTML artifact**: Generates a side-by-side HTML comparison complete with an `index.html` table of contents for downloading and reviewing in any web browser.
+3. **Template tag preservation**: Retains Jinja2 variables (`{{ ... }}`) and formatting tags in the diff so you can review changes to both text and dynamic logic.
 
-### Sample Workflow
+### Sample workflow
 
 Create `.github/workflows/word_diff.yml`:
 
@@ -176,7 +176,7 @@ jobs:
 
 ---
 
-## `black-formatting`: Python Code Formatter {#black-formatting}
+## `black-formatting`: Python code formatter {#black-formatting}
 
 `black-formatting` runs [Black](https://black.readthedocs.io/en/stable/) across all Python files in the repository.
 
@@ -199,7 +199,7 @@ extend-exclude = '(__init__.py|setup.py)'
 
 ---
 
-## `docsig`: Python Docstring Validation {#docsig}
+## `docsig`: Python docstring validation {#docsig}
 
 `docsig` verifies that Python docstrings match function and method signatures (checking parameter names, return types, and docstring formatting). Assembly Line packages adhere to **Google-style docstrings**.
 
@@ -214,7 +214,7 @@ jobs:
 
 ---
 
-## `pythontests`: Python Unit Tests {#pythontests}
+## `pythontests`: Python unit tests {#pythontests}
 
 `pythontests` sets up an isolated Python environment and runs the package's [`unittest`](https://docs.python.org/3/library/unittest.html) test suite.
 
@@ -229,11 +229,11 @@ jobs:
 
 ---
 
-## `da_playground_install` & `da_package`: Automated Deployments {#da_playground_install}
+## `da_playground_install` and `da_package`: Automated deployments {#da_playground_install}
 
 These actions automate deploying your interview package to test servers or developer playgrounds.
 
-### Deploy to Playground (`da_playground_install`)
+### Deploy to playground (`da_playground_install`)
 
 Useful for feature branch reviews where you want testers to interact with the interview on a staging Docassemble server:
 
@@ -260,7 +260,7 @@ jobs:
           PROJECT_NAME: "test-review-${{ github.ref_name }}"
 ```
 
-### Install Server-Wide (`da_package`)
+### Install server-wide (`da_package`)
 
 Installs the package server-wide on a staging or production Docassemble server:
 
@@ -285,7 +285,7 @@ jobs:
 
 ---
 
-## `hall_monitor`: Synthetic Uptime Monitoring {#hall_monitor}
+## `hall_monitor`: Synthetic uptime monitoring {#hall_monitor}
 
 `hall_monitor` tests a live Docassemble server on a scheduled interval. It visits every installed interview and verifies that the initial screen loads without a 500 error or exception.
 
@@ -317,7 +317,7 @@ jobs:
 
 ---
 
-## Standard Production Quality Workflow Template
+## Standard production quality workflow template
 
 Here is a recommended `.github/workflows/quality_checks.yml` configuration combining all static validation, template verification, and code formatting into a single cohesive CI pipeline:
 
@@ -372,8 +372,8 @@ jobs:
 
 ---
 
-## Related Documentation
+## Related documentation
 
-- **[Navigating Logs and Artifacts](./navigating_logs_and_artifacts.md)**: Visual guide on reading step summaries, downloading artifacts, and searching logs.
-- **[DAYamlChecker Guide](./dayamlchecker.md)**: Deep dive into the static YAML, accessibility, and DOCX checker.
-- **[Automated Testing with ALKiln](../components/ALKiln/intro.mdx)**: Browser-based end-to-end testing.
+- **[Navigating logs and artifacts](./navigating_logs_and_artifacts.md)**: Visual guide on reading step summaries, downloading artifacts, and searching logs.
+- **[DAYamlChecker guide](./dayamlchecker.md)**: Deep dive into the static YAML, accessibility, and DOCX checker.
+- **[Automated testing with ALKiln](../components/ALKiln/intro.mdx)**: Browser-based end-to-end testing.
