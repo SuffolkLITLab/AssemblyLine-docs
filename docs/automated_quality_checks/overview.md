@@ -72,6 +72,7 @@ When a pull request is submitted, GitHub Actions automatically executes the qual
 
 ## Next steps
 
+- **[Running checks before pushing to GitHub](./running_checks_locally.md)**: Set up manual CLI checks and automated Git pre-commit hooks.
 - **[DAYamlChecker guide](./dayamlchecker.md)**: Learn how to run DAYamlChecker locally, understand WCAG & DOCX diagnostic codes, and suppress specific rules.
 - **[Assembly Line GitHub Actions](./github_actions.md)**: Explore the complete catalog of GitHub composite actions in `SuffolkLITLab/ALActions` with ready-to-use workflow configurations.
 - **[Navigating logs and artifacts](./navigating_logs_and_artifacts.md)**: Learn how to inspect pull request step summaries, download Word diffs, and troubleshoot CI job logs.

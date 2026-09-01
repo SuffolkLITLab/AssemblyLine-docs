@@ -344,6 +344,7 @@ module.exports = {
             type: 'category',
             items: [
                 'automated_quality_checks/automated_quality_checks_overview',
+                'automated_quality_checks/running_checks_locally',
                 'automated_quality_checks/dayamlchecker',
                 'automated_quality_checks/github_actions',
                 'automated_quality_checks/navigating_logs_and_artifacts',

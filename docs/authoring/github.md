@@ -288,4 +288,4 @@ Whenever a pull request is created or code is pushed:
 - **[`word_diff`](../automated_quality_checks/github_actions.md#word_diff)** converts changed `.docx` templates into side-by-side visual diffs for instant review in GitHub.
 - **[`black-formatting`](../automated_quality_checks/github_actions.md#black-formatting)** and **[`docsig`](../automated_quality_checks/github_actions.md#docsig)** enforce Python code style and docstrings.
 
-Learn more in our **[Automated quality checks overview](../automated_quality_checks/overview.md)** and **[Navigating logs and artifacts](../automated_quality_checks/navigating_logs_and_artifacts.md)** guide.
+Learn more in our **[Automated quality checks overview](../automated_quality_checks/overview.md)**, **[Running checks before pushing to GitHub](../automated_quality_checks/running_checks_locally.md)**, and **[Navigating logs and artifacts](../automated_quality_checks/navigating_logs_and_artifacts.md)** guides.

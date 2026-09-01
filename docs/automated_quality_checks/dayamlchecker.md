@@ -276,6 +276,7 @@ style_findings = find_style_findings_from_string(yaml_code, runtime_options=opti
 
 ## Related documentation
 
+- **[Running checks before pushing to GitHub](./running_checks_locally.md)**: Set up manual CLI checks and automated Git pre-commit hooks for DAYamlChecker.
 - **[Assembly Line GitHub Actions](./github_actions.md)**: Run DAYamlChecker automatically on every commit and pull request.
 - **[Navigating logs and artifacts](./navigating_logs_and_artifacts.md)**: How to read DAYamlChecker annotations and summaries in GitHub CI.
 - **[Making docassemble interviews accessible](../coding_style/accessibility.md)**: Full guide to WCAG standards and accessible interview design.
