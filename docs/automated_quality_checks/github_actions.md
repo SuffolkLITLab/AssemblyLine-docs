@@ -81,6 +81,24 @@ jobs:
 | `pdf-validation-mode` | How to report veraPDF PDF/UA-1 failures (`"warning"`, `"error"`, `"off"`) | `"warning"` | No |
 | `pdf-strict` | Set to `"true"` to enable strict PDF/UA-1 checking on form field tab order | `"false"` | No |
 
+### How DAYamlChecker and DOCX checks run in `da_build`
+
+When `da_build` runs the `Run YAML Checker` step, it invokes [`dayamlchecker`](./dayamlchecker.md) across all interview YAML files in `docassemble/*/data/questions/`.
+
+By default, `dayamlchecker`:
+1. **Discovers and audits related DOCX templates**: When validating question files, `dayamlchecker` automatically inspects associated Word (`.docx`) templates located under `data/templates/` for OpenXML accessibility barriers (such as missing image alt text, table header repeats, merged cells, and heading skips).
+2. **Reports DOCX issues as non-blocking warnings**: DOCX accessibility issues are capped at `warning` severity by default so that existing templates do not immediately block your CI build.
+3. **Scans URLs across templates**: Extracts and verifies URLs found in both YAML questions and Word templates unless `skip-templates: "true"` or `skip-url-check: "true"` is set.
+
+#### Controlling DOCX and YAML checking behavior
+
+- **Skipping template URL validation in CI**: Set `skip-templates: "true"` on the `da_build` action step to ignore URLs inside `data/templates/`.
+- **Suppressing specific DOCX/YAML findings in code**: Add block-level suppressions inside your YAML files (such as `# no-dayc-block: accessibility, WA552`) to suppress specific rule findings per interview block.
+- **Auditing DOCX templates locally with strict enforcement**: When running `dayamlchecker` from your local terminal, you can audit your template directory directly and enforce strict zero-error standards:
+  ```bash
+  python3 -m dayamlchecker --docx-accessibility-severity error docassemble/MyPackage/data/templates/
+  ```
+
 ---
 
 ## `valid_jinja2`: DOCX template expression validator {#valid_jinja2}
