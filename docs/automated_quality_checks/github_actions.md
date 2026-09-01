@@ -141,7 +141,7 @@ Reviewing binary `.docx` files in GitHub pull requests is notoriously difficult 
 
 `word_diff` extracts the text of changed `.docx` files, converts them into cleanly wrapped Markdown, and generates side-by-side HTML diffs:
 
-![Word Diff Side by Side Preview](../../static/img/quality_checks/word_diff_preview.svg)
+![Word Diff Side by Side Preview](../../static/img/quality_checks/word_diff_preview.png)
 
 ### Key Features
 

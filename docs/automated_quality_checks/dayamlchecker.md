@@ -11,7 +11,7 @@ slug: dayamlchecker
 
 It detects broken interview logic, syntax errors in embedded code, broken URLs, style guide violations, and Web Content Accessibility Guidelines (WCAG) failures before code is pushed to production.
 
-![DAYamlChecker Terminal Output](../../static/img/quality_checks/dayamlchecker_cli_preview.svg)
+![DAYamlChecker Terminal Output](../../static/img/quality_checks/dayamlchecker_cli_preview.png)
 
 ---
 

@@ -31,7 +31,7 @@ This guide walks you through inspecting workflow summaries, downloading Word dif
 
 The **Summary** page provides an immediate high-level overview of the pipeline results:
 
-![Workflow Summary and Artifacts](../../static/img/quality_checks/actions_workflow_summary.svg)
+![Workflow Summary and Annotations](../../static/img/quality_checks/actions_workflow_summary.png)
 
 ### What to Look For:
 1. **Annotations Box**: Located near the top. Highlights URL warnings (e.g., HTTP 302 redirects or slow responses) and veraPDF accessibility notices.
@@ -39,13 +39,15 @@ The **Summary** page provides an immediate high-level overview of the pipeline r
 3. **Word Document Diff Summary**: Displays a markdown table summarizing modified template files, number of lines changed, and high-level descriptions.
 4. **Artifacts Download Section**: Located at the bottom of the Summary page. Contains downloadable `.zip` bundles containing rich HTML reports and side-by-side diff previews.
 
+![Word Diff Run Summary and Artifacts Download](../../static/img/quality_checks/word_diff_run_summary.png)
+
 ---
 
 ## 3. Viewing Word Diffs (`word_diff` Artifacts)
 
 Reviewing changes to `.docx` templates directly on GitHub can be difficult because Word files are binary. The `word_diff` action solves this by extracting the text and generating a clean, side-by-side HTML comparison:
 
-![Word Diff Side by Side Preview](../../static/img/quality_checks/word_diff_preview.svg)
+![Word Diff Side by Side Preview](../../static/img/quality_checks/word_diff_preview.png)
 
 ### How to View the HTML Diff:
 1. Navigate to the bottom of the **Summary** tab for the workflow run.
@@ -64,7 +66,7 @@ Because `word_diff` preserves Jinja2 tags and conditional statements, you can ea
 
 When a check fails or you need more context on a warning, jump into the job execution logs:
 
-![Navigating Job Logs](../../static/img/quality_checks/actions_logs_navigation.svg)
+![Navigating Job Logs](../../static/img/quality_checks/actions_logs_navigation.png)
 
 ### Navigating the Log Viewer:
 1. In the left sidebar, click on the failing job (e.g., `build-n-check`).

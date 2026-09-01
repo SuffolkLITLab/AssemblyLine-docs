@@ -66,7 +66,7 @@ The Assembly Line quality ecosystem consists of several complementary tools:
 
 When a pull request is submitted, GitHub Actions automatically executes the quality pipeline, posting step summaries, error annotations, and downloadable review artifacts:
 
-![GitHub Actions Workflow Run Summary](../../static/img/quality_checks/actions_workflow_summary.svg)
+![GitHub Actions Workflow Run Summary](../../static/img/quality_checks/actions_workflow_summary.png)
 
 ---
 
