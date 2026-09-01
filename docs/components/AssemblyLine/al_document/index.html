@@ -11,7 +11,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.23ab947e.css">
-<script src="/assets/js/runtime~main.65628fd5.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.75d8ddf9.js" defer="defer"></script>
 <script src="/assets/js/main.5486c16a.js" defer="defer"></script>
 </head>
 <body>
@@ -162,6 +162,7 @@
 <li class=""><a href="#AssemblyLine.al_document.ALDocumentBundle.as_editable_list" class="">as_editable_list</a></li>
 <li class=""><a href="#AssemblyLine.al_document.ALDocumentBundle.get_cacheable_documents" class="">get_cacheable_documents</a></li>
 <li class=""><a href="#AssemblyLine.al_document.ALDocumentBundle.has_broken_documents" class="">has_broken_documents</a></li>
+<li class=""><a href="#AssemblyLine.al_document.ALDocumentBundle.broken_exhibit_titles" class="">broken_exhibit_titles</a></li>
 <li class=""><a href="#AssemblyLine.al_document.ALDocumentBundle.broken_documents_warning_html" class="">broken_documents_warning_html</a></li>
 <li class=""><a href="#AssemblyLine.al_document.ALDocumentBundle.download_list_html" class="">download_list_html</a></li>
 <li class=""><a href="#AssemblyLine.al_document.ALDocumentBundle.download_html" class="">download_html</a></li>
@@ -1478,12 +1479,21 @@ bundle, failed to process and will be silently skipped.</p>
 <ul>
 <li class=""><code>bool</code> - True if any document or nested bundle has broken content.</li>
 </ul>
+<a id="AssemblyLine.al_document.ALDocumentBundle.broken_exhibit_titles"></a>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="broken_exhibit_titles">broken_exhibit_titles<a href="#broken_exhibit_titles" class="hash-link" aria-label="Direct link to broken_exhibit_titles" title="Direct link to broken_exhibit_titles" translate="no">​</a></h3>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">broken_exhibit_titles</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> List</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><br></div></code></pre></div></div>
+<p>Returns the titles of any broken exhibits in this bundle, including
+ones inside nested bundles.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-58">Returns<a href="#returns-58" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<ul>
+<li class=""><code>List[str]</code> - Titles of exhibits that will be skipped.</li>
+</ul>
 <a id="AssemblyLine.al_document.ALDocumentBundle.broken_documents_warning_html"></a>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="broken_documents_warning_html">broken_documents_warning_html<a href="#broken_documents_warning_html" class="hash-link" aria-label="Direct link to broken_documents_warning_html" title="Direct link to broken_documents_warning_html" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">broken_documents_warning_html</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><br></div></code></pre></div></div>
 <p>Builds the warning banner shown on the download screen if any document in
 this bundle has broken content.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-58">Returns<a href="#returns-58" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-59">Returns<a href="#returns-59" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>str</code> - The warning HTML, or an empty string if nothing is broken.</li>
 </ul>
@@ -1525,7 +1535,7 @@ of the table&#x27;s zip row. Will default to the value of <code>self.title</code
 <li class=""><code>zip_include_pdf</code> <em>Optional[bool]</em> - Flag to include PDF files in the zip archive, default is True. If <code>None</code> value of <code>view</code> will be used.</li>
 <li class=""><code>zip_format</code> <em>Optional[str]</em> - Format of the files in the zip archive. If None, defaults to value of &quot;format&quot; parameter.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-59">Returns<a href="#returns-59" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-60">Returns<a href="#returns-60" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>str</code> - HTML representation of a table with documents and their associated actions.</li>
 </ul>
@@ -1547,7 +1557,7 @@ combined into one pdf with &#x27;view&#x27; and &#x27;download&#x27; buttons.</p
 <li class=""><code>download_label</code> <em>str</em> - Label for the &#x27;download&#x27; button, default is &quot;Download&quot;.</li>
 <li class=""><code>download_icon</code> <em>str</em> - Icon for the &#x27;download&#x27; button, default is &quot;download&quot;.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-60">Returns<a href="#returns-60" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-61">Returns<a href="#returns-61" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>str</code> - HTML representation of a table with documents and their associated actions.</li>
 </ul>
@@ -1565,7 +1575,7 @@ someone to send the bundle to the specified email address.</p>
 defaulting to <code>&quot;Send&quot;</code>).</li>
 <li class=""><code>send_icon</code> <em>str</em> - Icon for the &#x27;send&#x27; button. Default is &quot;envelope&quot;.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-61">Returns<a href="#returns-61" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-62">Returns<a href="#returns-62" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>str</code> - The generated HTML string for the table row.</li>
 </ul>
@@ -1588,7 +1598,7 @@ defaulting to <code>&quot;Send&quot;</code>).</li>
 <li class=""><code>key</code> <em>str, optional</em> - A key used to identify which version of the ALDocument to send. Defaults to &quot;final&quot;.</li>
 <li class=""><code>preferred_formats</code> <em>Optional[Union[str,List[str]]], optional</em> - A list of allowed formats for the document. Defaults to &quot;pdf&quot; if not specified.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-62">Returns<a href="#returns-62" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-63">Returns<a href="#returns-63" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>str</code> - The generated HTML string for the button.</li>
 </ul>
@@ -1615,7 +1625,7 @@ to &quot;envelope&quot;.</li>
 section legend. Defaults to &quot;h4&quot;.</li>
 <li class=""><code>email_label</code> <em>str, optional</em> - The label for the email input. Defaults to &quot;Email&quot;.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-63">Returns<a href="#returns-63" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-64">Returns<a href="#returns-64" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>str</code> - The generated HTML string for the input box and button.</li>
 </ul>
@@ -1641,7 +1651,7 @@ in your interview YAML.</li>
 <li class=""><code>preferred_formats</code> <em>str</em> - Specifies the format of the files to send. Can be &quot;pdf&quot; or &quot;docx&quot;, or a list of these formats. Overrides deprecated <code>editable</code> keyword.</li>
 <li class=""><code>**kwargs</code> - Additional parameters to pass to the da <code>send_email</code> function.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-64">Returns<a href="#returns-64" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-65">Returns<a href="#returns-65" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - Indicates if the email was sent successfully.</li>
 </ul>
@@ -1653,7 +1663,7 @@ in your interview YAML.</li>
 <ul>
 <li class=""><code>refresh</code> <em>bool</em> - Whether to refresh the enabled status. Defaults to True.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-65">Returns<a href="#returns-65" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-66">Returns<a href="#returns-66" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - Indicates if the document is enabled.</li>
 </ul>
@@ -1665,7 +1675,7 @@ in your interview YAML.</li>
 <ul>
 <li class=""><code>refresh</code> <em>bool</em> - Whether to refresh the enabled status. Defaults to True.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-66">Returns<a href="#returns-66" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-67">Returns<a href="#returns-67" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - Indicates if the bundle and its child documents are enabled.</li>
 </ul>
@@ -1677,7 +1687,7 @@ in your interview YAML.</li>
 <ul>
 <li class=""><code>key</code> <em>str, optional</em> - The key to identify enabled documents. Defaults to &quot;final&quot;.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-67">Returns<a href="#returns-67" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-68">Returns<a href="#returns-68" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - True if all enabled documents are DOCX, otherwise False.</li>
 </ul>
@@ -1692,7 +1702,7 @@ in your interview YAML.</li>
 <li class=""><code>refresh</code> <em>bool, optional</em> - Refresh the enabled documents before conversion. Defaults to True.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool, optional</em> - Append a matching suffix to the output filename. Defaults to True.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-68">Returns<a href="#returns-68" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-69">Returns<a href="#returns-69" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - A DAFile object containing the concatenated DOCX or PDF file.</li>
 </ul>
@@ -1705,7 +1715,7 @@ in your interview YAML.</li>
 <li class=""><code>key</code> <em>str, optional</em> - The key to identify enabled documents. Defaults to &quot;final&quot;.</li>
 <li class=""><code>refresh</code> <em>bool, optional</em> - Refresh the enabled documents before returning the list. Defaults to True.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-69">Returns<a href="#returns-69" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-70">Returns<a href="#returns-70" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>List[DAFile]</code> - A list of enabled DAFile objects.</li>
 </ul>
@@ -1744,7 +1754,7 @@ even if OCR is not complete. Check this status if you want to wait to deliver a 
 OCR is complete.</p>
 <p>Will return true (but log a warning) if OCR was never started on the documents.
 That situation is likely a developer error, as you shouldn&#x27;t wait for OCR if it never started</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-70">Returns<a href="#returns-70" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-71">Returns<a href="#returns-71" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - True iff OCR process has finished on all pages.</li>
 </ul>
@@ -1752,7 +1762,7 @@ That situation is likely a developer error, as you shouldn&#x27;t wait for OCR i
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ocr_pages">ocr_pages<a href="#ocr_pages" class="hash-link" aria-label="Direct link to ocr_pages" title="Direct link to ocr_pages" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">ocr_pages</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> List</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">DAFile</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><br></div></code></pre></div></div>
 <p>Retrieve the OCR-processed version of pages if available, else return the original pages.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-71">Returns<a href="#returns-71" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-72">Returns<a href="#returns-72" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>List[DAFile]</code> - List of pages, either OCR-processed or original.</li>
 </ul>
@@ -1764,7 +1774,7 @@ them are currently valid, meaning as_pdf() will silently skip it.</p>
 <p>Checks pages.gathered rather than the <code>complete</code> property, since
 <code>complete</code> is a gathering trigger that always returns True and can
 force docassemble to gather undefined attributes as a side effect</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-72">Returns<a href="#returns-72" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-73">Returns<a href="#returns-73" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - True if this exhibit will get skipped.</li>
 </ul>
@@ -1789,7 +1799,7 @@ force docassemble to gather undefined attributes as a side effect</p>
 <li class=""><code>filename</code> <em>Optional[str]</em> - Custom filename for the generated PDF. Default is &quot;exhibits.pdf&quot;.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool</em> - If True, appends a suffix to the filename based on certain matching criteria.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-73">Returns<a href="#returns-73" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-74">Returns<a href="#returns-74" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - PDF representation of the exhibit.</li>
 </ul>
@@ -1797,7 +1807,7 @@ force docassemble to gather undefined attributes as a side effect</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="num_pages">num_pages<a href="#num_pages" class="hash-link" aria-label="Direct link to num_pages" title="Direct link to num_pages" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">num_pages</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">int</span><br></div></code></pre></div></div>
 <p>Calculate the total number of pages in the exhibit.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-74">Returns<a href="#returns-74" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-75">Returns<a href="#returns-75" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>int</code> - Total page count.</li>
 </ul>
@@ -1813,7 +1823,7 @@ this exhibit&#x27;s own cover page.</p>
 <li class=""><code>toc_pages</code> <em>int</em> - Actual or estimated number of TOC pages.</li>
 <li class=""><code>include_cover_page</code> <em>bool</em> - Whether this exhibit has a cover page.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-75">Returns<a href="#returns-75" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-76">Returns<a href="#returns-76" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>int</code> - The physical page number of the exhibit&#x27;s first uploaded page.</li>
 </ul>
@@ -1828,7 +1838,7 @@ to gather a complete exhibit object.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="__str__-2">__str__<a href="#__str__-2" class="hash-link" aria-label="Direct link to __str__" title="Direct link to __str__" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">__str__</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">str</span><br></div></code></pre></div></div>
 <p>Return the title of the exhibit.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-76">Returns<a href="#returns-76" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-77">Returns<a href="#returns-77" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>str</code> - Title of the exhibit.</li>
 </ul>
@@ -1844,7 +1854,7 @@ For non-image files, the text in the file is skipped during OCR.</p>
 <li class=""><code>from_file</code> <em>Union[DAFile, DAFileList]</em> - The source file or list of files to be OCR-processed.</li>
 <li class=""><code>to_pdf</code> <em>DAFile</em> - The destination file where the OCR-processed output will be saved.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-77">Returns<a href="#returns-77" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-78">Returns<a href="#returns-78" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>Optional[str]</code> - The path of the OCR-processed file if successful; None otherwise.</li>
 </ul>
@@ -1894,7 +1904,7 @@ Uses A..Z labels by default.</li>
 <li class=""><code>toc_pages</code> <em>int</em> - Expected number of pages in the table of contents.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool</em> - If True, appends matching suffix to the filename.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-78">Returns<a href="#returns-78" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-79">Returns<a href="#returns-79" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - A single PDF containing all exhibits.</li>
 </ul>
@@ -1902,7 +1912,7 @@ Uses A..Z labels by default.</li>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="broken_exhibits">broken_exhibits<a href="#broken_exhibits" class="hash-link" aria-label="Direct link to broken_exhibits" title="Direct link to broken_exhibits" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">broken_exhibits</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> List</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">&quot;ALExhibit&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><br></div></code></pre></div></div>
 <p>Returns exhibits that are complete but have no valid pages</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-79">Returns<a href="#returns-79" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-80">Returns<a href="#returns-80" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>List[ALExhibit]</code> - The exhibits that will get skipped.</li>
 </ul>
@@ -1910,7 +1920,7 @@ Uses A..Z labels by default.</li>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="has_broken_exhibits">has_broken_exhibits<a href="#has_broken_exhibits" class="hash-link" aria-label="Direct link to has_broken_exhibits" title="Direct link to has_broken_exhibits" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">has_broken_exhibits</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bool</span><br></div></code></pre></div></div>
 <p>True if any exhibit in this list will be skipped</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-80">Returns<a href="#returns-80" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-81">Returns<a href="#returns-81" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - True if at least one exhibit has no valid pages.</li>
 </ul>
@@ -1920,7 +1930,7 @@ Uses A..Z labels by default.</li>
 <p>Calculates the total size in bytes of all exhibits in the list.</p>
 <p>Pages that fail to load are skipped rather than raising an exception,
 so the total may be an undercount if any page couldn&#x27;t be read.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-81">Returns<a href="#returns-81" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-82">Returns<a href="#returns-82" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>int</code> - Total size of all exhibits in bytes.</li>
 </ul>
@@ -1937,7 +1947,7 @@ Uses the class&#x27;s auto_labeler by default.</li>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ocr_ready-1">ocr_ready<a href="#ocr_ready-1" class="hash-link" aria-label="Direct link to ocr_ready" title="Direct link to ocr_ready" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">ocr_ready</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bool</span><br></div></code></pre></div></div>
 <p>Checks if all exhibits in the list have completed the OCR process.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-82">Returns<a href="#returns-82" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-83">Returns<a href="#returns-83" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - True if all exhibits are OCRed or if OCR hasn&#x27;t started. False otherwise.</li>
 </ul>
@@ -2036,7 +2046,7 @@ potential long processing times.</li>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">has_overflow</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bool</span><br></div></code></pre></div></div>
 <p>Check if there is any overflow in the document.</p>
 <p>This is for compatibility with ALDocument; Exhibits inherently don&#x27;t have overflow.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-83">Returns<a href="#returns-83" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-84">Returns<a href="#returns-84" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - Always False for this implementation.</li>
 </ul>
@@ -2044,7 +2054,7 @@ potential long processing times.</li>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ocr_ready-2">ocr_ready<a href="#ocr_ready-2" class="hash-link" aria-label="Direct link to ocr_ready" title="Direct link to ocr_ready" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">ocr_ready</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bool</span><br></div></code></pre></div></div>
 <p>Determine if all exhibits within the document have undergone OCR processing.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-84">Returns<a href="#returns-84" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-85">Returns<a href="#returns-85" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - True if all exhibits have been OCRed or if the OCR process hasn&#x27;t been initiated.</li>
 </ul>
@@ -2056,7 +2066,7 @@ potential long processing times.</li>
 <ul>
 <li class=""><code>key</code> - The key to fetch the item.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-85">Returns<a href="#returns-85" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-86">Returns<a href="#returns-86" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>ALExhibitDocument</code> - Returns the current instance of the class.</li>
 </ul>
@@ -2069,7 +2079,7 @@ potential long processing times.</li>
 <li class=""><code>key</code> <em>str</em> - Identifier key for the document. Default is &quot;final&quot;.</li>
 <li class=""><code>refresh</code> <em>bool</em> - If True, the document list will be refreshed. Default is True.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-86">Returns<a href="#returns-86" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-87">Returns<a href="#returns-87" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>List[DAFile]</code> - A list containing the document.</li>
 </ul>
@@ -2087,7 +2097,7 @@ For compatibility with ALDocument.</li>
 <li class=""><code>pdfa</code> <em>bool</em> - If True, the output PDF will be in PDF/A format. Default is False.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool</em> - If True, appends a matching suffix to the filename.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-87">Returns<a href="#returns-87" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-88">Returns<a href="#returns-88" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - The document rendered as a PDF.</li>
 </ul>
@@ -2095,7 +2105,7 @@ For compatibility with ALDocument.</li>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="has_broken_exhibits-1">has_broken_exhibits<a href="#has_broken_exhibits-1" class="hash-link" aria-label="Direct link to has_broken_exhibits" title="Direct link to has_broken_exhibits" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">has_broken_exhibits</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bool</span><br></div></code></pre></div></div>
 <p>True if any exhibit in this document will be silently skipped</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-88">Returns<a href="#returns-88" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-89">Returns<a href="#returns-89" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - True if at least one exhibit has no valid pages.</li>
 </ul>
@@ -2103,7 +2113,7 @@ For compatibility with ALDocument.</li>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="broken_exhibits-1">broken_exhibits<a href="#broken_exhibits-1" class="hash-link" aria-label="Direct link to broken_exhibits" title="Direct link to broken_exhibits" translate="no">​</a></h3>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">broken_exhibits</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> List</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">&quot;ALExhibit&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><br></div></code></pre></div></div>
 <p>Returns exhibits that are complete but have no valid pages</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-89">Returns<a href="#returns-89" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-90">Returns<a href="#returns-90" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>List[ALExhibit]</code> - The exhibits that will get skipped.</li>
 </ul>
@@ -2118,7 +2128,7 @@ For compatibility with ALDocument.</li>
 <li class=""><code>refresh</code> <em>bool, optional</em> - If True, refreshes the DOCX document. Default is True.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool, optional</em> - If True, appends a matching suffix to the filename (for automated tests).</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-90">Returns<a href="#returns-90" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-91">Returns<a href="#returns-91" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - The document rendered as a PDF.</li>
 </ul>
@@ -2148,7 +2158,7 @@ This class provides functionality to export data as a table in various formats s
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">has_overflow</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bool</span><br></div></code></pre></div></div>
 <p>Check for overflow in the document.</p>
 <p>For compatibility with ALDocument; Tables inherently don&#x27;t have overflow.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-91">Returns<a href="#returns-91" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-92">Returns<a href="#returns-92" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - Always False for this implementation.</li>
 </ul>
@@ -2161,7 +2171,7 @@ This class provides functionality to export data as a table in various formats s
 <ul>
 <li class=""><code>key</code> - The key to fetch the item.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-92">Returns<a href="#returns-92" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-93">Returns<a href="#returns-93" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - The document in its PDF format.</li>
 </ul>
@@ -2174,7 +2184,7 @@ This class provides functionality to export data as a table in various formats s
 <li class=""><code>key</code> <em>str</em> - Identifier key for the document. Default is &quot;final&quot;.</li>
 <li class=""><code>refresh</code> <em>bool</em> - If True, the document list will be refreshed. Default is True.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-93">Returns<a href="#returns-93" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-94">Returns<a href="#returns-94" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>List[DAFile]</code> - A list containing the document.</li>
 </ul>
@@ -2190,7 +2200,7 @@ Name retained for signature compatibility.</p>
 <li class=""><code>pdfa</code> <em>bool</em> - For signature compatibility.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool</em> - For signature compatibility.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-94">Returns<a href="#returns-94" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-95">Returns<a href="#returns-95" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - The table rendered as an XLSX spreadsheet.</li>
 </ul>
@@ -2206,7 +2216,7 @@ Name retained for signature compatibility.</p>
 <li class=""><code>pdfa</code> <em>bool</em> - For signature compatibility.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool</em> - For signature compatibility.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-95">Returns<a href="#returns-95" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-96">Returns<a href="#returns-96" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - The table rendered as an XLSX spreadsheet.</li>
 </ul>
@@ -2235,7 +2245,7 @@ compatibility with ALDocument.</p>
 <div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">has_overflow</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bool</span><br></div></code></pre></div></div>
 <p>Check for overflow in the document.</p>
 <p>For compatibility with ALDocument. Untransformed documents inherently don&#x27;t have overflow.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-96">Returns<a href="#returns-96" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-97">Returns<a href="#returns-97" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>bool</code> - Always False for this implementation.</li>
 </ul>
@@ -2248,7 +2258,7 @@ compatibility with ALDocument.</p>
 <li class=""><code>key</code> <em>str</em> - Identifier key for the document. Default is &quot;final&quot;.</li>
 <li class=""><code>refresh</code> <em>bool</em> - If True, the document list will be refreshed. Default is True.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-97">Returns<a href="#returns-97" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-98">Returns<a href="#returns-98" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>List[DAFile]</code> - A list containing the document.</li>
 </ul>
@@ -2264,7 +2274,7 @@ compatibility with ALDocument.</p>
 <li class=""><code>pdfa</code> <em>bool</em> - Unused argument for compatibility.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool</em> - Unused argument for compatibility.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-98">Returns<a href="#returns-98" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-99">Returns<a href="#returns-99" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - The original, untransformed document.</li>
 </ul>
@@ -2279,7 +2289,7 @@ compatibility with ALDocument.</p>
 <li class=""><code>refresh</code> <em>bool</em> - If True, fetches the latest version of the document. Default is True.</li>
 <li class=""><code>append_matching_suffix</code> <em>bool</em> - Unused argument for compatibility.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-99">Returns<a href="#returns-99" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-100">Returns<a href="#returns-100" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <ul>
 <li class=""><code>DAFile</code> - The original, untransformed document.</li>
 </ul>
@@ -2299,8 +2309,8 @@ ALExhibitDocument class.</p>
 <ul>
 <li class=""><code>the_file</code> <em>DAFileList</em> - an item representing an uploaded document in a Docassemble interview.</li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-100">Returns<a href="#returns-100" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="returns-101">Returns<a href="#returns-101" class="hash-link" aria-label="Direct link to Returns" title="Direct link to Returns" translate="no">​</a></h4>
 <p>A DAFile representing the first item in the DAFileList, with a fixed instanceName attribute.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/SuffolkLITLab/AssemblyLine-docs/edit/main/docs/components/AssemblyLine/al_document.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/components/AssemblyLine/al_courts"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">AssemblyLine.al_courts</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/components/AssemblyLine/language"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">AssemblyLine.language</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#json" class="table-of-contents__link toc-highlight">json</a></li><li><a href="#mimetypes" class="table-of-contents__link toc-highlight">mimetypes</a></li><li><a href="#os" class="table-of-contents__link toc-highlight">os</a></li><li><a href="#re" class="table-of-contents__link toc-highlight">re</a></li><li><a href="#escape" class="table-of-contents__link toc-highlight">escape</a></li><li><a href="#any" class="table-of-contents__link toc-highlight">Any</a></li><li><a href="#dict" class="table-of-contents__link toc-highlight">Dict</a></li><li><a href="#list" class="table-of-contents__link toc-highlight">List</a></li><li><a href="#literal" class="table-of-contents__link toc-highlight">Literal</a></li><li><a href="#union" class="table-of-contents__link toc-highlight">Union</a></li><li><a href="#callable" class="table-of-contents__link toc-highlight">Callable</a></li><li><a href="#optional" class="table-of-contents__link toc-highlight">Optional</a></li><li><a href="#address" class="table-of-contents__link toc-highlight">Address</a></li><li><a href="#latitudelongitude" class="table-of-contents__link toc-highlight">LatitudeLongitude</a></li><li><a href="#log" class="table-of-contents__link toc-highlight">log</a></li><li><a href="#dadict" class="table-of-contents__link toc-highlight">DADict</a></li><li><a href="#dalist" class="table-of-contents__link toc-highlight">DAList</a></li><li><a href="#daobject" class="table-of-contents__link toc-highlight">DAObject</a></li><li><a href="#dafile" class="table-of-contents__link toc-highlight">DAFile</a></li><li><a href="#dafilecollection" class="table-of-contents__link toc-highlight">DAFileCollection</a></li><li><a href="#dafilelist" class="table-of-contents__link toc-highlight">DAFileList</a></li><li><a href="#dalazytemplate" class="table-of-contents__link toc-highlight">DALazyTemplate</a></li><li><a href="#defined" class="table-of-contents__link toc-highlight">defined</a></li><li><a href="#pdf_concatenate" class="table-of-contents__link toc-highlight">pdf_concatenate</a></li><li><a href="#zip_file" class="table-of-contents__link toc-highlight">zip_file</a></li><li><a href="#daordereddict" class="table-of-contents__link toc-highlight">DAOrderedDict</a></li><li><a href="#background_action" class="table-of-contents__link toc-highlight">background_action</a></li><li><a href="#action_button_html" class="table-of-contents__link toc-highlight">action_button_html</a></li><li><a href="#include_docx_template" class="table-of-contents__link toc-highlight">include_docx_template</a></li><li><a href="#user_logged_in" class="table-of-contents__link toc-highlight">user_logged_in</a></li><li><a href="#user_info" class="table-of-contents__link toc-highlight">user_info</a></li><li><a href="#send_email" class="table-of-contents__link toc-highlight">send_email</a></li><li><a href="#docx_concatenate" class="table-of-contents__link toc-highlight">docx_concatenate</a></li><li><a href="#get_config" class="table-of-contents__link toc-highlight">get_config</a></li><li><a href="#space_to_underscore" class="table-of-contents__link toc-highlight">space_to_underscore</a></li><li><a href="#dastaticfile" class="table-of-contents__link toc-highlight">DAStaticFile</a></li><li><a href="#alpha" class="table-of-contents__link toc-highlight">alpha</a></li><li><a href="#showifdef" class="table-of-contents__link toc-highlight">showifdef</a></li><li><a href="#word" class="table-of-contents__link toc-highlight">word</a></li><li><a href="#pdf_to_pdfa" class="table-of-contents__link toc-highlight">pdf_to_pdfa</a></li><li><a href="#wrap" class="table-of-contents__link toc-highlight">wrap</a></li><li><a href="#floor" class="table-of-contents__link toc-highlight">floor</a></li><li><a href="#subprocess" class="table-of-contents__link toc-highlight">subprocess</a></li><li><a href="#pikepdf" class="table-of-contents__link toc-highlight">pikepdf</a></li><li><a href="#tuple" class="table-of-contents__link toc-highlight">Tuple</a></li><li><a href="#secrets" class="table-of-contents__link toc-highlight">secrets</a></li><li><a href="#string" class="table-of-contents__link toc-highlight">string</a><ul><li><a href="#__all__" class="table-of-contents__link toc-highlight">__all__</a></li><li><a href="#debug_mode" class="table-of-contents__link toc-highlight">DEBUG_MODE</a></li><li><a href="#random_suffix" class="table-of-contents__link toc-highlight">random_suffix</a></li><li><a href="#base_name" class="table-of-contents__link toc-highlight">base_name</a></li><li><a href="#label" class="table-of-contents__link toc-highlight">label</a></li><li><a href="#key" class="table-of-contents__link toc-highlight">key</a></li><li><a href="#safeattr" class="table-of-contents__link toc-highlight">safeattr</a></li><li><a href="#html_safe_str" class="table-of-contents__link toc-highlight">html_safe_str</a></li><li><a href="#_javascript_href" class="table-of-contents__link toc-highlight">_javascript_href</a></li><li><a href="#table_row" class="table-of-contents__link toc-highlight">table_row</a></li><li><a href="#pdf_page_parity" class="table-of-contents__link toc-highlight">pdf_page_parity</a></li><li><a href="#add_blank_page" class="table-of-contents__link toc-highlight">add_blank_page</a></li></ul></li><li><a href="#aladdendumfield-objects" class="table-of-contents__link toc-highlight">ALAddendumField Objects</a><ul><li><a href="#init" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#overflow_value" class="table-of-contents__link toc-highlight">overflow_value</a></li><li><a href="#max_lines" class="table-of-contents__link toc-highlight">max_lines</a></li><li><a href="#value" class="table-of-contents__link toc-highlight">value</a></li><li><a href="#has_overflow" class="table-of-contents__link toc-highlight">has_overflow</a></li><li><a href="#original_or_overflow_message" class="table-of-contents__link toc-highlight">original_or_overflow_message</a></li><li><a href="#safe_value" class="table-of-contents__link toc-highlight">safe_value</a></li><li><a href="#value_if_defined" class="table-of-contents__link toc-highlight">value_if_defined</a></li><li><a href="#__str__" class="table-of-contents__link toc-highlight">__str__</a></li><li><a href="#columns" class="table-of-contents__link toc-highlight">columns</a></li><li><a href="#type" class="table-of-contents__link toc-highlight">type</a></li><li><a href="#is_list" class="table-of-contents__link toc-highlight">is_list</a></li><li><a href="#is_object_list" class="table-of-contents__link toc-highlight">is_object_list</a></li><li><a href="#overflow_markdown" class="table-of-contents__link toc-highlight">overflow_markdown</a></li><li><a href="#overflow_docx" class="table-of-contents__link toc-highlight">overflow_docx</a></li></ul></li><li><a href="#aladdendumfielddict-objects" class="table-of-contents__link toc-highlight">ALAddendumFieldDict Objects</a><ul><li><a href="#init-1" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#initializeobject" class="table-of-contents__link toc-highlight">initializeObject</a></li><li><a href="#from_list" class="table-of-contents__link toc-highlight">from_list</a></li><li><a href="#defined_fields" class="table-of-contents__link toc-highlight">defined_fields</a></li><li><a href="#overflow" class="table-of-contents__link toc-highlight">overflow</a></li><li><a href="#has_overflow-1" class="table-of-contents__link toc-highlight">has_overflow</a></li></ul></li><li><a href="#dalazyattribute-objects" class="table-of-contents__link toc-highlight">DALazyAttribute Objects</a><ul><li><a href="#__getstate__" class="table-of-contents__link toc-highlight">__getstate__</a></li></ul></li><li><a href="#aldocument-objects" class="table-of-contents__link toc-highlight">ALDocument Objects</a></li><li><a href="#simple-use-where-the-document-is-always-enabled-and-will-have-no-addendum" class="table-of-contents__link toc-highlight">Simple use where the document is always enabled and will have no addendum</a></li><li><a href="#enable-a-document-conditionally" class="table-of-contents__link toc-highlight">Enable a document conditionally</a></li><li><a href="#an-example-enabling-with-a-question-posed-to-the-interview-user" class="table-of-contents__link toc-highlight">An example enabling with a question posed to the interview user</a><ul><li><a href="#init-2" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#as_pdf" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#as_docx" class="table-of-contents__link toc-highlight">as_docx</a></li><li><a href="#_is_docx" class="table-of-contents__link toc-highlight">_is_docx</a></li><li><a href="#as_list" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#need_addendum" class="table-of-contents__link toc-highlight">need_addendum</a></li><li><a href="#has_overflow-2" class="table-of-contents__link toc-highlight">has_overflow</a></li><li><a href="#overflow-1" class="table-of-contents__link toc-highlight">overflow</a></li><li><a href="#original_or_overflow_message-1" class="table-of-contents__link toc-highlight">original_or_overflow_message</a></li><li><a href="#safe_value-1" class="table-of-contents__link toc-highlight">safe_value</a></li><li><a href="#overflow_value-1" class="table-of-contents__link toc-highlight">overflow_value</a></li><li><a href="#is_enabled" class="table-of-contents__link toc-highlight">is_enabled</a></li></ul></li><li><a href="#alstaticdocument-objects" class="table-of-contents__link toc-highlight">ALStaticDocument Objects</a></li><li><a href="#add-a-static-pdf-file-to-a-document-bundle-code-block-yaml" class="table-of-contents__link toc-highlight">Add a static PDF file to a document bundle.
-.. code-block:: yaml</a><ul><li><a href="#init-3" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#__getitem__" class="table-of-contents__link toc-highlight">__getitem__</a></li><li><a href="#as_list-1" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#as_pdf-1" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#as_docx-1" class="table-of-contents__link toc-highlight">as_docx</a></li><li><a href="#_is_docx-1" class="table-of-contents__link toc-highlight">_is_docx</a></li><li><a href="#show" class="table-of-contents__link toc-highlight">show</a></li><li><a href="#is_enabled-1" class="table-of-contents__link toc-highlight">is_enabled</a></li></ul></li><li><a href="#aldocumentbundle-objects" class="table-of-contents__link toc-highlight">ALDocumentBundle Objects</a><ul><li><a href="#init-4" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#_set_default_attributes" class="table-of-contents__link toc-highlight">_set_default_attributes</a></li><li><a href="#as_pdf-2" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#__str__-1" class="table-of-contents__link toc-highlight">__str__</a></li><li><a href="#as_zip" class="table-of-contents__link toc-highlight">as_zip</a></li><li><a href="#preview" class="table-of-contents__link toc-highlight">preview</a></li><li><a href="#has_enabled_documents" class="table-of-contents__link toc-highlight">has_enabled_documents</a></li><li><a href="#enabled_documents" class="table-of-contents__link toc-highlight">enabled_documents</a></li><li><a href="#as_flat_list" class="table-of-contents__link toc-highlight">as_flat_list</a></li><li><a href="#get_titles" class="table-of-contents__link toc-highlight">get_titles</a></li><li><a href="#as_pdf_list" class="table-of-contents__link toc-highlight">as_pdf_list</a></li><li><a href="#as_docx_list" class="table-of-contents__link toc-highlight">as_docx_list</a></li><li><a href="#as_editable_list" class="table-of-contents__link toc-highlight">as_editable_list</a></li><li><a href="#get_cacheable_documents" class="table-of-contents__link toc-highlight">get_cacheable_documents</a></li><li><a href="#has_broken_documents" class="table-of-contents__link toc-highlight">has_broken_documents</a></li><li><a href="#broken_documents_warning_html" class="table-of-contents__link toc-highlight">broken_documents_warning_html</a></li><li><a href="#download_list_html" class="table-of-contents__link toc-highlight">download_list_html</a></li><li><a href="#download_html" class="table-of-contents__link toc-highlight">download_html</a></li><li><a href="#send_email_table_row" class="table-of-contents__link toc-highlight">send_email_table_row</a></li><li><a href="#send_button_to_html" class="table-of-contents__link toc-highlight">send_button_to_html</a></li><li><a href="#send_button_html" class="table-of-contents__link toc-highlight">send_button_html</a></li><li><a href="#send_email-1" class="table-of-contents__link toc-highlight">send_email</a></li><li><a href="#_is_self_enabled" class="table-of-contents__link toc-highlight">_is_self_enabled</a></li><li><a href="#is_enabled-2" class="table-of-contents__link toc-highlight">is_enabled</a></li><li><a href="#_is_docx-2" class="table-of-contents__link toc-highlight">_is_docx</a></li><li><a href="#as_docx-2" class="table-of-contents__link toc-highlight">as_docx</a></li><li><a href="#as_list-2" class="table-of-contents__link toc-highlight">as_list</a></li></ul></li><li><a href="#alexhibit-objects" class="table-of-contents__link toc-highlight">ALExhibit Objects</a><ul><li><a href="#init-5" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#_start_ocr" class="table-of-contents__link toc-highlight">_start_ocr</a></li><li><a href="#ocr_ready" class="table-of-contents__link toc-highlight">ocr_ready</a></li><li><a href="#ocr_pages" class="table-of-contents__link toc-highlight">ocr_pages</a></li><li><a href="#is_broken" class="table-of-contents__link toc-highlight">is_broken</a></li><li><a href="#as_pdf-3" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#num_pages" class="table-of-contents__link toc-highlight">num_pages</a></li><li><a href="#toc_page_number" class="table-of-contents__link toc-highlight">toc_page_number</a></li><li><a href="#complete" class="table-of-contents__link toc-highlight">complete</a></li><li><a href="#__str__-2" class="table-of-contents__link toc-highlight">__str__</a></li><li><a href="#ocrmypdf_task" class="table-of-contents__link toc-highlight">ocrmypdf_task</a></li></ul></li><li><a href="#alexhibitlist-objects" class="table-of-contents__link toc-highlight">ALExhibitList Objects</a><ul><li><a href="#init-6" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#as_pdf-4" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#broken_exhibits" class="table-of-contents__link toc-highlight">broken_exhibits</a></li><li><a href="#has_broken_exhibits" class="table-of-contents__link toc-highlight">has_broken_exhibits</a></li><li><a href="#size_in_bytes" class="table-of-contents__link toc-highlight">size_in_bytes</a></li><li><a href="#_update_labels" class="table-of-contents__link toc-highlight">_update_labels</a></li><li><a href="#ocr_ready-1" class="table-of-contents__link toc-highlight">ocr_ready</a></li><li><a href="#_update_page_numbers" class="table-of-contents__link toc-highlight">_update_page_numbers</a></li><li><a href="#_start_ocr-1" class="table-of-contents__link toc-highlight">_start_ocr</a></li><li><a href="#hook_after_gather" class="table-of-contents__link toc-highlight">hook_after_gather</a></li></ul></li><li><a href="#alexhibitdocument-objects" class="table-of-contents__link toc-highlight">ALExhibitDocument Objects</a><ul><li><a href="#init-7" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#_set_default_attributes-1" class="table-of-contents__link toc-highlight">_set_default_attributes</a></li><li><a href="#has_overflow-3" class="table-of-contents__link toc-highlight">has_overflow</a></li><li><a href="#ocr_ready-2" class="table-of-contents__link toc-highlight">ocr_ready</a></li><li><a href="#__getitem__-1" class="table-of-contents__link toc-highlight">__getitem__</a></li><li><a href="#as_list-3" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#as_pdf-5" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#has_broken_exhibits-1" class="table-of-contents__link toc-highlight">has_broken_exhibits</a></li><li><a href="#broken_exhibits-1" class="table-of-contents__link toc-highlight">broken_exhibits</a></li><li><a href="#as_docx-3" class="table-of-contents__link toc-highlight">as_docx</a></li></ul></li><li><a href="#altabledocument-objects" class="table-of-contents__link toc-highlight">ALTableDocument Objects</a><ul><li><a href="#init-8" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#has_overflow-4" class="table-of-contents__link toc-highlight">has_overflow</a></li><li><a href="#__getitem__-2" class="table-of-contents__link toc-highlight">__getitem__</a></li><li><a href="#as_list-4" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#as_pdf-6" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#as_docx-4" class="table-of-contents__link toc-highlight">as_docx</a></li></ul></li><li><a href="#aluntransformeddocument-objects" class="table-of-contents__link toc-highlight">ALUntransformedDocument Objects</a><ul><li><a href="#init-9" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#has_overflow-5" class="table-of-contents__link toc-highlight">has_overflow</a></li><li><a href="#as_list-5" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#as_pdf-7" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#as_docx-5" class="table-of-contents__link toc-highlight">as_docx</a></li></ul></li><li><a href="#aldocumentupload-objects" class="table-of-contents__link toc-highlight">ALDocumentUpload Objects</a><ul><li><a href="#__getitem__-3" class="table-of-contents__link toc-highlight">__getitem__</a></li><li><a href="#unpack_dafilelist" class="table-of-contents__link toc-highlight">unpack_dafilelist</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://suffolklitlab.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Suffolk LIT Lab<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | This documentation website is built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.</div></div></div></footer></div>
+.. code-block:: yaml</a><ul><li><a href="#init-3" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#__getitem__" class="table-of-contents__link toc-highlight">__getitem__</a></li><li><a href="#as_list-1" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#as_pdf-1" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#as_docx-1" class="table-of-contents__link toc-highlight">as_docx</a></li><li><a href="#_is_docx-1" class="table-of-contents__link toc-highlight">_is_docx</a></li><li><a href="#show" class="table-of-contents__link toc-highlight">show</a></li><li><a href="#is_enabled-1" class="table-of-contents__link toc-highlight">is_enabled</a></li></ul></li><li><a href="#aldocumentbundle-objects" class="table-of-contents__link toc-highlight">ALDocumentBundle Objects</a><ul><li><a href="#init-4" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#_set_default_attributes" class="table-of-contents__link toc-highlight">_set_default_attributes</a></li><li><a href="#as_pdf-2" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#__str__-1" class="table-of-contents__link toc-highlight">__str__</a></li><li><a href="#as_zip" class="table-of-contents__link toc-highlight">as_zip</a></li><li><a href="#preview" class="table-of-contents__link toc-highlight">preview</a></li><li><a href="#has_enabled_documents" class="table-of-contents__link toc-highlight">has_enabled_documents</a></li><li><a href="#enabled_documents" class="table-of-contents__link toc-highlight">enabled_documents</a></li><li><a href="#as_flat_list" class="table-of-contents__link toc-highlight">as_flat_list</a></li><li><a href="#get_titles" class="table-of-contents__link toc-highlight">get_titles</a></li><li><a href="#as_pdf_list" class="table-of-contents__link toc-highlight">as_pdf_list</a></li><li><a href="#as_docx_list" class="table-of-contents__link toc-highlight">as_docx_list</a></li><li><a href="#as_editable_list" class="table-of-contents__link toc-highlight">as_editable_list</a></li><li><a href="#get_cacheable_documents" class="table-of-contents__link toc-highlight">get_cacheable_documents</a></li><li><a href="#has_broken_documents" class="table-of-contents__link toc-highlight">has_broken_documents</a></li><li><a href="#broken_exhibit_titles" class="table-of-contents__link toc-highlight">broken_exhibit_titles</a></li><li><a href="#broken_documents_warning_html" class="table-of-contents__link toc-highlight">broken_documents_warning_html</a></li><li><a href="#download_list_html" class="table-of-contents__link toc-highlight">download_list_html</a></li><li><a href="#download_html" class="table-of-contents__link toc-highlight">download_html</a></li><li><a href="#send_email_table_row" class="table-of-contents__link toc-highlight">send_email_table_row</a></li><li><a href="#send_button_to_html" class="table-of-contents__link toc-highlight">send_button_to_html</a></li><li><a href="#send_button_html" class="table-of-contents__link toc-highlight">send_button_html</a></li><li><a href="#send_email-1" class="table-of-contents__link toc-highlight">send_email</a></li><li><a href="#_is_self_enabled" class="table-of-contents__link toc-highlight">_is_self_enabled</a></li><li><a href="#is_enabled-2" class="table-of-contents__link toc-highlight">is_enabled</a></li><li><a href="#_is_docx-2" class="table-of-contents__link toc-highlight">_is_docx</a></li><li><a href="#as_docx-2" class="table-of-contents__link toc-highlight">as_docx</a></li><li><a href="#as_list-2" class="table-of-contents__link toc-highlight">as_list</a></li></ul></li><li><a href="#alexhibit-objects" class="table-of-contents__link toc-highlight">ALExhibit Objects</a><ul><li><a href="#init-5" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#_start_ocr" class="table-of-contents__link toc-highlight">_start_ocr</a></li><li><a href="#ocr_ready" class="table-of-contents__link toc-highlight">ocr_ready</a></li><li><a href="#ocr_pages" class="table-of-contents__link toc-highlight">ocr_pages</a></li><li><a href="#is_broken" class="table-of-contents__link toc-highlight">is_broken</a></li><li><a href="#as_pdf-3" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#num_pages" class="table-of-contents__link toc-highlight">num_pages</a></li><li><a href="#toc_page_number" class="table-of-contents__link toc-highlight">toc_page_number</a></li><li><a href="#complete" class="table-of-contents__link toc-highlight">complete</a></li><li><a href="#__str__-2" class="table-of-contents__link toc-highlight">__str__</a></li><li><a href="#ocrmypdf_task" class="table-of-contents__link toc-highlight">ocrmypdf_task</a></li></ul></li><li><a href="#alexhibitlist-objects" class="table-of-contents__link toc-highlight">ALExhibitList Objects</a><ul><li><a href="#init-6" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#as_pdf-4" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#broken_exhibits" class="table-of-contents__link toc-highlight">broken_exhibits</a></li><li><a href="#has_broken_exhibits" class="table-of-contents__link toc-highlight">has_broken_exhibits</a></li><li><a href="#size_in_bytes" class="table-of-contents__link toc-highlight">size_in_bytes</a></li><li><a href="#_update_labels" class="table-of-contents__link toc-highlight">_update_labels</a></li><li><a href="#ocr_ready-1" class="table-of-contents__link toc-highlight">ocr_ready</a></li><li><a href="#_update_page_numbers" class="table-of-contents__link toc-highlight">_update_page_numbers</a></li><li><a href="#_start_ocr-1" class="table-of-contents__link toc-highlight">_start_ocr</a></li><li><a href="#hook_after_gather" class="table-of-contents__link toc-highlight">hook_after_gather</a></li></ul></li><li><a href="#alexhibitdocument-objects" class="table-of-contents__link toc-highlight">ALExhibitDocument Objects</a><ul><li><a href="#init-7" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#_set_default_attributes-1" class="table-of-contents__link toc-highlight">_set_default_attributes</a></li><li><a href="#has_overflow-3" class="table-of-contents__link toc-highlight">has_overflow</a></li><li><a href="#ocr_ready-2" class="table-of-contents__link toc-highlight">ocr_ready</a></li><li><a href="#__getitem__-1" class="table-of-contents__link toc-highlight">__getitem__</a></li><li><a href="#as_list-3" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#as_pdf-5" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#has_broken_exhibits-1" class="table-of-contents__link toc-highlight">has_broken_exhibits</a></li><li><a href="#broken_exhibits-1" class="table-of-contents__link toc-highlight">broken_exhibits</a></li><li><a href="#as_docx-3" class="table-of-contents__link toc-highlight">as_docx</a></li></ul></li><li><a href="#altabledocument-objects" class="table-of-contents__link toc-highlight">ALTableDocument Objects</a><ul><li><a href="#init-8" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#has_overflow-4" class="table-of-contents__link toc-highlight">has_overflow</a></li><li><a href="#__getitem__-2" class="table-of-contents__link toc-highlight">__getitem__</a></li><li><a href="#as_list-4" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#as_pdf-6" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#as_docx-4" class="table-of-contents__link toc-highlight">as_docx</a></li></ul></li><li><a href="#aluntransformeddocument-objects" class="table-of-contents__link toc-highlight">ALUntransformedDocument Objects</a><ul><li><a href="#init-9" class="table-of-contents__link toc-highlight">init</a></li><li><a href="#has_overflow-5" class="table-of-contents__link toc-highlight">has_overflow</a></li><li><a href="#as_list-5" class="table-of-contents__link toc-highlight">as_list</a></li><li><a href="#as_pdf-7" class="table-of-contents__link toc-highlight">as_pdf</a></li><li><a href="#as_docx-5" class="table-of-contents__link toc-highlight">as_docx</a></li></ul></li><li><a href="#aldocumentupload-objects" class="table-of-contents__link toc-highlight">ALDocumentUpload Objects</a><ul><li><a href="#__getitem__-3" class="table-of-contents__link toc-highlight">__getitem__</a></li><li><a href="#unpack_dafilelist" class="table-of-contents__link toc-highlight">unpack_dafilelist</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://suffolklitlab.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Suffolk LIT Lab<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | This documentation website is built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.</div></div></div></footer></div>
 </body>
 </html>
