@@ -132,6 +132,16 @@ When passed `.docx` template files, `dayamlchecker` inspects the internal OpenXM
 DOCX accessibility findings are capped at **warning** severity by default so that existing templates do not immediately break CI builds. Use `--docx-accessibility-severity error` to enforce strict document accessibility.
 :::
 
+#### Relationship to veraPDF in `da_build`
+
+You might wonder why **DOCX accessibility** is checked directly in `dayamlchecker` while **PDF accessibility** is checked separately by **veraPDF** in the [`da_build`](./github_actions.md#da_build) GitHub Action:
+
+- **Author-time vs. compiled formats**: DOCX templates are author-time source documents. `dayamlchecker` directly parses the OpenXML structure and XML tags in lightweight Python during local editing, catching formatting barriers, missing alt text, and heading skips before document generation.
+- **Engine dependencies**: Validating PDF/UA-1 standards requires **veraPDF**, an industry-standard Java-based validation engine. Bundling a full Java runtime environment (JRE) and heavy veraPDF binaries into `dayamlchecker` would significantly bloat installation requirements for local Python development.
+- **Division of labor**:
+  - **`dayamlchecker`** runs as a fast, pure-Python linter on your local machine or in CI, auditing YAML interview logic and `.docx` OpenXML structures.
+  - **[`da_build`](./github_actions.md#da_build)** runs in GitHub Actions CI, automatically provisioning the Java runtime to execute `veraPDF` across all static and fillable `.pdf` templates in `docassemble/*/data/templates/`.
+
 ### 5. Broken URL verification
 
 `dayamlchecker` automatically extracts all absolute HTTP and HTTPS links in interview questions and template files, pinging them concurrently to verify they return valid HTTP 200 responses:
