@@ -16,7 +16,7 @@ Interview builders must address accessibility, too, so the Document Assembly Lin
 
 The AssemblyLine software includes a [code linter](https://en.wikipedia.org/wiki/Lint_(software)) used in the [ALDashboard](../components/ALDashboard/overview) and [ALWeaver](../authoring/weaver/weaver_overview) packages. It can check interviews against the Document Assembly Line style guide, interface guidelines, and [WCAG accessibility guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/). (WCAG accessibility checks must be run manually from the Dashboard **Interview style check (lint)** link.)
 
-<p><img src="/assets/images/aldashboard-interview-linter-icon-637e617e05301566f585ec7978cb46b8.png" style={{borderRadius: 6 + 'px', display: 'block', height: 128 + 'px', width: 128 + 'px', marginRight: 'auto', marginLeft: 'auto'}} alt='ALDashboard icon for the code linter. The text reads "Interview style check (lint)"' /></p>
+<p><img src="/img/aldashboard-interview-linter-icon.png" style={{borderRadius: 6 + 'px', display: 'block', height: 128 + 'px', width: 128 + 'px', marginRight: 'auto', marginLeft: 'auto'}} alt='ALDashboard icon for the code linter. The text reads "Interview style check (lint)"' /></p>
 
 Accessibility checks include:
 
