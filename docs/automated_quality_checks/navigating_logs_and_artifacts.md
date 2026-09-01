@@ -45,16 +45,30 @@ The **Summary** page provides an immediate high-level overview of the pipeline r
 
 ## 3. Viewing Word diffs (`word_diff` artifacts)
 
-Reviewing changes to `.docx` templates directly on GitHub can be difficult because Word files are binary. The `word_diff` action solves this by extracting the text and generating a clean, side-by-side HTML comparison:
+Unlike linting tools that only produce output when code fails, the `word_diff` action **generates a diff report on every pull request that touches `.docx` templates, even when nothing is wrong**. Its purpose is to solve the classic challenge of reviewing binary Word documents in Git by providing human-readable visual diffs for authors and peer reviewers.
 
 ![Word Diff Side by Side Preview](../../static/img/quality_checks/word_diff_preview.png)
 
-### How to view the HTML diff:
-1. Navigate to the bottom of the **Summary** tab for the workflow run.
-2. Under **Artifacts**, click on **`word-doc-diff`** (or your configured artifact name). This will download a `.zip` archive.
-3. Unzip the downloaded file on your computer.
-4. Open **`index.html`** in any web browser (Chrome, Firefox, Safari, Edge).
-5. Use the document list to select changed templates. Red highlights show deleted text, and green highlights show newly added text and Jinja2 tags (`{{ ... }}`).
+### Step-by-step navigation to the Word diff report:
+
+Because GitHub separates job logs, step summaries, and downloadable artifacts, follow this exact click sequence to access and view the HTML diff:
+
+1. **Open your Pull Request**:
+   - Navigate to your pull request on GitHub.
+2. **Go to the Workflow Run**:
+   - **Method A (from Conversation tab)**: Scroll to the bottom merge status checks box. Next to the `docx-diff` or `Word Diff` check, click **Details**.
+   - **Method B (from Checks tab)**: Click the **Checks** tab at the top of the pull request, then click the `docx-diff` workflow on the left sidebar.
+3. **Click the "Summary" Tab**:
+   - GitHub often opens the dark terminal log viewer by default. Look at the top of the left-hand sidebar and click **Summary** (next to the workflow title) to open the run overview.
+4. **Locate and download the Artifact**:
+   - Scroll all the way to the bottom of the Summary page to the **Artifacts** section.
+   - Click on **`word-doc-diff`** (or your repository's configured artifact name). GitHub will automatically download a `.zip` archive to your computer.
+5. **Extract and view in any browser**:
+   - Unzip the downloaded file on your computer.
+   - Double-click **`index.html`** to open it in your preferred web browser (Chrome, Firefox, Safari, Edge).
+   - Click on any changed template in the sidebar or document list to view the side-by-side comparison:
+     - **Red / strikethrough text**: Deleted wording or old tags.
+     - **Green highlighted text**: Newly added text or updated Jinja2 expressions (`{{ ... }}`).
 
 :::tip Reviewing Jinja2 variables in Word
 Because `word_diff` preserves Jinja2 tags and conditional statements, you can easily verify variable name updates (such as renaming `{{ user.name }}` to `{{ users[0].name.full() }}`) without needing Microsoft Word installed.
