@@ -1,144 +1,221 @@
 ---
 id: accessibility
-title: Making your interview accessible
-sidebar_label: Interview accessibility
+title: Making docassemble interviews accessible
+sidebar_label: Accessibility
 slug: accessibility
 ---
 
-**Web Accessibility** is the practice of making your website usable by many different users, such as those who use keyboard controls or screen readers.
+**Web accessibility** means designing websites and tools (like docassemble interviews) so that people with disabilities can use them. Web accessibility also benefits everyone by making websites more usable across a range of situations. 
 
-Making your guided interviews accessible is first and foremost about making them easy to understand and use. Following [our advice about writing good questions](../style_guide/question_overview) can make your interview overall easier to understand and complete, which helps everyone!
+Making docassemble interviews accessible involves structuring interviews for people who use keyboard controls and screen readers, which [docassemble handles by default](https://docassemble.org/docs/accessibility.html). To the extent the AssemblyLine software adds features (such as [`AL` object classes](../components/AssemblyLine/reserved_keywords#full-list-of-reserved-variable-names)), they are also built to be accessible by default.
 
-Other parts of web accessibility involve writing the interview in a way that the user's browser and other accessibility tools (like screen readers) can understand. docassemble [handles many of these things](https://docassemble.org/docs/accessibility.html) for you, but there are some parts that you'll have to address when writing your interview.
+Interview builders must address accessibility, too, so the Document Assembly Line has powerful accessibility tools, a [style guide for writing questions](../style_guide/question_style_overview.md), and [user interface guidelines](./yaml_interface.md). These address readability and UI choices that improve interview accessibility overall. (Translation can also be considered part of web accessibility, and AssemblyLine also adds [helpful translation tools](../components/AssemblyLine/translation.md).)
 
-To help you find accessibility problems in your interview you can use the [WAVE browser extension](https://wave.webaim.org/extension/), or if you want to check accessibility of your interview automatically, you can use the [ALKiln testing framework](../components/ALKiln/automated_testing.mdx#accessibility).
+## AssemblyLine accessibility tools
 
-## Use colors that contrast strongly with their backgrounds
 
-One thing that you have control over in your interviews is your interview "branding", including fonts, styles, and importantly, colors. Making sure the text colors and background colors that you choose have high enough contrast is important to both low-vision and sighted users. Web accessibility standards like WCAG 2 define the **minimum** proper color contrast between an element and it's background color as 4.5:1. For larger text like headings, the minimum is 3:1.
+The AssemblyLine software includes a [code linter](https://en.wikipedia.org/wiki/Lint_(software)) used in the [ALDashboard](../components/ALDashboard/overview) and [ALWeaver](../authoring/weaver/weaver_overview) packages. It can check interviews against the Document Assembly Line style guide, interface guidelines, and [WCAG accessibility guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/). (WCAG accessibility checks must be run manually from the Dashboard **Interview style check (lint)** link.)
 
-You can check that the colors you are using in your interview's branding have proper contrast with the following tools:
+<p><img src="/assets/images/aldashboard-interview-linter-icon-637e617e05301566f585ec7978cb46b8.png" style={{borderRadius: 6 + 'px', display: 'block', height: 128 + 'px', width: 128 + 'px', marginRight: 'auto', marginLeft: 'auto'}} alt='ALDashboard icon for the code linter. The text reads "Interview style check (lint)"' /></p>
+
+Accessibility checks include:
+
+- Web Content Accessibility Guidelines (WCAG) clear failures
+- DOCX and PDF template accessibility
+- DAL style guide issues
+- Low contrast
+- Skipped [heading levels](#heading-levels)
+- Empty links
+- Non-descriptive link text
+- Missing [alt text](#alt-text)
+- Missing field labels
+- [Combobox](#avoid-comboboxes) use
+- Translateability
+
+## General tips for improving interview accessibility
+
+### Use strongly contrasting colors
+
+When [customizing the look and feel of your interviews](../components/ALThemeTemplate/overview), make sure the colors you choose for text and background have high contrast. This is important to both low-vision and sighted users. WCAG 2 defines the **minimum** color contrast between an element and it's background as 4.5:1. For larger text like headings, the minimum is 3:1.
+
+Check for proper contrast with these tools:
 
 * [WebAIM's contrast checker](https://webaim.org/resources/contrastchecker/)
 * [Accessible Web's contrast checker](https://accessibleweb.com/color-contrast-checker/)
 
-## Use alt-text with images
+### Use alt-text with images {#alt-text}
 
-To describe images in webpages, screen readers read out author-provided descriptions called alternative text, or "alt-text". Without alt-text, people visiting your page with screen readers won't get any of the benefits of the graphic. The W3 WAI group has [a good decision tree on how to write alt-text](https://www.w3.org/WAI/tutorials/images/decision-tree/).
+To describe images, screen readers read out descriptions called alternative text, or alt-text. Without alt-text, people using a screen reader won't get any of the benefits of the graphic. The W3 WAI group has [a good decision tree on how to write alt-text](https://www.w3.org/WAI/tutorials/images/decision-tree/).
 
-In docassemble, you should [set the `alt_text` attribute of a DAFile](https://docassemble.org/docs/objects.html#DAFile), or use [the `set_alt_text()` function](https://docassemble.org/docs/objects.html#DAFile.set_alt_text). If you are writing HTML directly, you can add an `alt` property to any `img` tags you use (see below).
+To describe an image in docassemble, [set the `alt_text` attribute of a DAFile](https://docassemble.org/docs/objects.html#DAFile), or use [the `set_alt_text()` function](https://docassemble.org/docs/objects.html#DAFile.set_alt_text). If you are writing HTML directly, add an `alt` property to all `img` tags:
 
 ```html
-<img src="my_image.png" alt="A drawing of a flowchart: the question is 'do you have any children?',
-    the option 'yes' leads to 'scenario 1', and the option 'no' leads to 'scenario 2'."/>
+<img src="my_image.png" alt="A drawing of a flowchart: the question is 'do you have any children?', the option 'yes' leads to 'scenario 1', and the option 'no' leads to 'scenario 2'."/>
 ```
 
-### Logos
+:::tip
+Don't forget to add alt-text to your organization's logo. It can be a simple description like "Organization A's logo", but it should be present.
+:::
 
-You should add alt-text to your organizations logo. This alt-text can be simple, such as "Organization A's logo", but it should be present.
+### Don't skip heading levels {#heading-levels}
 
-## Maintain consistent header increments
+Headings provide semantic structure to web pages and help screen readers navigate. When using headings, increment one level at a time. Don't skip from `h2` to `h4`.
 
-If you use headers in your question markdown, make sure that you always increment your header levels by one. For examples, always go from header level 2 to 3, and not 2 to 4. Screen readers have special features that let users navigate between different headers in order to navigate quickly, and skipped header levels can disorient users.
+Screen readers have special features that let users navigate between different headings in order to navigate quickly, and skipped heading levels can disorient users.
 
-### Don't use `h1` in sub questions
+<div class="row">
+  <div class="col">
+    Like this:
 
-There should only ever be one `h1` header on a page, and in docassemble, that header is the `question` attribute. Because of that, you shouldn't use a `#` header (or if you use HTML, an `<h1>` tag) in a subquestion.
+    ```markdown
+    <!-- Markdown -->
+    ## Heading 2
+    ### Heading 3
+    ### Heading 3
+    ## Heading 2
+    ```
 
-### Header sizes
+    ```html
+    <!-- HTML -->
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h3>Heading 3</h3>
+    <h2>Heading 2</h2>
+    ```
+  </div>
+  <div class="col">
+    **Not** like this:
 
-You might notice that the question header in docassemble looks smaller than headers in the subquestion. This is because docassemble manually styles the question to
-look like an `h3` header, even though it is really a `h1` header. If you want the headers in your subquestion, don't skip header levels until they "look right". Instead, you can manually use HTML and style them as such:
+    ```markdown
+    <!-- Markdown -->
+    ## Heading 2
+    #### Heading 4
+    #### Heading 4
+    ## Heading 2
+    ```
+
+    ```html
+    <!-- HTML -->
+    <h2>Heading 2</h2>
+    <h4>Heading 4</h4>
+    <h4>Heading 4</h4>
+    <h2>Heading 2</h2>
+    ```
+  </div>
+</div>
+
+#### Don't use `h1`
+
+There should only be one `h1` heading on a page. In docassemble, that will be the `question` attribute. Don't use a single `#` Markdown heading or an `<h1>` HTML tag in a subquestion or note.
+
+#### How to change heading sizes
+
+You might notice that the question heading in docassemble looks smaller than headings in the subquestion. This is because docassemble manually styles the question to look like an `h3` heading even though it is really an `h1` heading.
+
+If you want to change the size of a heading, don't skip heading levels! Use HTML classes to style them as a smaller (or larger) heading level:
 
 ```yaml
 subquestion: |
-  <h2 class="h4">Main Description</h2>
-
+  <h2 class="h4">Heading 2 (shown the same size as heading 4)</h2>
   ...
 
-  <h3 class="h5">More Details</h3>
-
+  <h3 class="h5">Heading 3 (shown the same size as heading 5)</h3>
   ...
-
 ```
 
-## Avoid comboboxes
+### Avoid comboboxes {#avoid-comboboxes}
 
-Comboboxes, as implemented in docassemble, have [several usability problems](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/issues/548), especially with screen readers. We recommend that you don't use comboboxes in new interviews, instead using one of the below alternatives:
+[Comboboxes](https://docassemble.org/docs/fields.html#field%20with%20combobox) allow the user to choose a selection from a list or enter their own "other" value. As implemented in docassemble, comboboxes have [several usability problems](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/issues/548), especially for screen readers, so we recommend you don't use them. Instead, split the combobox into multiple fields or use a single text field with validation.
 
-* split out the combo box into two fields: a dropdown with the same fields and an additional "other" option, and a fill-in-the-blank text input hidden behind a `show if` when the dropdown is not "other". This only works if the list of predefined options is short and the user will expect to find an "other" option on the list.
+**Two fields.** Split the combobox into:
 
-  ```yaml
-  fields:
-    - What is your role?: role_name
-      choices:
-        - employee
-        - manager
-        - other
-    - Enter your role: role_other
-      show if:
-        variable: role_name
-        is: other
-  ```
+1. A dropdown with an additional "other" option
+2. A text input hidden with `show if` when the dropdown is not "other"
 
-* split the combo box into three fields: a dropdown menu with options (like a list of courts inside the user's state), a checkbox that indicates the list doesn't apply, and a fill-in-the-blank text input hidden behind a `show if`. This is appropriate if the list of options represents the most common selections, and there is an obvious "mode" switch. For example, the checkbox might read "My court is outside of Massachusetts".
+This works best if the list of options is short and the user would expect to find an "other" option on the list.
 
-  ```yaml
-  fields:
-    - What is your court name?: court_name
-      required: False
-      code: |
-        list_of_courts
-    - My court is outside of Massachusetts: outside_ma
-      datatype: yesno
-    - Enter your court's name: court_outside_ma_name
-      show if: outside_ma
-  ```
+```yaml
+fields:
+  - What is your role?: role_name
+    choices:
+      - employee
+      - manager
+      - other
+  - Enter your role: role_other
+    show if:
+      variable: role_name
+      is: other
+```
 
-* if the combo box suggestions are validated by the interview, add some some of those suggestions into examples on the page (which makes them easier to discover for some users) and turn the field into a text input where the validation errors are descriptive.
+**Three fields.** Split the combobox into:
 
-## Accessibility testing tools
+1. A dropdown with options (e.g., a list of courts inside the user's state)
+2. A checkbox that indicates the list doesn't apply (e.g., "My court is not in Massachusetts")
+3. A fill-in-the-blank text input hidden with `show if`
 
-You should test your interview with assistive technology as much as you can! The best way to improve your interviews for assistive technology users is by actually experiencing them yourself.
+This works better if the list of options is longer, and it makes the "other" option much  more prominent.
+
+```yaml
+fields:
+  - What is your court name?: court_name
+    required: False
+    code: |
+      list_of_courts
+  - My court is outside of Massachusetts: outside_ma
+    datatype: yesno
+  - Enter your court's name: court_outside_ma_name
+    show if: outside_ma
+```
+
+**Text field with validation.** Use a single text field with input validation by the interview. To help the user fill in the field correctly, include some valid values as examples on the page. Ensure validation errors are descriptive.
+
+## Accessibility testing tools {#accessibility-tools}
+
+Test your interview with assistive technology as much as you can! The best way to improve your interviews for assistive technology users is by actually experiencing it yourself.
+
 Here are some common tools to help you test and validate the accessibility of your interviews:
 
 ### Screen readers
 
-Screen readers are assistive technologies that read content aloud for users who are blind or have low vision. Each of these screen readers behaves differently, so test with as many of them as
-you can.
+Screen readers read website copy aloud for users who are blind, have low vision, or have other challenges reading text. Each screen reader behaves differently, so test with as many as you can.
 
-It's important to note that you shouldn't rewrite your content based on how it sounds in the screen reader. When using a screen reader, some words and acronyms will be pronounced differently than you might expect. This is fine; screen reader users are used to these differences. For more discussion here, see [Adrian Roselli's post about this](https://adrianroselli.com/2023/04/dont-override-screen-reader-pronunciation.html). 
+**But** don't rewrite your copy based on how it sounds in a screen reader. Screen readers may pronounce some words and acronyms differently than you might expect. This is fine; screen reader users are used to these differences. For more discussion of this, see [Adrian Roselli's post about this](https://adrianroselli.com/2023/04/dont-override-screen-reader-pronunciation.html).
 
-**Free screen readers:**
-* **[NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/)** - Free, open-source screen reader for Windows. Widely used and regularly updated.
-* **[VoiceOver](https://www.apple.com/accessibility/vision/)** - Built into macOS and iOS devices. Activate with Command+F5 on Mac.
-* **[Orca](https://help.gnome.org/users/orca/stable/)** - Open-source screen reader for Linux systems.
+:::tip
+docassemble includes a [built-in screen reader based on VoiceRSS](https://docassemble.org/docs/config.html#voicerss).
+:::
 
-**Commercial screen readers:**
-* **[JAWS (Job Access With Speech)](https://www.freedomscientific.com/products/software/jaws/)** - The most popular screen reader for Windows with advanced features.
+Free screen readers:
+- **[NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/)** is a free, open-source screen reader for Windows that is widely used and regularly updated
+- **[VoiceOver](https://www.apple.com/accessibility/vision/)** is built into Apple devices. Activate with Command (⌘) + F5 on Mac.
+- **[TalkBack](https://support.google.com/accessibility/android/answer/6283677)** is Android's built-in screen reader
+- **[Orca](https://help.gnome.org/users/orca/stable/)** is an open-source screen reader for Linux systems
+
+Commercial screen readers:
+- **[JAWS (Job Access With Speech)](https://www.freedomscientific.com/products/software/jaws/)** is the most popular screen reader for Windows with advanced features
 
 ### Browser accessibility checkers
 
 These tools can automatically scan your interview pages for accessibility issues:
 
-* **[WAVE Web Accessibility Evaluator](https://wave.webaim.org/extension/)** - Browser extension that highlights accessibility issues directly on the page.
-* **[axe DevTools](https://www.deque.com/axe/devtools/)** - Browser extension for Chrome, Firefox, and Edge that integrates with developer tools.
-* **[Lighthouse](https://developer.chrome.com/docs/lighthouse/)** - Built into Chrome DevTools, includes accessibility auditing alongside performance testing.
-* **[Accessibility Insights](https://accessibilityinsights.io/)** - Microsoft's accessibility testing tools for web and Windows applications.
+- **[WAVE Web Accessibility Evaluator](https://wave.webaim.org/extension/)** is a browser extension that highlights accessibility issues directly on the page
+- **[Axe DevTools](https://www.deque.com/axe/devtools/)** is a browser extension for Chrome, Firefox, and Edge that integrates with developer tools
+- **[Lighthouse](https://developer.chrome.com/docs/lighthouse/)** is built into Chrome DevTools and includes accessibility auditing alongside performance testing
+- **[Accessibility Insights](https://accessibilityinsights.io/)** is Microsoft's accessibility testing tool for web and Windows
 
 ### Manual testing tools
 
-* **[Colour Contrast Analyser](https://www.tpgi.com/color-contrast-checker/)** - Desktop application for testing color contrast ratios.
-* **[Accessibility bookmarklets](https://accessibility-bookmarklets.org/)** - Collection of browser bookmarklets for quick accessibility checks.
+- **[Colour Contrast Analyser](https://www.tpgi.com/color-contrast-checker/)** is a desktop application for testing color contrast ratios
+- **[Accessibility bookmarklets](https://accessibility-bookmarklets.org/)** is a collection of browser bookmarklets for quick accessibility checks
 
 ### Mobile accessibility testing
 
-* **[TalkBack](https://support.google.com/accessibility/android/answer/6283677)** - Android's built-in screen reader.
-* **[Switch Access](https://support.google.com/accessibility/android/answer/6122836)** - Android feature for users with motor disabilities.
-* **[VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios)** - iOS's built-in screen reader.
+- **[VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios)** is iOS's built-in screen reader
+- **[TalkBack](https://support.google.com/accessibility/android/answer/6283677)** is Android's built-in screen reader
+- **[Switch Access](https://support.google.com/accessibility/android/answer/6122836)** is an Android feature for users with motor disabilities
 
 ### Automated testing integration
 
-* **[ALKiln](../components/ALKiln/automated_testing.mdx#accessibility)** - Assembly Line's testing framework with built-in accessibility testing using aXe-core.
-* **[aXe-core](https://github.com/dequelabs/axe-core)** - Open-source accessibility testing engine used by many tools.
-* **[Pa11y](https://pa11y.org/)** - Command-line accessibility testing tool that can be integrated into CI/CD pipelines.
+- **[ALKiln](../components/ALKiln/automated_testing.mdx#accessibility)** is the Document Assembly Line's testing framework with built-in accessibility testing using [axe-core](https://github.com/dequelabs/axe-core)
+- **[aXe-core](https://github.com/dequelabs/axe-core)** is an open-source accessibility testing engine used by many tools
+- **[Pa11y](https://pa11y.org/)** is a command-line accessibility testing tool that can be integrated into CI/CD pipelines
