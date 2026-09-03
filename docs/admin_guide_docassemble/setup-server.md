@@ -379,7 +379,7 @@ Compose file to ensure you are setting the same flags in the new container.
 
 In a few minutes, your docassemble server will be up and running. Visit the website at the DNS
 name you chose, `https://apps.example.com`. Log in with the default username and password,
-admin@admin.com/password. Change it to something more secure.
+admin@example.com/password. Change it to something more secure.
 
 ### Monitor progress
 
