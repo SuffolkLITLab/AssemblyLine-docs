@@ -56,6 +56,10 @@ Traditional Docassemble interview creation previously required either writing hu
 * **Built-in quality diagnostics**: Catch missing IDs, duplicate blocks, undefined variables, and style warnings before running your interview.
 * **Integrated GitHub publishing**: Commit and push changes to GitHub repositories right from the browser.
 
+Watch a demonstration of the Weaver:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3arBAl3jtqM?si=zNQ7gC5kDZQJeoUp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ## Start-to-finish workflow overview
