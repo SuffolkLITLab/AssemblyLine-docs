@@ -31,6 +31,19 @@ pytest
 See the [DAYamlChecker page](./dayamlchecker.md) for what each finding means and how to
 suppress one.
 
+Some findings do not need a decision from you. Missing question ids, duplicate block ids,
+yes/no shorthands, and the first unlabeled field on a multi-field screen all have one
+sensible answer, and `--fix` writes them for you before reporting whatever is left:
+
+```bash
+python3 -m dayamlchecker --fix docassemble/MyPackage/data/questions/
+```
+
+It edits in place, so commit or stash first and read the `git diff`. To see the plan
+without writing anything, run `python3 -m dayamlchecker.fixer` on its own — its default
+mode is a dry run. See
+[fixing findings automatically](./dayamlchecker.md#fixing-findings-automatically).
+
 :::tip Skip the network when you are iterating
 `dayamlchecker` requests every external link it finds, which is the slowest thing it
 does. Pass `--no-url-check` while you are working, and leave the link checking to CI.

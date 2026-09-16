@@ -214,6 +214,175 @@ and so cannot be translated as a unit (`WT703`, `WT704`).
 
 ---
 
+## Fixing findings automatically
+
+Four of the rules above describe a change with only one sensible answer: a question block
+with no `id:`, a yes/no shorthand, a duplicate block id, and an unlabeled field on a
+multi-field screen. Pass `--fix` and `dayamlchecker` rewrites those in place, then runs
+the normal check and reports whatever is left.
+
+```bash
+python3 -m dayamlchecker --fix docassemble/MyPackage/data/questions/
+```
+
+| Code | What it changes |
+| :--- | :--- |
+| `EG414` | Adds `id:` to a question block, derived from the question text |
+| `EG104` | Suffixes later duplicate block ids (`review answers`, `review answers 2`) |
+| `EA510` | Expands a `yesno:` / `noyes:` shorthand into `fields:` with an explicit `datatype:` |
+| `EA502` | Labels the first unlabeled field on a multi-field screen with the question text |
+
+Given this interview:
+
+```yaml
+---
+question: |
+  Do you agree to the terms?
+yesno: user_agrees
+---
+question: |
+  Tell us about your income
+fields:
+  - no label: income_amount
+    datatype: currency
+  - Employer: employer_name
+---
+id: review answers
+question: Review your answers
+---
+id: review answers
+question: Review them again
+```
+
+`--fix` reports what it changed and then re-checks the result:
+
+```text
+Fix mode: scanned 1 YAML files; wrote changes in 1; skipped 0; rejected 0.
+Fixes by rule: {'EA502': 1, 'EA510': 1, 'EG104': 1, 'EG414': 2}
+No issues found.
+```
+
+```yaml
+---
+id: "do you agree to the terms"
+question: |
+  Do you agree to the terms?
+fields:
+  - no label: user_agrees
+    datatype: yesnoradio
+---
+id: "tell us about your income"
+question: |
+  Tell us about your income
+fields:
+  - "Tell us about your income": income_amount
+    datatype: currency
+  - Employer: employer_name
+---
+id: review answers
+question: Review your answers
+---
+id: "review answers 2"
+question: Review them again
+```
+
+### What the fixes actually do
+
+**Generated ids** are the question text reduced to lowercase letters, digits and spaces.
+Punctuation and Mako delimiters become word separators, so `${city_only_address}` becomes
+`city only address`, while apostrophes are dropped rather than split on, so `didn't`
+becomes `didnt`. Two questions that differ only in punctuation or case therefore collide,
+and the second is suffixed. Ids you wrote yourself are never rewritten; a duplicate one
+only gains a suffix.
+
+**Yes/no shorthands** keep their meaning: `yesno:` and `noyes:` become
+`datatype: yesnoradio`, and `yesnomaybe:` / `noyesmaybe:` become `datatype: yesnomaybe`.
+This changes what the applicant sees — a screen that was two buttons becomes a radio
+group with a Continue button — so it is worth loading one converted screen before you
+merge a large batch.
+
+**Field labels** are the screen's question text, and only the *first* unlabeled field on
+a screen is labeled. The question can only sensibly describe one field, so the rest are
+left reported for you to write by hand. That also makes the fix stable: running `--fix`
+again will not start consuming the fields left for review.
+
+When the question text uses Mako line directives, the label moves to the long form,
+because `% if` only works at the start of a line and cannot survive being folded into a
+one-line label:
+
+```yaml
+fields:
+  - label: |
+      % if filled_by_attorney:
+      Does ${ users[0] } want to be the guardian?
+      % else:
+      Do you want to be the guardian?
+      % endif
+    field: wants_guardianship
+    datatype: yesnoradio
+```
+
+Inline `${ ... }` expressions evaluate fine mid-line and keep the shorter form.
+
+### What it will not do
+
+Every edit is checked before it is written. A file is rewritten only when the result
+still parses, introduces no new finding of *any* rule, and actually removes the finding
+the edit was made for. A file that fails any of those is left untouched and reported on
+standard error:
+
+```text
+Fix skipped docassemble/MyPackage/data/questions/intake.yml: could not safely rewrite id near line 6
+Fix rejected docassemble/MyPackage/data/questions/income.yml: candidate introduces new findings: WA515 (0 -> 1)
+```
+
+That second one is the interesting case: labeling a field with the question text would
+have produced two fields sharing a label on the same screen, so the edit was thrown away
+rather than trading one finding for another.
+
+A file the fixer cannot rewrite is a limit of the fixer, not a problem in your interview,
+so it does not by itself fail the run — only real findings affect the exit code.
+
+:::note `--fix` respects the flags that turn rules off
+`--fix` never rewrites source for a rule the same run would not report. With `--no-wcag`
+it leaves `EA510` and `EA502` alone, and `--suppress EG414` means no ids are generated.
+`# no-dayc:` comments are honored the same way. This also means `--suppress ALL` disables
+fixing entirely, which is worth remembering if you use it to quiet the output.
+:::
+
+### Previewing before you write
+
+`--fix` writes immediately. To see the plan first, run the fixer directly — its default
+mode is a dry run, and `--report` writes the summary as JSON:
+
+```bash
+# Show what would change, without touching anything
+python3 -m dayamlchecker.fixer docassemble/MyPackage/data/questions/
+
+# Same, saved as JSON
+python3 -m dayamlchecker.fixer --report fixes.json docassemble/MyPackage/data/questions/
+
+# Write the changes
+python3 -m dayamlchecker.fixer --write docassemble/MyPackage/data/questions/
+```
+
+```text
+Mode: dry-run
+YAML files scanned: 1
+Files with changes: 1
+Files skipped: 0
+Files rejected by validation: 0
+Changes by rule: {'EA502': 1, 'EA510': 1, 'EG104': 1, 'EG414': 2}
+```
+
+:::tip Fix on a clean branch
+The fixes preserve your formatting and touch only the lines they need to, but they are
+still automated edits across every file you point at. Commit or stash your work first, so
+`git diff` shows you exactly what the fixer did.
+:::
+
+---
+
 ## Suppressing findings
 
 Suppress by code (`EA509`) or by finding class (`accessibility`, `style`,
@@ -259,6 +428,7 @@ nowhere to put them. Silence a noisy DOCX rule with `--suppress` instead, for ex
 | `files` | One or more YAML, Python, or DOCX files or directories | Required |
 | `--suppress CODE` | Suppress a code or finding class; repeatable and comma-separated | none |
 | `--check-all` | Search ignored directories too (`.git*`, `.github*`, `build`, `dist`, `node_modules`, `sources`) | off |
+| `--fix` | Apply the four deterministic fixes in place, then check the result | off |
 | `--no-wcag` | Turn off WCAG accessibility checks | WCAG on |
 | `--accessibility-error-on-widget WIDGET` | Treat a widget, such as `combobox`, as an error | none |
 | `--style` | Turn on Assembly Line style and translatability rules | off |
