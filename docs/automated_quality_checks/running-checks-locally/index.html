@@ -11,8 +11,8 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.23ab947e.css">
-<script src="/assets/js/runtime~main.5862f75f.js" defer="defer"></script>
-<script src="/assets/js/main.d9c59513.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.c451b029.js" defer="defer"></script>
+<script src="/assets/js/main.9d4fc0f2.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -26,10 +26,18 @@ leaves a trail of &quot;fix lint&quot; commits. The same checks run locally in s
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain"># Interview YAML: structure, WCAG, and broken links</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">python3 -m dayamlchecker docassemble/MyPackage/data/questions/</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># Word templates: document accessibility</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">python3 -m dayamlchecker docassemble/MyPackage/data/templates/</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># Python: syntax, formatting, docstrings, tests</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">python3 -m compileall . -q</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">black .</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">docsig docassemble/</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">pytest</span><br></div></code></pre></div></div>
 <p>See the <a class="" href="/docs/automated_quality_checks/dayamlchecker">DAYamlChecker page</a> for what each finding means and how to
 suppress one.</p>
+<p>Some findings do not need a decision from you. Missing question ids, duplicate block ids,
+yes/no shorthands, and the first unlabeled field on a multi-field screen all have one
+sensible answer, and <code>--fix</code> writes them for you before reporting whatever is left:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">python3 -m dayamlchecker --fix docassemble/MyPackage/data/questions/</span><br></div></code></pre></div></div>
+<p>It edits in place, so commit or stash first and read the <code>git diff</code>. To see the plan
+without writing anything, run <code>python3 -m dayamlchecker.fixer</code> on its own — its default
+mode is a dry run. See
+<a class="" href="/docs/automated_quality_checks/dayamlchecker#fixing-findings-automatically">fixing findings automatically</a>.</p>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Skip the network when you are iterating</div><div class="admonitionContent_BuS1"><p><code>dayamlchecker</code> requests every external link it finds, which is the slowest thing it
 does. Pass <code>--no-url-check</code> while you are working, and leave the link checking to CI.</p></div></div>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automating-with-git-pre-commit-hooks">Automating with Git pre-commit hooks<a href="#automating-with-git-pre-commit-hooks" class="hash-link" aria-label="Direct link to Automating with Git pre-commit hooks" title="Direct link to Automating with Git pre-commit hooks" translate="no">  ​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automating-with-git-pre-commit-hooks">Automating with Git pre-commit hooks<a href="#automating-with-git-pre-commit-hooks" class="hash-link" aria-label="Direct link to Automating with Git pre-commit hooks" title="Direct link to Automating with Git pre-commit hooks" translate="no">​</a></h2>
 <p>A pre-commit hook runs every time you <code>git commit</code>. If a check fails, the commit is
 aborted, so a broken template never reaches your history in the first place. There are
 two ways to set one up.</p>
