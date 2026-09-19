@@ -111,4 +111,5 @@ celery modules:
 2. Use MCP `tools/list` to discover available server capabilities.
 3. Use REST/MCP calls for concrete tasks (labeling, draft generation, validation).
 4. Apply the focused checklists in this section to review outputs before publishing.
+5. For end-to-end testing and API automation, see [Testing with AI](../automated_quality_checks/ai_testing.md).
 

@@ -85,6 +85,8 @@ real interview on a running server.
   and Git pre-commit hooks.
 - **[DAYamlChecker](./dayamlchecker.md)**: what it checks, what the diagnostic codes
   mean, and how to suppress a finding.
+- **[AI-assisted testing](./ai_testing.md)**: choosing and setting up a coding agent,
+  drafting ALKiln fixtures, checking state through the API, and verifying screenshots.
 - **[GitHub Actions](./github_actions.md)**: every action in
   `SuffolkLITLab/ALActions`, with workflows you can copy.
 - **[Logs and artifacts](./navigating_logs_and_artifacts.md)**: reading annotations,
