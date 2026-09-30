@@ -35,14 +35,22 @@ For accessiblity reasons, headings should always follow in order from H1, to H2,
 and then H3 and so on. Do not skip a level. In docassemble, the question title
 is H1, so you should stick with H2 and below.
 
-#### Use sentence case, not Title Case for page headings and field labels {#sentence-case}
+#### Use sentence case, not title case, for page headings and field labels {#sentence-case}
 
-`Sentence case` only capitalizes the first word while `Title Case` capitalizes
-each word in a sentence. `Sentence case` is easier to read and most websites use
-it.
+**Sentence case** means capitalizing only the first word of a title or heading, while **title case** means capitalizing each word (or most of the words). Sentence case is easier to read and many websites have adopted it.
+
+For docassemble interviews, only the title of the interview should be in title case (i.e., [Affidavit Disclosing Care or Custody Proceedings](https://courtformsonline.org/ma/forms/affidavit-disclosing-care-or-custody-proceedings)). All other headings, labels, button text, etc., should be sentence case.
 
 #### Keep headings short {#short-headings}
 A heading should only be about one line of text on the screen.
+
+#### Punctuation in titles and headings 
+
+- Periods are unnecessary unless the heading contains multiple sentences. If the heading contains multiple sentences, use the appropriate punctuation after each one.
+- If the heading is a question or exclamation, include the question mark or exclamation point
+- Use the serial comma if the heading contains a list of three or more things
+
+The same guidelines should be used for most bulleted or numbered lists.
 
 ### Keep field labels short {#keep-field-labels-short}
 
