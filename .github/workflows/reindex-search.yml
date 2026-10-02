@@ -4,7 +4,7 @@ on:
   # The docs deployment pushes gh-pages; GitHub publishes it in this separate
   # workflow. Wait for publication so the crawler sees the updated website.
   workflow_run:
-    workflows: [pages build and deployment]
+    workflows: [pages-build-deployment]
     branches: [gh-pages]
     types: [completed]
   workflow_dispatch:
