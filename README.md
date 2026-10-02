@@ -50,3 +50,31 @@ We use GitHub pages for deployment. Use the command below to deploy the reposito
 ```console
 GIT_USER=<Your GitHub username> USE_SSH=TRUE npm run deploy
 ```
+
+### Algolia search indexing
+
+Merging a pull request into `main` runs the documentation deployment workflow,
+which pushes the built site to `gh-pages`. After GitHub's **pages build and
+deployment** workflow successfully publishes that branch, the **Re-index Algolia
+search** workflow requests a fresh crawl of the live site. Failed deployments and
+pull request test builds do not trigger a crawl.
+
+Add these repository secrets under **Settings → Secrets and variables → Actions**:
+
+| Secret | Value |
+| --- | --- |
+| `ALGOLIA_CRAWLER_ID` | ID of the existing DocSearch crawler that writes to `AssemblyLine_Documentation`, available in the crawler's dashboard URL. |
+| `ALGOLIA_CRAWLER_USER_ID` | Crawler user ID from the [Algolia Crawler settings](https://dashboard.algolia.com/crawler/settings). |
+| `ALGOLIA_CRAWLER_API_KEY` | Crawler API key from the same settings page. |
+
+These are [Crawler API credentials](https://www.algolia.com/doc/rest-api/crawler),
+which are separate from the search-only API key in `docusaurus.config.js`. The
+account must have access to the Crawler API. The workflow uses the existing
+crawler's configuration and requests a crawl through the
+[reindex endpoint](https://www.algolia.com/doc/rest-api/crawler/start-reindex).
+Indexing continues asynchronously after the workflow succeeds; monitor its
+progress in the Algolia crawler dashboard.
+
+To request another crawl without deploying, run **Re-index Algolia search** from
+the GitHub Actions tab with `main` selected. If a required secret is missing, the
+indexing workflow fails with a setup message; the website deployment is unaffected.

@@ -1,0 +1,46 @@
+name: Re-index Algolia search
+
+on:
+  # The docs deployment pushes gh-pages; GitHub publishes it in this separate
+  # workflow. Wait for publication so the crawler sees the updated website.
+  workflow_run:
+    workflows: [pages build and deployment]
+    branches: [gh-pages]
+    types: [completed]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  reindex:
+    name: Start DocSearch crawl
+    if: >-
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Re-index the existing Algolia crawler
+        env:
+          ALGOLIA_CRAWLER_ID: ${{ secrets.ALGOLIA_CRAWLER_ID }}
+          ALGOLIA_CRAWLER_USER_ID: ${{ secrets.ALGOLIA_CRAWLER_USER_ID }}
+          ALGOLIA_CRAWLER_API_KEY: ${{ secrets.ALGOLIA_CRAWLER_API_KEY }}
+        shell: bash
+        run: |
+          for secret_name in ALGOLIA_CRAWLER_ID ALGOLIA_CRAWLER_USER_ID ALGOLIA_CRAWLER_API_KEY; do
+            if [[ -z "${!secret_name}" ]]; then
+              echo "::error::Missing repository secret: ${secret_name}. See README.md for Algolia setup."
+              exit 1
+            fi
+          done
+
+          # Use the existing crawler's selectors, ranking, and target index.
+          # API reference: https://www.algolia.com/doc/rest-api/crawler/start-reindex
+          curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 60 \
+            --retry 2 --retry-delay 10 \
+            --request POST \
+            --user "${ALGOLIA_CRAWLER_USER_ID}:${ALGOLIA_CRAWLER_API_KEY}" \
+            "https://crawler.algolia.com/api/1/crawlers/${ALGOLIA_CRAWLER_ID}/reindex"
+
+          echo "DocSearch crawl requested. Indexing continues asynchronously in Algolia."
