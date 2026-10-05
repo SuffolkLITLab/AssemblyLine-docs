@@ -11,7 +11,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.23ab947e.css">
-<script src="/assets/js/runtime~main.a2c630d1.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3f601c1f.js" defer="defer"></script>
 <script src="/assets/js/main.bf588742.js" defer="defer"></script>
 </head>
 <body>
@@ -190,7 +190,7 @@ Find the <code>include:</code> block. If it includes base AssemblyLine files (li
 <li class=""><strong>Handling large document packets:</strong> Combined interviews often generate many documents.<!-- -->
 <ul>
 <li class=""><strong>Remove previews:</strong> Remove document previews (e.g., <code>${ al_court_bundle.as_pdf(key=&#x27;preview&#x27;) }</code>) from signature screens. Generating a preview of a massive packet can be very slow or break the layout. Instead, use a simple confirmation message like <em>&quot;Review your answers before you sign&quot;</em>.</li>
-<li class=""><strong>Use background assembly:</strong> If your interview generates more than ~3 documents, you should switch to background processing to prevent the server from timing out. Update your final download screen to use <code>al_user_bundle.download_list_html(use_previously_cached_files=True, include_full_pdf=True)</code>. See the <a class="" href="/docs/components/AssemblyLine/background_assembly">background assembly documentation</a> for more details.</li>
+<li class=""><strong>Use background assembly:</strong> If generating your combined packet is slow enough to risk a timeout, use background processing. After collecting all attachment inputs, reference <code>al_user_bundle.downloads_with_docx_ready</code> in your interview order before the download screen. On that screen, use <code>al_user_bundle.download_list_html(use_previously_cached_files=True, include_full_pdf=True)</code> to display the saved files. See the <a class="" href="/docs/components/AssemblyLine/background_assembly">background assembly documentation</a> for more details.</li>
 </ul>
 </li>
 <li class=""><strong>Overriding attachment blocks:</strong> Keep in mind that you can also override an attachment block (e.g., an <code>attachment:</code> block that generates a PDF) directly in the parent umbrella interview. Because Docassemble uses the last loaded block with a matching variable name, you aren&#x27;t forced to make the included YAML totally reusable without changes. You can let the child interview define the base attachment block, and simply redefine it in your <code>main_</code> YAML if the combined context requires different formatting or logic.</li>
