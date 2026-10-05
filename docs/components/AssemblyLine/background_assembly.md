@@ -237,7 +237,7 @@ reload: True
 
 The default reload interval is ten seconds; this is a polling interval, not a
 minimum assembly time. You can [set an explicit reload interval](https://docassemble.org/docs/modifiers.html#reload)
-as low as four seconds.
+by assigning `reload` the desired number of seconds.
 
 ### Custom tasks with different results
 
