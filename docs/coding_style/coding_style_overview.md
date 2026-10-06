@@ -17,3 +17,6 @@ We tried to use the following principles to shape our recommendations:
 1. Use existing style guides and best practices where they apply.
 1. Where they don't exist yet, model new practices on existing ones so that
    developers need to remember fewer things.
+
+For common logic mistakes, safer alternatives, and checks that go beyond static
+analysis, see [Dynamic logic and anti-patterns](yaml_dynamic.md).
