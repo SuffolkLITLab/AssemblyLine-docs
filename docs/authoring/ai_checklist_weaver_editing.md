@@ -15,7 +15,7 @@ Use this checklist after labels are ready and you are generating a draft intervi
 - [ ] Remove unnecessary default-role or list-gathering screens.
 - [ ] Confirm conditions, required fields, and screen order match legal workflow.
 
-Related guides (canonical details):
+Related guides:
 
 - [The Assembly Line Weaver](weaver/overview.md)
 - [Editing your interview](customizing_interview.md)
