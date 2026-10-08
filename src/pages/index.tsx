@@ -260,14 +260,15 @@ function Home() {
               </div>
               <p className={styles.dalPartnersText}><Translate>The Document Assembly Line is funded by a grant from the State Justice Institute and service contracts with the following courts and legal aid organizations:</Translate></p>
               <ul className={styles.dalPartnersText}>
-                <li>Legal Services Vermont (<Translate>through a grant from the Legal Services Corporation</Translate>)</li>
-                <li>The Massachusetts Trial Court</li>
-                <li>The Alaska Court System</li>
-                <li>Legal Services State Support (Mid-Minnesota Legal Aid)</li>
-                <li>Illinois Supreme Court Commission on Access to Justice</li>
-                <li>Illinois Legal Aid Online (ILAO)</li>
-                <li>Michigan Legal Help (Michigan Statewide Advocacy Services)</li>
-                <li>Lagniappe Law Lab</li>
+                <li><a href="https://www.legalservicesvt.org/">Legal Services Vermont</a> (<Translate>through a grant from the Legal Services Corporation</Translate>)</li>
+                <li><a href="https://www.mass.gov/orgs/executive-office-of-the-trial-court">The Massachusetts Trial Court</a></li>
+                <li><a href="https://courts.alaska.gov/index.htm">The Alaska Court System</a></li>
+                <li><a href="https://www.mnlegalservices.org/">Legal Services State Support</a> (Mid-Minnesota Legal Aid)</li>
+                <li><a href="https://www.illinoiscourts.gov/courts/supreme-court/committees-and-commissions/supreme-court-commission-on-access-to-justice/">Illinois Supreme Court Commission on Access to Justice</a></li>
+                <li><a href="https://www.illinoislegalaid.org/">Illinois Legal Aid Online</a> (ILAO)</li>
+                <li><a href="https://michiganlegalhelp.org/">Michigan Legal Help</a> (Michigan Statewide Advocacy Services)</li>
+                <li><a href="https://www.lagniappelawlab.org/">Lagniappe Law Lab</a></li>
+                <li><a href="https://legalaction.org/">Legal Action of Wisconsin</a></li>
               </ul>
             </section>
             <section className="col">
