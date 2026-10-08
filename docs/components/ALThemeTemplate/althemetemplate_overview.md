@@ -162,7 +162,7 @@ cd bootstrap-5.1.3
 npm install
 ```
 
-Place the `custom.scss` file you wrote from [the above section](#creating-a-custom-theme-from-source-instead-of-with-a-theme-generator)
+Place the `custom.scss` file you wrote from [the above section](#creating-a-custom-theme)
 in the unzipped bootstrap-5.1.3 folder, and use `npm` to compile the theme file.
 
 ```bash

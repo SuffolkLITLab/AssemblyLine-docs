@@ -24,7 +24,7 @@ This page is a step-by-step tutorial on how to write a review screen, and covers
   - [Step 1: AL Review Generator](#step-1-al-review-generator)
   - [Step 2: Understanding and Editing the Generated Review Screen](#step-2-understanding-and-editing-the-generated-review-screen)
     - [Edits to the Review Screen](#edits-to-the-review-screen)
-  - [Step 4: Things to add to the review screen](#step-4-things-to-add-to-the-review-screen)
+  - [Step 3: Things to add to the review screen](#step-3-things-to-add-to-the-review-screen)
 
 ## Why make a review screen?
 

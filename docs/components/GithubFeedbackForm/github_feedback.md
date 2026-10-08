@@ -157,7 +157,7 @@ The key lines in the above are:
 The `only_once_review_widget` will ask two questions, one is a simple "Did we help you?" with thumbs up and thumbs down options, and the second is an open text box for users to write more. If they answer the first question and refresh the screen or continue through the interview, the feedback widget won't be shown again, given that the user
 doesn't go back past the widget's screen in the interview.
 
-You can change several aspects of the review widget. For more information, see [the API reference of `review_widget` in ALToolbox](../ALToolbox/misc.md#review_widget). That is the function `only_once_review_widget` is using.
+You can change several aspects of the review widget. For more information, see [the API reference of `review_widget` in ALToolbox](../ALToolbox/misc.md#ALToolbox.misc.review_widget). That is the function `only_once_review_widget` is using.
 
 The `only_once_review_widget` review information is only stored on the docassemble server, and can be viewed [using the feedback browsing interview](#how-to-browse-feedback-on-the-server).
 
