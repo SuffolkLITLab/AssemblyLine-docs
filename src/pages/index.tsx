@@ -10,6 +10,7 @@ import Link from '@docusaurus/Link';
 import Translate, {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import styles from './styles.module.css';
@@ -21,6 +22,9 @@ function Home() {
       tagline,
     },
   } = useDocusaurusContext();
+
+  // Register raw JSX ids so the broken-anchor checker accepts links like /#partners
+  useBrokenLinks().collectAnchor('partners');
 
   return (
     <Layout title={tagline} description={description as string}>

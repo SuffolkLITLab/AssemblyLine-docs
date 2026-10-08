@@ -71,7 +71,7 @@ content: |
   Context-specific help goes here.
 ```
 
-[API for `collapse_template`](misc#collapse_template), and [Code for `collapse_template`](https://github.com/SuffolkLITLab/docassemble-ALToolbox/blob/main/docassemble/ALToolbox/misc.py)
+[API for `collapse_template`](misc#ALToolbox.misc.collapse_template), and [Code for `collapse_template`](https://github.com/SuffolkLITLab/docassemble-ALToolbox/blob/main/docassemble/ALToolbox/misc.py)
 
 ## Display markdown template with a scroll bar
 
