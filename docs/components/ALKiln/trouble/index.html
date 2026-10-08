@@ -11,7 +11,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.23ab947e.css">
-<script src="/assets/js/runtime~main.de1d65c2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.954fba21.js" defer="defer"></script>
 <script src="/assets/js/main.0524d95b.js" defer="defer"></script>
 </head>
 <body>
@@ -94,7 +94,7 @@
 <li class="">It may be that you have a typo in a <a href="#var-val" class="">variable name or value</a> in your test.</li>
 <li class="">It may be that you are <a class="" href="/docs/components/ALKiln/writing#values">setting the value incorrectly</a> in your test. <a class="" href="/docs/components/ALKiln/writing#checkboxes">Checkboxes are especially complex fields to set</a>.</li>
 </ul>
-<p>The mistake may have happened on a page much farther back than you expect with a field ALKiln <a class="" href="/docs/components/ALKiln/writing#unused-rows">skipped</a>.</p>
+<p>The mistake may have happened on a page much farther back than you expect with a field ALKiln <a class="" href="/docs/components/ALKiln/writing#unused_rows">skipped</a>.</p>
 <p><strong>Debugging:</strong></p>
 <p>Sometime the easiest way to see what is wrong is to run the interview manually. Fill in the same values as the test fills in. You can then see what goes wrong when you reach the page with the error.</p>
 <p>If the mistake is in your interview code, you can fix that bug. If your interview code is fine, you might have to troubleshoot <a href="#var-val" class="">a typo in your test code</a>.</p>
@@ -113,14 +113,14 @@
 <li class="">There might be a typo in your test. Reading the <a href="#var-val" class="">section about test typos</a> might help.</li>
 </ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="skipped">Skipped rows or variables<a href="#skipped" class="hash-link" aria-label="Direct link to Skipped rows or variables" title="Direct link to Skipped rows or variables" translate="no">​</a></h2>
-<p>If you look in a <a class="" href="/docs/components/ALKiln/writing#report">test suite report</a> and see that ALKiln <a class="" href="/docs/components/ALKiln/writing#unused-rows">skipped setting a variable</a>, your test code might be <a href="#missing" class="">missing a field or value</a> that it needs in order to fill out that field.</p>
+<p>If you look in a <a class="" href="/docs/components/ALKiln/writing#report">test suite report</a> and see that ALKiln <a class="" href="/docs/components/ALKiln/writing#unused_rows">skipped setting a variable</a>, your test code might be <a href="#missing" class="">missing a field or value</a> that it needs in order to fill out that field.</p>
 <p>If the test still passed, the variable probably belongs to a field that was optional.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="var-val">Wrong variable or value<a href="#var-val" class="hash-link" aria-label="Direct link to Wrong variable or value" title="Direct link to Wrong variable or value" translate="no">​</a></h2>
 <p>Unfortunately, test code can be tricky to get right. You might have a simple typo or you might have a perfectly normal misunderstanding of <a class="" href="/docs/components/ALKiln/writing#values">how to write variable names and values</a>.</p>
 <!-- -->
 <p>You can check your test code for incorrect variable or value names in a few different ways.</p>
 <ol>
-<li class="">If you give every question in your interview an id, the <a class="" href="/docs/components/ALKiln/writing#report">report</a> can help show you where the test failed or where ALKiln skipped setting variables. For each test, the report often has a list of question ids. For each question id, the report has a list of variables that ALKiln set on the page that had the error. If the test failed, you can see what question id the test got to. You can also check previous questions to see what variables are missing from each of those pages - what <a class="" href="/docs/components/ALKiln/writing#unused-rows">fields ALKiln skipped</a>.</li>
+<li class="">If you give every question in your interview an id, the <a class="" href="/docs/components/ALKiln/writing#report">report</a> can help show you where the test failed or where ALKiln skipped setting variables. For each test, the report often has a list of question ids. For each question id, the report has a list of variables that ALKiln set on the page that had the error. If the test failed, you can see what question id the test got to. You can also check previous questions to see what variables are missing from each of those pages - what <a class="" href="/docs/components/ALKiln/writing#unused_rows">fields ALKiln skipped</a>.</li>
 <li class="">It is more annoying, but in most cases<sup><a href="#user-content-fn-except" id="user-content-fnref-except" data-footnote-ref="true" aria-describedby="footnote-label" class="anchorTargetStickyNavbar_Vzrq">1</a></sup> you can copy the variable name from your test and search for it in your interview code. You can do the same for values of multiple choice questions.</li>
 <li class="">Alternatively, in most cases<sup><a href="#user-content-fn-except" id="user-content-fnref-except-2" data-footnote-ref="true" aria-describedby="footnote-label" class="anchorTargetStickyNavbar_Vzrq">1</a></sup> you can go through the interview manually, but follow this procedure:<!-- -->
 <ol>

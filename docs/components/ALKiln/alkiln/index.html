@@ -11,7 +11,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Document Assembly Line" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.23ab947e.css">
-<script src="/assets/js/runtime~main.de1d65c2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.954fba21.js" defer="defer"></script>
 <script src="/assets/js/main.0524d95b.js" defer="defer"></script>
 </head>
 <body>
@@ -219,7 +219,7 @@
 <p>The <code>value</code> for a row setting a signature doesn&#x27;t matter. All signatures will be a single dot.</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">      | user.signature |  | user.signature |</span><br></div></code></pre></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-story-table-notes">Other story table notes<a href="#other-story-table-notes" class="hash-link" aria-label="Direct link to Other story table notes" title="Direct link to Other story table notes" translate="no">​</a></h3>
-<p>(<a class="" href="/docs/components/ALKiln/writing#unused-rows">Moving</a>)</p>
+<p>(<a class="" href="/docs/components/ALKiln/writing#unused_rows">Moving</a>)</p>
 <p>Don&#x27;t worry about accidentally including variables that won&#x27;t show up during the test. Extra rows will be ignored.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="steps">Steps<a href="#steps" class="hash-link" aria-label="Direct link to Steps" title="Direct link to Steps" translate="no">​</a></h2>
 <p>(<a class="" href="/docs/components/ALKiln/writing#steps">Moving</a>)</p>
@@ -279,7 +279,7 @@
 <p>The phrase should be inside double quotation marks and should NOT itself contain <a href="https://www.compart.com/en/unicode/U+0022" target="_blank" rel="noopener noreferrer" class="">regular double quotation marks</a> inside it. That usually isn&#x27;t a problem with docassemble pages because docassemble transforms our code in ways we don&#x27;t always expect. See the <a href="#phrase-is-missing" class="">missing phrase section</a> that talks about special characters.</p>
 <hr>
 <p>(<a class="" href="/docs/components/ALKiln/writing#a11y">Moving</a>)</p>
-<p>The <code>accessibility</code> Step can <span id="accessibility">check a page for its accessibility</span> by running <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer" class="">aXe-core</a> on the page.</p>
+<p>The <code>accessibility</code> Step can <span id="accessibility" class="">check a page for its accessibility</span> by running <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer" class="">aXe-core</a> on the page.</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">    Then I check the page for accessibility issues</span><br></div></code></pre></div></div>
 <p>This will include a separate JSON file if there are any accessibility issues with the page.</p>
 <p>You can also check all pages past a certain point automatically:</p>
@@ -582,7 +582,7 @@ In GitHub, you can <a href="https://docs.github.com/en/actions/managing-workflow
 <p>When you want to update to a new version of the ALKiln, update that sha manually.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="set-alkilns-npm-version">Set ALKiln&#x27;s npm version<a href="#set-alkilns-npm-version" class="hash-link" aria-label="Direct link to Set ALKiln&#x27;s npm version" title="Direct link to Set ALKiln&#x27;s npm version" translate="no">​</a></h3>
 <p>(<a class="" href="/docs/components/ALKiln/security#freeze">Moving</a>)</p>
-<p>This section requires prior technical knowledge about <a href="https://docs.npmjs.com/about-npm" target="_blank" rel="noopener noreferrer" class="">npm</a> and <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions" target="_blank" rel="noopener noreferrer" class="">GitHub workflow files</a>. Feel free to <a class="" href="/docs/get_started/beginners_guide#join">ask us</a> any questions you might have.</p>
+<p>This section requires prior technical knowledge about <a href="https://docs.npmjs.com/about-npm" target="_blank" rel="noopener noreferrer" class="">npm</a> and <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions" target="_blank" rel="noopener noreferrer" class="">GitHub workflow files</a>. Feel free to <a class="" href="/docs/get_started#join-the-community">ask us</a> any questions you might have.</p>
 <p>You can use an exact npm version of ALKiln by using your workflow file&#x27;s <code>ALKILN_VERSION</code> input. The default uses a carat, for example <code>^4.0.0</code>. That means it will use the latest minor or patch in version 4 of ALKiln. You can instead use an exact version, for example <code>4.3.0</code>. See our section on <a href="#optional-inputs" class="">setting optional inputs</a>.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="github-secrets">GitHub secrets<a href="#github-secrets" class="hash-link" aria-label="Direct link to GitHub secrets" title="Direct link to GitHub secrets" translate="no">​</a></h3>
 <ul>
@@ -637,7 +637,7 @@ In GitHub, you can <a href="https://docs.github.com/en/actions/managing-workflow
 <li class="">Optionally gives ALKiln other inputs and environment variables it can use.</li>
 </ul>
 <p>You can also use the whole suite of GitHub&#x27;s workflow and action functionality to do other things, like creating issues when tests fail.</p>
-<p>These following sections probably require prior technical knowledge about <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions" target="_blank" rel="noopener noreferrer" class="">GitHub workflow files</a>. Feel free to <a class="" href="/docs/get_started/beginners_guide#join">ask us</a> any questions you might have.</p>
+<p>These following sections probably require prior technical knowledge about <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions" target="_blank" rel="noopener noreferrer" class="">GitHub workflow files</a>. Feel free to <a class="" href="/docs/get_started/beginners_guide#interview-builder-training">ask us</a> any questions you might have.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="required-inputs">Required inputs<a href="#required-inputs" class="hash-link" aria-label="Direct link to Required inputs" title="Direct link to Required inputs" translate="no">​</a></h3>
 <p>(<a class="" href="/docs/components/ALKiln/writing#githubNyou-inputs">Moving</a>)</p>
 <p>The setup interview should have helped you create these required <code>inputs</code> and their values. They are in the <code>jobs:</code> section. They look something like this:</p>
