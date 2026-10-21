@@ -329,7 +329,7 @@ jobs:
   deploy-playground:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: SuffolkLITLab/ALActions/da_playground_install@main
         with:
