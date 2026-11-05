@@ -25,7 +25,7 @@ Use this comprehensive pre-flight checklist before handing off your interview fo
 ## 2. Project setup and metadata
 
 - [ ] **Project Created**: Playground project initialized in the Weaver.
-- [ ] **Metadata Defined**: The `metadata:` block includes title, short title, description, author names, and relevant legal topic tags.
+- [ ] **Metadata Defined**: The [`metadata:` block](../weaver_code_anatomy.md#interview-metadata-and-metadata-for-publishing-on-courtformsonline) includes title, short title, description, author names, and relevant legal topic tags.
 - [ ] **Standard Objects Declared**: `ALPeopleList` declared for `users` and `other_parties` with appropriate quantity rules.
 
 ---
