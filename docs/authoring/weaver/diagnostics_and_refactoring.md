@@ -55,6 +55,8 @@ The built-in CodeMirror 6 editor provides:
 * Code folding, line numbering, and bracket matching.
 * **Two-Way Synchronization**: Any valid edits made in the raw YAML view are parsed and updated in the visual block outline as soon as you return to the block editor.
 
+See [Anatomy of a YAML file](../weaver_code_anatomy.md) for a detailed explanation of every block and metadata field in a generated interview YAML file.
+
 ---
 
 ## Next steps
