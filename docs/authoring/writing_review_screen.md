@@ -49,7 +49,7 @@ For docassemble applications, this means a review screen that allows the user to
 
 ## Creating your review screen
 
-### Step 0: Complete the main port of your interview!
+### Step 0: Complete the main part of your interview!
 
 Large changes to an interview's logic will require large changes to the review screen as well. Before starting to make the review screen, it's best to have completed your interview.
 
