@@ -1,13 +1,18 @@
 ---
 id: installation
-title: Installing the Document Assembly Line
-sidebar_label: Install the Assembly Line
+title: Installing the Assembly Line
+sidebar_label: Install Assembly Line
 slug: installation
 ---
+
+:::tip
+The easiest way to start using docassemble and the Assembly Line tools is to follow the steps in our [beginner's guide](beginners_guide.md). This page is for docassemble server administrators.
+:::
 
 Before you get started, make sure that you have [installed
 docassemble](../admin_guide_docassemble/setup-server)
 on a server that you maintain.
+
 
 Installing the Assembly Line covers the following basic steps:
 
