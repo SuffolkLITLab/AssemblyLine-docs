@@ -8,7 +8,7 @@ slug: beginners_guide
 If you have never used docassemble before, you are on the right page! Below are a quick introduction, an in-depth interview builder training course, and additional resources.
 
 :::tip
-You will need access to a [docassemble playground](https://docassemble.org/docs/playground.html), but if you don't have one you can use ours! Register an account on the [LIT Lab docassemble development server](https://apps-dev.suffolklitlab.org/user/register), then [email us](mailto:litlab@suffolk.edu) and ask for developer privileges.
+You will need access to a [docassemble playground](https://docassemble.org/docs/playground.html), but if you don't have one and you work at a court or non-profit legal aid provider, you can use ours! Register an account on the [LIT Lab docassemble development server](https://apps-dev.suffolklitlab.org/user/register), then [email us](mailto:litlab@suffolk.edu) and ask for developer privileges.
 :::
 
 ## Quick introduction
@@ -23,7 +23,11 @@ Finally, [review the interview project management page](project_management.md) t
 
 To go beyond the introduction, follow along with our [3-part interview builder training on YouTube](https://www.youtube.com/watch?v=XwjDOPxdoJU&list=PLy6i9GFGw5Gy3oFiIhBpj5gn5PP_Vbd-5).
 
-You can find additional [training materials on GitHub](https://github.com/SuffolkLITLab/docassemble-DALTraining), and you should join the Document Assembly Line community for help when you get stuck. We meet weekly for live support, host [monthly workshops](https://suffolklitlab.org/tag/first-wednesday-workshops/), and coding help is available 24/7 in our Microsoft Teams forum.
+:::info
+We recently started testing a [new Weaver](https://suffolklitlab.org/the-new-weavers-visual-interview-builder-for-docassemble/) with a a visual, low-code editor for docassemble and new PDF and DOCX labeling tools. This means you may encounter outdated information in the trianing materials until we update them. Take advantage of the [community resources](resources.mdx) if you get stuck!
+:::
+
+You can find additional [training materials on GitHub](https://github.com/SuffolkLITLab/docassemble-DALTraining), and you should join the Document Assembly Line community for help when you get stuck. We meet weekly for live support, host monthly workshops, and coding help is available 24/7 in our Microsoft Teams forum.
 
 To join the Document Assembly Line community, just [email us](mailto:litlab@suffolk.edu) your request.
 
