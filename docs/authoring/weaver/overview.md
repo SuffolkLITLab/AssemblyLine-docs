@@ -130,3 +130,4 @@ Follow the guides below to master each stage of building a guided interview:
 7. [**Diagnostics and refactoring**](diagnostics_and_refactoring.md) — Run static quality checks, refactor variables safely across YAML and DOCX, and edit raw YAML.
 8. [**GitHub and publishing**](publishing_and_github.md) — Publish packages, manage branches, and commit to GitHub directly from the Weaver.
 9. [**Authoring checklist**](authoring_checklist.md) — Review the start-to-finish quality checklist before deploying your interview.
+10. [**Anatomy of a YAML file**](../weaver_code_anatomy.md) — Understand each block in a generated interview YAML file, including [interview metadata fields](../weaver_code_anatomy.md#interview-metadata-and-metadata-for-publishing-on-courtformsonline).

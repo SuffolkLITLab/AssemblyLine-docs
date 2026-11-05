@@ -136,6 +136,7 @@ module.exports = {
                     type: 'category',
                     collapsed: false,
                     items: [
+                        'authoring/yaml_anatomy',
                         'authoring/customizing_interview',
                         'authoring/writing_review_screen',
                         'authoring/combining-interviews',

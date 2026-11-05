@@ -29,7 +29,7 @@ If you prefer to edit the raw [YAML](../docassemble_intro/yaml) text directly in
 
 Save your work frequently, and don't be intimidated. For the most part, many changes can be understood by reading the text and experimenting.
 
-This page offers information about making common manual YAML edits. You may also want to take this time to read through the materials in [Introduction to docassemble](../docassemble_intro/introduction-to-docassemble) about the underlying Docassemble platform.
+This page offers information about making common manual YAML edits. For a block-by-block walkthrough of a generated interview file—including a complete reference for [interview metadata fields](weaver_code_anatomy.md#interview-metadata-and-metadata-for-publishing-on-courtformsonline)—see [Anatomy of a YAML file](weaver_code_anatomy.md). You may also want to take this time to read through the materials in [Introduction to docassemble](../docassemble_intro/introduction-to-docassemble) about the underlying Docassemble platform.
 
 ## Double-check that you got things right in the labeling stage
 

@@ -139,4 +139,4 @@ Wait a second. Doesn't it make more sense to think of the label (First name, Las
 ## Keep reading
 
 * If you use the Assembly Line Weaver, you may want to read about the structure of a YAML file generated
-  by the [ALWeaver tool](https://assemblyline.suffolklitlab.org/docs/generated_yaml).
+  by the [ALWeaver tool](../authoring/weaver_code_anatomy.md).
