@@ -39,7 +39,7 @@ You can explore additional standard docassemble metadata settings in the [docass
 
 ## Interview metadata and metadata for publishing on CourtFormsOnline
 
-Current AssemblyLine interviews use an expanded [metadata block](https://docassemble.org/docs/initial.html#metadata) that includes fields for user-facing landing pages, legal topic classification, jurisdiction, e-filing status, and maintenance tracking.
+AssemblyLine interviews use the [metadata block](https://docassemble.org/docs/initial.html#metadata) to store fields for user-facing landing pages, legal topic classification, jurisdiction, e-filing status, and maintenance tracking.
 
 :::info
 The `interview_metadata` dictionary variable used in early AssemblyLine interviews is deprecated. All metadata should be placed directly in the top-level `metadata:` block as shown below. You can also edit most of these fields visually in the Weaver via **More** $\to$ **AssemblyLine settings**.
@@ -125,9 +125,9 @@ metadata:
 ---
 ```
 
-### CourtFormsOnline metadata fields currently used
+### CourtFormsOnline metadata fields
 
-CourtFormsOnline currently reads and uses the following `metadata` keys from interview `/list?json=1` responses:
+CourtFormsOnline reads the following `metadata` keys from interview `/list?json=1` responses:
 
 1. `title`
 2. `short title`
@@ -156,16 +156,7 @@ CourtFormsOnline currently reads and uses the following `metadata` keys from int
 25. `footer`
 26. `update_notes`
 
-Newly supported metadata fields in CourtFormsOnline include:
-
-1. `efiling_enabled`: Used for form status labels (for example, e-filing available).
-2. `integrated_efiling`: Alternative key for e-filing availability; supported by CourtFormsOnline.
-3. `integrated_email_filing`: Alternative key for email-filing availability; supported by CourtFormsOnline.
-4. `requires_notarization`: Shows a notary warning and links to the jurisdiction-specific notary guide.
-5. `unlisted`: Hides interviews from CourtFormsOnline listings.
-6. `footer`: Reserved custom footer text (currently normalized and available to components).
-
-### Expanded metadata fields reference
+### Metadata fields reference
 
 1. **Basic information and user guidance fields:**
    - `title`: The full name of the form. Shown on the interview's first screen, in the browser tab, in saved interview lists, and on directory listings such as CourtFormsOnline.
@@ -251,7 +242,7 @@ code: |
 
 Defines the call-to-action phrase inserted into the organization's intro page (`al_intro_screen`) at the very beginning of every interview. This lets your user know right away that they have reached the right (or wrong) form. It should be a direct call to action—such as `"File a 209A motion for impoundment"` or `"Ask the court to waive your filing fee"`—rather than a noun-phrase title.
 
-New Weaver interviews generate `interview_short_title` as a `template:` block so it can be translated easily:
+The Weaver generates `interview_short_title` as a `template:` block so it can be translated easily:
 
 ```yml
 template: interview_short_title
@@ -321,7 +312,7 @@ sections:
 
 Controls the order in which screens are shown and houses your interview's branching logic.
 
-### Combined interview order block (default in new interviews)
+### Combined interview order block (default)
 
 By default, the Weaver generates a single `mandatory: True` interview order block (`id: interview_order_<form_name>`) that sequences the intro screens, your form-specific questions, analytics snapshot, preview, signature flow, and download screen:
 
