@@ -33,7 +33,7 @@ Our ambitious, long-term goals for the Document Assembly Line are:
 - ECF 5
 - Documentation task force
 
-### Ongoing operations
+## Ongoing operations
 
 - docassemble hosting infrastructure updates
 - docassemble hosting support
