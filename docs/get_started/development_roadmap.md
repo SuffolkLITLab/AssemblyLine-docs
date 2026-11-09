@@ -17,56 +17,33 @@ Our ambitious, long-term goals for the Document Assembly Line are:
 * Establish a national document assembly and e-filing infrastructure for courts and legal-aid organizations
 * Foster a community of courts and legal aid organizations building access-to-justice tools using the Document Assembly Line
 
-## Current priorities
+## 2026 projects
 
-Here are our current priorities, from our February 2026 roadmapping meeting:
-
-### Admin
-
-- DAL project coordination/admin
-- Outreach and promotion
-- Contract negotiation and admin
-
-### Community software, support, and training
-
-- AssemblyLine maintenance and upgrades
-- Community coordination/management
-- PDF accessibility improvements
-- Documentation task force, including some specific priorities:
-  - Security best practices
-  - Accessibility best practices
-  - Seasoned dev best practices
-  - ALIncome
-  - AL code examples
-  - Review screen code examples
-- Improve authoring tools to encourage accessibility
-- Error troubleshooting, log investigation tool
-- Deeper automated testing support
-- Guided coding editor
-- Tools for managing large interview libraries and users
-- Volunteer coordination
-- **Completed** API access to interview snapshot data
-
-### docassemble hosting
-
-- docassemble hosting infrastructure upgrades
-- docassemble hosting support
-- **Completed** New DevOps engineer onboarding
-
-### E-filing
-
-- E-filing infrastructure upgrades
-- E-filing maintenance and upgrades
-- EFSP support
-- LITEfile, including some potential priorities (TBD during beta testing):
-  - Off-ramp to get help from a filing clerk
-  - ODR UX research RE user trust
-  - Plug-and-play-ability
+- Launch LITEfile
 - TrueFiling integration
-- ECF 5
+- Guided coding editor
+- Improve authoring tools to encourage accessibility
+- PDF accessibility improvements
+- API access to interview snapshot data
+- DevOps engineer onboarding
+- Deeper automated testing support
 - Improved e-filing error reporting
+- Error troubleshooting, log investigation tool
+- User account manager tools for managing user accounts and interviews
+- ECF 5
+- Documentation task force
 
-### Interview building and maintenance
+### Ongoing operations
 
-- Student project coordination
+- docassemble hosting infrastructure updates
+- docassemble hosting support
+- AssemblyLine software maintenance and updates
+- E-filing software maintenance and updates
+- E-filing infrastructure updates
+- EFSP support
 - Interview maintenance
+- Community coordination/management
+- Volunteer coordination
+- Project coordination/management
+- Outreach and promotion
+- Contract negotiation and administration
