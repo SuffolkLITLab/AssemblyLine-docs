@@ -10,6 +10,14 @@ description: Review Export, publish a project to GitHub, and deploy it with Stre
 The Scaffolder saves deployment settings for the final step. First build and test the
 assistant, then use Export to package the project for GitHub and Streamlit Community Cloud.
 
+## Choose an authoring workflow
+
+Use [hosted Studio](studio.md) for persistent accounts, school organizations,
+and assistants managed centrally. For a separate Court Forms Online frontend,
+follow [the CFO integration guide](court-forms-online.md). The Streamlit
+scaffolder and independent exported apps remain available; the instructions below
+cover that workflow where they refer to the Scaffolder.
+
 ## Export is a final review
 
 ![The current AskLIT Export screen, showing App settings and AI model panels before the deployment summaries and publish options.](../assets/asklit/05-export.png)
