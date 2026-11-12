@@ -72,21 +72,37 @@ key, or database URL into a `NEXT_PUBLIC_` variable or form metadata.
 
 ### Form landing page
 
-Add `asklit_id` inside that form's existing metadata, preserving its other fields:
+Add `asklit_id` to the existing **YAML `metadata:` block in the docassemble
+interview**, alongside `title` and the other CFO metadata. For example, the
+Civil Docketing Statement interview already defines `title`, `short title`,
+`description`, `can_I_use_this_form`, and `before_you_start` in
+`civil_docketing_statement_standalone.yml`. Adding an AskLit would look like this:
 
-```json
-{
-  "metadata": {
-    "asklit_id": "0123456789abcdef0123456789abcdef"
-  }
-}
+```yaml
+---
+metadata:
+  title: |
+    Civil Docketing Statement
+  short title: |
+    Civil Docketing
+  # ... existing description, can_I_use_this_form, before_you_start, etc.
+  asklit_id: "0123456789abcdef0123456789abcdef"
+  # ... remaining metadata
+---
+# ... remaining interview blocks
 ```
 
-Replace the illustrative value with the real 32-character ID. The form component
-renders `AskLitChat` when the metadata ID is valid and the API origin is configured.
-This is an additive property of the form record, not a complete replacement form
-record. Update the source supplying CFO's form data; do not modify generated HTML.
-If that data is incorporated during a build, rebuild CFO to pick up the mapping.
+The `# ...` comments represent omitted existing content; keep that content in your
+file. Replace the illustrative ID with the real value from Studio's **Copy bot
+ID** control. Add the field to the existing block rather than creating a second
+metadata block or a separate JSON file.
+
+Publish the updated interview package to the docassemble server that supplies
+CFO's form catalog, then rebuild CFO so it reads the updated metadata. The catalog
+API represents this YAML metadata as JSON in transit; authors edit the YAML
+source. The form component renders `AskLitChat` when the ID is valid and the API
+origin is configured. Later prompt and knowledge-base updates still happen in
+Studio without changing this mapping.
 
 ### Standalone chat link
 
