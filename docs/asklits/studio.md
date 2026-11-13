@@ -105,6 +105,47 @@ whose gallery is enabled. There is no intentional waiting period for listing.
 For another frontend, use **Settings → Sharing → Integration → Copy bot ID**.
 See [Connect Court Forms Online](court-forms-online.md).
 
+## Run a simulation
+
+Use **Settings → Student instructions** for the student’s role, exercise goals,
+and preparation. This briefing can be up to 30,000 characters and appears above
+the chat. It is separate from the opening message. Save and Publish to make it
+visible to participants.
+
+Uncheck **Show citations and reference excerpts to participants** when revealing
+the source packet would spoil the simulation. Hidden excerpts are omitted by the
+server, not merely concealed in the page. This setting does not guarantee that
+the model cannot quote or paraphrase reference material it receives: put material
+that the model must never see in Instructor notes instead of its knowledge base.
+
+New AskLits retrieve at most three passages by default. Under **More settings**,
+change **Maximum reference passages** when an exercise needs more context.
+The maximum is a ceiling, not a quota: weak or duplicate matches are filtered.
+Existing AskLits keep their saved limit. Visible references appear together under
+**Sources**; they are retrieved passages, not a guarantee of which passages the
+model relied on. Fewer passages reduce prompt size without an extra AI call,
+but model generation and first-use embedding initialization also affect latency.
+
+### Instructor notes
+
+Under **Settings → Instructor notes**, enter teaching notes, assessment criteria,
+or information that students should not see. These notes stay separate from
+student instructions, published configuration, and the model's context. They are
+not included in workspace downloads or Streamlit exports.
+
+By default, only the author and authorized Studio collaborators can read them.
+To share with instructors without Studio access, enable **Let instructors view
+these notes with a separate password** and set a password of at least 12
+characters. Instructors open **Instructor notes** on the chat page and enter that
+password. Save applies note/password changes immediately, independently of
+publishing the exercise. Leave the password field blank to retain it; uncheck
+sharing to turn password access off.
+
+The server checks the password before sending notes. Changing the password or
+disabling sharing blocks subsequent requests, but cannot recall text someone has
+already read or copied. A shared password can be passed to students; reserve
+highly sensitive material for a system appropriate to that information.
+
 ## Visitor uploads and voice
 
 In **Settings → File uploads**, enable chat attachments and optionally provide
@@ -140,3 +181,5 @@ server credentials or execute uploaded application code.
 
 For account, quota, or organization issues, see
 [Administer hosted AskLITs](studio-administration.md).
+
+For a short follow-up with no strong standalone match, retrieval keeps the best passage for continuity. Citation hiding applies to participant responses; authors and evaluation judges retain access to reference passages.

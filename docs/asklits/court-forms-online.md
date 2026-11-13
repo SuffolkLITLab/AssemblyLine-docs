@@ -127,7 +127,8 @@ path appropriate to the page, then render:
 ```
 
 The component includes chat, citations, attachments when enabled, supported voice
-controls, access prompts, and publisher/AI disclosures. CFO can provide its own
+controls, access prompts, student briefings, password-protected instructor notes,
+and publisher/AI disclosures. CFO can provide its own
 form finder, cards, links, or navigation around it. The generic `/asklit` page
 without an assistant parameter also has gallery behavior, but linking to it is
 optional and is not required by embedded or ID-based chat.
