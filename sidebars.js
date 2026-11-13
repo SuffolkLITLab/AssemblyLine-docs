@@ -162,6 +162,10 @@ module.exports = {
             type: 'category',
             items: [
                 'asklits/asklits_overview',
+                'asklits/studio',
+                'asklits/studio-administration',
+                'asklits/court-forms-online',
+                'asklits/studio-deployment',
                 'asklits/building',
                 'asklits/evaluating',
                 'asklits/deploying',
