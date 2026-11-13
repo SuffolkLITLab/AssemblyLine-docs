@@ -99,6 +99,32 @@ reset an existing password. Existing organization administrators can manage loca
 accounts when that feature is enabled; the CLI also provides
 `enable-local-accounts --organization-id ORGANIZATION_ID` for initial setup.
 
+## Registration policy
+
+`ASKLIT_REQUIRE_AUTHOR_APPROVAL=true` is the base production setting. The optional
+Fly secret `ASKLIT_OPEN_REGISTRATION_UNTIL=2027-01-01` waives approval until
+January 1, 2027 at 00:00 UTC. That gives a trial through December. The application
+checks the date dynamically, so expiry does not need a deployment.
+
+Extend the trial without editing code, for example through January:
+
+```sh
+fly secrets set --app asklit-studio ASKLIT_OPEN_REGISTRATION_UNTIL=2027-02-01
+```
+
+Set `ASKLIT_REQUIRE_AUTHOR_APPROVAL=false` for indefinite open registration. To
+end a trial immediately with the base setting still true, unset
+`ASKLIT_OPEN_REGISTRATION_UNTIL`. If the base flag was changed to false, restore it
+to true too. Secret changes restart Fly machines; the automatic date boundary
+does not. Keep private deployment configuration files in sync with these settings.
+
+Open registration enables a local **Create account** form, changes the approval
+and fee messaging, and hides hosting-approval controls and status labels in Admin.
+It does not grant permanent approval, verify local email addresses, bypass school
+membership, or disable spending limits. Existing explicit approvals survive
+policy changes. Trial accounts need approval after the trial ends; saved work is
+preserved, but unapproved authors' model calls and editing are blocked.
+
 ## Supabase and private storage
 
 Use PostgreSQL for production and multiple workers. Set these server-side values:

@@ -18,8 +18,13 @@ or update an existing standalone Streamlit app.
 
 ## Sign in and obtain hosting approval
 
-Hosting on `suffolklitlab.org` requires approval and a small fee to recover hosting
-and AI usage costs. Email [litlab@suffolk.edu](mailto:litlab@suffolk.edu) with your
+During the open-registration trial through December 2026, choose **Create account**
+on the sign-in page to create a local account and workspace without approval or a
+hosting fee. A configured Google sign-in also works where the provider permits it.
+The trial is scheduled to end January 1, 2027 at 00:00 UTC unless extended.
+
+Outside an open-registration period, hosting on `suffolklitlab.org` requires
+approval and a small fee to recover hosting and AI usage costs. Email [litlab@suffolk.edu](mailto:litlab@suffolk.edu) with your
 account email, school or organization, and intended use. The Lab arranges pricing
 and usage allowances; Studio does not currently collect payments or enforce a
 professor seat count.

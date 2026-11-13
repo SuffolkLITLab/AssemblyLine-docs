@@ -38,6 +38,18 @@ The member list and usage table support arrangements for a few professors at a
 school, but there is no enforced seat limit, billing subscription, or automatic
 invoice. Agree on fees and allowances separately.
 
+## Open registration
+
+During the December 2026 trial, authors can create local accounts without hosting
+approval. The hosting-approval panel and approval status labels are hidden while
+this policy is active. Usage reports, organization controls, and the $100 monthly
+AI allowance remain available. Existing approvals are preserved; trial accounts
+are not permanently approved. When the trial expires, unapproved authors need
+approval to continue authoring and serving model answers.
+
+Operators can extend or disable the trial using Fly settings; see
+[Registration policy](studio-deployment.md#registration-policy).
+
 ## Approve accounts and manage local logins
 
 Use **Admin → Hosting approvals** to search by name, email, or account ID and
