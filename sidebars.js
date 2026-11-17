@@ -105,7 +105,6 @@ module.exports = {
                 {
                     label: 'Preparing templates and variables',
                     type: 'category',
-                    collapsed: false,
                     items: [
                         'authoring/pdf_templates',
                         'authoring/docx_templates',
@@ -115,9 +114,8 @@ module.exports = {
                     ],
                 },
                 {
-                    label: 'The Assembly Line Weaver',
+                    label: 'The Weaver',
                     type: 'category',
-                    collapsed: false,
                     items: [
                         'authoring/weaver/weaver_overview',
                         'authoring/weaver/weaver_screens_and_fields',
