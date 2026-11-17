@@ -7,57 +7,57 @@ slug: github
 
 We strongly recommend using [GitHub](https://github.com/) with docassemble.
 
-GitHub is a version control system. It lets you save a snapshot of your interview that you can revert to an earlier version if you need to and see changes over time. GitHub also makes it easier to build interviews with a team, get help, and hand off your code to future interview builders and maintainers.
+GitHub is a version control system. It lets you save "snapshots" of your interview. You you can revert to an earlier version if you need to, and you can track changes over time. GitHub also makes it easier to build interviews with a team, get help, and hand off your code to future interview builders and maintainers.
 
 Here are some more reasons to use GitHub with docassemble:
 
-* Save versions of the interview code you are working on so you can back up to an earlier version/save point if new edits break something
-* Collaborate with others to build docassemble interviews, get help, and hand off your code to future interview builders and maintainers
-* Share your code with others who might want to build similar interviews
-* Create branches to work on specific issues, or create multiple branches to keep different issues isolated from each other while you work on them
-* Track and discuss issues with your code, like tasks, bugs, feature requests, etc. Issues can be assigned, tagged, and attached to commits and pull requests that complete or fix them.
-* Use projects to gather issues from multiple repositories and organize them on a Kanban-style project board
+- Save versions of the interview code you are working on so you can back up to an earlier version/save point if new edits break something
+- Collaborate with others to build docassemble interviews, get help, and hand off your code to future interview builders and maintainers
+- Share your code with others who might want to build similar interviews
+- Create branches to work on specific issues, or create multiple branches to keep different issues isolated from each other while you work on them
+- Track and discuss issues with your code, like tasks, bugs, feature requests, etc. Issues can be assigned, tagged, and attached to commits and pull requests that complete or fix them.
+- Use projects to gather issues from multiple repositories and organize them on a Kanban-style project board
 
 :::info
-This page covers how to use GitHub with docassemble. Refer to the [GitHub documentation](https://docs.github.com/en) if you see unfamiliar vocabulary or have questions about its features.
+This page covers how to use GitHub with docassemble. Refer to the [GitHub documentation](https://docs.github.com/en) if you see unfamiliar vocabulary or have questions about GitHub's features.
 :::
 
 ## Workflow
 
-Here is what we recommend for a workflow for using GitHub with the docassemble playground. Repeat these steps each time you start working on a new task or issue:
+Here is what we recommend for a workflow for using GitHub with the Playground or the Weaver. Repeat these steps each time you start working on a new task or issue:
 
-1. Create a new project in your docassemble playground. Give it a name that describes the work to be done, then pull the **main** branch of your interview from GitHub into the project.
+1. Create a new project in the Playground or the Weaver (projects are shared between the Playground and the Weaver). Give the project a name that describes the work to be done and pull the **main** branch of your interview from GitHub into the project.
 2. When you make your first commit from the new project, [commit to a new branch](#commit-your-code)
 3. When you finish working on the branch, commit it one last time, then go to the repository in GitHub and [create a pull request](#pull-requests). If you are working with someone on the interview, request a review from them.
-4. Once you have resolved any conflicts and any reviewers have signed off, merge the pull request and delete the branch
-5. Delete the docassemble playground project
-6. Decide on the next task or issue you want to work on and start over at #1
+4. Once you have resolved any conflicts and any reviewers have signed off, merge the pull request in GitHub
+5. Delete the branch in GitHub
+6. Delete the project in the Playground or the Weaver
+7. Decide on the next task or issue you want to work on and start over at #1 with a new project
 
-We also shared this workflow in a Document Assembly Line workshop:
+:::info Workshop Resource
+📺 For a detailed demonstration of how to use GitHub with docassemble, watch our workshop on [the GitHub-docassemble workflow](https://suffolklitlab.org/github-docassemble-workflow/). This workshop includes live demonstrations of branching, merging, and best practices for building docassemble interviews as part of a team.
 
 <p align="center">
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4j7rRRvsbfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
-
-:::info Workshop Resource
-📺 **First Wednesday Workshop:** For comprehensive coverage of GitHub workflows with docassemble, watch our workshop on [The GitHub-docassemble workflow](https://suffolklitlab.org/github-docassemble-workflow/). This session includes live demonstrations of branching, merging, and team development workflows specifically designed for docassemble interview building.
 :::
 
 ## Collaboration
 
-GitHub is built for collaboration, and tips for collaborating are included throughout this page, but here are some key highlights:
+GitHub is built for collaboration. Tips for collaborating are included throughout this page, but here are some key highlights:
 
-* Use issues to identify the work to be done
-* Work on one issue (or group of issues related to the same code) at a time, and commit your work in progress to a branch
-* Keep your branches "small"—change just one section of code at a time
-* Use pull requests to merge completed branches back into **main**
-* Have a collaborator [review](#review-pull-requests) your pull requests
-* Delete branches and playground projects after merging a pull request
+- Use **issues** to identify the work to be done
+- Work on one issue (or a group of related issues) at a time, and commit your work in progress to a branch
+- Always start a new project for a new branch
+- Keep your branches "small"—change just one section of code at a time
+- Use pull requests to merge completed branches back into **main**
+- Have a collaborator [review](#review-pull-requests) your pull requests
+- Delete branches and projects after merging a pull request
 
-And here are some things to avoid:
+Here are some things to avoid:
 
-* Avoid multiple people working on the same code at the same time, which tends to create merge conflicts
-* Avoid using forks, because docassemble does not handle pull requests from forks very well
+- Avoid multiple people working on the same code at the same time, which tends to create merge conflicts
+- Avoid using [forks](https://docs.github.com/en/pull-requests/get-started/about-forks), because docassemble does not handle pull requests from forks very well
 
 ## How to
 
@@ -70,34 +70,40 @@ In order to use GitHub with docassemble you will need two things:
 
 ### Publish your interview to GitHub
 
-The first time you [commit](#commit-your-code) a new interview from the docassemble playground, it will create a new repository in your GitHub account.
-
 :::warning[Check the package name before committing]
 The first time you commit an interview to GitHub, the package name will become part of the GitHub repository name and URL, and it is difficult to change later on. Use our [package naming guidelines](naming#docassemble-projects-and-packages).
 :::
 
-Follow the [docassemble instructions for publishing an interview package to GitHub](https://docassemble.org/docs/packages.html#github). This will create a repository in your personal GitHub account.
+To publish from the Playground, follow the [docassemble instructions for publishing an interview package to GitHub](https://docassemble.org/docs/packages.html#github). This will create a new repository in your personal GitHub account. After you have created the repository, follow [these GitHub instructions to transfer it to your organization](https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository). (You must be a member of the organization and have permission to create a repository in it.)
 
-After you have created the repository, follow [these GitHub instructions to transfer it to your organization](https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository). (You must be a member of the organization and have permission to create a repository in the organization.)
+To publish from the Weaver, follow the [instructions for the Weaver](weaver/publishing_and_github.md). This will create a new repository in your personal GitHub account or an organization you select from the **Owner** drop-down menu. (An organization will appear in the menu if you are a member and have permission to create a repository in it.)
 
-### Pull a GitHub repository to the playground
+### Pull a GitHub repository to the Playground
 
-1. Make a new project in the docassemble playground[^old-project-warning]
+1. Make a new project in the docassemble Playground[^old-project-warning]
 2. In the new project, click on the **Folders** menu and select **Packages**
 3. Click the **Pull** button[^github-integration-necessary]
 4. Paste the repository URL into the **GitHub URL** field
 5. Select the branch you want to work on—usually **main**
 6. Click the **Pull** button
 
-[^github-integration-necessary]: You must have already [set up the GitHub integration](#set-up-the-github-integration).
 
-[^old-project-warning]: **Always pull to a newly created project.** When you pull a GitHub repository to a playground project, the files in the repository will overwrite any files with the same name in your project **without warning**. You can lose work from this, and it can cause merge conflicts and other problems. To avoid these problems, always create a new project instead of pulling to an existing project.'
+### Pull a GitHub repository to the Weaver
+
+1. Click **Create project from GitHub** in the project menu[^old-project-warning] [^github-integration-necessary]
+2. Paste the repository URL into the **GitHub repository URL** field
+3. Select the branch you want to work on—usually **main**
+4. Click the **Create and pull** button
+
+[^old-project-warning]: **Always pull to a newly created project.** When you pull a GitHub repository to a Playground project, the files in the repository will overwrite any files with the same name in your project **without warning**. You can lose work from this, and it can cause merge conflicts and other problems. To avoid these problems, always create a new project instead of pulling to an existing project.'
+
+[^github-integration-necessary]: You must have already [set up the GitHub integration](#set-up-the-github-integration).
 
 ### Use issues
 
 In GitHub, **[issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)** are flexible items for planning, discussing, and tracking your work when building interviews. Issues are one of our primary tools for building and maintaining interviews. Discussions on issues can be especially useful for anyone who may work on the interview in the future—including you.
 
-[Create an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) for:
+[Create issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) for:
 
 * Tasks
 * Bugs
@@ -123,22 +129,30 @@ It's best to avoid creating branches from branches other than **main**. Sub-bran
 
 #### Naming branches
 
-Name the branch for the issue you are working on. Branch names should be descriptive, unique, and in [snake case](naming#snake_case). One easy way to make the branch name unique is to include the issue or partial date.
+Name the branch for the issue you are working on. Branch names should be descriptive, unique, and in [snake case](naming#snake_case). One easy way to make the branch name unique is to include the issue or a partial date.
 
 For example:
 
-* **78_update_review_screen** (Issue #78 calls for updating the review screen.)
-* **2024_01_update_court_form** (Including the year and month makes the branch name more specific.)
+* **78_update_review_screen** (issue #78 calls for updating the review screen)
+* **2024_01_update_court_form** (the year and month makes the branch name more specific)
 
-Names like these make it easier to tell what issues you (or your teammates) are working on from the list of active branches.
+Names like these make it easier to tell what you and your teammates are working on from the list of active branches.
 
 ### Commit your code
 
 A commit is a save point. It saves your progress and creates a snapshot of the current state of your interview code. It also helps you find old, working code when something breaks or you need to track down a bug.
 
-GitHub can't help you if you don't use it, so **commit early and often**!
+GitHub can't help you if you don't use it, so **commit early and often**! You can commit to a branch as often as you want. Developers often wait to commit code until they have it working, but they also might commit broken code so other people can help them troubleshoot, or to save their progress. If you are concerned about breaking working code, make a new branch for the broken code and commit it to that branch.
 
-1. In the docassemble playground, click on the **Folders** menu and select **Packages**
+:::tip
+When you first start working with docassemble it can be hard to remember to stop and commit. Try creating a daily reminder on your phone.
+:::
+
+If you get an error, check [these troubleshooting tips](#troubleshooting-commit-errors).
+
+#### Commit your code in the Playground
+
+1. In the Playground, click on the **Folders** menu and select **Packages**.
 2. On the **Packages** screen, review the following fields and update them if necessary:
    1. **Author name and email.** These will be included in the public README file. Consider using your organization's name and email, instead.
    2. **Description.** Change the default to something that actually describes the interview. For example: "A docassemble interview for a Massachusetts 209A Protection from Abuse Order."
@@ -150,24 +164,22 @@ GitHub can't help you if you don't use it, so **commit early and often**!
 5. **Do not** click the **Install package on this server also** checkbox
 6. Click the **Commit** button
 
-That's it! Your commit should show up on GitHub! (If you get an error, check [these troubleshooting tips](#troubleshooting-commit-errors).)
+#### Commit your code in the Weaver
 
-:::tip
-When you first start working with docassemble it can be hard to remember to stop and commit. Try creating a daily reminder on your phone.
-:::
-
-You can commit to a branch as often as you want. Developers often wait to commit code until they have it working, but they also might commit broken code so other people can help them troubleshoot, or to save their progress. If you are concerned about ruining working code, make a new branch for the broken code and commit it to that branch.
+1. In the Weaver, click on the **Interview** menu and select **Commit to GitHub**.
+2. Select the branch you want to commit to and enter a commit message that describes the change you just made to the interview code
+3. Click the **Publish to GitHub** button
 
 #### Commit messages
 
 Take a moment to consider your commit message. Make it descriptive so you (or someone reviewing your commits) can reconstruct the work you did. This is especially helpful when your interview is broken and you need to find working code from a previous commit.
 
-Here are some example commit messages:
+Here are some examples of helpful commit messages:
 
-  * Update cash income question
-  * Fix broken address field
-  * Update e-filing codes
-  * Update interview version
+- Update cash income question
+- Fix broken address field
+- Update e-filing codes
+- Update interview version
 
 ### Create a pull request {#pull-requests}
 
@@ -179,15 +191,15 @@ Pull request descriptions should provide context, [mention related issues](https
 
 Here are some good pull request examples:
 
-* [Fix ordering of sections](https://github.com/SuffolkLITLab/docassemble-MATCSmallClaims/pull/106) (SuffolkLITLab/docassemble-MATCSmallClaims)
-* [Basic background assembly implementation](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/pull/890) (SuffolkLITLab/docassemble-AssemblyLine)
-* [Add some safety for missing metadata that was causing build errors](https://github.com/SuffolkLITLab/courtformsonline.org/pull/108) (SuffolkLITLab/courtformsonline.org)
+- [Fix ordering of sections](https://github.com/SuffolkLITLab/docassemble-MATCSmallClaims/pull/106) (SuffolkLITLab/docassemble-MATCSmallClaims)
+- [Basic background assembly implementation](https://github.com/SuffolkLITLab/docassemble-AssemblyLine/pull/890) (SuffolkLITLab/docassemble-AssemblyLine)
+- [Add some safety for missing metadata that was causing build errors](https://github.com/SuffolkLITLab/courtformsonline.org/pull/108) (SuffolkLITLab/courtformsonline.org)
 
 This helps anyone reviewing your changes—now or in the future.
 
 ### Resolve conflicts
 
-Merge conflicts happen to all of us. Refer to the [GitHub documentation on resolving merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
+Merge conflicts happen to everyone! Refer to the [GitHub documentation on resolving merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
 
 :::tip
 To reduce merge conflicts:
@@ -202,11 +214,11 @@ You can also [compare commits, branches, etc.](https://docs.github.com/en/github
 
 ### Review pull requests {#review-pull-requests}
 
-When someone assigns you to review a pull request (PR), you will be able to see it in [your GitHub notifications](https://github.com/notifications). Don't let these requests sit around too long, or you increase the likelihood of [merge conflicts](#resolve-conflicts).
+When someone assigns you to review a pull request (PR), you will be able to see it in [your GitHub notifications](https://github.com/notifications). Don't let these requests sit around too long, or you are more likely to have a [merge conflict](#resolve-conflicts).
 
 The requester should have left notes on what needs to be tested in the description of the pull request.
 
-1. Pull the code into the a new playground project.
+1. Pull the code into the a new project.
 2. Test the change(s) made in the pull request.
 3. If it does not do what it is supposed to do, leave a comment asking for changes.
 4. If the new code does what it is supposed to do, approve the changes and then you or the PR submitter can merge the PR and delete the branch.
@@ -215,7 +227,7 @@ The requester should have left notes on what needs to be tested in the descripti
 You can [make comments connected to specific lines of code](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-comments-to-a-pull-request). This is often helpful when reviewing PRs.
 :::
 
-Then, delete the playground project you created for the review.
+Then, delete the project you created for the review.
 
 ### Protect your interview repository {#protect-repo}
 
@@ -244,7 +256,7 @@ Changing the name of an interview repository is a multi-step process. For an exa
 3. In setup.py in the repository's root directory, search and replace "OldName" with "NewName".
 4. Inside the **docassemble** folder, rename the interview folder from **OldName** to **NewName**.
 
-Then you can pull the renamed repository to the docassemble playground.
+Then you can pull the renamed repository to the Playground or Weaver.
 
 ## Troubleshooting errors when committing from docassemble {#troubleshooting-commit-errors}
 
@@ -262,9 +274,9 @@ Here are details about the three problems above, how you can identify them, and 
 
 This means git cannot detect any changes in your code. You cannot commit anything from docassemble if you have not made changes—not even to a new branch. These are some possibilities:
 
-* If you created a new file you may have not added it to your playground package. Select **Folder** / **Packages** and scroll down to the **Interview files** and **Template files** sections. Use Command (⌘)+click on a Mac and Ctrl+click on Windows to select the files you want to commit to the repository.
-* You may not have saved changes to a file. If the file is still open you can click the **Save** button. If the file is closed you will have to open it and make the changes again.
-* You may not actually have made any changes to the files even though you thought you did.
+- If you created a new file you may have not added it to your Playground package. Select **Folder** / **Packages** and scroll down to the **Interview files** and **Template files** sections. Use Command (⌘)+click on a Mac and Ctrl+click on Windows to select the files you want to commit to the repository.
+- You may not have saved changes to a file. If the file is still open you can click the **Save** button. If the file is closed you will have to open it and make the changes again.
+- You may not actually have made any changes to the files even though you thought you did.
 
 #### If you see `403`
 
