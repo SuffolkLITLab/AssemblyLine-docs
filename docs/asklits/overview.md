@@ -17,6 +17,14 @@ particular question, task, audience, or learning exercise. The AskLit Project
 Scaffolder helps you build one without writing a complete application from
 scratch.
 
+## Choose an authoring workflow
+
+Use [hosted Studio](studio.md) for persistent accounts, school organizations,
+and assistants managed centrally. For a separate Court Forms Online frontend,
+follow [the CFO integration guide](court-forms-online.md). The Streamlit
+scaffolder and independent exported apps remain available; the instructions below
+cover that workflow where they refer to the Scaffolder.
+
 ## What an AskLIT is (and is not)
 
 An AskLIT is not a new AI model. It is a configured application that

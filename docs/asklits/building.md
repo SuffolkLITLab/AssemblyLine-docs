@@ -21,6 +21,14 @@ The Scaffolder also has Evaluate and Export screens, covered in the
 [evaluation](/docs/asklits/evaluating) and
 [deployment](/docs/asklits/deploying) pages.
 
+## Choose an authoring workflow
+
+Use [hosted Studio](studio.md) for persistent accounts, school organizations,
+and assistants managed centrally. For a separate Court Forms Online frontend,
+follow [the CFO integration guide](court-forms-online.md). The Streamlit
+scaffolder and independent exported apps remain available; the instructions below
+cover that workflow where they refer to the Scaffolder.
+
 ## Open the Project Scaffolder
 
 Open the Scaffolder supplied by your instructor or organization. The sidebar
