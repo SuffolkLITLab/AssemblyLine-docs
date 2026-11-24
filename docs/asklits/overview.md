@@ -13,16 +13,17 @@ You give it instructions. You can also give it a small collection of documents.
 People then use it through a chat-like screen.
 
 The name describes the idea: an AskLIT is an AI application designed for a
-particular question, task, audience, or learning exercise. The AskLit Project
-Scaffolder helps you build one without writing a complete application from
-scratch.
+particular question, task, audience, or learning exercise. AskLit Studio helps
+you build one without writing a complete application from scratch.
 
 ## Choose an authoring workflow
 
-Start at [asklit.suffolklitlab.org](https://asklit.suffolklitlab.org) to build and publish an assistant in hosted Studio. Follow the [step-by-step Studio guide](studio.md) for account setup, model and voice choices, testing, and sharing. Studio provides persistent accounts, organizations, and centrally managed assistants. For a separate Court Forms Online frontend,
-follow [the CFO integration guide](court-forms-online.md). The Streamlit
-scaffolder and independent exported apps remain available; the instructions below
-cover that workflow where they refer to the Scaffolder.
+Start at [asklit.suffolklitlab.org](https://asklit.suffolklitlab.org) to build
+and publish an assistant. The [Studio guide](studio.md) covers account setup,
+model and voice choices, testing, and sharing. For a separate Court Forms Online
+frontend, see the [CFO integration guide](court-forms-online.md). The
+[Streamlit Scaffolder](streamlit.md) is deprecated and documented for existing
+projects only.
 
 ## What an AskLIT is (and is not)
 
@@ -90,7 +91,7 @@ A good system prompt is:
 - **Concise:** Avoids conflicting or redundant rules.
 
 Avoid starting with only "Be helpful." Instead, name the role, audience, task, response format, and key limits.
-The [building page](/docs/asklits/building) provides a prompt checklist and clinical examples.
+The [Studio guide](studio.md#3-write-instructions) shows how to enter and test a prompt.
 
 ### 2. A knowledge base
 
@@ -113,7 +114,7 @@ the prompt, retrieves relevant passages if available, and the model
 generates a response.
 
 Chat is ideal for exploratory testing. It helps you notice if a prompt is too vague,
-if a source is missing, or if the assistant adopts an unwanted tone. The [evaluation page](/docs/asklits/evaluating) explains how to turn those observations into repeatable tests.
+if a source is missing, or if the assistant adopts an unwanted tone. The [Studio guide](studio.md#5-preview-and-evaluate) explains how to turn those observations into repeatable tests.
 
 ## A small example: the Haiku AskLIT
 
@@ -129,7 +130,7 @@ not a haiku, the issue lies in the prompt or model response rather than a missin
 
 ### Try three prompt versions
 
-In the **Prompt** screen, set **Prompt name** to `Haiku helper`. Then try each version:
+In Studio, create an AskLit called `Haiku helper` and open **Instructions**. Then try each version:
 
 **Version A: minimal**
 
@@ -208,7 +209,7 @@ The Haiku AskLIT illustrates fundamentals used in complex applications:
 - **Chat is a preview tool:** Use it to discover edge cases.
 - **Narrow tasks are easier to manage:** Single-purpose tools are easier to build, test, and evaluate.
 
-Next, you can replace the haiku prompt with a simulated client, a housing handbook, or a supervisor review checklist. The [building page](/docs/asklits/building) walks through each Scaffolder step.
+Next, you can replace the haiku prompt with a simulated client, a housing handbook, or a supervisor review checklist. The [Studio guide](studio.md) walks through creating and publishing an assistant.
 
 ## Safe starting rules
 

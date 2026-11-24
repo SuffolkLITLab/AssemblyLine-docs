@@ -111,6 +111,14 @@ module.exports = {
       {
         redirects: [
           {
+            from: ['/docs/asklits/building', '/docs/asklits/evaluating'],
+            to: '/docs/asklits/studio'
+          },
+          {
+            from: ['/docs/asklits/deploying', '/docs/asklits/gallery'],
+            to: '/docs/asklits/streamlit'
+          },
+          {
             to: '/',
             from: '/docs'
           },

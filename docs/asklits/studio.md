@@ -12,9 +12,8 @@ knowledge bases, and published versions in one account. Use it to maintain an
 assistant over time, collaborate within a school, or provide the backend for a
 separate website such as Court Forms Online.
 
-The [Streamlit scaffolder](building.md) remains an independent option. Its
-exported apps run independently of Studio. Publishing in Studio does not deploy
-or update an existing standalone Streamlit app.
+The [Streamlit Scaffolder](streamlit.md) is deprecated. Existing standalone
+apps run independently of Studio; publishing here does not update them.
 
 ## Sign in and obtain hosting approval
 
@@ -149,9 +148,15 @@ Choose **Save** after changing these settings.
 3. Select **Evaluate**, choose **Add question**, and enter a representative test
    and an expected answer or rule. Add more cases, select the prompts, knowledge
    bases, and models to compare, and choose **Run evaluation**. Review failures
-   and the displayed call count; rubric judges can add model calls. See
-   [Evaluate an AskLIT](evaluating.md) for grading ideas; that page describes the
-   separate Scaffolder interface.
+   and the displayed call count; rubric judges can add model calls.
+
+Include direct source questions, paraphrases, edge cases, missing information,
+and requests outside the assistant's scope. For a simple check, use an expected
+answer such as `icontains:violet` for a test whose source specifies that color;
+under **Grading & retrieval**, add shared
+rubric rules when a rigid text match is insufficient. An AI judge can also make
+mistakes, so review individual answers and sources. A passing test measures only
+the cases and rules you selected; it is not a guarantee of accuracy.
 
 ![Preview tab with the message composer and voice controls.](../assets/asklit/studio/05-preview.png)
 

@@ -11,7 +11,7 @@ The hosted implementation lives in the
 [AskLit repository](https://github.com/SuffolkLITLab/asklit). It uses FastAPI and
 Jinja templates for Studio, PostgreSQL for hosted metadata, and a separate Python
 worker for indexing, evaluations, exports, and deletion cleanup. A Next.js client
-such as CFO can remain a static export. The older Streamlit workflow remains
+such as CFO can remain a static export. The [deprecated Streamlit workflow](streamlit.md) remains
 independent.
 
 These instructions describe the implementation and Suffolk deployment. The
