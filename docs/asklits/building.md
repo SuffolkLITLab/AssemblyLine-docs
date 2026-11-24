@@ -7,6 +7,12 @@ description: Use the AskLIT Project Scaffolder to add sources, write a prompt, a
 
 # Build an AskLIT
 
+:::tip Hosted Studio
+
+To build and publish on [asklit.suffolklitlab.org](https://asklit.suffolklitlab.org), follow the [hosted Studio walkthrough](./studio). This page describes the separate Streamlit Scaffolder interface.
+
+:::
+
 The [AskLIT basics](/docs/asklits/overview) page explains the three building
 blocks: a system prompt, an optional knowledge base, and a chat. This page shows
 where those pieces appear in the Project Scaffolder.

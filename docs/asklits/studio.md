@@ -41,20 +41,147 @@ Invitations expire after seven days and can be used once. If you already have a
 local account, sign in; local accounts are managed by one organization, so ask the
 Lab if an invitation targets a different school.
 
-## Create and edit an assistant
+## Build and publish your first AskLit
 
-1. On **Your AskLits**, select your organization and choose **New AskLit**.
-2. Enter a display name. The initial URL name is derived from it.
-3. In **Knowledge bases**, add reference documents and wait for indexing to finish.
-   Keep separate knowledge bases for distinct source packets when useful.
-4. In **Instructions**, define the assistant's task, boundaries, and prompt
-   profiles. Use the relevant knowledge base for each profile.
-5. In **Preview**, try questions, missing-information cases, and requests outside
-   the assistant's scope. Preview uses the current draft and consumes AI usage.
-6. In **Evaluate**, add scenarios and expected answers or rubrics. Select prompt
-   profiles and models for a matrix when comparing alternatives. Review the
-   displayed call count and service limit before running; model judges add calls.
-7. Use **Save** to persist edits. Use **Publish** when the draft is ready for users.
+This walkthrough builds a **Haiku helper** with no source documents. You can
+adapt the same steps to a tutor, simulation, or document-based assistant. The
+screenshots show a local demonstration of Studio; its sign-in form and model list
+can differ from the hosted service. The example is published only locally.
+
+### 1. Sign in and create the app
+
+1. Open [asklit.suffolklitlab.org](https://asklit.suffolklitlab.org).
+   Sign in, create an account if registration is open, or follow an invitation.
+   If hosting approval is required, follow the instructions above.
+2. On **Your AskLits**, choose the organization that should own the app.
+3. Choose **New AskLit**, enter `Haiku helper`, and select **Create AskLit**.
+   Studio opens the editor on **Knowledge bases**.
+
+![The New AskLit dialog with Haiku helper entered as the name.](../assets/asklit/studio/02-create.png)
+
+### 2. Add reference materials if needed
+
+For this example, leave **Knowledge bases** empty: a poetry exercise does not
+need a source packet. For a source-based assistant:
+
+1. On **Knowledge bases**, choose a PDF, Word, text, Markdown, or HTML file
+   (up to 10 MB per file), then choose **Upload**.
+2. Wait for the document to be ready before testing. Check for errors and replace
+   files whose text cannot be extracted. Upload additional documents as needed.
+3. Expand **Knowledge bases** to choose or name a separate source collection.
+   In **Instructions → Prompt settings**, connect the prompt to that collection;
+   leave **Connected filenames** blank to use all its documents, or list specific
+   filenames one per line.
+
+![Knowledge bases tab with document uploader and knowledge base controls.](../assets/asklit/studio/03-knowledge.png)
+
+Use materials you have permission to share. An assistant can disclose content
+from its sources in its answers, even when citations are hidden. An empty or
+irrelevant collection does not prevent a model from answering from its general
+knowledge, so test missing-information cases carefully.
+
+### 3. Write instructions
+
+1. Choose **Instructions** and enter this in the instructions box:
+
+   ```text
+   You write short haiku in English.
+
+   When the user gives you a topic, write exactly three lines about it.
+   Aim for a 5-7-5 syllable pattern. Do not add a title or explanation.
+   ```
+
+2. Expand **Conversation starters** and add `Write a haiku about a rainy courthouse.`
+3. Choose **Save**. For other tasks, specify the role, audience, desired response,
+   trusted sources, and what to do when the answer is missing. Use **Add prompt**
+   if you need another profile, and configure its source under **Prompt settings**.
+
+![Instructions tab with a haiku prompt and conversation starter.](../assets/asklit/studio/04-instructions.png)
+
+### 4. Choose a model and voice settings
+
+Choose **Settings**. Set the **Title**, **Gallery description**, and **Opening
+message** to help visitors understand the app. Add **Student instructions** if
+participants need a briefing before chat; it is separate from the opening message.
+
+![Settings showing the participant voice controls.](../assets/asklit/studio/07-settings-voice.png)
+
+Under **Voice for participants**, decide whether to leave **Offer voice (dictation
+and read-aloud)** checked. Voice is optional for participants and browser voice is
+on by default. It can make an exercise more accessible or conversational, but
+microphone permission, device support, recognition accuracy, and the participant's
+surroundings affect the experience. Test with the devices and languages your
+participants use, and provide a text alternative.
+
+Choose **Browser (free)** for transcription and read-aloud to avoid paid speech
+charges. Browser speech may still be processed by the browser vendor. A paid
+speech service requires a configured provider and organization administrator
+enablement; it uses the organization's budget in addition to normal model calls.
+The hosted Suffolk monthly-budget configuration currently disables paid speech.
+When available, you can choose transcription and read-aloud separately and set
+a voice persona. Browser voice selection depends on the participant's device.
+Participants cannot change the author's provider choices. Save and publish voice
+changes before participants see them. Review the hosted [privacy policy](https://asklit.suffolklitlab.org/privacy).
+
+![Settings showing the opening message and model selector.](../assets/asklit/studio/08-settings-model.png)
+
+Under **Model**, choose from the models available to your organization. Start
+with a smaller, lower-cost model for a simple task, and compare it with a more
+capable model when the task requires nuanced instructions, reliable source use,
+or complex reasoning. More capable models can cost more or respond more slowly;
+a larger model is not automatically more accurate. Availability and pricing can
+change, so check with your organization or the Lab. Preview and evaluation calls,
+as well as visitor conversations, consume model usage. Compare models on the
+same representative questions, including hard and unanswerable cases, before
+selecting the least costly option that performs adequately. Model choice does not
+replace human review or guarantee correct legal information.
+
+Choose **Save** after changing these settings.
+
+### 5. Preview and evaluate
+
+1. Select **Preview**, enter `Write a haiku about a rainy courthouse.`, and send it.
+   Check whether the response follows the instructions. Try a different topic and
+   a request outside the app's scope; revise the instructions and save as needed.
+2. If using documents, ask a question answered by a source and one not answered
+   by it. Check the response and the displayed sources; a citation is not proof
+   that the answer is correct.
+3. Select **Evaluate**, choose **Add question**, and enter a representative test
+   and an expected answer or rule. Add more cases, select the prompts, knowledge
+   bases, and models to compare, and choose **Run evaluation**. Review failures
+   and the displayed call count; rubric judges can add model calls. See
+   [Evaluate an AskLIT](evaluating.md) for grading ideas; that page describes the
+   separate Scaffolder interface.
+
+![Preview tab with the message composer and voice controls.](../assets/asklit/studio/05-preview.png)
+
+![Evaluate tab with a sample test question and run settings.](../assets/asklit/studio/06-evaluate.png)
+
+### 6. Set access and publish
+
+1. Return to **Settings → Sharing**. Choose **Public**, **Unlisted**, **Shared
+   password**, or **Organization sign-in** based on who should use the app.
+   Unlisted links can be opened by anyone who has them. Public gallery listing
+   also requires the organization gallery to be enabled.
+2. Check the **AskLit link** URL name and select **Save access & link**. For a
+   shared password, add an enabled password in the controls that appear. Share
+   the password separately with intended participants.
+3. Review your instructions, sources, model, voice, and access choice. Choose
+   **Publish** at the top of the editor and confirm. Studio saves the draft and
+   creates a published version.
+4. Under **Settings → Sharing**, choose **Open AskLit** to test the published
+   experience, ideally in a private browser window or as an intended participant.
+   Use **Copy link** to share it after checking access and a representative chat.
+   For organization access, test with an authorized account.
+
+![Sharing settings with access mode, link, and publication controls.](../assets/asklit/studio/09-sharing.png)
+
+![Sharing settings showing a published assistant and its link.](../assets/asklit/studio/10-published.png)
+
+After editing the content, **Save** and **Publish** again to give new
+conversations the updated version. Access and link changes use **Save access &
+link** and take effect separately. See [Drafts, publication, and updates](#drafts-publication-and-updates)
+and [Access, links, and galleries](#access-links-and-galleries) below.
 
 Ordinary members can edit their own AskLits. Organization administrators can
 manage all AskLits in their organization. Owners also manage administrator and

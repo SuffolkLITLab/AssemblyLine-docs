@@ -19,8 +19,7 @@ scratch.
 
 ## Choose an authoring workflow
 
-Use [hosted Studio](studio.md) for persistent accounts, school organizations,
-and assistants managed centrally. For a separate Court Forms Online frontend,
+Start at [asklit.suffolklitlab.org](https://asklit.suffolklitlab.org) to build and publish an assistant in hosted Studio. Follow the [step-by-step Studio guide](studio.md) for account setup, model and voice choices, testing, and sharing. Studio provides persistent accounts, organizations, and centrally managed assistants. For a separate Court Forms Online frontend,
 follow [the CFO integration guide](court-forms-online.md). The Streamlit
 scaffolder and independent exported apps remain available; the instructions below
 cover that workflow where they refer to the Scaffolder.
