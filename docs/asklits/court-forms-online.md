@@ -126,10 +126,9 @@ path appropriate to the page, then render:
 <AskLitChat botId="0123456789abcdef0123456789abcdef" />
 ```
 
-The component includes chat, citations, attachments when enabled, supported voice
-controls, access prompts, student briefings, password-protected instructor notes,
-and publisher/AI disclosures. CFO can provide its own
-form finder, cards, links, or navigation around it. The generic `/asklit` page
+The component includes chat, citations, access prompts, and publisher and AI
+disclosures, plus attachments and voice controls when enabled. CFO can provide
+its own form finder, cards, links, or navigation around it. The generic `/asklit` page
 without an assistant parameter also has gallery behavior, but linking to it is
 optional and is not required by embedded or ID-based chat.
 
