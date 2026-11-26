@@ -84,7 +84,7 @@ For law-school courses, clinical simulations, and student projects, adopting a "
 
 ### 2. Guard secrets and credentials
 - Never paste API keys into system prompts, uploaded documents, or public code repositories.
-- In AskLIT, export credentials into Streamlit Cloud's private **Secrets** panel only.
+- Keep deployment credentials in the hosting provider's private secrets settings; hosted Studio users do not need to enter model credentials into a prompt or document.
 - If a GitHub repository is public, all documents bundled into its knowledge base are publicly viewable.
 
 ### 3. Maintain human supervision
