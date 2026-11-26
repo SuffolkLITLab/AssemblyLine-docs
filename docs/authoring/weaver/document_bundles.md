@@ -46,6 +46,10 @@ For each document in your bundle, you can configure when it should be compiled:
 * **Never**: The document is excluded by default (useful for draft or reference templates).
 * **Custom (Condition)**: Enter a Python condition (e.g. `include_instructions` or `user_has_fee_waiver`). The document will only be assembled when this expression evaluates to `True`.
 
+:::tip Dynamic document counts
+The Weaver builds each bundle from a fixed list of templates. If the number of documents depends on interview answers (such as one affidavit for each child or one schedule for each job), you can build the bundle dynamically in your interview YAML. See [When you do not know what documents might be in the bundle yet](../../components/AssemblyLine/al_document_overview.md#when-you-do-not-know-what-documents-might-be-in-the-bundle-yet).
+:::
+
 ---
 
 ## Reordering documents in the bundle
